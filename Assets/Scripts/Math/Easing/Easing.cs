@@ -1,4 +1,4 @@
-﻿namespace IWP.Math {
+﻿namespace FurnishAR.Math {
 	internal static partial class Easing: object {
 		#region Fields
 

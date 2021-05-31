@@ -1,7 +1,7 @@
 using UnityEngine;
-using static IWP.Generic.InitIDs;
+using static FurnishAR.Generic.InitIDs;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	[RequireComponent(typeof(Camera))]
 	internal sealed class CamOrbital: MonoBehaviour {
 		#region Fields

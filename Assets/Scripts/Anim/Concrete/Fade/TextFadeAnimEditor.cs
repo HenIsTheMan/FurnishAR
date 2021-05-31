@@ -2,7 +2,7 @@
 
 using UnityEditor;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
 	[CustomEditor(typeof(TextFadeAnim)), CanEditMultipleObjects]
 	internal sealed class TextFadeAnimEditor: AbstractAnimEditor {
 		#region Fields

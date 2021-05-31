@@ -1,11 +1,11 @@
-using IWP.Anim;
-using IWP.Generic;
+using FurnishAR.Anim;
+using FurnishAR.Generic;
 using UnityEngine;
-using static IWP.Game.HexGridCellTypes;
-using static IWP.Game.HexGridTypes;
-using static IWP.Math.EasingTypes;
+using static FurnishAR.Game.HexGridCellTypes;
+using static FurnishAR.Game.HexGridTypes;
+using static FurnishAR.Math.EasingTypes;
 
-namespace IWP.Game {
+namespace FurnishAR.Game {
 	internal sealed partial class HexGridSpawner: MonoBehaviour {
 		#region Fields
 

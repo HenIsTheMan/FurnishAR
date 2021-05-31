@@ -1,4 +1,4 @@
-namespace IWP.Game {
+namespace FurnishAR.Game {
 	internal static class HexGridCellTypes: object {
 		internal enum HexGridCellType: uint {
 			Empty,

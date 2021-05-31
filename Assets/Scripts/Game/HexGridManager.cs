@@ -1,12 +1,12 @@
-using IWP.Generic;
+using FurnishAR.Generic;
 using UnityEngine;
-using static IWP.Game.GameUnitTypeFlags;
-using static IWP.Game.HexGridCellTypes;
-using static IWP.Game.HexGridHorizAlignments;
-using static IWP.Game.HexGridTypes;
-using static IWP.Game.HexGridVertAlignments;
+using static FurnishAR.Game.GameUnitTypeFlags;
+using static FurnishAR.Game.HexGridCellTypes;
+using static FurnishAR.Game.HexGridHorizAlignments;
+using static FurnishAR.Game.HexGridTypes;
+using static FurnishAR.Game.HexGridVertAlignments;
 
-namespace IWP.Game {
+namespace FurnishAR.Game {
     internal sealed class HexGridManager: MonoBehaviour {
 		#region Fields
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
 	internal abstract class AbstractTranslateAnim: AbstractAnim {
 		#region Fields
 

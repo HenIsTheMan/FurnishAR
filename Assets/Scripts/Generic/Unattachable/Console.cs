@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	internal static class Console: object {
 		private static readonly MethodInfo clearMethodInfo;
 

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace IWP.Math {
+namespace FurnishAR.Math {
 	internal static class Val: object {
 		internal static float Lerp(float start, float end, float lerpFactor) {
 			return start * (1.0f - lerpFactor) + end * lerpFactor;

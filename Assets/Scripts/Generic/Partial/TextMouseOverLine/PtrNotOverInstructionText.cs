@@ -1,8 +1,8 @@
-using IWP.Anim;
+using FurnishAR.Anim;
 using TMPro;
 using UnityEngine;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
     internal sealed partial class TextPtrOverLineOfWords: MonoBehaviour {
 		public static void PtrNotOverInstructionText() {
 			GameObject instructionText = globalObj.tmpTextComponent.gameObject;

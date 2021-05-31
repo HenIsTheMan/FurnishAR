@@ -2,7 +2,7 @@
 
 using UnityEditor;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
 	[CustomEditor(typeof(RectTransformPathAnim)), CanEditMultipleObjects]
 	internal sealed class RectTransformPathAnimEditor: AbstractAnimEditor {
 		#region Fields

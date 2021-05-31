@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IWP.Game {
+namespace FurnishAR.Game {
 	internal sealed partial class GameUnitSpawner: MonoBehaviour {
 		public void SpawnGameUnitsForMultiplayer() {
 		}

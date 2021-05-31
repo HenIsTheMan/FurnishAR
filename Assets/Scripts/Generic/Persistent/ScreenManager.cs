@@ -1,8 +1,8 @@
 using System.Runtime.InteropServices;
 using UnityEngine;
-using static IWP.Generic.InitIDs;
+using static FurnishAR.Generic.InitIDs;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	[DisallowMultipleComponent]
 	internal sealed class ScreenManager: MonoBehaviour {
 		[DllImport("user32.dll", EntryPoint = "FindWindow")] private static extern System.IntPtr FindWindow(string className, string windowName);

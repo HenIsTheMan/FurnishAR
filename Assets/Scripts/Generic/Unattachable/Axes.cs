@@ -1,4 +1,4 @@
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	internal static class Axes: object {
 		internal enum Axis: byte {
 			X,

@@ -2,7 +2,7 @@
 
 using UnityEditor;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
 	[CustomEditor(typeof(BloomAnim)), CanEditMultipleObjects]
 	internal sealed class BloomAnimEditor: AbstractAnimEditor {
 		#region Fields

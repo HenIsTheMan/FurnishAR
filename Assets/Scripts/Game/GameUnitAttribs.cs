@@ -1,7 +1,7 @@
 using UnityEngine;
-using static IWP.Game.GameUnitTypeFlags;
+using static FurnishAR.Game.GameUnitTypeFlags;
 
-namespace IWP.Game {
+namespace FurnishAR.Game {
 	internal sealed class GameUnitAttribs: MonoBehaviour {
 		#region Fields
 

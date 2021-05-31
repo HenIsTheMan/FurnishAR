@@ -1,14 +1,14 @@
-using IWP.Anim;
+using FurnishAR.Anim;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static IWP.Anim.AbstractAnim;
-using static IWP.Anim.AnimAccessTypes;
-using static IWP.Generic.InitIDs;
-using static IWP.Generic.ListicleDirs;
-using static IWP.Generic.ListicleTypes;
-using static IWP.Math.EasingTypes;
+using static FurnishAR.Anim.AbstractAnim;
+using static FurnishAR.Anim.AnimAccessTypes;
+using static FurnishAR.Generic.InitIDs;
+using static FurnishAR.Generic.ListicleDirs;
+using static FurnishAR.Generic.ListicleTypes;
+using static FurnishAR.Math.EasingTypes;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	internal sealed class Listicle2D: MonoBehaviour {
 		#region Fields
 

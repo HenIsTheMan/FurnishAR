@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static IWP.Game.GameUnitTypeFlags;
+using static FurnishAR.Game.GameUnitTypeFlags;
 
-namespace IWP.Game {
+namespace FurnishAR.Game {
 	internal sealed partial class GameUnitSpawner: MonoBehaviour {
 		internal struct SpawnGameUnitsParams {
 			internal int indexOffset;

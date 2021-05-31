@@ -1,8 +1,8 @@
 using TMPro;
 using UnityEngine;
-using static IWP.Generic.InitIDs;
+using static FurnishAR.Generic.InitIDs;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	internal sealed class TextCurve: MonoBehaviour {
 		#region Fields
 

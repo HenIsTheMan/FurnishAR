@@ -1,4 +1,4 @@
-﻿namespace IWP.Math {
+﻿namespace FurnishAR.Math {
 	internal static partial class Trigo: object {
 		#region Fields
 		#endregion

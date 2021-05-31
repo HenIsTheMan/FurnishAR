@@ -2,7 +2,7 @@
 
 using UnityEditor;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
 	[CustomEditor(typeof(TransformRotateAnim)), CanEditMultipleObjects]
 	internal sealed class TransformRotateAnimEditor: AbstractAnimEditor {
 		#region Fields

@@ -1,4 +1,4 @@
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	internal static class OutlineSilhouetteTypes: object {
 		internal enum OutlineSilhouetteType: byte {
 			OutlineAll,

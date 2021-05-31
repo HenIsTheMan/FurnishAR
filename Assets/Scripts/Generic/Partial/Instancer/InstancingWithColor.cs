@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	internal sealed partial class Instancer: MonoBehaviour {
 		public static void InstancingWithColor() {
 			//* Pos 

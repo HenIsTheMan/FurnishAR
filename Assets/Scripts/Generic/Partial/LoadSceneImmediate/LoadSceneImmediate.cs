@@ -1,8 +1,8 @@
 using UnityEngine;
-using static IWP.Generic.InitIDs;
-using static IWP.Generic.SceneManager;
+using static FurnishAR.Generic.InitIDs;
+using static FurnishAR.Generic.SceneManager;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	internal sealed partial class LoadSceneImmediate: MonoBehaviour {
 		#region Fields
 

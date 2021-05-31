@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static IWP.Generic.InitIDs;
-using static IWP.Generic.OutlineSilhouetteTypes;
+using static FurnishAR.Generic.InitIDs;
+using static FurnishAR.Generic.OutlineSilhouetteTypes;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	[RequireComponent(typeof(Renderer))]
 	internal sealed class OutlineSilhouette: MonoBehaviour {
 		#region Fields

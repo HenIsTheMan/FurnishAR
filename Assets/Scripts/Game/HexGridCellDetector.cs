@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IWP.Game {
+namespace FurnishAR.Game {
     internal sealed class HexGridCellDetector: MonoBehaviour {
 		#region Fields
 

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
     internal sealed class ObjPool: MonoBehaviour {
 		#region Fields
 

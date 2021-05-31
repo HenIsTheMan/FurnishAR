@@ -1,4 +1,4 @@
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
     internal static class InitIDs: object {
 		internal enum InitID: uint {
 			Persistence,

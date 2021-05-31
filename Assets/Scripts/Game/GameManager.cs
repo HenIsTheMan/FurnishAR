@@ -1,8 +1,8 @@
-using IWP.Generic;
+using FurnishAR.Generic;
 using UnityEngine;
-using static IWP.Generic.InitIDs;
+using static FurnishAR.Generic.InitIDs;
 
-namespace IWP.Game {
+namespace FurnishAR.Game {
     internal sealed class GameManager: MonoBehaviour {
 		#region Fields
 

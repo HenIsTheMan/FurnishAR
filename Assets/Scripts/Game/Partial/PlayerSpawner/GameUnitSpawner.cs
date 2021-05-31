@@ -1,9 +1,9 @@
-using IWP.Anim;
+using FurnishAR.Anim;
 using UnityEngine;
-using static IWP.Game.HexGridCellTypes;
-using static IWP.Math.EasingTypes;
+using static FurnishAR.Game.HexGridCellTypes;
+using static FurnishAR.Math.EasingTypes;
 
-namespace IWP.Game {
+namespace FurnishAR.Game {
 	internal sealed partial class GameUnitSpawner: MonoBehaviour {
 		#region Fields
 

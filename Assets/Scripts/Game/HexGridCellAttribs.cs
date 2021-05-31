@@ -1,7 +1,7 @@
 using UnityEngine;
-using static IWP.Game.HexGridCellTypes;
+using static FurnishAR.Game.HexGridCellTypes;
 
-namespace IWP.Game {
+namespace FurnishAR.Game {
     internal sealed class HexGridCellAttribs: MonoBehaviour {
 		#region Fields 
 

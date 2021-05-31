@@ -1,9 +1,9 @@
-using IWP.Math;
+using FurnishAR.Math;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
     internal sealed class BloomAnim: AbstractAnim {
 		#region Fields
 

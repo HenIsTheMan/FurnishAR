@@ -1,11 +1,11 @@
-using IWP.Generic;
-using IWP.Math;
+using FurnishAR.Generic;
+using FurnishAR.Math;
 using UnityEngine;
-using static IWP.Anim.AnimAccessTypes;
-using static IWP.Generic.InitIDs;
-using static IWP.Math.EasingTypes;
+using static FurnishAR.Anim.AnimAccessTypes;
+using static FurnishAR.Generic.InitIDs;
+using static FurnishAR.Math.EasingTypes;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
     internal abstract class AbstractAnim: MonoBehaviour {
 		#region Fields
 

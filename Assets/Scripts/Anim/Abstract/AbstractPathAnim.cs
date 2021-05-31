@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
 	internal abstract class AbstractPathAnim: AbstractAnim {
 		#region Fields
 

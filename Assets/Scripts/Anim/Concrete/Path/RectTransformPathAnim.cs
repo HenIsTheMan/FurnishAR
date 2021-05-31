@@ -1,7 +1,7 @@
-using IWP.Math;
+using FurnishAR.Math;
 using UnityEngine;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
 	internal sealed class RectTransformPathAnim: AbstractPathAnim {
 		#region Fields
 

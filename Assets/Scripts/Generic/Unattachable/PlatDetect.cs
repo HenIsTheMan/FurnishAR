@@ -1,4 +1,4 @@
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
     internal static class PlatDetect: object {
 		internal static bool IsWinBuild {
 			get;

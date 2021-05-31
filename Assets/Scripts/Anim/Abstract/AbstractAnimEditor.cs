@@ -2,9 +2,9 @@
 
 using UnityEditor;
 using UnityEngine;
-using static IWP.Anim.AnimAccessTypes;
+using static FurnishAR.Anim.AnimAccessTypes;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
 	internal abstract class AbstractAnimEditor: Editor {
 		#region Fields
 

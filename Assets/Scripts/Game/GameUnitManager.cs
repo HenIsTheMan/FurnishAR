@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace IWP.Game {
+namespace FurnishAR.Game {
     internal sealed class GameUnitManager: MonoBehaviour {
         #region Fields
 

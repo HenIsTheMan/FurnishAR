@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	internal sealed partial class LoadSceneImmediate: MonoBehaviour {
 		internal static void OnSplashClick() {
 			if(globalObj.canClickOnSplash && UnityEngine.SceneManagement.SceneManager.GetSceneByName("IntroScene").isLoaded) {

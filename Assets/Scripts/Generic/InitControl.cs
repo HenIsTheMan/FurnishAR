@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using static IWP.Generic.InitIDs;
+using static FurnishAR.Generic.InitIDs;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	[DisallowMultipleComponent]
 	internal sealed class InitControl: MonoBehaviour {
 		#region Fields

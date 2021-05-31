@@ -1,4 +1,4 @@
-namespace IWP.Math {
+namespace FurnishAR.Math {
 	internal static class EasingTypes: object {
 		internal enum EasingType: byte {
 			EaseInBack,

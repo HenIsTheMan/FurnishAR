@@ -1,8 +1,8 @@
-using IWP.Math;
+using FurnishAR.Math;
 using TMPro;
 using UnityEngine;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
     internal sealed class TextCharFadeAnim: AbstractFadeAnim {
 		#region Fields
 

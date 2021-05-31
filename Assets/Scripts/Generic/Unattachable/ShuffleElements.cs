@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
     internal static class ShuffleElements: object {
 		internal static void Shuffle<T>(this IList<T> container) { //Fisher-Yates shuffle
 			for(int i = container.Count - 1; i > 0; --i) {

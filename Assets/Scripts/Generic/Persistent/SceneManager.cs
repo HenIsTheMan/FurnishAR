@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	[DisallowMultipleComponent]
 	internal sealed class SceneManager: MonoBehaviour {
 		#region Fields

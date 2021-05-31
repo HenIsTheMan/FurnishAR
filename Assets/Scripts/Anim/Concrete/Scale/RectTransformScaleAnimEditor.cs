@@ -2,7 +2,7 @@
 
 using UnityEditor;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
 	[CustomEditor(typeof(RectTransformScaleAnim)), CanEditMultipleObjects]
 	internal sealed class RectTransformScaleAnimEditor: AbstractAnimEditor {
 		#region Fields

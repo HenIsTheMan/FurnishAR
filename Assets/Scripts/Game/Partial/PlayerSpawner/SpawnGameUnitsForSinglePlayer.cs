@@ -1,8 +1,8 @@
-using IWP.Generic;
+using FurnishAR.Generic;
 using UnityEngine;
-using static IWP.Game.GameUnitTypeFlags;
+using static FurnishAR.Game.GameUnitTypeFlags;
 
-namespace IWP.Game {
+namespace FurnishAR.Game {
 	internal sealed partial class GameUnitSpawner: MonoBehaviour {
 		public void SpawnGameUnitsForSinglePlayer() {
 			SpawnGameUnitsParams myParams;

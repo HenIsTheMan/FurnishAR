@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IWP.Generic {
+namespace FurnishAR.Generic {
 	internal sealed partial class LoadSceneImmediate: MonoBehaviour {
 		public static void BootToSplashDone() {
 			PtrManager ptrManager = FindObjectOfType<PtrManager>();

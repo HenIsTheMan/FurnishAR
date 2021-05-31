@@ -2,7 +2,7 @@
 
 using UnityEditor;
 
-namespace IWP.Anim {
+namespace FurnishAR.Anim {
 	[CustomEditor(typeof(TransformShakeAnim)), CanEditMultipleObjects]
 	internal sealed class TransformShakeAnimEditor: AbstractAnimEditor {
 		#region Fields
