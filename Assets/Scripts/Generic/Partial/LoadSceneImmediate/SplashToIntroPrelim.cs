@@ -44,7 +44,6 @@ namespace FurnishAR.Generic {
 			globalObj.canClickOnSplash = false;
 
 			PtrManager ptrManager = FindObjectOfType<PtrManager>();
-			ptrManager.ChangeCursor("HexCursor", Vector2.zero, CursorModes.CursorMode.Auto);
 			ptrManager.DeactivateAllPtrTrails();
 
 			GameObject camGO = GameObject.Find("IntroCam");
