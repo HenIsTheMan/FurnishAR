@@ -318,8 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initControl: {fileID: 1414000634}
-  ptrTrailPrefabs:
-  - {fileID: 439501789957676138, guid: dbd52df5bcc6bec46a392728b598f28c, type: 3}
+  ptrTrailPrefabs: []
 --- !u!114 &1291909408
 MonoBehaviour:
   m_ObjectHideFlags: 0

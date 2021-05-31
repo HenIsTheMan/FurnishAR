@@ -46,7 +46,6 @@ namespace FurnishAR.Generic {
 			PtrManager ptrManager = FindObjectOfType<PtrManager>();
 			ptrManager.ChangeCursor("HexCursor", Vector2.zero, CursorModes.CursorMode.Auto);
 			ptrManager.DeactivateAllPtrTrails();
-			ptrManager.ActivatePtrTrail("HexPtrTrail");
 
 			GameObject camGO = GameObject.Find("IntroCam");
 			Camera camComponent = camGO.GetComponent<Camera>();
