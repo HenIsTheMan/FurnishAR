@@ -11,8 +11,10 @@ namespace FurnishAR.App {
         private InitControl initControl;
 
         private float alpha;
-        private float selectedFactor;
-        private float notSelectedFactor;
+        private float selectedColorFactor;
+        private float notSelectedColorFactor;
+        private float selectedScaleFactor;
+        private float notSelectedScaleFactor;
 
         private int index;
 
@@ -29,9 +31,11 @@ namespace FurnishAR.App {
         internal ListDotControl(): base() {
             initControl = null;
 
-            alpha = 100.0f / 255.0f;
-            selectedFactor = 20.0f / 255.0f;
-            notSelectedFactor = 67.0f / 255.0f;
+            alpha = 1.0f;
+            selectedColorFactor = 0.0f;
+            notSelectedColorFactor = 0.0f;
+            selectedScaleFactor = 1.0f;
+            notSelectedScaleFactor = 1.0f;
 
             index = 0;
 
@@ -56,6 +60,12 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
+            alpha = 100.0f / 255.0f;
+            selectedColorFactor = 20.0f / 255.0f;
+            notSelectedColorFactor = 67.0f / 255.0f;
+            selectedScaleFactor = 1.2f;
+            notSelectedScaleFactor = 1.0f;
+
             ProgressAfter();
         }
 
@@ -80,11 +90,15 @@ namespace FurnishAR.App {
         }
 
         private void ProgressBefore() {
-            listDotImgs[index].color = new Color(notSelectedFactor, notSelectedFactor, notSelectedFactor, alpha);
+            Image myImg = listDotImgs[index];
+            myImg.color = new Color(notSelectedColorFactor, notSelectedColorFactor, notSelectedColorFactor, alpha);
+            myImg.transform.localScale = new Vector3(notSelectedScaleFactor, notSelectedScaleFactor, 1.0f);
         }
 
         private void ProgressAfter() {
-            listDotImgs[index].color = new Color(selectedFactor, selectedFactor, selectedFactor, alpha);
+            Image myImg = listDotImgs[index];
+            myImg.color = new Color(selectedColorFactor, selectedColorFactor, selectedColorFactor, alpha);
+            myImg.transform.localScale = new Vector3(selectedScaleFactor, selectedScaleFactor, 1.0f);
         }
     }
 }
