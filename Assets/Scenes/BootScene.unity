@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initControl: {fileID: 1414000634}
-  mode: 3
+  mode: 0
   width: 1920
   height: 1080
   preferredRefreshRate: 0
