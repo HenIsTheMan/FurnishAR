@@ -8,7 +8,6 @@ namespace FurnishAR.Generic {
 
 			Instancer,
 			AbstractAnim,
-			PtrTrail,
 			TextCurve,
 			TextPtrOverLineOfWords,
 			CamOrbital,
@@ -16,7 +15,7 @@ namespace FurnishAR.Generic {
 			LoadSceneImmediate,
 			OutlineSilhouette,
 
-			GameManager,
+			ListDotControl,
 			Listicle2D,
 			Amt
 		}
