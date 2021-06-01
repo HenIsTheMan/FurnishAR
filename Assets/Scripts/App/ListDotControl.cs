@@ -1,5 +1,6 @@
 using FurnishAR.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static FurnishAR.Generic.InitIDs;
 
@@ -67,9 +68,30 @@ namespace FurnishAR.App {
             notSelectedScaleFactor = 1.0f;
 
             ProgressAfter();
+
+            EventTrigger eventTrigger = gameObject.AddComponent<EventTrigger>();
+
+            EventTrigger.Entry dragEntry = new EventTrigger.Entry {
+                eventID = EventTriggerType.Drag
+            };
+            dragEntry.callback.AddListener((eventData) => {
+                OnDragHandler((PointerEventData)eventData);
+            });
+
+            eventTrigger.triggers.Add(dragEntry);
         }
 
-        internal void ProgressBackward() {
+        private void OnDragHandler(PointerEventData ptrEventData) {
+            Console.Log("here");
+
+            if(ptrEventData.delta.y > 0.0f) {
+                ProgressForward();
+            } else {
+                ProgressBackward();
+            }
+        }
+
+        private void ProgressBackward() {
             ProgressBefore();
 
             if(index > 0) {
@@ -79,7 +101,7 @@ namespace FurnishAR.App {
             ProgressAfter();
         }
 
-        internal void ProgressForward() {
+        private void ProgressForward() {
             ProgressBefore();
 
             if(index < listDotImgs.Length - 1) {
