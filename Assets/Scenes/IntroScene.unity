@@ -534,8 +534,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: The Hex Games
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6f5b7ef6b8b4a5549a9ddfa25801f2e8, type: 2}
-  m_sharedMaterial: {fileID: 5484741266712695623, guid: 6f5b7ef6b8b4a5549a9ddfa25801f2e8,
+  m_fontAsset: {fileID: 11400000, guid: 6f8d9ba8756c39c44bf7bc4bbcc904a4, type: 2}
+  m_sharedMaterial: {fileID: -5949737470974133640, guid: 6f8d9ba8756c39c44bf7bc4bbcc904a4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

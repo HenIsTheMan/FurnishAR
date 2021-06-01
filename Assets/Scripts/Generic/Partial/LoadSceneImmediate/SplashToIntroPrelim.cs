@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 namespace FurnishAR.Generic {
 	internal sealed partial class LoadSceneImmediate: MonoBehaviour {
 		public static void SplashToIntroPrelim() {
-			GameObject.Find("GenesisAlpha0").GetComponent<RectTransformPathAnim>().animEndDelegate += SubSplashToIntroPrelim;
+			GameObject.Find("FiguratiText").GetComponent<TextFadeAnim>().animEndDelegate += SubSplashToIntroPrelim;
 		}
 
 		private static void SubSplashToIntroPrelim() {
@@ -13,31 +13,14 @@ namespace FurnishAR.Generic {
 				return;
 			}
 
-			BloomAnim[] bloomAnims = GameObject.Find("BloomVol").GetComponents<BloomAnim>();
-			bloomAnims[0].IsUpdating = true;
-			bloomAnims[1].IsUpdating = true;
+			GameObject proxyCamGO = GameObject.Find("ProxyCam");
 
-			bloomAnims[1].animPrePeriodicDelegate += () => {
-				if(UnityEngine.SceneManagement.SceneManager.GetSceneByName("IntroScene").isLoaded) {
-					bloomAnims[0].IsUpdating = false;
-					bloomAnims[1].IsUpdating = false;
-				}
-			};
+			RectTransformRotateAnim rectTransformRotateAnim = proxyCamGO.GetComponent<RectTransformRotateAnim>();
 
-			bloomAnims[1].animEndDelegate = () => {
-				if(!globalObj.canClickOnSplash) {
-					return;
-				}
+			rectTransformRotateAnim.IsUpdating = true;
+			proxyCamGO.GetComponents<RectTransformScaleAnim>()[1].IsUpdating = true;
 
-				GameObject proxyCamGO = GameObject.Find("ProxyCam");
-
-				RectTransformRotateAnim rectTransformRotateAnim = proxyCamGO.GetComponent<RectTransformRotateAnim>();
-
-				rectTransformRotateAnim.IsUpdating = true;
-				proxyCamGO.GetComponents<RectTransformScaleAnim>()[1].IsUpdating = true;
-
-				rectTransformRotateAnim.animEndDelegate += SubSplashToIntroFadeTransitionPrelim;
-			};
+			rectTransformRotateAnim.animEndDelegate += SubSplashToIntroFadeTransitionPrelim;
 		}
 
 		private static void SubSplashToIntroFadeTransitionPrelim() {
