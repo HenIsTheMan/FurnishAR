@@ -17,6 +17,8 @@ namespace FurnishAR.App {
         private float selectedScaleFactor;
         private float notSelectedScaleFactor;
 
+        private float prevDragY;
+
         private int index;
 
         [SerializeField]
@@ -37,6 +39,8 @@ namespace FurnishAR.App {
             notSelectedColorFactor = 0.0f;
             selectedScaleFactor = 1.0f;
             notSelectedScaleFactor = 1.0f;
+
+            prevDragY = 0.0f;
 
             index = 0;
 
@@ -78,13 +82,23 @@ namespace FurnishAR.App {
                 OnDragHandler((PointerEventData)eventData);
             });
 
+            EventTrigger.Entry endDragEntry = new EventTrigger.Entry {
+                eventID = EventTriggerType.EndDrag
+            };
+            endDragEntry.callback.AddListener((eventData) => {
+                OnEndDragHandler((PointerEventData)eventData);
+            });
+
             eventTrigger.triggers.Add(dragEntry);
+            eventTrigger.triggers.Add(endDragEntry);
         }
 
         private void OnDragHandler(PointerEventData ptrEventData) {
-            Console.Log("here");
+            prevDragY = ptrEventData.delta.y;
+        }
 
-            if(ptrEventData.delta.y > 0.0f) {
+        private void OnEndDragHandler(PointerEventData ptrEventData) {
+            if(prevDragY > 0.0f) {
                 ProgressForward();
             } else {
                 ProgressBackward();
