@@ -936,7 +936,7 @@ MonoBehaviour:
   sceneName: MainScene
   type: 1
   prelimMethodName: 
-  doneMethodName: 
+  doneMethodName: IntroToMainDone
 --- !u!1 &1212432695
 GameObject:
   m_ObjectHideFlags: 0
