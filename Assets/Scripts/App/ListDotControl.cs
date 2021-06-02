@@ -105,7 +105,7 @@ namespace FurnishAR.App {
             }
         }
 
-        private void ProgressBackward() {
+        public void ProgressBackward() {
             ProgressBefore();
 
             if(index > 0) {
@@ -115,7 +115,7 @@ namespace FurnishAR.App {
             ProgressAfter();
         }
 
-        private void ProgressForward() {
+        public void ProgressForward() {
             ProgressBefore();
 
             if(index < listDotImgs.Length - 1) {
