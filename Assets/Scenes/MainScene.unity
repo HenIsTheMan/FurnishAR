@@ -202,8 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79fe4f26f930054f98a9218ad2e38e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placementMarkerControl: {fileID: 0}
-  prefab: {fileID: 0}
+  placementMarkerControl: {fileID: 1005768063}
+  prefab: {fileID: 100142, guid: 7e35bd5abf60a234798b95ef300f64e2, type: 3}
 --- !u!1 &213063849
 GameObject:
   m_ObjectHideFlags: 0
