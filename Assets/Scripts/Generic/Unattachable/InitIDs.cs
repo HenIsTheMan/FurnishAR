@@ -14,9 +14,10 @@ namespace FurnishAR.Generic {
 			EnableCamDelayed,
 			LoadSceneImmediate,
 			OutlineSilhouette,
+			Listicle2D,
 
 			ListDotControl,
-			Listicle2D,
+			PlacementMarkerControl,
 			Amt
 		}
     }
