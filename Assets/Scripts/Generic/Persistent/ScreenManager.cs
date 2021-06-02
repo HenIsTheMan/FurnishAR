@@ -23,13 +23,13 @@ namespace FurnishAR.Generic {
 		[Min(1), SerializeField]
 		private int height;
 
-		[SerializeField]
-		private int preferredRefreshRate;
+		//[SerializeField]
+		//private int preferredRefreshRate;
 
-		private string oldWindowTitle;
+		//private string oldWindowTitle;
 
-		[SerializeField]
-		private string newWindowTitle;
+		//[SerializeField]
+		//private string newWindowTitle;
 
 		private static ScreenManager globalObj;
 
@@ -59,10 +59,10 @@ namespace FurnishAR.Generic {
 			mode = ScreenModes.ScreenMode.Windowed;
 			width = 1;
 			height = 1;
-			preferredRefreshRate = 0;
+			//preferredRefreshRate = 0;
 
-			oldWindowTitle = string.Empty;
-			newWindowTitle = string.Empty;
+			//oldWindowTitle = string.Empty;
+			//newWindowTitle = string.Empty;
 		}
 
 		static ScreenManager() {
