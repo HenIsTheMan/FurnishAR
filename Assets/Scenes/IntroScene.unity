@@ -197,7 +197,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 442733410}
   - component: {fileID: 442733412}
   - component: {fileID: 442733411}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: AppLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 592748326}
   - component: {fileID: 592748328}
   - component: {fileID: 592748327}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: WelcomeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 707887101}
   - component: {fileID: 707887103}
   - component: {fileID: 707887102}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 1042220111}
   - component: {fileID: 1042220113}
   - component: {fileID: 1042220112}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: AppName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,7 +636,7 @@ RectTransform:
   m_LocalScale: {x: 2.8, y: 2.8, z: 1}
   m_Children: []
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 1112612469}
   - component: {fileID: 1112612471}
   - component: {fileID: 1112612470}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ListDot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -798,7 +798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1485108839}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ListDots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +820,7 @@ RectTransform:
   - {fileID: 1112612469}
   - {fileID: 2118971213}
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 1686643512}
   - component: {fileID: 1686643514}
   - component: {fileID: 1686643513}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ListDot0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +913,7 @@ GameObject:
   - component: {fileID: 1699891042}
   - component: {fileID: 1699891044}
   - component: {fileID: 1699891043}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: IntroBg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +932,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1090,13 +1090,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 80798399}
   - {fileID: 1699891042}
   - {fileID: 1042220111}
   - {fileID: 442733410}
   - {fileID: 592748326}
   - {fileID: 2074783031}
   - {fileID: 1485108839}
+  - {fileID: 80798399}
   m_Father: {fileID: 1227166602}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1213,7 +1213,7 @@ GameObject:
   - component: {fileID: 2074783034}
   - component: {fileID: 2074783033}
   - component: {fileID: 2074783032}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: SkipButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1233,7 @@ RectTransform:
   m_Children:
   - {fileID: 707887101}
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1333,7 +1333,7 @@ GameObject:
   - component: {fileID: 2118971213}
   - component: {fileID: 2118971215}
   - component: {fileID: 2118971214}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ListDot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

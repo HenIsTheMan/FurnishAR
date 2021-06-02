@@ -17,7 +17,7 @@ namespace FurnishAR.App {
         private float selectedScaleFactor;
         private float notSelectedScaleFactor;
 
-        private float prevDragY;
+        private float prevDragX;
 
         private int index;
 
@@ -40,7 +40,7 @@ namespace FurnishAR.App {
             selectedScaleFactor = 1.0f;
             notSelectedScaleFactor = 1.0f;
 
-            prevDragY = 0.0f;
+            prevDragX = 0.0f;
 
             index = 0;
 
@@ -94,11 +94,11 @@ namespace FurnishAR.App {
         }
 
         private void OnDragHandler(PointerEventData ptrEventData) {
-            prevDragY = ptrEventData.delta.y;
+            prevDragX = ptrEventData.delta.x;
         }
 
-        private void OnEndDragHandler(PointerEventData ptrEventData) {
-            if(prevDragY > 0.0f) {
+        private void OnEndDragHandler(PointerEventData _) {
+            if(prevDragX < 0.0f) {
                 ProgressForward();
             } else {
                 ProgressBackward();
