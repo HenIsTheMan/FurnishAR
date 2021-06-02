@@ -93,15 +93,15 @@ namespace FurnishAR.Generic {
 		private void Init() {
 			globalObj = this;
 
-			oldWindowTitle = Application.productName;
+			//oldWindowTitle = Application.productName;
 
-			if(Screen.fullScreenMode != (FullScreenMode)mode || Screen.width != width || Screen.height != height) {
-				SetScreenRes(width, height, mode, preferredRefreshRate);
-			}
+			//if(Screen.fullScreenMode != (FullScreenMode)mode || Screen.width != width || Screen.height != height) {
+			//	SetScreenRes(width, height, mode, preferredRefreshRate);
+			//}
 
-			if(mode == ScreenModes.ScreenMode.Windowed && newWindowTitle != oldWindowTitle) {
-				ISetWindowText(FindWindow(null, oldWindowTitle), ref newWindowTitle);
-			}
+			//if(mode == ScreenModes.ScreenMode.Windowed && newWindowTitle != oldWindowTitle) {
+			//	ISetWindowText(FindWindow(null, oldWindowTitle), ref newWindowTitle);
+			//}
 		}
 
 		internal void SetScreenRes(int width, int height, ScreenModes.ScreenMode mode, int preferredRefreshRate = 0) {
