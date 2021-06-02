@@ -14,4 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IntroScene.unity
     guid: aa200efb866eebe418b72c6a674552f2
-  m_configObjects: {}
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 84fa5f242b51ada42a3b9afeb10d74d5,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e42699f1bf0e4ed4c9f853288ef5575f,
+      type: 2}
