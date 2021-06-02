@@ -1,10 +1,11 @@
 using UnityEngine;
-using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.Management;
 
 namespace FurnishAR.Generic {
 	internal sealed partial class LoadSceneImmediate: MonoBehaviour {
 		public static void IntroToMainPrelim() {
-			LoaderUtility.Initialize();
+			var xrManagerSettings = XRGeneralSettings.Instance.Manager;
+			xrManagerSettings.DeinitializeLoader();
 		}
 	}
 }
