@@ -33,6 +33,8 @@ namespace FurnishAR.App {
         private Quaternion rotateOG;
         private Vector3 scaleOG;
 
+        private Vector3 frontVec;
+
         #endregion
 
         #region Properties
@@ -62,6 +64,8 @@ namespace FurnishAR.App {
             translateOG = Vector3.zero;
             rotateOG = Quaternion.identity;
             scaleOG = Vector3.one;
+
+            frontVec = Vector3.forward;
         }
 
         static PlacementMarkerControl() {
@@ -113,9 +117,10 @@ namespace FurnishAR.App {
         }
 
         private void OnDragHandler(PointerEventData ptrEventData) {
-            placementMarkerGO.transform.localRotation
-                *= Quaternion.AngleAxis(-ptrEventData.delta.x * rotationSensY, Vector3.up)
-                * Quaternion.AngleAxis(ptrEventData.delta.y * rotationSensX, Vector3.forward);
+            if(Input.touchCount == 2) {
+                placementMarkerGO.transform.localRotation *= Quaternion.AngleAxis(-ptrEventData.delta.x * rotationSensY, Vector3.up);
+                placementMarkerGO.transform.localRotation *= Quaternion.AngleAxis(ptrEventData.delta.y * rotationSensX, Vector3.right);
+            }
         }
 
         internal void ConfigPlacementMarkerGO(GameObject GO, ref Vector3 translate, ref Quaternion rotate, ref Vector3 scale) {
