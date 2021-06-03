@@ -118,7 +118,7 @@ namespace FurnishAR.App {
 
         private void OnDragHandler(PointerEventData ptrEventData) {
             if(Input.touchCount == 2) {
-                placementMarkerGO.transform.localRotation *= Quaternion.AngleAxis(-ptrEventData.delta.x * rotationSensY, Vector3.up);
+                //placementMarkerGO.transform.localRotation *= Quaternion.AngleAxis(-ptrEventData.delta.x * rotationSensY, Vector3.up);
                 placementMarkerGO.transform.localRotation *= Quaternion.AngleAxis(ptrEventData.delta.y * rotationSensX, Vector3.right);
             }
         }

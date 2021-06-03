@@ -14,6 +14,7 @@ namespace FurnishAR.Generic {
 						GameObject camGO = GameObject.Find("MenuCam");
 						Camera camComponent = camGO.GetComponent<Camera>();
 						camComponent.enabled = true;
+						camComponent.clearFlags = CameraClearFlags.SolidColor;
 					}
 				);
 			});

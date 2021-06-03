@@ -569,10 +569,10 @@ MonoBehaviour:
   initControl: {fileID: 1414000634}
   isVisible: 1
   keyCode: 8
-  xOffset: 10
-  yOffset: 10
-  widthOffset: -20
-  heightOffset: -20
+  xOffset: 200
+  yOffset: 0
+  widthOffset: -200
+  heightOffset: -200
   bgColor: {r: 1, g: 1, b: 1, a: 1}
   contentColor: {r: 0, g: 1, b: 0, a: 1}
   fontSize: 40
