@@ -19,6 +19,12 @@ namespace FurnishAR.App {
         private ARRaycastManager raycastManager;
 
         [SerializeField]
+        private float rotationSensX;
+
+        [SerializeField]
+        private float rotationSensY;
+
+        [SerializeField]
         private Transform placementMarkerParentTransform;
 
         private GameObject placementMarkerGO;
@@ -41,6 +47,9 @@ namespace FurnishAR.App {
             hits = null;
 
             raycastManager = null;
+
+            rotationSensX = 1.0f;
+            rotationSensY = 1.0f;
 
             placementMarkerParentTransform = null;
 
@@ -96,7 +105,7 @@ namespace FurnishAR.App {
         }
 
         private void OnDragHandler(PointerEventData ptrEventData) {
-            placementMarkerGO.transform.localRotation *= Quaternion.Euler(-ptrEventData.delta.y, -ptrEventData.delta.x, 0.0f);
+            placementMarkerGO.transform.localRotation *= Quaternion.Euler(ptrEventData.delta.y * rotationSensX, -ptrEventData.delta.x * rotationSensY, 0.0f);
         }
 
         internal void ConfigPlacementMarkerGO(GameObject GO, ref Vector3 translate, ref Quaternion rotate, ref Vector3 scale) {
