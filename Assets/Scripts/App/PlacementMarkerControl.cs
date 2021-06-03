@@ -1,3 +1,4 @@
+using FurnishAR.Anim;
 using FurnishAR.Generic;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,7 +36,11 @@ namespace FurnishAR.App {
         private Quaternion rotateOG;
         private Vector3 scaleOG;
 
-        private Vector3 frontVec;
+        [SerializeField]
+        private CanvasGrpFadeAnim nthToResetFadeAnim;
+
+        [SerializeField]
+        private RectTransformTranslateAnim nthToResetTranslateAnim;
 
         #endregion
 
@@ -69,7 +74,8 @@ namespace FurnishAR.App {
             rotateOG = Quaternion.identity;
             scaleOG = Vector3.one;
 
-            frontVec = Vector3.forward;
+            nthToResetFadeAnim = null;
+            nthToResetTranslateAnim = null;
         }
 
         static PlacementMarkerControl() {
@@ -118,6 +124,8 @@ namespace FurnishAR.App {
             });
 
             eventTrigger.triggers.Add(dragEntry);
+
+            nthToResetFadeAnim.gameObject.GetComponent<CanvasGroup>().alpha = 0.0f; //Workaround
         }
 
         private void OnDragHandler(PointerEventData ptrEventData) {
@@ -149,7 +157,11 @@ namespace FurnishAR.App {
 
                     shldReset = false;
                 } else {
-                    Console.Log("No");
+                    nthToResetFadeAnim.IsUpdating = false;
+                    nthToResetTranslateAnim.IsUpdating = false;
+
+                    nthToResetFadeAnim.IsUpdating = true;
+                    nthToResetTranslateAnim.IsUpdating = true;
                 }
             }
         }
