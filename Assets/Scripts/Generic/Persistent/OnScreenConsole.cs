@@ -106,7 +106,7 @@ namespace FurnishAR.Generic {
 		}
 
 		private void LogToOnScreenConsole(string msg, string stackTrace, LogType logType) {
-			myLog += msg + '\n';
+			myLog += (int)logType + '\n' + stackTrace + "\nHo" + msg + "\n\n\nHey";
 		}
 
 		private void ClearOnScreenConsole() {
