@@ -17,12 +17,16 @@ namespace FurnishAR.App {
         [SerializeField]
         private ARRaycastManager raycastManager;
 
-        [SerializeField]
         private GameObject placementMarkerGO;
 
         #endregion
 
         #region Properties
+
+        internal GameObject PlacementMarkerGO {
+            get => placementMarkerGO;
+        }
+
         #endregion
 
         #region Ctors and Dtor
@@ -49,6 +53,10 @@ namespace FurnishAR.App {
         }
 
         private void Update() {
+            if(placementMarkerGO = null) {
+                return;
+            }
+
             raycastManager.Raycast(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f), hits, TrackableType.Planes);
 
             if(hits.Count > 0) {
@@ -68,8 +76,15 @@ namespace FurnishAR.App {
 
         private void Init() {
             hits = new List<ARRaycastHit>();
+        }
 
+        internal void ConfigPlacementMarkerGO(GameObject GO, ref Vector3 translate, ref Quaternion rotate, ref Vector3 scale) {
+            placementMarkerGO = GO;
             placementMarkerGO.SetActive(false);
+
+            placementMarkerGO.transform.localPosition = translate;
+            placementMarkerGO.transform.localRotation = rotate;
+            placementMarkerGO.transform.localScale = scale;
         }
     }
 }
