@@ -8,7 +8,9 @@ namespace FurnishAR.Generic {
 				globalObj.sceneManager.UnloadScene(
 					UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
 					UnloadSceneTypes.UnloadSceneType.UnloadAllEmbeddedSceneObjs,
-					null
+					() => {
+						UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()[0].SetActive(true);
+					}
 				);
 			});
 		}
