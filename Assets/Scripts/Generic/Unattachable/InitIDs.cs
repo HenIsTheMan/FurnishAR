@@ -16,6 +16,7 @@ namespace FurnishAR.Generic {
 			OutlineSilhouette,
 			Listicle2D,
 
+			CamFlipButton,
 			ListDotControl,
 			PlacementMarkerControl,
 			Amt

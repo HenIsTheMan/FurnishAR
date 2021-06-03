@@ -1699,6 +1699,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe3db2fabad4624d9fca8c90c6a8da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initControl: {fileID: 558809763}
+  myARSession: {fileID: 848837658}
   camManager: {fileID: 213063852}
 --- !u!224 &8170370554717027144
 RectTransform:
