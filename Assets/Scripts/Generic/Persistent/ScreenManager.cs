@@ -17,12 +17,6 @@ namespace FurnishAR.Generic {
 		[SerializeField]
 		private ScreenModes.ScreenMode mode;
 
-		[Min(1), SerializeField]
-		private int width;
-
-		[Min(1), SerializeField]
-		private int height;
-
 		//[SerializeField]
 		//private int preferredRefreshRate;
 
@@ -39,13 +33,13 @@ namespace FurnishAR.Generic {
 
 		internal static float ScreenWidth {
 			get {
-				return globalObj.width;
+				return Screen.width;
 			}
 		}
 
 		internal static float ScreenHeight {
 			get {
-				return globalObj.height;
+				return Screen.height;
 			}
 		}
 
@@ -57,8 +51,6 @@ namespace FurnishAR.Generic {
 			initControl = null;
 
 			mode = ScreenModes.ScreenMode.Windowed;
-			width = 1;
-			height = 1;
 			//preferredRefreshRate = 0;
 
 			//oldWindowTitle = string.Empty;

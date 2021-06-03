@@ -10,6 +10,10 @@ namespace FurnishAR.Generic {
 					UnloadSceneTypes.UnloadSceneType.UnloadAllEmbeddedSceneObjs,
 					() => {
 						UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()[0].SetActive(true);
+
+						GameObject camGO = GameObject.Find("MenuCam");
+						Camera camComponent = camGO.GetComponent<Camera>();
+						camComponent.enabled = true;
 					}
 				);
 			});

@@ -169,8 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initControl: {fileID: 1414000634}
   mode: 0
-  width: 1080
-  height: 1920
 --- !u!114 &164866358
 MonoBehaviour:
   m_ObjectHideFlags: 0
