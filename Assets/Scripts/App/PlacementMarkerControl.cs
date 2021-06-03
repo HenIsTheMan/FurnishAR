@@ -29,6 +29,12 @@ namespace FurnishAR.App {
 
         private GameObject placementMarkerGO;
 
+        private Vector3 translateOG;
+        private Quaternion rotateOG;
+        private Vector3 scaleOG;
+
+        private Vector3 frontVec;
+
         #endregion
 
         #region Properties
@@ -54,6 +60,12 @@ namespace FurnishAR.App {
             placementMarkerParentTransform = null;
 
             placementMarkerGO = null;
+
+            translateOG = Vector3.zero;
+            rotateOG = Quaternion.identity;
+            scaleOG = Vector3.one;
+
+            frontVec = Vector3.forward;
         }
 
         static PlacementMarkerControl() {
@@ -105,16 +117,28 @@ namespace FurnishAR.App {
         }
 
         private void OnDragHandler(PointerEventData ptrEventData) {
-            placementMarkerGO.transform.localRotation *= Quaternion.Euler(ptrEventData.delta.y * rotationSensX, -ptrEventData.delta.x * rotationSensY, 0.0f);
+            placementMarkerGO.transform.localRotation *= Quaternion.Euler(0.0f, -ptrEventData.delta.x * rotationSensY, 0.0f);
+
+            frontVec = Quaternion.Euler(0.0f, placementMarkerGO.transform.localRotation.eulerAngles.y, 0.0f) * Vector3.forward;
+
+            placementMarkerGO.transform.localRotation *= Quaternion.AngleAxis(ptrEventData.delta.y * rotationSensX, frontVec);
         }
 
         internal void ConfigPlacementMarkerGO(GameObject GO, ref Vector3 translate, ref Quaternion rotate, ref Vector3 scale) {
             placementMarkerGO = GO;
             placementMarkerGO.SetActive(false);
 
-            placementMarkerGO.transform.localPosition = translate;
-            placementMarkerGO.transform.localRotation = rotate;
-            placementMarkerGO.transform.localScale = scale;
+            placementMarkerGO.transform.localPosition = translateOG = translate;
+            placementMarkerGO.transform.localRotation = rotateOG = rotate;
+            placementMarkerGO.transform.localScale = scaleOG = scale;
+        }
+
+        public void ResetTransformOfPlacementMarkerGO() {
+            if(placementMarkerGO != null) {
+                placementMarkerGO.transform.localPosition = translateOG;
+                placementMarkerGO.transform.localRotation = rotateOG;
+                placementMarkerGO.transform.localScale = scaleOG;
+            }
         }
     }
 }
