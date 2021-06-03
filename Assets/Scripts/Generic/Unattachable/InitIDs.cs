@@ -17,6 +17,7 @@ namespace FurnishAR.Generic {
 			Listicle2D,
 
 			CamFlipButton,
+			FurnitureManager,
 			ListDotControl,
 			PlacementMarkerControl,
 			Amt

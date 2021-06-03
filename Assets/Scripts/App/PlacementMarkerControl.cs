@@ -53,7 +53,7 @@ namespace FurnishAR.App {
         }
 
         private void Update() {
-            if(placementMarkerGO = null) {
+            if(placementMarkerGO == null) {
                 return;
             }
 

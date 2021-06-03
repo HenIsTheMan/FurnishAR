@@ -156,6 +156,7 @@ Transform:
   - {fileID: 1807710608}
   - {fileID: 848837659}
   - {fileID: 1005768062}
+  - {fileID: 2115402699}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -560,7 +561,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100142, guid: 7e35bd5abf60a234798b95ef300f64e2, type: 3}
       propertyPath: m_Name
-      value: Dragon_Baked_Actions_fbx_7.4_binary
+      value: BlackDragon
       objectReference: {fileID: 0}
     - target: {fileID: 400142, guid: 7e35bd5abf60a234798b95ef300f64e2, type: 3}
       propertyPath: m_RootOrder
@@ -840,7 +841,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initControl: {fileID: 558809763}
   raycastManager: {fileID: 1807710611}
-  placementMarkerGO: {fileID: 0}
 --- !u!1 &1205514478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,6 +1622,51 @@ MonoBehaviour:
   initControl: {fileID: 558809763}
   myARSession: {fileID: 848837658}
   camManager: {fileID: 213063852}
+--- !u!1 &2115402698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115402699}
+  - component: {fileID: 2115402700}
+  m_Layer: 0
+  m_Name: FurnitureManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2115402699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115402698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 113554337}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115402700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115402698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105ed257f2692454c9331d57ec0cadc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initControl: {fileID: 558809763}
+  placementMarkerControlScript: {fileID: 1005768063}
 --- !u!224 &8170370554717027144
 RectTransform:
   m_ObjectHideFlags: 0
