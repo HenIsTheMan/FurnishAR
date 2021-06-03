@@ -13,6 +13,8 @@ namespace FurnishAR.App {
         [SerializeField]
         private InitControl initControl;
 
+        private bool shldReset;
+
         private List<ARRaycastHit> hits;
 
         [SerializeField]
@@ -49,6 +51,8 @@ namespace FurnishAR.App {
 
         internal PlacementMarkerControl(): base() {
             initControl = null;
+
+            shldReset = false;
 
             hits = null;
 
@@ -118,8 +122,12 @@ namespace FurnishAR.App {
 
         private void OnDragHandler(PointerEventData ptrEventData) {
             if(Input.touchCount == 2) {
-                //placementMarkerGO.transform.localRotation *= Quaternion.AngleAxis(-ptrEventData.delta.x * rotationSensY, Vector3.up);
-                placementMarkerGO.transform.localRotation *= Quaternion.AngleAxis(ptrEventData.delta.y * rotationSensX, Vector3.right);
+                shldReset = true;
+
+                placementMarkerGO.transform.localRotation
+                    = Quaternion.AngleAxis(-ptrEventData.delta.x * rotationSensY, Vector3.up)
+                    * Quaternion.AngleAxis(ptrEventData.delta.y * rotationSensX, Vector3.right)
+                    * placementMarkerGO.transform.localRotation;
             }
         }
 
@@ -134,9 +142,15 @@ namespace FurnishAR.App {
 
         public void ResetTransformOfPlacementMarkerGO() {
             if(placementMarkerGO != null) {
-                placementMarkerGO.transform.localPosition = translateOG;
-                placementMarkerGO.transform.localRotation = rotateOG;
-                placementMarkerGO.transform.localScale = scaleOG;
+                if(shldReset) {
+                    placementMarkerGO.transform.localPosition = translateOG;
+                    placementMarkerGO.transform.localRotation = rotateOG;
+                    placementMarkerGO.transform.localScale = scaleOG;
+
+                    shldReset = false;
+                } else {
+                    Console.Log("No");
+                }
             }
         }
     }

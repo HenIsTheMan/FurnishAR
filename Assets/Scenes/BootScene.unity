@@ -569,9 +569,9 @@ MonoBehaviour:
   initControl: {fileID: 1414000634}
   isVisible: 1
   keyCode: 8
-  xOffset: 200
+  xOffset: 400
   yOffset: 0
-  widthOffset: -200
+  widthOffset: -700
   heightOffset: -200
   bgColor: {r: 1, g: 1, b: 1, a: 1}
   contentColor: {r: 0, g: 1, b: 0, a: 1}
