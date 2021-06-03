@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR.ARFoundation;
 
 namespace FurnishAR.Generic {
 	internal sealed partial class LoadSceneImmediate: MonoBehaviour {
@@ -11,8 +10,6 @@ namespace FurnishAR.Generic {
 					UnloadSceneTypes.UnloadSceneType.UnloadAllEmbeddedSceneObjs,
 					() => {
 						UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()[0].SetActive(true);
-
-						FindObjectOfType<ARSession>().Reset();
 					}
 				);
 			});
