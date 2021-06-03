@@ -10,8 +10,8 @@ namespace FurnishAR.Generic {
 					UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
 					UnloadSceneTypes.UnloadSceneType.UnloadAllEmbeddedSceneObjs,
 					() => {
-						var xrManagerSettings = XRGeneralSettings.Instance.Manager;
-						xrManagerSettings.InitializeLoaderSync();
+						var XRManagerSettings = XRGeneralSettings.Instance.Manager;
+						XRManagerSettings.InitializeLoaderSync();
 
 						UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()[0].SetActive(true);
 					}
