@@ -1,6 +1,7 @@
 using FurnishAR.Generic;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using static FurnishAR.Generic.InitIDs;
@@ -16,6 +17,9 @@ namespace FurnishAR.App {
 
         [SerializeField]
         private ARRaycastManager raycastManager;
+
+        [SerializeField]
+        private Transform placementMarkerParentTransform;
 
         private GameObject placementMarkerGO;
 
@@ -37,6 +41,8 @@ namespace FurnishAR.App {
             hits = null;
 
             raycastManager = null;
+
+            placementMarkerParentTransform = null;
 
             placementMarkerGO = null;
         }
@@ -60,8 +66,8 @@ namespace FurnishAR.App {
             raycastManager.Raycast(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f), hits, TrackableType.Planes);
 
             if(hits.Count > 0) {
-                transform.localPosition = hits[0].pose.position;
-                transform.localRotation = hits[0].pose.rotation;
+                placementMarkerParentTransform.localPosition = hits[0].pose.position;
+                placementMarkerParentTransform.localRotation = hits[0].pose.rotation;
                 placementMarkerGO.SetActive(true);
             } else {
                 placementMarkerGO.SetActive(false);
@@ -76,6 +82,21 @@ namespace FurnishAR.App {
 
         private void Init() {
             hits = new List<ARRaycastHit>();
+
+            EventTrigger eventTrigger = gameObject.AddComponent<EventTrigger>();
+
+            EventTrigger.Entry dragEntry = new EventTrigger.Entry {
+                eventID = EventTriggerType.Drag
+            };
+            dragEntry.callback.AddListener((eventData) => {
+                OnDragHandler((PointerEventData)eventData);
+            });
+
+            eventTrigger.triggers.Add(dragEntry);
+        }
+
+        private void OnDragHandler(PointerEventData ptrEventData) {
+            placementMarkerGO.transform.localRotation *= Quaternion.Euler(-ptrEventData.delta.y, -ptrEventData.delta.x, 0.0f);
         }
 
         internal void ConfigPlacementMarkerGO(GameObject GO, ref Vector3 translate, ref Quaternion rotate, ref Vector3 scale) {
