@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 3687121307584476000, guid: 40df4df7689352b4c997f717c07f6c2b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3687121307584476000, guid: 40df4df7689352b4c997f717c07f6c2b,
         type: 3}
@@ -460,7 +460,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -370, y: 1100}
-  m_SizeDelta: {x: 370, y: 100}
+  m_SizeDelta: {x: 340, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &660397067
 MonoBehaviour:
@@ -505,7 +505,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 660397068}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2098590853}
+        m_TargetAssemblyTypeName: FurnishAR.App.LogInSignUp, Assembly-CSharp
+        m_MethodName: OnLogInButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &660397068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,7 +781,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 370, y: 1100}
-  m_SizeDelta: {x: 370, y: 100}
+  m_SizeDelta: {x: 390, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &996724055
 MonoBehaviour:
@@ -814,7 +826,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 996724056}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2098590853}
+        m_TargetAssemblyTypeName: FurnishAR.App.LogInSignUp, Assembly-CSharp
+        m_MethodName: OnSignUpButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &996724056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,7 +1171,7 @@ GameObject:
   - component: {fileID: 1231692795}
   - component: {fileID: 1231692794}
   m_Layer: 5
-  m_Name: LoginToSignUp
+  m_Name: LogInToSignUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1247,6 +1271,7 @@ Transform:
   m_Children:
   - {fileID: 1305904696}
   - {fileID: 663541542}
+  - {fileID: 1449506041}
   - {fileID: 377515374}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1294,6 +1319,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79cebbfb78c6e34c9763b55b79ad090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1449506040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1449506041}
+  - component: {fileID: 1449506043}
+  - component: {fileID: 1449506042}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1449506041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449506040}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1268776987}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1449506042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449506040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1449506043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449506040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &1643861086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1515,6 +1606,7 @@ GameObject:
   - component: {fileID: 2098590851}
   - component: {fileID: 2098590850}
   - component: {fileID: 2098590852}
+  - component: {fileID: 2098590853}
   m_Layer: 5
   m_Name: SelectionUnderline
   m_TagString: Untagged
@@ -1557,7 +1649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1595,3 +1687,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initControl: {fileID: 1305904697}
   myRectTransform: {fileID: 2098590849}
+--- !u!114 &2098590853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098590848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9302bc5effd7cbf4487f12ed058cdb87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logInToSignUpTranslateAnim: {fileID: 1231692795}
+  logInToSignUpScaleAnim: {fileID: 1231692794}
+  signUpToLogInTranslateAnim: {fileID: 706227626}
+  signUpToLogInScaleAnim: {fileID: 706227627}
