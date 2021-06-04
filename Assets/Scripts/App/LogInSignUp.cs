@@ -33,6 +33,12 @@ namespace FurnishAR.App {
         [SerializeField]
         private RectTransformScaleAnim signUpToLogInScaleAnim;
 
+        [SerializeField]
+        private GameObject logInGO;
+
+        [SerializeField]
+        private GameObject signUpGO;
+
         #endregion
 
         #region Properties
@@ -45,13 +51,16 @@ namespace FurnishAR.App {
 
             myRectTransform = null;
 
-            state = LogInSignUpState.LogIn;
+            state = LogInSignUpState.Amt;
 
             logInToSignUpTranslateAnim = null;
             logInToSignUpScaleAnim = null;
 
             signUpToLogInTranslateAnim = null;
             signUpToLogInScaleAnim = null;
+
+            logInGO = null;
+            signUpGO = null;
         }
 
         static LogInSignUp() {
@@ -74,6 +83,11 @@ namespace FurnishAR.App {
         private void Init() {
             myRectTransform.localPosition = new Vector3(-370.0f, 970.0f, 0.0f);
             myRectTransform.localScale = new Vector3(6.3f, 0.2f, 1.0f);
+
+            logInGO.SetActive(true);
+            signUpGO.SetActive(false);
+
+            state = LogInSignUpState.LogIn;
         }
 
         public void OnLogInButtonClicked() {
@@ -83,6 +97,9 @@ namespace FurnishAR.App {
 
                 signUpToLogInTranslateAnim.IsUpdating = true;
                 signUpToLogInScaleAnim.IsUpdating = true;
+
+                logInGO.SetActive(true);
+                signUpGO.SetActive(false);
 
                 state = LogInSignUpState.LogIn;
             }
@@ -95,6 +112,9 @@ namespace FurnishAR.App {
 
                 logInToSignUpTranslateAnim.IsUpdating = true;
                 logInToSignUpScaleAnim.IsUpdating = true;
+
+                signUpGO.SetActive(true);
+                logInGO.SetActive(false);
 
                 state = LogInSignUpState.SignUp;
             }
