@@ -1,5 +1,11 @@
+using ExitGames.Client.Photon;
 using FurnishAR.Anim;
 using FurnishAR.Generic;
+using FurnishAR.Photon;
+using Photon.Pun;
+using Photon.Realtime;
+using SimpleJSON;
+using TMPro;
 using UnityEngine;
 using static FurnishAR.Generic.InitIDs;
 
@@ -39,6 +45,12 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject signUpGO;
 
+        [SerializeField]
+        private TMP_InputField logInUserInputField;
+
+        [SerializeField]
+        private TMP_InputField logInPasswordInputField;
+
         #endregion
 
         #region Properties
@@ -61,6 +73,9 @@ namespace FurnishAR.App {
 
             logInGO = null;
             signUpGO = null;
+
+            logInUserInputField = null;
+            logInPasswordInputField = null;
         }
 
         static LogInSignUp() {
@@ -92,6 +107,13 @@ namespace FurnishAR.App {
 
         public void OnLogInButtonClicked() {
             if(state == LogInSignUpState.SignUp) {
+                JSONNode node = new JSONArray();
+
+                node.Add(logInUserInputField.text);
+                node.Add(logInPasswordInputField.text);
+
+                PhotonNetwork.RaiseEvent((byte)EventCodes.EventCode.LogIn, node.ToString(), RaiseEventOptions.Default, SendOptions.SendReliable);
+
                 logInToSignUpTranslateAnim.IsUpdating = false;
                 logInToSignUpScaleAnim.IsUpdating = false;
 
