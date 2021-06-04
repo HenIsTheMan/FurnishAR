@@ -146,9 +146,7 @@ namespace Photon.Pun
 
 
         private static double lastWarning = 0;
-#pragma warning disable IDE0052 // Remove unread private members
 		private static bool postInspectorUpdate;
-#pragma warning restore IDE0052 // Remove unread private members
 
 
 
