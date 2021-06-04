@@ -1,35 +1,39 @@
 ﻿using Photon.Hive.Plugin;
 using System.Collections.Generic;
-using System.Text;
 using System.Data;
 using System.Reflection;
-using Newtonsoft.Json;
 using System;
 
 namespace MyFirstPlugin {
-    public class MyFirstPlugin: PluginBase {
-		Database db = new Database();
+    internal class MyFirstPlugin: PluginBase {
+		private readonly Database database;
 
-		public MyFirstPlugin() {
-			db.Connect("localhost", 3306, "test_db", "root", "password");
+		public override string Name => "MyFirstPlugin"; //The reserved plugin names are "Default" and "ErrorPlugin"
+
+		internal MyFirstPlugin() {
+			database = new Database();
+			database.Connect("localhost", 3306, "test_db", "root", "password");
 		}
 
 		~MyFirstPlugin() {
-			db.Disconnect();
+			database.Disconnect();
 		}
 
 		private static List<T> DataTableToList<T>(DataTable dt) {
 			List<T> data = new List<T>();
+
 			foreach(DataRow row in dt.Rows) {
 				T item = GetItem<T>(row);
 				data.Add(item);
 			}
+
 			return data;
 		}
 
 		private static T GetItem<T>(DataRow dr) {
 			Type temp = typeof(T);
 			T obj = Activator.CreateInstance<T>();
+
 			foreach(DataColumn column in dr.Table.Columns) {
 				foreach(PropertyInfo pro in temp.GetProperties()) {
 					if(pro.Name != column.ColumnName) {
@@ -39,10 +43,9 @@ namespace MyFirstPlugin {
 					pro.SetValue(obj, dr[column.ColumnName], null);
 				}
 			}
+
 			return obj;
 		}
-
-		public override string Name => "MyFirstPlugin"; //The reserved plugin names are "Default" and "ErrorPlugin"
 
 		//private IPluginLogger pluginLogger;
 
@@ -53,8 +56,9 @@ namespace MyFirstPlugin {
 		//}
 
 		public override void OnCreateGame(ICreateGameCallInfo info) {
-            PluginHost.LogInfo(string.Format("OnCreateGame {0} by user {1}", info.Request.GameId, info.UserId));
-            info.Continue(); // same as base.OnCreateGame(info);
+            //PluginHost.LogInfo(string.Format("OnCreateGame {0} by user {1}", info.Request.GameId, info.UserId));
+
+			base.OnCreateGame(info); //info.Continue();
         }
 
 		public override void OnRaiseEvent(IRaiseEventCallInfo info) {
@@ -88,7 +92,7 @@ namespace MyFirstPlugin {
 					break;
 				}
 				case 2: {
-					db.Query("INSERT INTO test_db.enrolment (student_id, class_id) VALUES (1, 1);");
+					database.Query("INSERT INTO test_db.enrolment (student_id, class_id) VALUES (1, 1);");
 
 					/*string firstNameOfStudent = (string)info.Request.Data;
 					DataTable dt = db.Query("SELECT * FROM students");

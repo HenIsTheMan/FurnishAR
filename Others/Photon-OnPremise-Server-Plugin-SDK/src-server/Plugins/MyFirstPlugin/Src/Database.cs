@@ -3,50 +3,27 @@ using System;
 using System.Data;
 
 namespace MyFirstPlugin {
-	class Database {
-		MySqlConnection conn = new MySqlConnection();
+	internal class Database {
+		private readonly MySqlConnection connection;
 
-		public void Connect(string host, int port, string db, string user, string password) {
-			conn.ConnectionString = $"server={host};user={user};database={db};port={port};password={password}";
-
-			conn.Open();
+		internal Database() {
+			connection = new MySqlConnection();
 		}
 
-		public void Disconnect() {
-			conn.Close();
+		internal void Connect(string host, int port, string db, string user, string password) {
+			connection.ConnectionString = $"server={host};user={user};database={db};port={port};password={password}";
+			connection.Open();
 		}
 
-		public DataTable MyQuery(string query) {
-			using(MySqlCommand cmd = new MySqlCommand(query, conn)) {
-				using(MySqlDataReader reader = cmd.ExecuteReader()) {
-					if(!reader.HasRows) {
-						return null;
-					}
-
-					int i;
-					int fieldCount = reader.FieldCount;
-					string text;
-
-					while(reader.Read()) {
-						text = string.Empty;
-
-						for(i = 0; i < fieldCount; ++i) {
-							text += reader[i] + (i == fieldCount - 1 ? "" : ", ");
-						}
-
-						Console.WriteLine(text);
-					}
-				}
-
-				return null;
-			}
+		internal void Disconnect() {
+			connection.Close();
 		}
 
-		public DataTable Query(string query) {
+		internal DataTable Query(string query) {
 			DataTable results = null;
 
 			try {
-				using(MySqlCommand cmd = new MySqlCommand(query, conn)) {
+				using(MySqlCommand cmd = new MySqlCommand(query, connection)) {
 					results = new DataTable();
 
 					using(MySqlDataReader reader = cmd.ExecuteReader()) {
