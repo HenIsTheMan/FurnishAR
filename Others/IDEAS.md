@@ -7,4 +7,4 @@
 - button anims
 - scene transition anims
 
-firstName, middleName (optional), lastName, email (unique, valid), username (unique, limit len), password (..., confirm), profile pic
+firstName, middleName (optional), lastName, email (unique, valid), username (unique, limit len), password (..., confirm), profile pic, remember me
