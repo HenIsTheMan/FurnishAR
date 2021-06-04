@@ -81,7 +81,7 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
-            myRectTransform.localPosition = new Vector3(-370.0f, 970.0f, 0.0f);
+            myRectTransform.localPosition = new Vector3(-370.0f, 1370.0f, 0.0f);
             myRectTransform.localScale = new Vector3(6.3f, 0.2f, 1.0f);
 
             logInGO.SetActive(true);
