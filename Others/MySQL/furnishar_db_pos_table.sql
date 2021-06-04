@@ -16,34 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user_table`
+-- Table structure for table `pos_table`
 --
 
-DROP TABLE IF EXISTS `user_table`;
+DROP TABLE IF EXISTS `pos_table`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_table` (
+CREATE TABLE `pos_table` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(255) NOT NULL,
-  `middleName` varchar(255) DEFAULT NULL,
-  `lastName` varchar(255) NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `x` float NOT NULL,
+  `y` float NOT NULL,
+  `z` float NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `username_UNIQUE` (`username`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
+  UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user_table`
+-- Dumping data for table `pos_table`
 --
 
-LOCK TABLES `user_table` WRITE;
-/*!40000 ALTER TABLE `user_table` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_table` ENABLE KEYS */;
+LOCK TABLES `pos_table` WRITE;
+/*!40000 ALTER TABLE `pos_table` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pos_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
