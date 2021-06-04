@@ -146,11 +146,13 @@ namespace Photon.Pun
 
 
         private static double lastWarning = 0;
-        private static bool postInspectorUpdate;
+#pragma warning disable IDE0052 // Remove unread private members
+		private static bool postInspectorUpdate;
+#pragma warning restore IDE0052 // Remove unread private members
 
-        
 
-        [MenuItem("Window/Photon Unity Networking/PUN Wizard &p", false, 0)]
+
+		[MenuItem("Window/Photon Unity Networking/PUN Wizard &p", false, 0)]
         protected static void MenuItemOpenWizard()
         {
             PhotonEditor win = GetWindow<PhotonEditor>(false, CurrentLang.WindowTitle, true);
