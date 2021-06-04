@@ -4,5 +4,7 @@
 - reflections
 - screenshot
 - record
+- button anims
+- scene transition anims
 
 firstName, middleName (optional), lastName, username (unique, limit len), password (..., confirm), profile pic

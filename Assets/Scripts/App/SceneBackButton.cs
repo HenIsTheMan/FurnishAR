@@ -3,6 +3,10 @@ using UnityEngine;
 namespace FurnishAR.App {
     internal sealed class SceneBackButton: MonoBehaviour {
         #region Fields
+
+        [SerializeField]
+        private string sceneName;
+
         #endregion
 
         #region Properties
@@ -11,6 +15,7 @@ namespace FurnishAR.App {
         #region Ctors and Dtor
 
         internal SceneBackButton(): base() {
+            sceneName = string.Empty;
         }
 
         static SceneBackButton() {
@@ -25,7 +30,7 @@ namespace FurnishAR.App {
             UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()[0].SetActive(false);
 
             UnityEngine.SceneManagement.SceneManager.SetActiveScene(
-                UnityEngine.SceneManagement.SceneManager.GetSceneByName("MainScene")
+                UnityEngine.SceneManagement.SceneManager.GetSceneByName(sceneName)
             );
 
             UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()[0].SetActive(true);

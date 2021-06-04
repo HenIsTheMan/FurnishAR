@@ -12,11 +12,6 @@ namespace FurnishAR.Generic {
 				);
 
 				UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()[0].SetActive(true);
-
-				GameObject camGO = GameObject.Find("AcctCam");
-				Camera camComponent = camGO.GetComponent<Camera>();
-				camComponent.enabled = true;
-				camComponent.clearFlags = CameraClearFlags.SolidColor;
 			});
 		}
 	}
