@@ -20,6 +20,7 @@ namespace FurnishAR.Generic {
 			FurnitureManager,
 			ListDotControl,
 			PlacementMarkerControl,
+			SelectionUnderline,
 			Amt
 		}
     }
