@@ -20,6 +20,7 @@ namespace FurnishAR.Generic {
 			FurnitureManager,
 			ListDotControl,
 			LogInSignUp,
+			PhotonMaster,
 			PlacementMarkerControl,
 			Amt
 		}
