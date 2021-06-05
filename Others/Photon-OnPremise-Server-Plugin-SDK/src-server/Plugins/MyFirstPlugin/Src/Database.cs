@@ -22,6 +22,20 @@ namespace MyFirstPlugin {
 		internal DataTable Query(string query) {
 			DataTable results = null;
 
+			using(MySqlCommand cmd = new MySqlCommand(query, connection)) {
+				results = new DataTable();
+
+				using(MySqlDataReader reader = cmd.ExecuteReader()) {
+					results.Load(reader);
+				}
+			}
+
+			return results;
+		}
+
+		internal DataTable OldQuery(string query) {
+			DataTable results = null;
+
 			try {
 				using(MySqlCommand cmd = new MySqlCommand(query, connection)) {
 					results = new DataTable();
