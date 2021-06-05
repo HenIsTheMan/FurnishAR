@@ -34,8 +34,8 @@ namespace MyFirstPlugin {
 			return $"server={host};user={user};database={db};port={port};password={password}";
 		}
 
-		internal List<User> RetrieveUsers() {
-			return database.ExecuteQuery<User>("SELECT * FROM furnishar_db.user_table").ToList();
+		internal User[] RetrieveUsers() {
+			return database.ExecuteQuery<User>("SELECT * FROM furnishar_db.user_table").ToArray();
 		}
 
 		public override void OnCreateGame(ICreateGameCallInfo info) {

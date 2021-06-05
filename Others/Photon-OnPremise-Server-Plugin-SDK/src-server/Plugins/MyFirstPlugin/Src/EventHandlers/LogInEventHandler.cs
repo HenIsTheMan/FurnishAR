@@ -30,14 +30,12 @@ namespace MyFirstPlugin {
 
 			//bool isLogInSuccessful = true; //Send with acct info too??
 
-			List<User> users = RetrieveUsers();
-
 			PluginHost.BroadcastEvent(
 				target: ReciverGroup.All,
 				senderActor: 0,
 				targetGroup: 0,
 				data: new Dictionary<byte, object>() {
-					{245, users[0].firstName}
+					{245, JsonConvert.SerializeObject(RetrieveUsers())}
 				},
 				evCode: info.Request.EvCode,
 				cacheOp: CacheOperations.DoNotCache
