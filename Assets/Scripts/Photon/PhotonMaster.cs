@@ -69,30 +69,31 @@ namespace FurnishAR.Photon {
                 = ExitGames.Client.Photon.SerializationProtocol.GpBinaryV16;
 
             if(PhotonNetwork.IsConnected) {
-                PhotonNetwork.JoinRandomRoom();
+                _ = PhotonNetwork.JoinRandomRoom();
             } else {
-                PhotonNetwork.ConnectUsingSettings();
+                _ = PhotonNetwork.ConnectUsingSettings();
             }
         }
 
         public override void OnConnectedToMaster() {
-            PhotonNetwork.JoinRandomRoom();
+            Console.Log("OnConnectedToMaster()");
+			_ = PhotonNetwork.JoinRandomRoom();
         }
 
         public override void OnJoinedRoom() {
             Console.Log("Room joined!");
         }
 
-        public override void OnJoinRoomFailed(short returnCode, string message) {
-            Console.LogError("OnJoinRoomFailed " + '(' + returnCode + "): " + message);
+        public override void OnJoinRandomFailed(short returnCode, string message) {
+            Console.Log("OnJoinRandomFailed " + '(' + returnCode + "): " + message);
 
-            PhotonNetwork.CreateRoom(null, new RoomOptions {
+            _ = PhotonNetwork.CreateRoom(null, new RoomOptions {
                 MaxPlayers = maxPlayersPerRoom
             });
         }
 
         public override void OnDisconnected(DisconnectCause cause) {
-            Debug.LogFormat("OnDisconnected() was called due to {0}", cause);
+            Debug.LogFormat("OnDisconnected() due to {0}", cause);
         }
     }
 }
