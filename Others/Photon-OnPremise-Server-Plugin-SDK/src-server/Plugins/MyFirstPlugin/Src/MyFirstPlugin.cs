@@ -1,10 +1,12 @@
-﻿using Photon.Hive.Plugin;
+﻿using MySql.Data.MySqlClient;
+using Photon.Hive.Plugin;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MyFirstPlugin {
 	internal sealed partial class MyFirstPlugin: PluginBase {
 		private readonly Database database;
+		private readonly MySqlConnection connection;
 
 		private delegate void OnRaiseEventDelegate(IRaiseEventCallInfo _);
 		private OnRaiseEventDelegate myOnRaiseEventDelegate;
@@ -12,19 +14,24 @@ namespace MyFirstPlugin {
 		public override string Name => "MyFirstPlugin"; //The reserved plugin names are "Default" and "ErrorPlugin"
 
 		internal MyFirstPlugin() {
-			database = new Database(FormConnectionStr("localhost", 3306, "furnishar_db", "root", "password"));
+			connection = new MySqlConnection();
+
+			connection.ConnectionString = FormConnectionStr("localhost", 3306, "furnishar_db", "root", "password");
+			connection.Open();
+
+			database = new Database(connection);
 
 			myOnRaiseEventDelegate = null;
 			myOnRaiseEventDelegate += LogInEventHandler;
 			myOnRaiseEventDelegate += SignUpEventHandler;
 		}
 
-		//~MyFirstPlugin() {
-		//	database.Disconnect();
-		//}
+		~MyFirstPlugin() {
+			connection.Close();
+		}
 
 		private string FormConnectionStr(string host, int port, string db, string user, string password) {
-			return $"Server={host}; Database={db}; uid={user}; pwd={password};";
+			return $"server={host};user={user};database={db};port={port};password={password}";
 		}
 
 		internal List<User> RetrieveUsers() {

@@ -1,11 +1,12 @@
-﻿using System.Data.Linq;
+﻿using System.Data;
+using System.Data.Linq;
 
 namespace MyFirstPlugin {
 	[System.Data.Linq.Mapping.Database(Name = "furnishar_db")]
 	internal sealed class Database: DataContext {
 		internal Table<User> userTable;
 
-		internal Database(string connection): base(connection) {
+		internal Database(IDbConnection connection): base(connection) {
 			userTable = GetTable<User>();
 		}
 
