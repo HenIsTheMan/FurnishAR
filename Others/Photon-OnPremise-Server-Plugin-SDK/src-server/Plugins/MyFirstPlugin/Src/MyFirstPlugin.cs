@@ -35,7 +35,19 @@ namespace MyFirstPlugin {
 		}
 
 		internal List<User> RetrieveUsers() {
-			return database.userTable.Select(_ => _).ToList(); //return (from row in db.customerTable select row).ToList();
+			var test = database.userTable.Select(row => row);
+
+			IEnumerable<User> ret = database.ExecuteQuery<User>("SELECT * FROM furnishar_db.user_table");
+			return ret.ToList();
+
+			//foreach(User user in test) {
+			//	PluginHost.LogInfo("here");
+			//	PluginHost.LogInfo(user);
+			//}
+
+			//return new List<User>();
+			//return test.ToList();
+			//return (from row in database.userTable select row).ToList();
 		}
 
 		public override void OnCreateGame(ICreateGameCallInfo info) {
