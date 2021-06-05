@@ -11,10 +11,10 @@ namespace FurnishAR.App {
         #region Fields
 
         [SerializeField]
-        private TMP_InputField logInUserInputField;
+        private TMP_InputField userInputField;
 
         [SerializeField]
-        private TMP_InputField logInPasswordInputField;
+        private TMP_InputField passwordInputField;
 
         #endregion
 
@@ -24,8 +24,8 @@ namespace FurnishAR.App {
         #region Ctors and Dtor
 
         internal LogInButton(): base() {
-            logInUserInputField = null;
-            logInPasswordInputField = null;
+            userInputField = null;
+            passwordInputField = null;
         }
 
         static LogInButton() {
@@ -39,8 +39,8 @@ namespace FurnishAR.App {
         public void OnLogInButtonClicked() {
             JSONNode node = new JSONArray();
 
-            node.Add(logInUserInputField.text);
-            node.Add(logInPasswordInputField.text);
+            node.Add(userInputField.text);
+            node.Add(passwordInputField.text);
 
             _ = PhotonNetwork.RaiseEvent((byte)EventCodes.EventCode.LogIn, node.ToString(), RaiseEventOptions.Default, SendOptions.SendReliable);
         }

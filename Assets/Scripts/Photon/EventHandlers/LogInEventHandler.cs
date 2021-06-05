@@ -48,7 +48,7 @@ namespace FurnishAR.Photon {
                 switch((LogInStatus)logInDataJSON["status"].AsInt){
                     case LogInStatus.Success:
                         logInInfoLabel.text = "Log In Success!";
-                        logInInfoLabel.color = Color.green;
+                        logInInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
 
                         break;
                     case LogInStatus.FailureDueToWrongUsername:
