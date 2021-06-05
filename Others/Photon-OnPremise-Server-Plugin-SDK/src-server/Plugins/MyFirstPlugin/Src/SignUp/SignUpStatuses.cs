@@ -9,9 +9,9 @@
 			NoNewPassword,
 			NoConfirmPassword,
 			PasswordsNotMatching,
-			Success,
 			UsernameNotUnique,
 			EmailNotUnique,
+			Success,
 			Amt
 		}
 	}

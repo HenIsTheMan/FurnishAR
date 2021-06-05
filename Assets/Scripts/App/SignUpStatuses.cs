@@ -9,9 +9,9 @@ namespace FurnishAR.App {
 			NoNewPassword,
 			NoConfirmPassword,
 			PasswordsNotMatching,
-			Success,
 			UsernameNotUnique,
 			EmailNotUnique,
+			Success,
 			Amt
 		}
 	}

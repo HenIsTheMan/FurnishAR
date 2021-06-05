@@ -53,11 +53,29 @@ namespace MyFirstPlugin {
 				goto BroadcastEvent;
 			}
 
+			User user;
+			User[] users = RetrieveUsers();
+			int usersLen = users.Length;
+
+			for(int i = 0; i < usersLen; ++i) {
+				user = users[i];
+
+				if(username == user.Username) {
+					signUpData.status = SignUpStatus.UsernameNotUnique;
+					goto BroadcastEvent;
+				}
+
+				if(email == user.Email) {
+					signUpData.status = SignUpStatus.EmailNotUnique;
+					goto BroadcastEvent;
+				}
+			}
+
 			signUpData.status = SignUpStatus.Success;
 			signUpData.username = username;
 			signUpData.email = email;
 
-			User user = new User {
+			user = new User {
 				ID = RetrieveHighestIDOfUser() + 1,
 				FirstName = firstName,
 				MiddleName = signUpInfo[1],
