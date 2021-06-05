@@ -63,8 +63,6 @@ namespace MyFirstPlugin {
 		public override void OnRaiseEvent(IRaiseEventCallInfo info) {
 			base.OnRaiseEvent(info);
 
-			PluginHost.LogInfo("here0"); //
-
 			myOnRaiseEventDelegate?.Invoke(info);
 		}
 	}

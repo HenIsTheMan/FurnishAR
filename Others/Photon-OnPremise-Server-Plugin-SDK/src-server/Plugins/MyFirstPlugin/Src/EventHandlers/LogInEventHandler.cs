@@ -8,13 +8,11 @@ namespace MyFirstPlugin {
 				return;
 			}
 
-			PluginHost.LogInfo("here1"); //
-
 			PluginHost.BroadcastEvent(
 				target: ReciverGroup.All,
 				senderActor: 0,
 				targetGroup: 0,
-				data: new System.Collections.Generic.Dictionary<byte, object>() { { 245, "hi" } },
+				data: new System.Collections.Generic.Dictionary<byte, object>() { { 245, info.Request.Data } },
 				evCode: info.Request.EvCode,
 				cacheOp: CacheOperations.DoNotCache
 			);
