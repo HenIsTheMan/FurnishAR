@@ -24,9 +24,9 @@ DROP TABLE IF EXISTS `pos_table`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pos_table` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `x` float NOT NULL,
-  `y` float NOT NULL,
-  `z` float NOT NULL,
+  `x` float NOT NULL DEFAULT '0',
+  `y` float NOT NULL DEFAULT '0',
+  `z` float NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-05 22:50:34
+-- Dump completed on 2021-06-05 22:59:01

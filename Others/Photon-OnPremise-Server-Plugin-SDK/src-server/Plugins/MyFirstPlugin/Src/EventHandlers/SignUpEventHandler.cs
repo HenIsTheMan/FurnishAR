@@ -13,15 +13,15 @@ namespace MyFirstPlugin {
 			SignUpData signUpData = new SignUpData();
 
 			string[] signUpInfo = JsonConvert.DeserializeObject<string[]>((string)info.Request.Data);
-			User user = new User();
-
-			user.ID = RetrieveHighestIDOfUser() + 1;
-			user.FirstName = signUpInfo[0];
-			user.MiddleName = signUpInfo[1];
-			user.LastName = signUpInfo[2];
-			user.Username = signUpInfo[3];
-			user.Email = signUpInfo[4];
-			user.Password = signUpInfo[5];
+			User user = new User {
+				ID = RetrieveHighestIDOfUser() + 1,
+				FirstName = signUpInfo[0],
+				MiddleName = signUpInfo[1],
+				LastName = signUpInfo[2],
+				Username = signUpInfo[3],
+				Email = signUpInfo[4],
+				Password = signUpInfo[5]
+			};
 
 			AddUser(ref user);
 

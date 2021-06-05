@@ -16,7 +16,7 @@ namespace MyFirstPlugin {
 			set;
 		}
 
-		[Column(CanBeNull = true), JsonProperty]
+		[Column(CanBeNull = false), JsonProperty]
 		internal string MiddleName {
 			get;
 			set;
