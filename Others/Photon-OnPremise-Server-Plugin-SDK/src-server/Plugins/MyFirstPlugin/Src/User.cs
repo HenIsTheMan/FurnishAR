@@ -1,15 +1,15 @@
 ﻿using System.Data.Linq.Mapping;
 
 namespace MyFirstPlugin {
-	[Table(Name = "user_table")] //??
+	[Table(Name = "user_table")]
 	internal sealed class User {
-		[Column(IsPrimaryKey = true)]
+		[Column(IsPrimaryKey = true, CanBeNull = false)]
 		internal int id {
 			get;
 			set;
 		}
 
-		[Column]
+		[Column(CanBeNull = false)]
 		internal string firstName {
 			get;
 			set;
@@ -21,25 +21,25 @@ namespace MyFirstPlugin {
 			set;
 		}
 
-		[Column]
+		[Column(CanBeNull = false)]
 		internal string lastName {
 			get;
 			set;
 		}
 
-		[Column]
+		[Column(CanBeNull = false)]
 		internal string username {
 			get;
 			set;
 		}
 
-		[Column]
+		[Column(CanBeNull = false)]
 		internal string email {
 			get;
 			set;
 		}
 
-		[Column]
+		[Column(CanBeNull = false)]
 		internal string password {
 			get;
 			set;

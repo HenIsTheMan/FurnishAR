@@ -37,7 +37,7 @@ namespace MyFirstPlugin {
 				senderActor: 0,
 				targetGroup: 0,
 				data: new Dictionary<byte, object>() {
-					{245, users.Count}
+					{245, users[0].firstName}
 				},
 				evCode: info.Request.EvCode,
 				cacheOp: CacheOperations.DoNotCache

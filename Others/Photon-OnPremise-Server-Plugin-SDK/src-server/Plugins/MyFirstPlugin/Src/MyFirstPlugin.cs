@@ -11,7 +11,7 @@ namespace MyFirstPlugin {
 		private delegate void OnRaiseEventDelegate(IRaiseEventCallInfo _);
 		private OnRaiseEventDelegate myOnRaiseEventDelegate;
 
-		public override string Name => "MyFirstPlugin"; //The reserved plugin names are "Default" and "ErrorPlugin"
+		public override string Name => "MyFirstPlugin";
 
 		internal MyFirstPlugin() {
 			connection = new MySqlConnection();
@@ -35,7 +35,7 @@ namespace MyFirstPlugin {
 		}
 
 		internal List<User> RetrieveUsers() {
-			return database.userTable.Select(_ => _).ToList(); //return (from row in db.customerTable select row).ToList();
+			return database.ExecuteQuery<User>("SELECT * FROM furnishar_db.user_table").ToList();
 		}
 
 		public override void OnCreateGame(ICreateGameCallInfo info) {
