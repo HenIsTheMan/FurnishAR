@@ -92,7 +92,7 @@ namespace FurnishAR.Photon {
         }
 
         public override void OnDisconnected(DisconnectCause cause) {
-            Debug.LogFormat("PUN Basics Tutorial/Launcher: OnDisconnected() was called by PUN with reason {0}", cause);
+            Debug.LogFormat("OnDisconnected() was called due to {0}", cause);
         }
     }
 }

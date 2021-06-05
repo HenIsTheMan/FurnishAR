@@ -35,6 +35,7 @@ namespace FurnishAR.Photon {
 
         public void OnEvent(EventData photonEvent) {
             if(photonEvent.Code == (byte)EventCodes.EventCode.LogIn) {
+                Generic.Console.Log((string)photonEvent.CustomData); //no cast??
             }
         }
     }

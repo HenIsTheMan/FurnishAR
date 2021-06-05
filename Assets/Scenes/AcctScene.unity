@@ -3304,7 +3304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c745c4ef466077c47ac2a06f056d29e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initControl: {fileID: 0}
+  initControl: {fileID: 1305904697}
   maxPlayersPerRoom: 4
   gameVer: 4.0
   localPlayerNickname: HenIsTheMan
