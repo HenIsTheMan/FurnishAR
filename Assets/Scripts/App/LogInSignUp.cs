@@ -112,7 +112,7 @@ namespace FurnishAR.App {
                 node.Add(logInUserInputField.text);
                 node.Add(logInPasswordInputField.text);
 
-                PhotonNetwork.RaiseEvent((byte)EventCodes.EventCode.LogIn, node.ToString(), RaiseEventOptions.Default, SendOptions.SendReliable);
+                _ = PhotonNetwork.RaiseEvent((byte)EventCodes.EventCode.LogIn, node.ToString(), RaiseEventOptions.Default, SendOptions.SendReliable);
 
                 logInToSignUpTranslateAnim.IsUpdating = false;
                 logInToSignUpScaleAnim.IsUpdating = false;
