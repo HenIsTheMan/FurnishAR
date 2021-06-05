@@ -5,7 +5,7 @@ using System.Reflection;
 using System;
 
 namespace MyFirstPlugin {
-	internal sealed partial class MyFirstPlugin: PluginBase {
+	internal sealed class MyFirstPlugin: PluginBase {
 		private readonly Database database;
 
 		public override string Name => "MyFirstPlugin"; //The reserved plugin names are "Default" and "ErrorPlugin"
@@ -19,7 +19,7 @@ namespace MyFirstPlugin {
 			database.Disconnect();
 		}
 
-		private static List<T> DataTableToList<T>(DataTable dt) {
+		internal static List<T> DataTableToList<T>(DataTable dt) {
 			List<T> data = new List<T>();
 
 			foreach(DataRow row in dt.Rows) {
@@ -30,7 +30,7 @@ namespace MyFirstPlugin {
 			return data;
 		}
 
-		private static T GetItem<T>(DataRow dr) {
+		internal static T GetItem<T>(DataRow dr) {
 			Type temp = typeof(T);
 			T obj = Activator.CreateInstance<T>();
 
