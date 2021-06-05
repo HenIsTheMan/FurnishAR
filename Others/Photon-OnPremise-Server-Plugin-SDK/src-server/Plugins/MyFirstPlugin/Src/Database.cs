@@ -3,7 +3,7 @@ using System;
 using System.Data;
 
 namespace MyFirstPlugin {
-	internal class Database {
+	internal sealed class Database {
 		private readonly MySqlConnection connection;
 
 		internal Database() {
