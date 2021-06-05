@@ -1174,7 +1174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &494872300
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5386,7 +5386,6 @@ MonoBehaviour:
   emailInputField: {fileID: 588905592}
   newPasswordInputField: {fileID: 1786456321}
   confirmPasswordInputField: {fileID: 52081218}
-  signUpInfoLabel: {fileID: 1703238423}
 --- !u!1 &1305904695
 GameObject:
   m_ObjectHideFlags: 0
@@ -5820,7 +5819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1432324291
 RectTransform:
   m_ObjectHideFlags: 0

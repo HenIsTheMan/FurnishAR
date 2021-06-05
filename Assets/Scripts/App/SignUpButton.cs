@@ -31,9 +31,6 @@ namespace FurnishAR.App {
         [SerializeField]
         private TMP_InputField confirmPasswordInputField;
 
-        [SerializeField]
-        private TMP_Text signUpInfoLabel;
-
         #endregion
 
         #region Properties
@@ -49,8 +46,6 @@ namespace FurnishAR.App {
             emailInputField = null;
             newPasswordInputField = null;
             confirmPasswordInputField = null;
-
-            signUpInfoLabel = null;
         }
 
         static SignUpButton() {
@@ -62,13 +57,6 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnSignUpButtonClicked() {
-            if(newPasswordInputField.text != confirmPasswordInputField.text) {
-                signUpInfoLabel.text = "New Password and Confirm Password do not match";
-                signUpInfoLabel.color = Color.red;
-
-                return;
-            }
-
             JSONNode node = new JSONArray();
 
             node.Add(firstNameInputField.text);
@@ -77,6 +65,7 @@ namespace FurnishAR.App {
             node.Add(usernameInputField.text);
             node.Add(emailInputField.text);
             node.Add(newPasswordInputField.text);
+            node.Add(confirmPasswordInputField.text);
 
             _ = PhotonNetwork.RaiseEvent((byte)EventCodes.EventCode.SignUp, node.ToString(), RaiseEventOptions.Default, SendOptions.SendReliable);
         }
