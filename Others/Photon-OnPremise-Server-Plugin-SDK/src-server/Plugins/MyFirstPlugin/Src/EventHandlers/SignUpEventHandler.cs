@@ -2,11 +2,10 @@
 using static MyFirstPlugin.Src.EventCodes;
 
 namespace MyFirstPlugin {
-	internal sealed class SignUpEventHandler: PluginBase {
-		public override void OnRaiseEvent(IRaiseEventCallInfo info) {
-			base.OnRaiseEvent(info);
-
-			if(info.Request.EvCode == (byte)EventCode.SignUp) {
+	internal sealed partial class MyFirstPlugin: PluginBase {
+		private void SignUpEventHandler(IRaiseEventCallInfo info) {
+			if(info.Request.EvCode != (byte)EventCode.SignUp) {
+				return;
 			}
 		}
 	}

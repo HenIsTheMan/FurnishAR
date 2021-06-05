@@ -34,6 +34,8 @@ namespace FurnishAR.Photon {
         #endregion
 
         public void OnEvent(EventData photonEvent) {
+            Generic.Console.Log("here"); //
+
             if(photonEvent.Code == (byte)EventCodes.EventCode.LogIn) {
                 Generic.Console.Log((string)photonEvent.CustomData); //no cast??
             }

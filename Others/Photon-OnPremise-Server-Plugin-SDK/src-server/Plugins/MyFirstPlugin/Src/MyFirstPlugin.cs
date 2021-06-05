@@ -5,21 +5,28 @@ using System.Reflection;
 using System;
 
 namespace MyFirstPlugin {
-	internal sealed class MyFirstPlugin: PluginBase {
+	internal sealed partial class MyFirstPlugin: PluginBase {
 		private readonly Database database;
+
+		private delegate void OnRaiseEventDelegate(IRaiseEventCallInfo _);
+		private OnRaiseEventDelegate myOnRaiseEventDelegate;
 
 		public override string Name => "MyFirstPlugin"; //The reserved plugin names are "Default" and "ErrorPlugin"
 
 		internal MyFirstPlugin() {
 			database = new Database();
 			database.Connect("localhost", 3306, "test_db", "root", "password");
+
+			myOnRaiseEventDelegate = null;
+			myOnRaiseEventDelegate += LogInEventHandler;
+			myOnRaiseEventDelegate += SignUpEventHandler;
 		}
 
 		~MyFirstPlugin() {
 			database.Disconnect();
 		}
 
-		internal static List<T> DataTableToList<T>(DataTable dt) {
+		private static List<T> DataTableToList<T>(DataTable dt) {
 			List<T> data = new List<T>();
 
 			foreach(DataRow row in dt.Rows) {
@@ -30,7 +37,7 @@ namespace MyFirstPlugin {
 			return data;
 		}
 
-		internal static T GetItem<T>(DataRow dr) {
+		private static T GetItem<T>(DataRow dr) {
 			Type temp = typeof(T);
 			T obj = Activator.CreateInstance<T>();
 
@@ -47,18 +54,18 @@ namespace MyFirstPlugin {
 			return obj;
 		}
 
-		//private IPluginLogger pluginLogger;
-
-		//public override bool SetupInstance(IPluginHost host, Dictionary<string, string> config, out string errorMsg)
-		//{
-		//	this.pluginLogger = host.CreateLogger(this.Name);
-		//	return base.SetupInstance(host, config, out errorMsg);
-		//}
-
 		public override void OnCreateGame(ICreateGameCallInfo info) {
             //PluginHost.LogInfo(string.Format("OnCreateGame {0} by user {1}", info.Request.GameId, info.UserId));
 
 			base.OnCreateGame(info); //info.Continue();
         }
+
+		public override void OnRaiseEvent(IRaiseEventCallInfo info) {
+			base.OnRaiseEvent(info);
+
+			PluginHost.LogInfo("here0"); //
+
+			myOnRaiseEventDelegate?.Invoke(info);
+		}
 	}
 }
