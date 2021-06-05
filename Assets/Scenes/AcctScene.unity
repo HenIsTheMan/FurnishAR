@@ -3519,6 +3519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0741d4a03ccf7464cbd1b2091e06e573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  signUpInfoLabel: {fileID: 1703238423}
 --- !u!1 &800679475
 GameObject:
   m_ObjectHideFlags: 0

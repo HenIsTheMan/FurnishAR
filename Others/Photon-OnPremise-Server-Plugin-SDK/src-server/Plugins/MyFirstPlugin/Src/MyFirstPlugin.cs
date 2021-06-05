@@ -33,8 +33,21 @@ namespace MyFirstPlugin {
 			return $"server={host};user={user};database={db};port={port};password={password}";
 		}
 
-		internal User[] RetrieveUsers() {
+		private void AddUser(ref User user) {
+			_ = database.ExecuteQuery<User>(
+				"INSERT INTO test_db.class "
+				+ "(id, firstName, middleName, lastName, username, email, password)"
+				+ " VALUES "
+				+ $"({user.ID}, \"{user.FirstName}\", \"{user.MiddleName}\", \"{user.LastName}\", \"{user.Username}\", \"{user.Email}\", \"{user.Password}\");"
+			);
+		}
+
+		private User[] RetrieveUsers() {
 			return database.ExecuteQuery<User>("SELECT * FROM furnishar_db.user_table").ToArray();
+		}
+
+		private User RetrieveUserWithHighestID(int minExclusive = 0) {
+			return database.ExecuteQuery<User>($"SELECT * FROM furnishar_db.user_table ORDER BY id DESC LIMIT {minExclusive}, 1").ToArray()[0];
 		}
 
 		public override void OnCreateGame(ICreateGameCallInfo info) {

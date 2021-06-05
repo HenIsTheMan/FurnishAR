@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Photon.Hive.Plugin;
+using System.Collections.Generic;
 using static MyFirstPlugin.EventCodes;
 
 namespace MyFirstPlugin {
@@ -12,19 +13,27 @@ namespace MyFirstPlugin {
 			SignUpData signUpData = new SignUpData();
 
 			string[] signUpInfo = JsonConvert.DeserializeObject<string[]>((string)info.Request.Data);
-			string firstName = signUpInfo[0];
-			string middleName = signUpInfo[1];
-			string lastName = signUpInfo[2];
-			string username = signUpInfo[3];
-			string email = signUpInfo[4];
-			string password = signUpInfo[5];
+			User user = new User();
+
+			user.ID = RetrieveUserWithHighestID().ID + 1;
+			user.FirstName = signUpInfo[0];
+			user.MiddleName = signUpInfo[1];
+			user.LastName = signUpInfo[2];
+			user.Username = signUpInfo[3];
+			user.Email = signUpInfo[4];
+			user.Password = signUpInfo[5];
+
+			AddUser(ref user);
+
+			signUpData.username = user.Username;
+			signUpData.email = user.Email;
 
 			PluginHost.BroadcastEvent(
 				target: ReciverGroup.All,
 				senderActor: 0,
 				targetGroup: 0,
 				data: new Dictionary<byte, object>() {
-					{245, JsonConvert.SerializeObject(logInData)}
+					{245, JsonConvert.SerializeObject(signUpData)}
 				},
 				evCode: info.Request.EvCode,
 				cacheOp: CacheOperations.DoNotCache
