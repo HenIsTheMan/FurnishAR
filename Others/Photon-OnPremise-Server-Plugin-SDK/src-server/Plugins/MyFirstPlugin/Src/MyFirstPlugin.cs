@@ -35,7 +35,7 @@ namespace MyFirstPlugin {
 
 		private void AddUser(ref User user) {
 			_ = database.ExecuteQuery<User>(
-				"INSERT INTO test_db.class "
+				"INSERT INTO furnishar_db.user_table "
 				+ "(id, firstName, middleName, lastName, username, email, password)"
 				+ " VALUES "
 				+ $"({user.ID}, \"{user.FirstName}\", \"{user.MiddleName}\", \"{user.LastName}\", \"{user.Username}\", \"{user.Email}\", \"{user.Password}\");"
