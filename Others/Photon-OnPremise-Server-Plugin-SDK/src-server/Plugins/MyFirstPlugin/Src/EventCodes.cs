@@ -1,4 +1,4 @@
-﻿namespace MyFirstPlugin.Src {
+﻿namespace MyFirstPlugin {
 	internal static class EventCodes: object {
 		internal enum EventCode: byte {
 			NotAnEvent,

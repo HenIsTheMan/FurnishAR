@@ -1,4 +1,4 @@
-﻿namespace MyFirstPlugin.Src {
+﻿namespace MyFirstPlugin {
 	internal static class LogInStatuses: object {
 		internal enum LogInStatus: byte {
 			None,

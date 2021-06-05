@@ -1,5 +1,5 @@
 ﻿using Photon.Hive.Plugin;
-using static MyFirstPlugin.Src.EventCodes;
+using static MyFirstPlugin.EventCodes;
 
 namespace MyFirstPlugin {
 	internal sealed partial class MyFirstPlugin: PluginBase {

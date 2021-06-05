@@ -2,8 +2,8 @@
 using Photon.Hive.Plugin;
 using System.Collections.Generic;
 using System.Linq;
-using static MyFirstPlugin.Src.EventCodes;
-using static MyFirstPlugin.Src.LogInStatuses;
+using static MyFirstPlugin.EventCodes;
+using static MyFirstPlugin.LogInStatuses;
 
 namespace MyFirstPlugin {
 	internal sealed partial class MyFirstPlugin: PluginBase {

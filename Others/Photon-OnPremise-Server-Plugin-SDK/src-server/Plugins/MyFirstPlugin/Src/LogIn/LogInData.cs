@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using static MyFirstPlugin.Src.LogInStatuses;
+using static MyFirstPlugin.LogInStatuses;
 
 namespace MyFirstPlugin {
 	[JsonObject(MemberSerialization.Fields)]
