@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Photon.Hive.Plugin;
+using System.Data;
 using System.Linq;
 using static MyFirstPlugin.Src.EventCodes;
 
@@ -22,7 +23,7 @@ namespace MyFirstPlugin {
 			//	+ "(SELECT username FROM furnishar_db.user_table WHERE furnishar_db.user_table.password = " + logInInfo[1] + ");"
 			//);
 
-			database.Query("SELECT * FROM furnishar_db.user_table WHERE EXISTS"
+			DataTable myDataTable = database.Query("SELECT * FROM furnishar_db.user_table WHERE EXISTS"
 				+ "(SELECT * FROM furnishar_db.user_table WHERE"
 				+ "furnishar_db.user_table.username = " + logInInfo[0] + " AND furnishar_db.user_table.password = " + logInInfo[1] + ");");
 
