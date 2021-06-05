@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Photon.Hive.Plugin;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using static MyFirstPlugin.Src.EventCodes;
@@ -29,12 +30,14 @@ namespace MyFirstPlugin {
 
 			//bool isLogInSuccessful = true; //Send with acct info too??
 
+			List<User> users = RetrieveUsers();
+
 			PluginHost.BroadcastEvent(
 				target: ReciverGroup.All,
 				senderActor: 0,
 				targetGroup: 0,
-				data: new System.Collections.Generic.Dictionary<byte, object>() {
-					{245, logInInfoLen}
+				data: new Dictionary<byte, object>() {
+					{245, users.Count}
 				},
 				evCode: info.Request.EvCode,
 				cacheOp: CacheOperations.DoNotCache

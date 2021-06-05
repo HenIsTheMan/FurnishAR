@@ -1,8 +1,6 @@
 ﻿using Photon.Hive.Plugin;
 using System.Collections.Generic;
-using System.Data;
-using System.Reflection;
-using System;
+using System.Linq;
 
 namespace MyFirstPlugin {
 	internal sealed partial class MyFirstPlugin: PluginBase {
@@ -14,44 +12,23 @@ namespace MyFirstPlugin {
 		public override string Name => "MyFirstPlugin"; //The reserved plugin names are "Default" and "ErrorPlugin"
 
 		internal MyFirstPlugin() {
-			database = new Database();
-			database.Connect("localhost", 3306, "test_db", "root", "password");
+			database = new Database(FormConnectionStr("localhost", 3306, "test_db", "root", "password"));
 
 			myOnRaiseEventDelegate = null;
 			myOnRaiseEventDelegate += LogInEventHandler;
 			myOnRaiseEventDelegate += SignUpEventHandler;
 		}
 
-		~MyFirstPlugin() {
-			database.Disconnect();
+		//~MyFirstPlugin() { //??
+		//	database.Disconnect();
+		//}
+
+		private string FormConnectionStr(string host, int port, string db, string user, string password) {
+			return $"server={host};user={user};database={db};port={port};password={password}";
 		}
 
-		private static List<T> DataTableToList<T>(DataTable dt) {
-			List<T> data = new List<T>();
-
-			foreach(DataRow row in dt.Rows) {
-				T item = GetItem<T>(row);
-				data.Add(item);
-			}
-
-			return data;
-		}
-
-		private static T GetItem<T>(DataRow dr) {
-			Type temp = typeof(T);
-			T obj = Activator.CreateInstance<T>();
-
-			foreach(DataColumn column in dr.Table.Columns) {
-				foreach(PropertyInfo pro in temp.GetProperties()) {
-					if(pro.Name != column.ColumnName) {
-						continue;
-					}
-
-					pro.SetValue(obj, dr[column.ColumnName], null);
-				}
-			}
-
-			return obj;
+		internal List<User> RetrieveUsers() {
+			return database.userTable.Select(row => row).ToList(); //return (from row in db.customerTable select row).ToList();
 		}
 
 		public override void OnCreateGame(ICreateGameCallInfo info) {

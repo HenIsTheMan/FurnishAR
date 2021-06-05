@@ -1,72 +1,18 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Data;
+﻿using System.Data.Linq;
 
 namespace MyFirstPlugin {
-	internal sealed class Database {
-		private readonly MySqlConnection connection;
+	internal sealed class Database: DataContext {
+		internal Table<User> userTable;
 
-		internal Database() {
-			connection = new MySqlConnection();
+		internal Database(string connection): base(connection) {
+			userTable = null;
 		}
 
-		internal void Connect(string host, int port, string db, string user, string password) {
-			connection.ConnectionString = $"server={host};user={user};database={db};port={port};password={password}";
-			connection.Open();
-		}
-
-		internal void Disconnect() {
-			connection.Close();
-		}
-
-		internal DataTable Query(string query) {
-			DataTable results = null;
-
-			using(MySqlCommand cmd = new MySqlCommand(query, connection)) {
-				results = new DataTable();
-
-				using(MySqlDataReader reader = cmd.ExecuteReader()) {
-					results.Load(reader);
-				}
-			}
-
-			return results;
-		}
-
-		internal DataTable OldQuery(string query) {
-			DataTable results = null;
-
-			try {
-				using(MySqlCommand cmd = new MySqlCommand(query, connection)) {
-					results = new DataTable();
-
-					using(MySqlDataReader reader = cmd.ExecuteReader()) {
-						results.Load(reader);
-
-						if(!reader.HasRows) {
-							return results;
-						}
-
-						int i;
-						int fieldCount = reader.FieldCount;
-						string text;
-
-						while(reader.Read()) {
-							text = string.Empty;
-
-							for(i = 0; i < fieldCount; ++i) {
-								text += reader[i] + (i == fieldCount - 1 ? "" : ", ");
-							}
-
-							Console.WriteLine(text);
-						}
-					}
-				}
-			} catch(Exception e) {
-				Console.WriteLine(e.ToString());
-			}
-
-			return results;
-		}
+		//internal void Query(string query) {
+		//	using(MySqlCommand cmd = new MySqlCommand(query, connection)) {
+		//		using(MySqlDataReader reader = cmd.ExecuteReader()) {
+		//		}
+		//	}
+		//}
 	}
 }
