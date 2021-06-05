@@ -5,43 +5,43 @@ namespace MyFirstPlugin {
 	[Table(Name = "user_table")]
 	internal sealed class User {
 		[Column(IsPrimaryKey = true, CanBeNull = false), JsonProperty]
-		internal int id {
+		internal int ID {
 			get;
 			set;
 		}
 
 		[Column(CanBeNull = false), JsonProperty]
-		internal string firstName {
+		internal string FirstName {
 			get;
 			set;
 		}
 
 		[Column(CanBeNull = true), JsonProperty]
-		internal string middleName {
+		internal string MiddleName {
 			get;
 			set;
 		}
 
 		[Column(CanBeNull = false), JsonProperty]
-		internal string lastName {
+		internal string LastName {
 			get;
 			set;
 		}
 
 		[Column(CanBeNull = false), JsonProperty]
-		internal string username {
+		internal string Username {
 			get;
 			set;
 		}
 
 		[Column(CanBeNull = false), JsonProperty]
-		internal string email {
+		internal string Email {
 			get;
 			set;
 		}
 
 		[Column(CanBeNull = false), JsonProperty]
-		internal string password {
+		internal string Password {
 			get;
 			set;
 		}
