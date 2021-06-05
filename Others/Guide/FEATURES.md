@@ -1,9 +1,6 @@
-Doing:
+## Doing
 
-User Account Management
-
-- Obj-Relational Mapping (ORM)
-
+User Account Management:
 - Login
 - Registration
 - Edit Account
@@ -13,33 +10,33 @@ User Account Management
 - Password Validation
 - Unique Username
 
-Inventory or Skill Tree Systems
-
+Inventory or Skill Tree Systems:
 - Add
 - Remove
 - Upgrade or level up
 - Categorisation
 
-User Interface
-
+User Interface:
 - Feedback e.g. error message
 - Input validations
 
-Software Engineering
-
+Software Engineering:
 - Database Structure Design
 
-Done:
+## Done
 
-User Interface
-
+User Interface:
 - Proper input field
 
-Software Engineering
-
+Software Engineering:
 - Hierarchy and Project Structure
 - Code Design
 
-Maybe:
+Others:
+- Obj-Relational Mapping (ORM)
+- JSON
+
+## Maybe
 
 - change 245
+- Better ORM
