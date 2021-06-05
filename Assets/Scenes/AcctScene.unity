@@ -2616,7 +2616,7 @@ GameObject:
   - component: {fileID: 660397068}
   - component: {fileID: 660397067}
   m_Layer: 5
-  m_Name: LogInButton
+  m_Name: LogInTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2688,7 +2688,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2098590853}
         m_TargetAssemblyTypeName: FurnishAR.App.LogInSignUp, Assembly-CSharp
-        m_MethodName: OnLogInButtonClicked
+        m_MethodName: OnLogInTabClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3949,7 +3949,7 @@ GameObject:
   - component: {fileID: 996724056}
   - component: {fileID: 996724055}
   m_Layer: 5
-  m_Name: SignUpButton
+  m_Name: SignUpTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4021,7 +4021,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2098590853}
         m_TargetAssemblyTypeName: FurnishAR.App.LogInSignUp, Assembly-CSharp
-        m_MethodName: OnSignUpButtonClicked
+        m_MethodName: OnSignUpTabClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7491,6 +7491,7 @@ GameObject:
   - component: {fileID: 1906527189}
   - component: {fileID: 1906527188}
   - component: {fileID: 1906527187}
+  - component: {fileID: 1906527190}
   m_Layer: 5
   m_Name: LogInButton
   m_TagString: Untagged
@@ -7561,7 +7562,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1906527188}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1906527190}
+        m_TargetAssemblyTypeName: FurnishAR.App.LogInButton, Assembly-CSharp
+        m_MethodName: OnLogInButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1906527188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7600,6 +7613,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906527185}
   m_CullTransparentMesh: 1
+--- !u!114 &1906527190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906527185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21d95a41689b9f40afb7407eb49ae54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logInUserInputField: {fileID: 1523551633}
+  logInPasswordInputField: {fileID: 1919426776}
 --- !u!1 &1910306857
 GameObject:
   m_ObjectHideFlags: 0
@@ -8335,5 +8362,3 @@ MonoBehaviour:
   signUpToLogInScaleAnim: {fileID: 706227627}
   logInGO: {fileID: 1432324290}
   signUpGO: {fileID: 494872299}
-  logInUserInputField: {fileID: 1523551633}
-  logInPasswordInputField: {fileID: 1919426776}
