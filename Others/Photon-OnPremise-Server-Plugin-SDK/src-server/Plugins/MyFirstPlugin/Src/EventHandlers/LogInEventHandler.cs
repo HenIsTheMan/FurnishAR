@@ -15,8 +15,19 @@ namespace MyFirstPlugin {
 			LogInData logInData = new LogInData();
 
 			string[] logInInfo = JsonConvert.DeserializeObject<string[]>((string)info.Request.Data);
+
 			string usernameOrEmail = logInInfo[0];
+			if(string.IsNullOrEmpty(usernameOrEmail)) {
+				logInData.status = LogInStatus.NoUsernameOrEmail;
+				goto BroadcastEvent;
+			}
+
 			string password = logInInfo[1];
+			if(string.IsNullOrEmpty(password)) {
+				logInData.status = LogInStatus.NoPassword;
+				goto BroadcastEvent;
+			}
+
 			bool isEmail = usernameOrEmail.Contains('@');
 
 			User user;
@@ -57,16 +68,18 @@ namespace MyFirstPlugin {
 				}
 			}
 
-			PluginHost.BroadcastEvent(
-				target: ReciverGroup.All,
-				senderActor: 0,
-				targetGroup: 0,
-				data: new Dictionary<byte, object>() {
+			BroadcastEvent: {
+				PluginHost.BroadcastEvent(
+					target: ReciverGroup.All,
+					senderActor: 0,
+					targetGroup: 0,
+					data: new Dictionary<byte, object>() {
 					{245, JsonConvert.SerializeObject(logInData)}
-				},
-				evCode: info.Request.EvCode,
-				cacheOp: CacheOperations.DoNotCache
-			);
+					},
+					evCode: info.Request.EvCode,
+					cacheOp: CacheOperations.DoNotCache
+				);
+			}
 		}
 	}
 }
