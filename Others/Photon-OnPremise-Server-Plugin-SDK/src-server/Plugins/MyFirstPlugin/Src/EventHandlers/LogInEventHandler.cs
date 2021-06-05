@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Photon.Hive.Plugin;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using static MyFirstPlugin.Src.EventCodes;
+using static MyFirstPlugin.Src.LogInStatuses;
 
 namespace MyFirstPlugin {
 	internal sealed partial class MyFirstPlugin: PluginBase {
@@ -12,30 +12,59 @@ namespace MyFirstPlugin {
 				return;
 			}
 
-			string[] logInInfo = JsonConvert.DeserializeObject<string[]>((string)info.Request.Data);
-			int logInInfoLen = logInInfo.Length;
-
 			//input validation??
 
-			//database.Query(logInInfo[0].Contains('@')
-			//	? "SELECT * FROM furnishar_db.user_table WHERE EXISTS"
-			//	+ "(SELECT email FROM furnishar_db.user_table WHERE furnishar_db.user_table.password = " + logInInfo[1] + ");"
-			//	: "SELECT * FROM furnishar_db.user_table WHERE EXISTS"
-			//	+ "(SELECT username FROM furnishar_db.user_table WHERE furnishar_db.user_table.password = " + logInInfo[1] + ");"
-			//);
+			LogInData logInData = new LogInData();
 
-			//DataTable myDataTable = database.Query("SELECT * FROM furnishar_db.user_table WHERE EXISTS"
-			//	+ "(SELECT * FROM furnishar_db.user_table WHERE"
-			//	+ "furnishar_db.user_table.username = " + logInInfo[0] + " AND furnishar_db.user_table.password = " + logInInfo[1] + ");");
+			string[] logInInfo = JsonConvert.DeserializeObject<string[]>((string)info.Request.Data);
+			string usernameOrEmail = logInInfo[0];
+			string password = logInInfo[1];
+			bool isEmail = usernameOrEmail.Contains('@');
 
-			//bool isLogInSuccessful = true; //Send with acct info too??
+			User user;
+			User[] users = RetrieveUsers();
+			int usersLen = users.Length;
+
+			for(int i = 0; i < usersLen; ++i) {
+				user = users[i];
+
+				if(user.Username == usernameOrEmail || user.Email == usernameOrEmail) {
+					if(user.Password == password) {
+						logInData.status = LogInStatus.Success;
+						logInData.username = user.Username;
+						logInData.email = user.Email;
+
+						break;
+					} else {
+						logInData.status = LogInStatus.FailureDueToWrongPassword;
+
+						if(isEmail) {
+							logInData.email = user.Email;
+						} else {
+							logInData.username = user.Username;
+						}
+
+						break;
+					}
+				}
+			}
+
+			if(logInData.status != LogInStatus.Success && logInData.status != LogInStatus.FailureDueToWrongPassword) {
+				if(isEmail) {
+					logInData.status = LogInStatus.FailureDueToWrongEmail;
+					logInData.email = usernameOrEmail;
+				} else {
+					logInData.status = LogInStatus.FailureDueToWrongUsername;
+					logInData.username = usernameOrEmail;
+				}
+			}
 
 			PluginHost.BroadcastEvent(
 				target: ReciverGroup.All,
 				senderActor: 0,
 				targetGroup: 0,
 				data: new Dictionary<byte, object>() {
-					{245, JsonConvert.SerializeObject(RetrieveUsers())}
+					{245, JsonConvert.SerializeObject(logInData)}
 				},
 				evCode: info.Request.EvCode,
 				cacheOp: CacheOperations.DoNotCache

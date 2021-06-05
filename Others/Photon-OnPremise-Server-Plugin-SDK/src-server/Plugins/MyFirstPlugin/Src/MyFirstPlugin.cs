@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using Photon.Hive.Plugin;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace MyFirstPlugin {
