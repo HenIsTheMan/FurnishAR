@@ -12,19 +12,19 @@ namespace MyFirstPlugin {
 		public override string Name => "MyFirstPlugin"; //The reserved plugin names are "Default" and "ErrorPlugin"
 
 		internal MyFirstPlugin() {
-			database = new Database(FormConnectionStr("localhost", 3306, "test_db", "root", "password"));
+			database = new Database(FormConnectionStr("localhost", "furnishar_db", "root", "password"));
 
 			myOnRaiseEventDelegate = null;
 			myOnRaiseEventDelegate += LogInEventHandler;
 			myOnRaiseEventDelegate += SignUpEventHandler;
 		}
 
-		//~MyFirstPlugin() { //??
+		//~MyFirstPlugin() {
 		//	database.Disconnect();
 		//}
 
-		private string FormConnectionStr(string host, int port, string db, string user, string password) {
-			return $"server={host};user={user};database={db};port={port};password={password}";
+		private string FormConnectionStr(string host, string db, string user, string password) {
+			return $"server={host};user={user};database={db};password={password}";
 		}
 
 		internal List<User> RetrieveUsers() {

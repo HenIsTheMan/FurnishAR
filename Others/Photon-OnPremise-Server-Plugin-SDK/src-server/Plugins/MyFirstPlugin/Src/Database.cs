@@ -5,7 +5,7 @@ namespace MyFirstPlugin {
 		internal Table<User> userTable;
 
 		internal Database(string connection): base(connection) {
-			userTable = null;
+			userTable = GetTable<User>();
 		}
 
 		//internal void Query(string query) {
