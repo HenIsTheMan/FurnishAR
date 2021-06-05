@@ -15,7 +15,7 @@ namespace MyFirstPlugin {
 			string[] signUpInfo = JsonConvert.DeserializeObject<string[]>((string)info.Request.Data);
 			User user = new User();
 
-			user.ID = RetrieveUserWithHighestID().ID + 1;
+			user.ID = RetrieveHighestIDOfUser() + 1;
 			user.FirstName = signUpInfo[0];
 			user.MiddleName = signUpInfo[1];
 			user.LastName = signUpInfo[2];

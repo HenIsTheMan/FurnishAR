@@ -34,20 +34,24 @@ namespace MyFirstPlugin {
 		}
 
 		private void AddUser(ref User user) {
-			_ = database.ExecuteQuery<User>(
-				"INSERT INTO furnishar_db.user_table "
-				+ "(id, firstName, middleName, lastName, username, email, password)"
-				+ " VALUES "
-				+ $"({user.ID}, \"{user.FirstName}\", \"{user.MiddleName}\", \"{user.LastName}\", \"{user.Username}\", \"{user.Email}\", \"{user.Password}\");"
-			);
+			try {
+				_ = database.ExecuteQuery<User>(
+					"INSERT INTO furnishar_db.user_table "
+					+ "(id, firstName, middleName, lastName, username, email, password)"
+					+ " VALUES "
+					+ $"({user.ID}, \"{user.FirstName}\", \"{user.MiddleName}\", \"{user.LastName}\", \"{user.Username}\", \"{user.Email}\", \"{user.Password}\");"
+				);
+			} catch(System.Exception) {
+			}
 		}
 
 		private User[] RetrieveUsers() {
 			return database.ExecuteQuery<User>("SELECT * FROM furnishar_db.user_table").ToArray();
 		}
 
-		private User RetrieveUserWithHighestID(int minExclusive = 0) {
-			return database.ExecuteQuery<User>($"SELECT * FROM furnishar_db.user_table ORDER BY id DESC LIMIT {minExclusive}, 1").ToArray()[0];
+		private int RetrieveHighestIDOfUser(int minExclusive = 0) {
+			User[] users = database.ExecuteQuery<User>($"SELECT * FROM furnishar_db.user_table ORDER BY id DESC LIMIT {minExclusive}, 1").ToArray();
+			return users.Length == 0 ? minExclusive : users[0].ID;
 		}
 
 		public override void OnCreateGame(ICreateGameCallInfo info) {
