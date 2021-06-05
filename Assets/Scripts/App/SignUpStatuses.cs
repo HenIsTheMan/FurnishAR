@@ -6,7 +6,7 @@ namespace FurnishAR.App {
 			NoLastName,
 			NoUsername,
 			NoEmail,
-			NoPassword,
+			NoNewPassword,
 			NoConfirmPassword,
 			PasswordsNotMatching,
 			Success,
