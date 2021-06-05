@@ -12,8 +12,6 @@ namespace MyFirstPlugin {
 				return;
 			}
 
-			//input validation??
-
 			LogInData logInData = new LogInData();
 
 			string[] logInInfo = JsonConvert.DeserializeObject<string[]>((string)info.Request.Data);
