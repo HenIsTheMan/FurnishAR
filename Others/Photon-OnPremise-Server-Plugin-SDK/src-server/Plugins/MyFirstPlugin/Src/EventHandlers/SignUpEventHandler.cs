@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Photon.Hive.Plugin;
 using System.Collections.Generic;
+using System.Linq;
 using static MyFirstPlugin.EventCodes;
 using static MyFirstPlugin.SignUpStatuses;
 
@@ -51,6 +52,34 @@ namespace MyFirstPlugin {
 			} else if(newPassword != confirmPassword) {
 				signUpData.status = SignUpStatus.PasswordsNotMatching;
 				goto BroadcastEvent;
+			}
+
+			int atIndex = email.IndexOf('@');
+			int dotIndex = email.IndexOf('.');
+			int emailLen = email.Length;
+
+			if(email.Count(myChar => myChar == '@') != 1
+				|| email.Count(myChar => myChar == '.') != 1
+				|| atIndex < 1
+				|| dotIndex < 3
+				|| atIndex > emailLen - 4
+				|| dotIndex > emailLen - 2
+				|| (atIndex >= dotIndex - 1)
+			) {
+				signUpData.status = SignUpStatus.InvalidEmail;
+				goto BroadcastEvent;
+			} else {
+				string substr0 = email.Substring(0, atIndex);
+				string substr1 = email.Substring(atIndex + 1, dotIndex - atIndex - 1);
+				string substr2 = email.Substring(dotIndex + 1, emailLen - dotIndex - 1);
+
+				if(!substr0.All(char.IsLetterOrDigit)
+					|| !substr1.All(char.IsLetterOrDigit)
+					|| !substr2.All(char.IsLetter)
+				) {
+					signUpData.status = SignUpStatus.InvalidEmail;
+					goto BroadcastEvent;
+				}
 			}
 
 			User user;

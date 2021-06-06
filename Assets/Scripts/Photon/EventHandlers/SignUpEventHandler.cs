@@ -84,6 +84,11 @@ namespace FurnishAR.Photon {
                     signUp.signUpInfoLabel.color = Color.red;
 
                     break;
+                case SignUpStatus.InvalidEmail:
+                    signUp.signUpInfoLabel.text = "Email is invalid!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
                 case SignUpStatus.UsernameNotUnique:
                     signUp.signUpInfoLabel.text = $"Username \"{signUpDataJSON["username"].Value}\" is already in use!";
                     signUp.signUpInfoLabel.color = Color.red;

@@ -9,6 +9,7 @@
 			NoNewPassword,
 			NoConfirmPassword,
 			PasswordsNotMatching,
+			InvalidEmail,
 			UsernameNotUnique,
 			EmailNotUnique,
 			Success,
