@@ -185,6 +185,53 @@ namespace MyFirstPlugin {
 			lastName = lastName.ToLower();
 			lastName = char.ToUpper(lastName[0]) + lastName.Substring(1);
 
+			//* Password Encryption
+			int passwordLen = newPassword.Length;
+			int[] valsASCII = new int[(passwordLen & 1) == 1 ? passwordLen + 1 : passwordLen];
+			int valsASCIILen = valsASCII.Length;
+
+			/* valsASCII (follows col-major order)
+				valsASCII[0] ...
+				valsASCII[1] ...
+			//*/
+
+			for(int i = 0; i < passwordLen; ++i) {
+				valsASCII[i] = newPassword[i];
+			}
+			if((passwordLen & 1) == 1) {
+				valsASCII[valsASCIILen - 1] = -1; //Invalid val
+			}
+
+			int[] key = new int[4]{
+				2,
+				5,
+				7,
+				4
+			};
+
+			/* key (follows col-major order)
+				2 7
+				5 4
+			//*/
+
+			///Matrix Multiplication
+			int[] encryptedValsASCII = new int[valsASCIILen];
+			int limit = valsASCIILen / 2;
+			int index0;
+			int index1;
+
+			for(int i = 0; i < limit; ++i) {
+				index0 = 2 * i;
+				index1 = index0 + 1;
+
+				encryptedValsASCII[index0] = key[0] * valsASCII[index0] + key[2] * valsASCII[index1];
+				encryptedValsASCII[index1] = key[1] * valsASCII[index0] + key[3] * valsASCII[index1]; 
+			}
+			///
+
+			newPassword = JsonConvert.SerializeObject(encryptedValsASCII);
+			//*/
+
 			user = new User {
 				ID = RetrieveHighestIDOfUser() + 1,
 				FirstName = firstName,
