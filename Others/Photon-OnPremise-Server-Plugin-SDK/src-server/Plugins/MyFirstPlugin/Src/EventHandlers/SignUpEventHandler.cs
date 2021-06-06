@@ -116,13 +116,13 @@ namespace MyFirstPlugin {
 			for(int i = 0; i < usersLen; ++i) {
 				user = users[i];
 
-				if(username == user.Username) {
+				if(username.ToLower() == user.Username.ToLower()) {
 					signUpData.status = SignUpStatus.UsernameNotUnique;
 					signUpData.username = username;
 					goto BroadcastEvent;
 				}
 
-				if(email == user.Email) {
+				if(email.ToLower() == user.Email.ToLower()) {
 					signUpData.status = SignUpStatus.EmailNotUnique;
 					signUpData.email = email;
 					goto BroadcastEvent;

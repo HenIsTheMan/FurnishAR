@@ -41,7 +41,7 @@ namespace MyFirstPlugin {
 			for(int i = 0; i < usersLen; ++i) {
 				user = users[i];
 
-				if(user.Username == usernameOrEmail || user.Email == usernameOrEmail) {
+				if(user.Username.ToLower() == usernameOrEmail.ToLower() || user.Email.ToLower() == usernameOrEmail.ToLower()) {
 					if(user.Password == password) {
 						logInData.status = LogInStatus.Success;
 						logInData.username = user.Username;
