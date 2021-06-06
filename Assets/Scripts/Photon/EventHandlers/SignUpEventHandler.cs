@@ -1,8 +1,8 @@
 using ExitGames.Client.Photon;
+using FurnishAR.App;
 using Photon.Pun;
 using Photon.Realtime;
 using SimpleJSON;
-using TMPro;
 using UnityEngine;
 using static FurnishAR.App.SignUpStatuses;
 
@@ -11,7 +11,7 @@ namespace FurnishAR.Photon {
         #region Fields
 
         [SerializeField]
-        private TMP_Text signUpInfoLabel;
+        private SignUp signUp;
 
         #endregion
 
@@ -21,7 +21,7 @@ namespace FurnishAR.Photon {
         #region Ctors and Dtor
 
         internal SignUpEventHandler(): base() {
-            signUpInfoLabel = null;
+            signUp = null;
         }
 
         static SignUpEventHandler() {
@@ -50,53 +50,53 @@ namespace FurnishAR.Photon {
 
             switch((SignUpStatus)signUpDataJSON["status"].AsInt) {
                 case SignUpStatus.NoFirstName:
-                    signUpInfoLabel.text = "\"First Name\" cannot be blank!";
-                    signUpInfoLabel.color = Color.red;
+                    signUp.signUpInfoLabel.text = "\"First Name\" cannot be blank!";
+                    signUp.signUpInfoLabel.color = Color.red;
 
                     break;
                 case SignUpStatus.NoLastName:
-                    signUpInfoLabel.text = "\"Last Name\" cannot be blank!";
-                    signUpInfoLabel.color = Color.red;
+                    signUp.signUpInfoLabel.text = "\"Last Name\" cannot be blank!";
+                    signUp.signUpInfoLabel.color = Color.red;
 
                     break;
                 case SignUpStatus.NoUsername:
-                    signUpInfoLabel.text = "\"Username\" cannot be blank!";
-                    signUpInfoLabel.color = Color.red;
+                    signUp.signUpInfoLabel.text = "\"Username\" cannot be blank!";
+                    signUp.signUpInfoLabel.color = Color.red;
 
                     break;
                 case SignUpStatus.NoEmail:
-                    signUpInfoLabel.text = "\"Email\" cannot be blank!";
-                    signUpInfoLabel.color = Color.red;
+                    signUp.signUpInfoLabel.text = "\"Email\" cannot be blank!";
+                    signUp.signUpInfoLabel.color = Color.red;
 
                     break;
                 case SignUpStatus.NoNewPassword:
-                    signUpInfoLabel.text = "\"New Password\" cannot be blank!";
-                    signUpInfoLabel.color = Color.red;
+                    signUp.signUpInfoLabel.text = "\"New Password\" cannot be blank!";
+                    signUp.signUpInfoLabel.color = Color.red;
 
                     break;
                 case SignUpStatus.NoConfirmPassword:
-                    signUpInfoLabel.text = "\"Confirm Password\" cannot be blank!";
-                    signUpInfoLabel.color = Color.red;
+                    signUp.signUpInfoLabel.text = "\"Confirm Password\" cannot be blank!";
+                    signUp.signUpInfoLabel.color = Color.red;
 
                     break;
                 case SignUpStatus.PasswordsNotMatching:
-                    signUpInfoLabel.text = "\"New Password\" and \"Confirm Password\" do not match!";
-                    signUpInfoLabel.color = Color.red;
+                    signUp.signUpInfoLabel.text = "\"New Password\" and \"Confirm Password\" do not match!";
+                    signUp.signUpInfoLabel.color = Color.red;
 
                     break;
                 case SignUpStatus.UsernameNotUnique:
-                    signUpInfoLabel.text = $"Username \"{signUpDataJSON["username"].Value}\" is already in use!";
-                    signUpInfoLabel.color = Color.red;
+                    signUp.signUpInfoLabel.text = $"Username \"{signUpDataJSON["username"].Value}\" is already in use!";
+                    signUp.signUpInfoLabel.color = Color.red;
 
                     break;
                 case SignUpStatus.EmailNotUnique:
-                    signUpInfoLabel.text = $"Email \"{signUpDataJSON["email"].Value}\" is already in use!";
-                    signUpInfoLabel.color = Color.red;
+                    signUp.signUpInfoLabel.text = $"Email \"{signUpDataJSON["email"].Value}\" is already in use!";
+                    signUp.signUpInfoLabel.color = Color.red;
 
                     break;
                 case SignUpStatus.Success:
-                    signUpInfoLabel.text = "Sign Up Success!";
-                    signUpInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
+                    signUp.signUpInfoLabel.text = "Sign Up Success!";
+                    signUp.signUpInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
 
                     break;
             }

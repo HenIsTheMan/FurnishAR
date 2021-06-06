@@ -1,8 +1,8 @@
 using ExitGames.Client.Photon;
+using FurnishAR.App;
 using Photon.Pun;
 using Photon.Realtime;
 using SimpleJSON;
-using TMPro;
 using UnityEngine;
 using static FurnishAR.App.LogInStatuses;
 
@@ -11,7 +11,7 @@ namespace FurnishAR.Photon {
         #region Fields
 
         [SerializeField]
-        private TMP_Text logInInfoLabel;
+        private LogIn logIn;
 
         #endregion
 
@@ -21,7 +21,7 @@ namespace FurnishAR.Photon {
         #region Ctors and Dtor
 
         internal LogInEventHandler(): base() {
-            logInInfoLabel = null;
+            logIn = null;
         }
 
         static LogInEventHandler() {
@@ -50,33 +50,35 @@ namespace FurnishAR.Photon {
 
             switch((LogInStatus)logInDataJSON["status"].AsInt){
                 case LogInStatus.NoUsernameOrEmail:
-                    logInInfoLabel.text = "\"Username or Email\" cannot be blank!";
-                    logInInfoLabel.color = Color.red;
+                    logIn.logInInfoLabel.text = "\"Username or Email\" cannot be blank!";
+                    logIn.logInInfoLabel.color = Color.red;
 
                     break;
                 case LogInStatus.NoPassword:
-                    logInInfoLabel.text = "\"Password\" cannot be blank!";
-                    logInInfoLabel.color = Color.red;
+                    logIn.logInInfoLabel.text = "\"Password\" cannot be blank!";
+                    logIn.logInInfoLabel.color = Color.red;
 
                     break;
                 case LogInStatus.Success:
-                    logInInfoLabel.text = "Log In Success!";
-                    logInInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
+                    logIn.logInInfoLabel.text = "Log In Success!";
+                    logIn.logInInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
 
                     break;
                 case LogInStatus.WrongUsername:
-                    logInInfoLabel.text = $"Username \"{logInDataJSON["username"].Value}\" is unregistered!";
-                    logInInfoLabel.color = Color.red;
+                    logIn.logInInfoLabel.text = $"Username \"{logInDataJSON["username"].Value}\" is unregistered!";
+                    logIn.logInInfoLabel.color = Color.red;
 
                     break;
                 case LogInStatus.WrongEmail:
-                    logInInfoLabel.text = $"Email \"{logInDataJSON["email"].Value}\" is unregistered!";
-                    logInInfoLabel.color = Color.red;
+                    logIn.logInInfoLabel.text = $"Email \"{logInDataJSON["email"].Value}\" is unregistered!";
+                    logIn.logInInfoLabel.color = Color.red;
 
                     break;
                 case LogInStatus.WrongPassword:
-                    logInInfoLabel.text = "Password is incorrect!";
-                    logInInfoLabel.color = Color.red;
+                    logIn.logInInfoLabel.text = "Password is incorrect!";
+                    logIn.logInInfoLabel.color = Color.red;
+
+                    logIn.ClearPasswordInputField();
 
                     break;
             }

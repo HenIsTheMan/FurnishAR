@@ -7,7 +7,7 @@ using TMPro;
 using UnityEngine;
 
 namespace FurnishAR.App {
-    internal sealed class SignUpButton: MonoBehaviour {
+    internal sealed class SignUp: MonoBehaviour {
         #region Fields
 
         [SerializeField]
@@ -31,6 +31,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private TMP_InputField confirmPasswordInputField;
 
+        [SerializeField]
+        internal TMP_Text signUpInfoLabel;
+
         #endregion
 
         #region Properties
@@ -38,7 +41,7 @@ namespace FurnishAR.App {
 
         #region Ctors and Dtor
 
-        internal SignUpButton(): base() {
+        internal SignUp(): base() {
             firstNameInputField = null;
             middleNameInputField = null;
             lastNameInputField = null;
@@ -46,9 +49,11 @@ namespace FurnishAR.App {
             emailInputField = null;
             newPasswordInputField = null;
             confirmPasswordInputField = null;
+
+            signUpInfoLabel = null;
         }
 
-        static SignUpButton() {
+        static SignUp() {
         }
 
         #endregion
@@ -56,7 +61,7 @@ namespace FurnishAR.App {
         #region Unity User Callback Event Funcs
         #endregion
 
-        public void OnSignUpButtonClicked() {
+        public void OnSignUpButtonClicked() { //Shld not have "SignUp" actually
             JSONNode node = new JSONArray();
 
             node.Add(firstNameInputField.text);
@@ -68,6 +73,18 @@ namespace FurnishAR.App {
             node.Add(confirmPasswordInputField.text);
 
             _ = PhotonNetwork.RaiseEvent((byte)EventCodes.EventCode.SignUp, node.ToString(), RaiseEventOptions.Default, SendOptions.SendReliable);
+        }
+
+        internal void ClearSignUp() { //Shld not have "SignUp" actually
+            firstNameInputField.text = string.Empty;
+            middleNameInputField.text = string.Empty;
+            lastNameInputField.text = string.Empty;
+            usernameInputField.text = string.Empty;
+            emailInputField.text = string.Empty;
+            newPasswordInputField.text = string.Empty;
+            confirmPasswordInputField.text = string.Empty;
+
+            signUpInfoLabel.text = string.Empty;
         }
     }
 }

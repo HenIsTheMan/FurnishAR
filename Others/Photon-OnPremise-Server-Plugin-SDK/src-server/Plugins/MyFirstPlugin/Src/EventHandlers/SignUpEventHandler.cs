@@ -62,11 +62,13 @@ namespace MyFirstPlugin {
 
 				if(username == user.Username) {
 					signUpData.status = SignUpStatus.UsernameNotUnique;
+					signUpData.username = username;
 					goto BroadcastEvent;
 				}
 
 				if(email == user.Email) {
 					signUpData.status = SignUpStatus.EmailNotUnique;
+					signUpData.email = email;
 					goto BroadcastEvent;
 				}
 			}

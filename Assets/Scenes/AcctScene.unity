@@ -1168,6 +1168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 494872300}
+  - component: {fileID: 494872301}
   m_Layer: 5
   m_Name: SignUp
   m_TagString: Untagged
@@ -1203,6 +1204,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &494872301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494872299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1e66f1a849eae4e862173d7c643cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstNameInputField: {fileID: 1352235554}
+  middleNameInputField: {fileID: 1156614115}
+  lastNameInputField: {fileID: 1653660832}
+  usernameInputField: {fileID: 1480478054}
+  emailInputField: {fileID: 588905592}
+  newPasswordInputField: {fileID: 1786456321}
+  confirmPasswordInputField: {fileID: 52081218}
+  signUpInfoLabel: {fileID: 1703238423}
 --- !u!1 &515914285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,7 +3334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0741d4a03ccf7464cbd1b2091e06e573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signUpInfoLabel: {fileID: 1703238423}
+  signUp: {fileID: 494872301}
 --- !u!1 &800679475
 GameObject:
   m_ObjectHideFlags: 0
@@ -5245,7 +5266,6 @@ GameObject:
   - component: {fileID: 1282570600}
   - component: {fileID: 1282570599}
   - component: {fileID: 1282570598}
-  - component: {fileID: 1282570601}
   m_Layer: 5
   m_Name: SignUpButton
   m_TagString: Untagged
@@ -5317,8 +5337,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1282570601}
-        m_TargetAssemblyTypeName: FurnishAR.App.SignUpButton, Assembly-CSharp
+      - m_Target: {fileID: 494872301}
+        m_TargetAssemblyTypeName: FurnishAR.App.SignUp, Assembly-CSharp
         m_MethodName: OnSignUpButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -5367,25 +5387,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282570596}
   m_CullTransparentMesh: 1
---- !u!114 &1282570601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1282570596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1e66f1a849eae4e862173d7c643cfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstNameInputField: {fileID: 1352235554}
-  middleNameInputField: {fileID: 1156614115}
-  lastNameInputField: {fileID: 1653660832}
-  usernameInputField: {fileID: 1480478054}
-  emailInputField: {fileID: 588905592}
-  newPasswordInputField: {fileID: 1786456321}
-  confirmPasswordInputField: {fileID: 52081218}
 --- !u!1 &1305904695
 GameObject:
   m_ObjectHideFlags: 0
@@ -5813,6 +5814,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1432324291}
+  - component: {fileID: 1432324292}
   m_Layer: 5
   m_Name: LogIn
   m_TagString: Untagged
@@ -5844,6 +5846,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1432324292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432324290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21d95a41689b9f40afb7407eb49ae54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userInputField: {fileID: 1523551633}
+  passwordInputField: {fileID: 1919426776}
+  logInInfoLabel: {fileID: 1638111169}
 --- !u!1 &1449506040
 GameObject:
   m_ObjectHideFlags: 0
@@ -7793,7 +7810,6 @@ GameObject:
   - component: {fileID: 1906527189}
   - component: {fileID: 1906527188}
   - component: {fileID: 1906527187}
-  - component: {fileID: 1906527190}
   m_Layer: 5
   m_Name: LogInButton
   m_TagString: Untagged
@@ -7865,8 +7881,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1906527190}
-        m_TargetAssemblyTypeName: FurnishAR.App.LogInButton, Assembly-CSharp
+      - m_Target: {fileID: 1432324292}
+        m_TargetAssemblyTypeName: FurnishAR.App.LogIn, Assembly-CSharp
         m_MethodName: OnLogInButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -7915,20 +7931,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906527185}
   m_CullTransparentMesh: 1
---- !u!114 &1906527190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906527185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d21d95a41689b9f40afb7407eb49ae54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  userInputField: {fileID: 1523551633}
-  passwordInputField: {fileID: 1919426776}
 --- !u!1 &1910306857
 GameObject:
   m_ObjectHideFlags: 0
@@ -7972,7 +7974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a35921aad8a124c9ab6da463046b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logInInfoLabel: {fileID: 1638111169}
+  logIn: {fileID: 1432324292}
 --- !u!1 &1919426774
 GameObject:
   m_ObjectHideFlags: 0
@@ -8665,3 +8667,5 @@ MonoBehaviour:
   signUpToLogInScaleAnim: {fileID: 706227627}
   logInGO: {fileID: 1432324290}
   signUpGO: {fileID: 494872299}
+  logIn: {fileID: 1432324292}
+  signUp: {fileID: 494872301}

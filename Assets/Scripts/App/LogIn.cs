@@ -7,7 +7,7 @@ using TMPro;
 using UnityEngine;
 
 namespace FurnishAR.App {
-    internal sealed class LogInButton: MonoBehaviour {
+    internal sealed class LogIn: MonoBehaviour {
         #region Fields
 
         [SerializeField]
@@ -16,6 +16,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private TMP_InputField passwordInputField;
 
+        [SerializeField]
+        internal TMP_Text logInInfoLabel;
+
         #endregion
 
         #region Properties
@@ -23,12 +26,14 @@ namespace FurnishAR.App {
 
         #region Ctors and Dtor
 
-        internal LogInButton(): base() {
+        internal LogIn(): base() {
             userInputField = null;
             passwordInputField = null;
+
+            logInInfoLabel = null;
         }
 
-        static LogInButton() {
+        static LogIn() {
         }
 
         #endregion
@@ -36,13 +41,24 @@ namespace FurnishAR.App {
         #region Unity User Callback Event Funcs
         #endregion
 
-        public void OnLogInButtonClicked() {
+        public void OnLogInButtonClicked() { //Shld not have "LogIn" actually
             JSONNode node = new JSONArray();
 
             node.Add(userInputField.text);
             node.Add(passwordInputField.text);
 
             _ = PhotonNetwork.RaiseEvent((byte)EventCodes.EventCode.LogIn, node.ToString(), RaiseEventOptions.Default, SendOptions.SendReliable);
+        }
+
+        internal void ClearLogIn() { //Shld not have "LogIn" actually
+            userInputField.text = string.Empty;
+            passwordInputField.text = string.Empty;
+
+            logInInfoLabel.text = string.Empty;
+        }
+
+        internal void ClearPasswordInputField() {
+            passwordInputField.text = string.Empty;
         }
     }
 }

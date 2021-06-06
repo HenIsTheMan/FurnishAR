@@ -39,6 +39,12 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject signUpGO;
 
+        [SerializeField]
+        private LogIn logIn;
+
+        [SerializeField]
+        private SignUp signUp;
+
         #endregion
 
         #region Properties
@@ -61,6 +67,9 @@ namespace FurnishAR.App {
 
             logInGO = null;
             signUpGO = null;
+
+            logIn = null;
+            signUp = null;
         }
 
         static LogInSignUp() {
@@ -101,6 +110,8 @@ namespace FurnishAR.App {
                 logInGO.SetActive(true);
                 signUpGO.SetActive(false);
 
+                signUp.ClearSignUp();
+
                 state = LogInSignUpState.LogIn;
             }
         }
@@ -115,6 +126,8 @@ namespace FurnishAR.App {
 
                 signUpGO.SetActive(true);
                 logInGO.SetActive(false);
+
+                logIn.ClearLogIn();
 
                 state = LogInSignUpState.SignUp;
             }
