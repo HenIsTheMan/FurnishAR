@@ -84,6 +84,31 @@ namespace FurnishAR.Photon {
                     signUp.signUpInfoLabel.color = Color.red;
 
                     break;
+                case SignUpStatus.SpacesInFirstName:
+                    signUp.signUpInfoLabel.text = "\"First Name\" should not contain space(s)!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
+                case SignUpStatus.SpacesInMiddleName:
+                    signUp.signUpInfoLabel.text = "\"Middle Name (optional)\" should not contain space(s)!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
+                case SignUpStatus.SpacesInLastName:
+                    signUp.signUpInfoLabel.text = "\"Last Name\" should not contain space(s)!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
+                case SignUpStatus.SpacesInUsername:
+                    signUp.signUpInfoLabel.text = "\"Username\" should not contain space(s)!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
+                case SignUpStatus.SpacesInEmail:
+                    signUp.signUpInfoLabel.text = "\"Email\" should not contain space(s)!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
                 case SignUpStatus.InvalidEmail:
                     signUp.signUpInfoLabel.text = "Email is invalid!";
                     signUp.signUpInfoLabel.color = Color.red;

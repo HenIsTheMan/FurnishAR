@@ -21,6 +21,8 @@ namespace MyFirstPlugin {
 				goto BroadcastEvent;
 			}
 
+			string middleName = signUpInfo[1];
+
 			string lastName = signUpInfo[2];
 			if(string.IsNullOrEmpty(lastName)) {
 				signUpData.status = SignUpStatus.NoLastName;
@@ -51,6 +53,31 @@ namespace MyFirstPlugin {
 				goto BroadcastEvent;
 			} else if(newPassword != confirmPassword) {
 				signUpData.status = SignUpStatus.PasswordsNotMatching;
+				goto BroadcastEvent;
+			}
+
+			if(firstName.Contains(' ')) {
+				signUpData.status = SignUpStatus.SpacesInFirstName;
+				goto BroadcastEvent;
+			}
+
+			if(middleName.Contains(' ')) {
+				signUpData.status = SignUpStatus.SpacesInMiddleName;
+				goto BroadcastEvent;
+			}
+
+			if(lastName.Contains(' ')) {
+				signUpData.status = SignUpStatus.SpacesInLastName;
+				goto BroadcastEvent;
+			}
+
+			if(username.Contains(' ')) {
+				signUpData.status = SignUpStatus.SpacesInUsername;
+				goto BroadcastEvent;
+			}
+
+			if(email.Contains(' ')) {
+				signUpData.status = SignUpStatus.SpacesInEmail;
 				goto BroadcastEvent;
 			}
 
@@ -109,7 +136,7 @@ namespace MyFirstPlugin {
 			user = new User {
 				ID = RetrieveHighestIDOfUser() + 1,
 				FirstName = firstName,
-				MiddleName = signUpInfo[1],
+				MiddleName = middleName,
 				LastName = lastName,
 				Username = username,
 				Email = email,
