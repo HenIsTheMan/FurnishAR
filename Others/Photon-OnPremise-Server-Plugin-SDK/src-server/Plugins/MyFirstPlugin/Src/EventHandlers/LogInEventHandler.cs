@@ -33,7 +33,33 @@ namespace MyFirstPlugin {
 				goto BroadcastEvent;
 			}
 
-			bool isEmail = usernameOrEmail.Contains('@');
+			bool isEmail = true;
+			int atIndex = usernameOrEmail.IndexOf('@');
+			int dotIndex = usernameOrEmail.IndexOf('.');
+			int emailLen = usernameOrEmail.Length;
+
+			if(usernameOrEmail.Count(myChar => myChar == '@') != 1
+				|| usernameOrEmail.Count(myChar => myChar == '.') != 1
+				|| atIndex < 1
+				|| dotIndex < 3
+				|| atIndex > emailLen - 4
+				|| dotIndex > emailLen - 2
+				|| (atIndex >= dotIndex - 1)
+			) {
+				isEmail = false;
+			} else {
+				string substr0 = usernameOrEmail.Substring(0, atIndex);
+				string substr1 = usernameOrEmail.Substring(atIndex + 1, dotIndex - atIndex - 1);
+				string substr2 = usernameOrEmail.Substring(dotIndex + 1, emailLen - dotIndex - 1);
+
+				if(!substr0.All(char.IsLetterOrDigit)
+					|| !substr1.All(char.IsLetterOrDigit)
+					|| !substr2.All(char.IsLetterOrDigit)
+				) { //Diff from Sign Up (on purpose)
+					isEmail = false;
+				}
+			}
+
 			User user;
 			User[] users = RetrieveUsers();
 			int usersLen = users.Length;
