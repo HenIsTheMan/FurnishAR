@@ -25,6 +25,8 @@ User Account Management:
 - Others
 	- Unique Email
 	- Show/Hide Password
+	- Figured out how to connect from mobile (had to change 127.0.0.1 to IPV4 Address of PC in multiple places)
+	- Figured out how to connect using TCP (had to change port number)
 
 User Interface:
 - Feedback
