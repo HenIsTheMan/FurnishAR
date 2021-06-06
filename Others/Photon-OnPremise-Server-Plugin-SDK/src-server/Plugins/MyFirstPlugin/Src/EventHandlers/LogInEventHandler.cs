@@ -28,8 +28,12 @@ namespace MyFirstPlugin {
 				goto BroadcastEvent;
 			}
 
-			bool isEmail = usernameOrEmail.Contains('@');
+			if(usernameOrEmail.Contains(' ')) {
+				logInData.status = LogInStatus.SpacesInUsernameOrEmail;
+				goto BroadcastEvent;
+			}
 
+			bool isEmail = usernameOrEmail.Contains('@');
 			User user;
 			User[] users = RetrieveUsers();
 			int usersLen = users.Length;

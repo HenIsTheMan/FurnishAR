@@ -4,6 +4,7 @@
 			None,
 			NoUsernameOrEmail,
 			NoPassword,
+			SpacesInUsernameOrEmail,
 			Success,
 			WrongUsername,
 			WrongEmail,

@@ -59,6 +59,11 @@ namespace FurnishAR.Photon {
                     logIn.logInInfoLabel.color = Color.red;
 
                     break;
+                case LogInStatus.SpacesInUsernameOrEmail:
+                    logIn.logInInfoLabel.text = "\"Username or Email\" should not contain space(s)!";
+                    logIn.logInInfoLabel.color = Color.red;
+
+                    break;
                 case LogInStatus.Success:
                     logIn.logInInfoLabel.text = "Log In Success!";
                     logIn.logInInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);

@@ -4,6 +4,7 @@ namespace FurnishAR.App {
 			None,
 			NoUsernameOrEmail,
 			NoPassword,
+			SpacesInUsernameOrEmail,
 			Success,
 			WrongUsername,
 			WrongEmail,
