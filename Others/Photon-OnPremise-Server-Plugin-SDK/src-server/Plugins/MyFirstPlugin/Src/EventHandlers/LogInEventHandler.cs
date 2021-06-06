@@ -68,7 +68,46 @@ namespace MyFirstPlugin {
 				user = users[i];
 
 				if(user.Username.ToLower() == usernameOrEmail.ToLower() || user.Email.ToLower() == usernameOrEmail.ToLower()) {
-					if(user.Password == password) {
+					//* Password Decryption
+					int[] encryptedValsASCII = JsonConvert.DeserializeObject<int[]>(user.Password);
+					int encryptedValsASCIILen = encryptedValsASCII.Length;
+
+					int[] keyInverse = new int[4]{
+						4,
+						-5,
+						-7,
+						2
+					};
+
+					/* keyInverse (follows col-major order)
+						4 -7
+						-5 2
+					//*/
+
+					///Matrix Multiplication
+					int[] decryptedValsASCII = new int[encryptedValsASCIILen];
+					int limit = encryptedValsASCIILen / 2;
+					int index0;
+					int index1;
+
+					for(int j = 0; j < limit; ++j) {
+						index0 = 2 * j;
+						index1 = index0 + 1;
+
+						decryptedValsASCII[index0] = keyInverse[0] * encryptedValsASCII[index0] + keyInverse[2] * encryptedValsASCII[index1];
+						decryptedValsASCII[index1] = keyInverse[1] * encryptedValsASCII[index0] + keyInverse[3] * encryptedValsASCII[index1];
+					}
+					///
+
+					string userPassword = string.Empty;
+					for(int j = 0; j < encryptedValsASCIILen; ++j) {
+						if(decryptedValsASCII[j] >= 0) {
+							userPassword += (char)decryptedValsASCII[j];
+						}
+					}
+					//*/
+
+					if(userPassword == password) {
 						logInData.status = LogInStatus.Success;
 						logInData.username = user.Username;
 						logInData.email = user.Email;
