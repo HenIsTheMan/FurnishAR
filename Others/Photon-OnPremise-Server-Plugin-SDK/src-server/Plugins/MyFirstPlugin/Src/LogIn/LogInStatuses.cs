@@ -5,9 +5,9 @@
 			NoUsernameOrEmail,
 			NoPassword,
 			Success,
-			FailureDueToWrongUsername,
-			FailureDueToWrongEmail,
-			FailureDueToWrongPassword,
+			WrongUsername,
+			WrongEmail,
+			WrongPassword,
 			Amt
 		}
 	}

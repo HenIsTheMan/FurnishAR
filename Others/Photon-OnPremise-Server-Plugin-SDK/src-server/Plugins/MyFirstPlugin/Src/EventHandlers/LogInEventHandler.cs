@@ -45,7 +45,7 @@ namespace MyFirstPlugin {
 
 						break;
 					} else {
-						logInData.status = LogInStatus.FailureDueToWrongPassword;
+						logInData.status = LogInStatus.WrongPassword;
 
 						if(isEmail) {
 							logInData.email = user.Email;
@@ -58,12 +58,12 @@ namespace MyFirstPlugin {
 				}
 			}
 
-			if(logInData.status != LogInStatus.Success && logInData.status != LogInStatus.FailureDueToWrongPassword) {
+			if(logInData.status != LogInStatus.Success && logInData.status != LogInStatus.WrongPassword) {
 				if(isEmail) {
-					logInData.status = LogInStatus.FailureDueToWrongEmail;
+					logInData.status = LogInStatus.WrongEmail;
 					logInData.email = usernameOrEmail;
 				} else {
-					logInData.status = LogInStatus.FailureDueToWrongUsername;
+					logInData.status = LogInStatus.WrongUsername;
 					logInData.username = usernameOrEmail;
 				}
 			}

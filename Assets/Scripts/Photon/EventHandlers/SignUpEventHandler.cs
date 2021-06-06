@@ -85,12 +85,12 @@ namespace FurnishAR.Photon {
 
                     break;
                 case SignUpStatus.UsernameNotUnique:
-                    signUpInfoLabel.text = "Username \"" + signUpDataJSON["username"].Value + "\" is already in use!";
+                    signUpInfoLabel.text = $"Username \"{signUpDataJSON["username"].Value}\" is already in use!";
                     signUpInfoLabel.color = Color.red;
 
                     break;
                 case SignUpStatus.EmailNotUnique:
-                    signUpInfoLabel.text = "Email \"" + signUpDataJSON["email"].Value + "\" is already in use!";
+                    signUpInfoLabel.text = $"Email \"{signUpDataJSON["email"].Value}\" is already in use!";
                     signUpInfoLabel.color = Color.red;
 
                     break;

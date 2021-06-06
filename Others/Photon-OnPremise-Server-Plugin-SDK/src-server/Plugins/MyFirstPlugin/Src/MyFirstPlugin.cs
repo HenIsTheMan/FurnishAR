@@ -13,9 +13,9 @@ namespace MyFirstPlugin {
 		public override string Name => "MyFirstPlugin";
 
 		internal MyFirstPlugin() {
-			connection = new MySqlConnection();
-
-			connection.ConnectionString = FormConnectionStr("localhost", 3306, "furnishar_db", "root", "password");
+			connection = new MySqlConnection {
+				ConnectionString = FormConnectionStr("localhost", 3306, "furnishar_db", "root", "password")
+			};
 			connection.Open();
 
 			database = new Database(connection);
