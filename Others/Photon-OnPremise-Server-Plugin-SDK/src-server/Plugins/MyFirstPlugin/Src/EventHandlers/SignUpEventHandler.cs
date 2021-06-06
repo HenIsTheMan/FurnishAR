@@ -133,6 +133,17 @@ namespace MyFirstPlugin {
 			signUpData.username = username;
 			signUpData.email = email;
 
+			firstName = firstName.ToLower();
+			firstName = char.ToUpper(firstName[0]) + firstName.Substring(1);
+
+			if(!string.IsNullOrEmpty(middleName)) {
+				middleName = middleName.ToLower();
+				middleName = char.ToUpper(middleName[0]) + middleName.Substring(1);
+			}
+
+			lastName = lastName.ToLower();
+			lastName = char.ToUpper(lastName[0]) + lastName.Substring(1);
+
 			user = new User {
 				ID = RetrieveHighestIDOfUser() + 1,
 				FirstName = firstName,
