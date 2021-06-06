@@ -109,6 +109,26 @@ namespace FurnishAR.Photon {
                     signUp.signUpInfoLabel.color = Color.red;
 
                     break;
+                case SignUpStatus.FirstNameHasInvalidChars:
+                    signUp.signUpInfoLabel.text = "\"First Name\" should only contain letters!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
+                case SignUpStatus.MiddleNameHasInvalidChars:
+                    signUp.signUpInfoLabel.text = "\"Middle Name\" should only contain letters!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
+                case SignUpStatus.LastNameHasInvalidChars:
+                    signUp.signUpInfoLabel.text = "\"Last Name\" should only contain letters!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
+                case SignUpStatus.UsernameHasInvalidChars:
+                    signUp.signUpInfoLabel.text = "\"Username\" should only contain letters and numbers!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
                 case SignUpStatus.InvalidEmail:
                     signUp.signUpInfoLabel.text = "Email is invalid!";
                     signUp.signUpInfoLabel.color = Color.red;

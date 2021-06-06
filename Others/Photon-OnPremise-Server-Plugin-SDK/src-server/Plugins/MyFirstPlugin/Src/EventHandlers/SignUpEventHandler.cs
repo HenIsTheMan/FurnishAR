@@ -61,7 +61,7 @@ namespace MyFirstPlugin {
 				goto BroadcastEvent;
 			}
 
-			if(middleName.Contains(' ')) {
+			if(!string.IsNullOrEmpty(middleName) && middleName.Contains(' ')) {
 				signUpData.status = SignUpStatus.SpacesInMiddleName;
 				goto BroadcastEvent;
 			}
@@ -78,6 +78,26 @@ namespace MyFirstPlugin {
 
 			if(email.Contains(' ')) {
 				signUpData.status = SignUpStatus.SpacesInEmail;
+				goto BroadcastEvent;
+			}
+
+			if(!firstName.All(char.IsLetter)) {
+				signUpData.status = SignUpStatus.FirstNameHasInvalidChars;
+				goto BroadcastEvent;
+			}
+
+			if(!string.IsNullOrEmpty(middleName) && !middleName.All(char.IsLetter)) {
+				signUpData.status = SignUpStatus.MiddleNameHasInvalidChars;
+				goto BroadcastEvent;
+			}
+
+			if(!lastName.All(char.IsLetter)) {
+				signUpData.status = SignUpStatus.LastNameHasInvalidChars;
+				goto BroadcastEvent;
+			}
+
+			if(!username.All(char.IsLetterOrDigit)) {
+				signUpData.status = SignUpStatus.UsernameHasInvalidChars;
 				goto BroadcastEvent;
 			}
 
