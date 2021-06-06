@@ -100,7 +100,8 @@ namespace MyFirstPlugin {
 				string substr1 = email.Substring(atIndex + 1, dotIndex - atIndex - 1);
 				string substr2 = email.Substring(dotIndex + 1, emailLen - dotIndex - 1);
 
-				if(!substr0.All(char.IsLetterOrDigit)
+				if(substr2.Length < 2
+					|| !substr0.All(char.IsLetterOrDigit)
 					|| !substr1.All(char.IsLetterOrDigit)
 					|| !substr2.All(char.IsLetter)
 				) {
