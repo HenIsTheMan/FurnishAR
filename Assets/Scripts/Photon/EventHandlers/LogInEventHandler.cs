@@ -42,31 +42,43 @@ namespace FurnishAR.Photon {
         #endregion
 
         public void OnEvent(EventData photonEvent) {
-            if(photonEvent.Code == (byte)EventCodes.EventCode.LogIn) {
-                JSONNode logInDataJSON = JSON.Parse((string)photonEvent.CustomData);
+            if(photonEvent.Code != (byte)EventCodes.EventCode.LogIn) {
+                return;
+            }
 
-                switch((LogInStatus)logInDataJSON["status"].AsInt){
-                    case LogInStatus.Success:
-                        logInInfoLabel.text = "Log In Success!";
-                        logInInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
+            JSONNode logInDataJSON = JSON.Parse((string)photonEvent.CustomData);
 
-                        break;
-                    case LogInStatus.FailureDueToWrongUsername:
-                        logInInfoLabel.text = "Log In Failed: Username \"" + logInDataJSON["username"].Value + "\" is unregistered";
-                        logInInfoLabel.color = Color.red;
+            switch((LogInStatus)logInDataJSON["status"].AsInt){
+                case LogInStatus.NoUsernameOrEmail:
+                    logInInfoLabel.text = "\"Username Or Email\" cannot be blank!";
+                    logInInfoLabel.color = Color.red;
 
-                        break;
-                    case LogInStatus.FailureDueToWrongEmail:
-                        logInInfoLabel.text = "Log In Failed: Email \"" + logInDataJSON["email"].Value + "\" is unregistered";
-                        logInInfoLabel.color = Color.red;
+                    break;
+                case LogInStatus.NoPassword:
+                    logInInfoLabel.text = "\"Password\" cannot be blank!";
+                    logInInfoLabel.color = Color.red;
 
-                        break;
-                    case LogInStatus.FailureDueToWrongPassword:
-                        logInInfoLabel.text = "Log In Failed: Password is incorrect";
-                        logInInfoLabel.color = Color.red;
+                    break;
+                case LogInStatus.Success:
+                    logInInfoLabel.text = "Log In Success!";
+                    logInInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
 
-                        break;
-                }
+                    break;
+                case LogInStatus.FailureDueToWrongUsername:
+                    logInInfoLabel.text = "Log In Failed: Username \"" + logInDataJSON["username"].Value + "\" is unregistered";
+                    logInInfoLabel.color = Color.red;
+
+                    break;
+                case LogInStatus.FailureDueToWrongEmail:
+                    logInInfoLabel.text = "Log In Failed: Email \"" + logInDataJSON["email"].Value + "\" is unregistered";
+                    logInInfoLabel.color = Color.red;
+
+                    break;
+                case LogInStatus.FailureDueToWrongPassword:
+                    logInInfoLabel.text = "Log In Failed: Password is incorrect";
+                    logInInfoLabel.color = Color.red;
+
+                    break;
             }
         }
     }
