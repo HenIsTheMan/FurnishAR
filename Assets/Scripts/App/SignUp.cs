@@ -75,7 +75,7 @@ namespace FurnishAR.App {
             _ = PhotonNetwork.RaiseEvent((byte)EventCodes.EventCode.SignUp, node.ToString(), RaiseEventOptions.Default, SendOptions.SendReliable);
         }
 
-        internal void ClearSignUp() { //Shld not have "SignUp" actually
+        public void ClearSignUp() { //Shld not have "SignUp" actually
             firstNameInputField.text = string.Empty;
             middleNameInputField.text = string.Empty;
             lastNameInputField.text = string.Empty;

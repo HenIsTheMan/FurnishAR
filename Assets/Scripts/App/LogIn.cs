@@ -50,7 +50,7 @@ namespace FurnishAR.App {
             _ = PhotonNetwork.RaiseEvent((byte)EventCodes.EventCode.LogIn, node.ToString(), RaiseEventOptions.Default, SendOptions.SendReliable);
         }
 
-        internal void ClearLogIn() { //Shld not have "LogIn" actually
+        public void ClearLogIn() { //Shld not have "LogIn" actually
             userInputField.text = string.Empty;
             passwordInputField.text = string.Empty;
 
