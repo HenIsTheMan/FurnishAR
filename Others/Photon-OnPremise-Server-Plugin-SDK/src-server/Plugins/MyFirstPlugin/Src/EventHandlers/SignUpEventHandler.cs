@@ -81,6 +81,26 @@ namespace MyFirstPlugin {
 				goto BroadcastEvent;
 			}
 
+			if(firstName.Length > 40) {
+				signUpData.status = SignUpStatus.FirstNameTooLong;
+				goto BroadcastEvent;
+			}
+
+			if(middleName.Length > 40) {
+				signUpData.status = SignUpStatus.MiddleNameTooLong;
+				goto BroadcastEvent;
+			}
+
+			if(lastName.Length > 40) {
+				signUpData.status = SignUpStatus.LastNameTooLong;
+				goto BroadcastEvent;
+			}
+
+			if(username.Length > 20) {
+				signUpData.status = SignUpStatus.UsernameTooLong;
+				goto BroadcastEvent;
+			}
+
 			if(!firstName.All(char.IsLetter)) {
 				signUpData.status = SignUpStatus.FirstNameHasInvalidChars;
 				goto BroadcastEvent;

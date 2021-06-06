@@ -109,6 +109,26 @@ namespace FurnishAR.Photon {
                     signUp.signUpInfoLabel.color = Color.red;
 
                     break;
+                case SignUpStatus.FirstNameTooLong:
+                    signUp.signUpInfoLabel.text = "\"First Name\" is limited to 40 characters!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
+                case SignUpStatus.MiddleNameTooLong:
+                    signUp.signUpInfoLabel.text = "\"Middle Name\" is limited to 40 characters!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
+                case SignUpStatus.LastNameTooLong:
+                    signUp.signUpInfoLabel.text = "\"Last Name\" is limited to 40 characters!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
+                case SignUpStatus.UsernameTooLong:
+                    signUp.signUpInfoLabel.text = "\"Username\" is limited to 20 characters!";
+                    signUp.signUpInfoLabel.color = Color.red;
+
+                    break;
                 case SignUpStatus.FirstNameHasInvalidChars:
                     signUp.signUpInfoLabel.text = "\"First Name\" should only contain letters!";
                     signUp.signUpInfoLabel.color = Color.red;
