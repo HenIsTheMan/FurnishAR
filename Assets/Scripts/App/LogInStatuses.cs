@@ -1,6 +1,6 @@
 namespace FurnishAR.App {
 	internal static class LogInStatuses: object {
-		internal enum LogInStatus: byte {
+		internal enum LogInStatus: int {
 			None,
 			NoUsernameOrEmail,
 			NoPassword,
