@@ -1,14 +1,11 @@
 ## Doing
 
 User Account Management:
-- Login
-- Registration
 - Edit Account
 - Delete/Deactivate Account
 - Reset Password
 - Password Encryption
 - Password Validation
-- Unique Username
 
 Inventory or Skill Tree Systems:
 - Add
@@ -16,21 +13,37 @@ Inventory or Skill Tree Systems:
 - Upgrade or level up
 - Categorisation
 
-User Interface:
-- Feedback e.g. error message
-- Input validations
-
-Software Engineering:
-- Database Structure Design
+Others:
+username (limit len), email (valid), password (valid, strength), profile pic, remember me
 
 ## Done
 
+User Account Management:
+- Login
+- Registration
+
+- Unique Username
+- Others
+	- Unique Email
+	- Confirm Password
+	- Show/Hide Password
+
 User Interface:
-- Proper input field
+- Feedback
+	-
+- Proper input fields
+- Input validations
+	- Check whether every input field is not empty
+	- Check whether every input has the correct format
+	- Check whether every input exceeds length limits
+- Others
+	- Clear password on wrong password
+	- Clear the relevant input fields and info labels when switching tabs or when going back to MainScene from AcctScene
 
 Software Engineering:
 - Hierarchy and Project Structure
 - Code Design
+- Database Structure Design
 
 Others:
 - Obj-Relational Mapping (ORM)
@@ -40,3 +53,4 @@ Others:
 
 - change 245
 - Better ORM
+- User Prefs (audio, ...)
