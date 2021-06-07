@@ -73,12 +73,12 @@ namespace MyFirstPlugin {
 				database.Connection.Close();
 			}
 
-			//try {
+			try {
 				_ = database.ExecuteQuery<User>(
 					$"DELETE FROM furnishar_db.user_table WHERE id = {ID};"
 				);
-			//} catch(System.Exception) {
-			//}
+			} catch(System.Exception) {
+			}
 		}
 
 		private User[] RetrieveUsers() {
