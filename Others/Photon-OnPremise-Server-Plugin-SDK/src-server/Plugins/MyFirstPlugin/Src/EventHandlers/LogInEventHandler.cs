@@ -122,7 +122,7 @@ namespace MyFirstPlugin {
 							string sessionToken = string.Empty;
 
 							for(int j = 0; j < sessionTokenLen; ++j) {
-								sessionToken += (char)PseudorandRange(33.0f, 127.0f, (uint)j ^ 2645u);
+								sessionToken += (char)PseudorandRange(33.0f, 127.0f, (uint)(user.ID ^ j ^ 2645));
 							}
 
 							logInData.sessionToken = sessionToken;
