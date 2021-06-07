@@ -1,4 +1,6 @@
 using FurnishAR.Anim;
+using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -17,10 +19,18 @@ namespace FurnishAR.Generic {
 
 			RectTransformRotateAnim rectTransformRotateAnim = proxyCamGO.GetComponent<RectTransformRotateAnim>();
 
+			rectTransformRotateAnim.animEndDelegate += SubSplashToIntroFadeTransitionPrelim;
+
+			_ = globalObj.StartCoroutine(globalObj.MyFunc(proxyCamGO, rectTransformRotateAnim));
+		}
+
+		private IEnumerator MyFunc(GameObject proxyCamGO, RectTransformRotateAnim rectTransformRotateAnim) {
+			while(!PhotonNetwork.InRoom) {
+				yield return null;
+			}
+
 			rectTransformRotateAnim.IsUpdating = true;
 			proxyCamGO.GetComponents<RectTransformScaleAnim>()[1].IsUpdating = true;
-
-			rectTransformRotateAnim.animEndDelegate += SubSplashToIntroFadeTransitionPrelim;
 		}
 
 		private static void SubSplashToIntroFadeTransitionPrelim() {
