@@ -18,6 +18,9 @@ namespace FurnishAR.Photon {
         [SerializeField]
         private LogIn logIn;
 
+        [SerializeField]
+        private CanvasGroup logInSignUpGrpCanvasGrp;
+
         #endregion
 
         #region Properties
@@ -31,6 +34,8 @@ namespace FurnishAR.Photon {
             acctManager = null;
 
             logIn = null;
+
+            logInSignUpGrpCanvasGrp = null;
         }
 
         static LogInEventHandler() {
@@ -103,11 +108,11 @@ namespace FurnishAR.Photon {
         private System.Collections.IEnumerator LogInSuccess() {
             yield return new WaitForSeconds(2.0f);
 
-            GameObject.Find("LogInSignUpGrp").SetActive(false);
-            logIn.gameObject.SetActive(false);
+            logInSignUpGrpCanvasGrp.alpha = 0.0f;
+            logIn.GetComponent<CanvasGroup>().alpha = 0.0f;
 
             acctManager.bigInfoLabel.text = $"{logInData["username"].Value}\n{logInData["email"].Value}";
-            acctManager.acctGO.SetActive(true);
+            acctManager.acctCanvasGrp.alpha = 1.0f;
 
             Generic.Console.Log(logInData["sessionToken"].Value); //??
 

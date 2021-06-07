@@ -13,7 +13,7 @@ namespace FurnishAR.Photon {
         private AcctManager acctManager;
 
         [SerializeField]
-        private GameObject logInSignUpGrpGO;
+        private CanvasGroup logInSignUpGrpCanvasGrp;
 
         #endregion
 
@@ -25,7 +25,7 @@ namespace FurnishAR.Photon {
         internal AcctCheckEventHandler(): base() {
             acctManager = null;
 
-            logInSignUpGrpGO = null;
+            logInSignUpGrpCanvasGrp = null;
         }
 
         static AcctCheckEventHandler() {
@@ -54,10 +54,10 @@ namespace FurnishAR.Photon {
             string sessionToken = acctCheckData["sessionToken"].Value;
 
             if(sessionToken == string.Empty) {
-                logInSignUpGrpGO.SetActive(true);
+                logInSignUpGrpCanvasGrp.alpha = 1.0f;
             } else {
                 acctManager.bigInfoLabel.text = $"{acctCheckData["username"].Value}\n{acctCheckData["email"].Value}";
-                acctManager.acctGO.SetActive(true);
+                acctManager.acctCanvasGrp.alpha = 1.0f;
 
                 Generic.Console.Log(sessionToken); //??
 

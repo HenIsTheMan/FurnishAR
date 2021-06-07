@@ -360,13 +360,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 61893203}
+  - component: {fileID: 61893204}
   m_Layer: 5
   m_Name: Acct
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &61893203
 RectTransform:
   m_ObjectHideFlags: 0
@@ -389,6 +390,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &61893204
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61893202}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &130854568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,13 +1489,14 @@ GameObject:
   m_Component:
   - component: {fileID: 494872300}
   - component: {fileID: 494872301}
+  - component: {fileID: 494872302}
   m_Layer: 5
   m_Name: SignUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &494872300
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1531,6 +1545,18 @@ MonoBehaviour:
   newPasswordInputField: {fileID: 1786456321}
   confirmPasswordInputField: {fileID: 52081218}
   signUpInfoLabel: {fileID: 1703238423}
+--- !u!225 &494872302
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494872299}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &515914285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,6 +3668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acctManager: {fileID: 2071816959}
   signUp: {fileID: 494872301}
+  logInSignUpGrpCanvasGrp: {fileID: 1670462011}
 --- !u!1 &800679475
 GameObject:
   m_ObjectHideFlags: 0
@@ -6413,13 +6440,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1432324291}
   - component: {fileID: 1432324292}
+  - component: {fileID: 1432324293}
   m_Layer: 5
   m_Name: LogIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1432324291
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6460,6 +6488,18 @@ MonoBehaviour:
   passwordInputField: {fileID: 1919426776}
   rememberMeToggle: {fileID: 1240708006}
   logInInfoLabel: {fileID: 1638111169}
+--- !u!225 &1432324293
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432324290}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1449506040
 GameObject:
   m_ObjectHideFlags: 0
@@ -6879,7 +6919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acctManager: {fileID: 2071816959}
-  logInSignUpGrpGO: {fileID: 1670462009}
+  logInSignUpGrpCanvasGrp: {fileID: 1670462011}
 --- !u!1 &1523551631
 GameObject:
   m_ObjectHideFlags: 0
@@ -7507,13 +7547,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1670462010}
+  - component: {fileID: 1670462011}
   m_Layer: 5
   m_Name: LogInSignUpGrp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1670462010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7537,6 +7578,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -1707}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1670462011
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670462009}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1681020390
 GameObject:
   m_ObjectHideFlags: 0
@@ -8659,6 +8712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acctManager: {fileID: 2071816959}
   logIn: {fileID: 1432324292}
+  logInSignUpGrpCanvasGrp: {fileID: 1670462011}
 --- !u!1 &1919426774
 GameObject:
   m_ObjectHideFlags: 0
@@ -9302,7 +9356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initControl: {fileID: 1305904697}
-  acctGO: {fileID: 61893202}
+  acctCanvasGrp: {fileID: 61893204}
   bigInfoLabel: {fileID: 233160769}
 --- !u!1 &2098590848
 GameObject:
@@ -9400,8 +9454,8 @@ MonoBehaviour:
   logInToSignUpScaleAnim: {fileID: 1231692794}
   signUpToLogInTranslateAnim: {fileID: 706227626}
   signUpToLogInScaleAnim: {fileID: 706227627}
-  logInGO: {fileID: 1432324290}
-  signUpGO: {fileID: 494872299}
+  logInCanvasGrp: {fileID: 1432324293}
+  signUpCanvasGrp: {fileID: 494872302}
   logIn: {fileID: 1432324292}
   signUp: {fileID: 494872301}
 --- !u!1 &2112731039

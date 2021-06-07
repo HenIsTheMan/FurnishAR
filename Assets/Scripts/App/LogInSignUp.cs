@@ -34,10 +34,10 @@ namespace FurnishAR.App {
         private RectTransformScaleAnim signUpToLogInScaleAnim;
 
         [SerializeField]
-        private GameObject logInGO;
+        private CanvasGroup logInCanvasGrp;
 
         [SerializeField]
-        private GameObject signUpGO;
+        private CanvasGroup signUpCanvasGrp;
 
         [SerializeField]
         private LogIn logIn;
@@ -65,8 +65,8 @@ namespace FurnishAR.App {
             signUpToLogInTranslateAnim = null;
             signUpToLogInScaleAnim = null;
 
-            logInGO = null;
-            signUpGO = null;
+            logInCanvasGrp = null;
+            signUpCanvasGrp = null;
 
             logIn = null;
             signUp = null;
@@ -93,8 +93,8 @@ namespace FurnishAR.App {
             myRectTransform.localPosition = new Vector3(-370.0f, 1370.0f, 0.0f);
             myRectTransform.localScale = new Vector3(6.3f, 0.2f, 1.0f);
 
-            logInGO.SetActive(true);
-            signUpGO.SetActive(false);
+            logInCanvasGrp.alpha = 1.0f;
+            signUpCanvasGrp.alpha = 0.0f;
 
             state = LogInSignUpState.LogIn;
         }
@@ -107,8 +107,8 @@ namespace FurnishAR.App {
                 signUpToLogInTranslateAnim.IsUpdating = true;
                 signUpToLogInScaleAnim.IsUpdating = true;
 
-                logInGO.SetActive(true);
-                signUpGO.SetActive(false);
+                logInCanvasGrp.alpha = 1.0f;
+                signUpCanvasGrp.alpha = 0.0f;
 
                 signUp.ClearSignUp();
 
@@ -124,8 +124,8 @@ namespace FurnishAR.App {
                 logInToSignUpTranslateAnim.IsUpdating = true;
                 logInToSignUpScaleAnim.IsUpdating = true;
 
-                signUpGO.SetActive(true);
-                logInGO.SetActive(false);
+                signUpCanvasGrp.alpha = 1.0f;
+                logInCanvasGrp.alpha = 0.0f;
 
                 logIn.ClearLogIn();
 

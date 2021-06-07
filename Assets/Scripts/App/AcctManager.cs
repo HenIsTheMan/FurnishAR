@@ -15,7 +15,7 @@ namespace FurnishAR.App {
         private InitControl initControl;
 
         [SerializeField]
-        internal GameObject acctGO;
+        internal CanvasGroup acctCanvasGrp;
 
         [SerializeField]
         internal TMP_Text bigInfoLabel;
@@ -30,7 +30,7 @@ namespace FurnishAR.App {
         internal AcctManager(): base() {
             initControl = null;
 
-            acctGO = null;
+            acctCanvasGrp = null;
 
             bigInfoLabel = null;
         }
