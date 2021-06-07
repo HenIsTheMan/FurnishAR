@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Photon.Hive.Plugin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using static MyFirstPlugin.EventCodes;
@@ -232,15 +233,54 @@ namespace MyFirstPlugin {
 			newPassword = JsonConvert.SerializeObject(encryptedValsASCII);
 			//*/
 
+			int myUserID = RetrieveHighestIDOfUser() + 1;
+
+			//* Gen session token (includes encryption)
+			int sessionTokenLen = 40;
+			string sessionToken = string.Empty;
+
+			for(int j = 0; j < sessionTokenLen; ++j) {
+				sessionToken += (char)PseudorandRange(33.0f, 127.0f, (uint)(myUserID ^ j ^ DateTime.Now.Millisecond));
+			}
+
+			valsASCII = new int[(sessionTokenLen & 1) == 1 ? sessionTokenLen + 1 : sessionTokenLen];
+			valsASCIILen = valsASCII.Length;
+
+			for(int j = 0; j < sessionTokenLen; ++j) {
+				valsASCII[j] = sessionToken[j];
+			}
+			if((sessionTokenLen & 1) == 1) {
+				valsASCII[valsASCIILen - 1] = -1; //Invalid val
+			}
+
+			key[0] = 2;
+			key[1] = 3;
+			key[2] = 3;
+			key[3] = 5;
+
+			encryptedValsASCII = new int[valsASCIILen];
+			limit = valsASCIILen / 2;
+
+			for(int j = 0; j < limit; ++j) {
+				index0 = 2 * j;
+				index1 = index0 + 1;
+
+				encryptedValsASCII[index0] = key[0] * valsASCII[index0] + key[2] * valsASCII[index1];
+				encryptedValsASCII[index1] = key[1] * valsASCII[index0] + key[3] * valsASCII[index1];
+			}
+			//*/
+
+			UpdateUserByID("sessionToken", JsonConvert.SerializeObject(encryptedValsASCII), myUserID);
+
 			user = new User {
-				ID = RetrieveHighestIDOfUser() + 1,
+				ID = myUserID,
 				FirstName = firstName,
 				MiddleName = middleName,
 				LastName = lastName,
 				Username = username,
 				Email = email,
 				Password = newPassword,
-				SessionToken = string.Empty
+				SessionToken = sessionToken
 			};
 			AddUser(ref user);
 
