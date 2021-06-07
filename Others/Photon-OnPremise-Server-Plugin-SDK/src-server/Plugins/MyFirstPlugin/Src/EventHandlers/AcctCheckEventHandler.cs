@@ -113,18 +113,6 @@ namespace MyFirstPlugin {
 
 					UpdateUserByID("sessionToken", JsonConvert.SerializeObject(encryptedValsASCII), user.ID);
 
-					User myUser = new User {
-						ID = RetrieveHighestIDOfUser() + 1,
-						FirstName = user.FirstName,
-						MiddleName = user.MiddleName,
-						LastName = user.LastName,
-						Username = "Ho",
-						Email = "a@a.com",
-						Password = JsonConvert.SerializeObject(new int[] { 1, 1, 1 }),
-						SessionToken = JsonConvert.SerializeObject(new int[] { 1, 1, 1 })
-					};
-					AddUser(ref myUser);
-
 					break;
 				}
 			}
