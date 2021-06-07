@@ -10,11 +10,10 @@ namespace MyFirstPlugin {
 				return;
 			}
 
-			bool isSuccessful = true;
+			bool isSuccessful = false;
 
 			string sessionTokenFromClient = (string)info.Request.Data;
 			if(string.IsNullOrEmpty(sessionTokenFromClient)) {
-				isSuccessful = false;
 				goto BroadcastEvent;
 			}
 
@@ -31,7 +30,6 @@ namespace MyFirstPlugin {
 					int[] encryptedValsASCII = JsonConvert.DeserializeObject<int[]>(user.SessionToken);
 					if(encryptedValsASCII == null) {
 						if(i == usersLen - 1) {
-							isSuccessful = false;
 							goto BroadcastEvent;
 						}
 
@@ -68,6 +66,7 @@ namespace MyFirstPlugin {
 				//*/
 
 				if(sessionTokenFromDB == sessionTokenFromClient) {
+					isSuccessful = true;
 					UpdateUserByID("sessionToken", string.Empty, user.ID);
 					break;
 				}
