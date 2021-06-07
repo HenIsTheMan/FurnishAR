@@ -109,9 +109,9 @@ namespace MyFirstPlugin {
 						encryptedValsASCII[index0] = key[0] * valsASCII[index0] + key[2] * valsASCII[index1];
 						encryptedValsASCII[index1] = key[1] * valsASCII[index0] + key[3] * valsASCII[index1];
 					}
+					//*/
 
 					UpdateUserByID("sessionToken", JsonConvert.SerializeObject(encryptedValsASCII), user.ID);
-					//*/
 
 					break;
 				}
