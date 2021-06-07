@@ -203,15 +203,15 @@ namespace MyFirstPlugin {
 			}
 
 			int[] key = new int[4]{
-				2,
-				3,
-				3,
-				5
+				4,
+				1,
+				7,
+				2
 			};
 
 			/* key (follows col-major order)
-				2 3
-				3 5
+				4 7
+				1 2
 			//*/
 
 			///Matrix Multiplication

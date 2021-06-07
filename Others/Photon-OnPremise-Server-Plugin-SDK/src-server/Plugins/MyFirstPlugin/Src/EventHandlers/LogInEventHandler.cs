@@ -79,15 +79,15 @@ namespace MyFirstPlugin {
 						int encryptedValsASCIILen = encryptedValsASCII.Length;
 
 						int[] keyInverse = new int[4]{
-							5,
-							-3,
-							-3,
-							2
+							2,
+							-1,
+							-7,
+							4
 						};
 
 						/* keyInverse (follows col-major order)
-							5 -3
-							-3 2
+							2 -7
+							-1 4
 						//*/
 
 						///Matrix Multiplication
