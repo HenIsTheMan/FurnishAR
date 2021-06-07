@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using Photon.Hive.Plugin;
-using System.Data.Linq;
 using System.Linq;
 
 namespace MyFirstPlugin {
@@ -66,9 +65,6 @@ namespace MyFirstPlugin {
 					+ $" WHERE id = {ID};"
 				);
 			} catch(System.Exception) {
-			} finally {
-				database.Refresh(RefreshMode.OverwriteCurrentValues);
-				database.SubmitChanges();
 			}
 		}
 
