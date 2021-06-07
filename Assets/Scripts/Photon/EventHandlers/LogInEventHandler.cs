@@ -10,7 +10,7 @@ namespace FurnishAR.Photon {
     internal sealed class LogInEventHandler: MonoBehaviour, IOnEventCallback {
         #region Fields
 
-        private JSONNode logInDataJSON;
+        private JSONNode logInData;
 
         [SerializeField]
         private AcctManager acctManager;
@@ -26,7 +26,7 @@ namespace FurnishAR.Photon {
         #region Ctors and Dtor
 
         internal LogInEventHandler(): base() {
-            logInDataJSON = null;
+            logInData = null;
 
             acctManager = null;
 
@@ -55,9 +55,9 @@ namespace FurnishAR.Photon {
                 return;
             }
 
-            logInDataJSON = JSON.Parse((string)photonEvent.CustomData);
+            logInData = JSON.Parse((string)photonEvent.CustomData);
 
-            switch((LogInStatus)logInDataJSON["status"].AsInt){
+            switch((LogInStatus)logInData["status"].AsInt){
                 case LogInStatus.NoUsernameOrEmail:
                     logIn.logInInfoLabel.text = "\"Username or Email\" cannot be blank!";
                     logIn.logInInfoLabel.color = Color.red;
@@ -81,12 +81,12 @@ namespace FurnishAR.Photon {
 
                     break;
                 case LogInStatus.WrongUsername:
-                    logIn.logInInfoLabel.text = $"Username \"{logInDataJSON["username"].Value}\" is unregistered!";
+                    logIn.logInInfoLabel.text = $"Username \"{logInData["username"].Value}\" is unregistered!";
                     logIn.logInInfoLabel.color = Color.red;
 
                     break;
                 case LogInStatus.WrongEmail:
-                    logIn.logInInfoLabel.text = $"Email \"{logInDataJSON["email"].Value}\" is unregistered!";
+                    logIn.logInInfoLabel.text = $"Email \"{logInData["email"].Value}\" is unregistered!";
                     logIn.logInInfoLabel.color = Color.red;
 
                     break;
@@ -98,10 +98,6 @@ namespace FurnishAR.Photon {
 
                     break;
             }
-
-            Generic.Console.Log(logInDataJSON["sessionToken"].Value);
-
-            PlayerPrefs.SetString("sessionToken", logInDataJSON["sessionToken"].Value); //Save session token
         }
 
         private System.Collections.IEnumerator LogInSuccess() {
@@ -110,8 +106,12 @@ namespace FurnishAR.Photon {
             GameObject.Find("LogInSignUpGrp").SetActive(false);
             logIn.gameObject.SetActive(false);
 
-            acctManager.bigInfoLabel.text = $"{logInDataJSON["username"].Value}\n{logInDataJSON["email"].Value}";
+            acctManager.bigInfoLabel.text = $"{logInData["username"].Value}\n{logInData["email"].Value}";
             acctManager.acctGO.SetActive(true);
+
+            Generic.Console.Log(logInData["sessionToken"].Value); //??
+
+            PlayerPrefs.SetString("sessionToken", logInData["sessionToken"].Value); //Save session token
         }
     }
 }

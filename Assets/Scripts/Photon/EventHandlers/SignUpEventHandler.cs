@@ -10,7 +10,7 @@ namespace FurnishAR.Photon {
     internal sealed class SignUpEventHandler: MonoBehaviour, IOnEventCallback {
         #region Fields
 
-        private JSONNode signUpDataJSON;
+        private JSONNode signUpData;
 
         [SerializeField]
         private AcctManager acctManager;
@@ -26,7 +26,7 @@ namespace FurnishAR.Photon {
         #region Ctors and Dtor
 
         internal SignUpEventHandler(): base() {
-            signUpDataJSON = null;
+            signUpData = null;
 
             acctManager = null;
 
@@ -55,9 +55,9 @@ namespace FurnishAR.Photon {
                 return;
             }
 
-            signUpDataJSON = JSON.Parse((string)photonEvent.CustomData);
+            signUpData = JSON.Parse((string)photonEvent.CustomData);
 
-            switch((SignUpStatus)signUpDataJSON["status"].AsInt) {
+            switch((SignUpStatus)signUpData["status"].AsInt) {
                 case SignUpStatus.NoFirstName:
                     signUp.signUpInfoLabel.text = "\"First Name\" cannot be blank!";
                     signUp.signUpInfoLabel.color = Color.red;
@@ -164,12 +164,12 @@ namespace FurnishAR.Photon {
 
                     break;
                 case SignUpStatus.UsernameNotUnique:
-                    signUp.signUpInfoLabel.text = $"Username \"{signUpDataJSON["username"].Value}\" is already in use!";
+                    signUp.signUpInfoLabel.text = $"Username \"{signUpData["username"].Value}\" is already in use!";
                     signUp.signUpInfoLabel.color = Color.red;
 
                     break;
                 case SignUpStatus.EmailNotUnique:
-                    signUp.signUpInfoLabel.text = $"Email \"{signUpDataJSON["email"].Value}\" is already in use!";
+                    signUp.signUpInfoLabel.text = $"Email \"{signUpData["email"].Value}\" is already in use!";
                     signUp.signUpInfoLabel.color = Color.red;
 
                     break;
@@ -189,7 +189,7 @@ namespace FurnishAR.Photon {
             GameObject.Find("LogInSignUpGrp").SetActive(false);
             signUp.gameObject.SetActive(false);
 
-            acctManager.bigInfoLabel.text = $"{signUpDataJSON["username"].Value}\n{signUpDataJSON["email"].Value}";
+            acctManager.bigInfoLabel.text = $"{signUpData["username"].Value}\n{signUpData["email"].Value}";
             acctManager.acctGO.SetActive(true);
         }
     }
