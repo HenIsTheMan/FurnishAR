@@ -50,6 +50,18 @@ namespace MyFirstPlugin {
 			}
 		}
 
+		private void UpdateUserByID(string colName, object val, int ID) {
+			if(database.Connection.State == System.Data.ConnectionState.Open) {
+				database.Connection.Close();
+			}
+
+			_ = database.ExecuteQuery<User>(
+				"UPDATE furnishar_db.user_table SET "
+				+ $"{colName} = '{val}'"
+				+ $" WHERE id = {ID};"
+			);
+		}
+
 		private User[] RetrieveUsers() {
 			if(database.Connection.State == System.Data.ConnectionState.Open) {
 				database.Connection.Close();

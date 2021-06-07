@@ -113,6 +113,20 @@ namespace MyFirstPlugin {
 						logInData.username = user.Username;
 						logInData.email = user.Email;
 
+						//* Gen session token
+						if((bool)logInInfo[2]) {
+							string sessionToken = string.Empty;
+
+							for(int j = 0; j < 40; ++j) {
+								sessionToken += (char)new Random(DateTime.Now.Millisecond).Next(33, 127);
+							}
+
+							logInData.sessionToken = sessionToken;
+
+
+						}
+						//*/
+
 						break;
 					} else {
 						logInData.status = LogInStatus.WrongPassword;
@@ -136,14 +150,6 @@ namespace MyFirstPlugin {
 					logInData.status = LogInStatus.WrongUsername;
 					logInData.username = usernameOrEmail;
 				}
-			}
-
-			if((bool)logInInfo[2]) {
-				string sessionToken = string.Empty;
-				for(int i = 0; i < 40; ++i) {
-					sessionToken += (char)new Random(DateTime.Now.Millisecond).Next(33, 127);
-				}
-				logInData.sessionToken = sessionToken;
 			}
 
 			BroadcastEvent: {
