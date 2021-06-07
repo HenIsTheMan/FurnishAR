@@ -4,6 +4,7 @@
 			NotAnEvent,
 			LogIn,
 			SignUp,
+			AcctCheck,
 			Amt
 		}
 	}

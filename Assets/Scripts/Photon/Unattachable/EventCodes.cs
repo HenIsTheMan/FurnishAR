@@ -4,6 +4,7 @@ namespace FurnishAR.Photon {
 			NotAnEvent,
 			LogIn,
 			SignUp,
+			AcctCheck,
 			Amt
 		}
 	}

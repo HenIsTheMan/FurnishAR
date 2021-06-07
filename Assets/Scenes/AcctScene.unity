@@ -9255,6 +9255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf1ecca6c9dc1e49baaedd3b1a1008a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initControl: {fileID: 1305904697}
   acctGO: {fileID: 61893202}
   bigInfoLabel: {fileID: 233160769}
 --- !u!1 &2098590848

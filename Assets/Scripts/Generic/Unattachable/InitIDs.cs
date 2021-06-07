@@ -16,12 +16,13 @@ namespace FurnishAR.Generic {
 			OutlineSilhouette,
 			Listicle2D,
 
+			PhotonMaster,
 			CamFlipButton,
 			FurnitureManager,
 			ListDotControl,
 			LogInSignUp,
-			PhotonMaster,
 			PlacementMarkerControl,
+			AcctManager,
 			Amt
 		}
     }
