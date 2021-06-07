@@ -73,6 +73,9 @@ namespace MyFirstPlugin {
 					string userPassword = string.Empty;
 					{
 						int[] encryptedValsASCII = JsonConvert.DeserializeObject<int[]>(user.Password);
+						if(encryptedValsASCII == null) {
+							throw new Exception();
+						}
 						int encryptedValsASCIILen = encryptedValsASCII.Length;
 
 						int[] keyInverse = new int[4]{

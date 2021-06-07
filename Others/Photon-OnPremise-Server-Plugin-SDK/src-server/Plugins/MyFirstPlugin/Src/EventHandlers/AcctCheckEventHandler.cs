@@ -28,6 +28,9 @@ namespace MyFirstPlugin {
 				string sessionTokenFromDB = string.Empty;
 				{
 					int[] encryptedValsASCII = JsonConvert.DeserializeObject<int[]>(user.SessionToken);
+					if(encryptedValsASCII == null) {
+						goto BroadcastEvent;
+					}
 					int encryptedValsASCIILen = encryptedValsASCII.Length;
 
 					int[] keyInverse = new int[4]{
