@@ -10,6 +10,11 @@ namespace FurnishAR.Photon {
     internal sealed class LogInEventHandler: MonoBehaviour, IOnEventCallback {
         #region Fields
 
+        private JSONNode logInDataJSON;
+
+        [SerializeField]
+        private AcctManager acctManager;
+
         [SerializeField]
         private LogIn logIn;
 
@@ -21,6 +26,10 @@ namespace FurnishAR.Photon {
         #region Ctors and Dtor
 
         internal LogInEventHandler(): base() {
+            logInDataJSON = null;
+
+            acctManager = null;
+
             logIn = null;
         }
 
@@ -46,7 +55,7 @@ namespace FurnishAR.Photon {
                 return;
             }
 
-            JSONNode logInDataJSON = JSON.Parse((string)photonEvent.CustomData);
+            logInDataJSON = JSON.Parse((string)photonEvent.CustomData);
 
             switch((LogInStatus)logInDataJSON["status"].AsInt){
                 case LogInStatus.NoUsernameOrEmail:
@@ -68,6 +77,8 @@ namespace FurnishAR.Photon {
                     logIn.logInInfoLabel.text = "Log In Success!";
                     logIn.logInInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
 
+                    _ = StartCoroutine(nameof(LogInSuccess));
+
                     break;
                 case LogInStatus.WrongUsername:
                     logIn.logInInfoLabel.text = $"Username \"{logInDataJSON["username"].Value}\" is unregistered!";
@@ -87,6 +98,16 @@ namespace FurnishAR.Photon {
 
                     break;
             }
+        }
+
+        private System.Collections.IEnumerator LogInSuccess() {
+            yield return new WaitForSeconds(2.0f);
+
+            GameObject.Find("LogInSignUpGrp").SetActive(false);
+            logIn.gameObject.SetActive(false);
+
+            acctManager.bigInfoLabel.text = $"{logInDataJSON["username"].Value}\n{logInDataJSON["email"].Value}";
+            acctManager.gameObject.SetActive(true);
         }
     }
 }
