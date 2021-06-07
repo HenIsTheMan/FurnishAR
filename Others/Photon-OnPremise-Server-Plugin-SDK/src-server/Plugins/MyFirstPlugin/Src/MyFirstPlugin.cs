@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace MyFirstPlugin {
 	internal sealed partial class MyFirstPlugin: PluginBase {
-		private readonly Database database;
+		private Database database;
 		private readonly MySqlConnection connection;
 
 		private delegate void OnRaiseEventDelegate(IRaiseEventCallInfo _);
@@ -65,6 +65,8 @@ namespace MyFirstPlugin {
 					+ $" WHERE id = {ID};"
 				);
 			} catch(System.Exception) {
+			} finally {
+				database = new Database(connection);
 			}
 		}
 
@@ -82,7 +84,7 @@ namespace MyFirstPlugin {
 		}
 
 		private User[] RetrieveUsers() {
-			return new Database(connection).ExecuteQuery<User>("SELECT * FROM furnishar_db.user_table").ToArray();
+			return database.ExecuteQuery<User>("SELECT * FROM furnishar_db.user_table").ToArray();
 		}
 
 		private int RetrieveHighestIDOfUser(int minExclusive = 0) {
