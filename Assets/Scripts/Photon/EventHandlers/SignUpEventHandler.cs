@@ -192,10 +192,15 @@ namespace FurnishAR.Photon {
             yield return new WaitForSeconds(2.0f);
 
             logInSignUpGrpCanvasGrp.alpha = 0.0f;
-            signUp.GetComponent<CanvasGroup>().alpha = 0.0f;
+            logInSignUpGrpCanvasGrp.blocksRaycasts = false;
+
+            CanvasGroup myCanvasGrp = signUp.GetComponent<CanvasGroup>();
+            myCanvasGrp.alpha = 0.0f;
+            myCanvasGrp.blocksRaycasts = false;
 
             acctManager.bigInfoLabel.text = $"{signUpData["username"].Value}\n{signUpData["email"].Value}";
             acctManager.acctCanvasGrp.alpha = 1.0f;
+            acctManager.acctCanvasGrp.blocksRaycasts = true;
         }
     }
 }

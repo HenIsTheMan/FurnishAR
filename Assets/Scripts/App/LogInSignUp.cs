@@ -78,7 +78,10 @@ namespace FurnishAR.App {
             myRectTransform.localScale = new Vector3(6.3f, 0.2f, 1.0f);
 
             logInCanvasGrp.alpha = 1.0f;
+            logInCanvasGrp.blocksRaycasts = true;
+
             signUpCanvasGrp.alpha = 0.0f;
+            signUpCanvasGrp.blocksRaycasts = false;
 
             state = LogInSignUpState.LogIn;
         }
@@ -92,7 +95,10 @@ namespace FurnishAR.App {
                 signUpToLogInScaleAnim.IsUpdating = true;
 
                 logInCanvasGrp.alpha = 1.0f;
+                logInCanvasGrp.blocksRaycasts = true;
+
                 signUpCanvasGrp.alpha = 0.0f;
+                signUpCanvasGrp.blocksRaycasts = false;
 
                 signUp.ClearSignUp();
 
@@ -109,7 +115,10 @@ namespace FurnishAR.App {
                 logInToSignUpScaleAnim.IsUpdating = true;
 
                 signUpCanvasGrp.alpha = 1.0f;
+                signUpCanvasGrp.blocksRaycasts = true;
+
                 logInCanvasGrp.alpha = 0.0f;
+                logInCanvasGrp.blocksRaycasts = false;
 
                 logIn.ClearLogIn();
 

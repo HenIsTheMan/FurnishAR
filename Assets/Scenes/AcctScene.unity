@@ -400,7 +400,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &130854568
 GameObject:
@@ -1555,7 +1555,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &515914285
 GameObject:
@@ -6498,7 +6498,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1449506040
 GameObject:
@@ -7588,7 +7588,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1681020390
 GameObject:
@@ -9448,7 +9448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9302bc5effd7cbf4487f12ed058cdb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initControl: {fileID: 1305904697}
   myRectTransform: {fileID: 2098590849}
   logInToSignUpTranslateAnim: {fileID: 1231692795}
   logInToSignUpScaleAnim: {fileID: 1231692794}
