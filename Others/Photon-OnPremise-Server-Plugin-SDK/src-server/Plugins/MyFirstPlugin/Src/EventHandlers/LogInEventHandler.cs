@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Photon.Hive.Plugin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using static MyFirstPlugin.EventCodes;
@@ -135,6 +136,14 @@ namespace MyFirstPlugin {
 					logInData.status = LogInStatus.WrongUsername;
 					logInData.username = usernameOrEmail;
 				}
+			}
+
+			if((bool)logInInfo[2]) {
+				string sessionToken = string.Empty;
+				for(int i = 0; i < 40; ++i) {
+					sessionToken += (char)new Random(DateTime.Now.Millisecond).Next(33, 127);
+				}
+				logInData.sessionToken = sessionToken;
 			}
 
 			BroadcastEvent: {
