@@ -102,7 +102,6 @@ namespace MyFirstPlugin {
 						}
 						///
 
-						userPassword = string.Empty;
 						for(int j = 0; j < encryptedValsASCIILen; ++j) {
 							if(decryptedValsASCII[j] >= 0) {
 								userPassword += (char)decryptedValsASCII[j];
@@ -116,7 +115,7 @@ namespace MyFirstPlugin {
 						logInData.username = user.Username;
 						logInData.email = user.Email;
 
-						//* Gen session token
+						//* Gen session token (includes encryption)
 						if((bool)logInInfo[2]) {
 							int sessionTokenLen = 40;
 							string sessionToken = string.Empty;

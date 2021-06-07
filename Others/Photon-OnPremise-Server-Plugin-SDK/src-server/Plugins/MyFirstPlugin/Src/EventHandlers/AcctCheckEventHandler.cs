@@ -19,39 +19,86 @@ namespace MyFirstPlugin {
 			for(int i = 0; i < usersLen; ++i) {
 				user = users[i];
 
-				int[] encryptedValsASCII = JsonConvert.DeserializeObject<int[]>(user.SessionToken);
-				int encryptedValsASCIILen = encryptedValsASCII.Length;
+				//* Retrieving session token from DB (includes decryption)
+				string sessionTokenFromDB = string.Empty;
+				{
+					int[] encryptedValsASCII = JsonConvert.DeserializeObject<int[]>(user.SessionToken);
+					int encryptedValsASCIILen = encryptedValsASCII.Length;
 
-				int[] keyInverse = new int[4]{
-					5,
-					-3,
-					-3,
-					2
-				};
+					int[] keyInverse = new int[4]{
+						5,
+						-3,
+						-3,
+						2
+					};
 
-				int[] decryptedValsASCII = new int[encryptedValsASCIILen];
-				int limit = encryptedValsASCIILen / 2;
-				int index0;
-				int index1;
+					int[] decryptedValsASCII = new int[encryptedValsASCIILen];
+					int limit = encryptedValsASCIILen / 2;
+					int index0;
+					int index1;
 
-				for(int j = 0; j < limit; ++j) {
-					index0 = 2 * j;
-					index1 = index0 + 1;
+					for(int j = 0; j < limit; ++j) {
+						index0 = 2 * j;
+						index1 = index0 + 1;
 
-					decryptedValsASCII[index0] = keyInverse[0] * encryptedValsASCII[index0] + keyInverse[2] * encryptedValsASCII[index1];
-					decryptedValsASCII[index1] = keyInverse[1] * encryptedValsASCII[index0] + keyInverse[3] * encryptedValsASCII[index1];
-				}
+						decryptedValsASCII[index0] = keyInverse[0] * encryptedValsASCII[index0] + keyInverse[2] * encryptedValsASCII[index1];
+						decryptedValsASCII[index1] = keyInverse[1] * encryptedValsASCII[index0] + keyInverse[3] * encryptedValsASCII[index1];
+					}
 
-				string sessionToken = string.Empty;
-				for(int j = 0; j < encryptedValsASCIILen; ++j) {
-					if(decryptedValsASCII[j] >= 0) {
-						sessionToken += (char)decryptedValsASCII[j];
+					for(int j = 0; j < encryptedValsASCIILen; ++j) {
+						if(decryptedValsASCII[j] >= 0) {
+							sessionTokenFromDB += (char)decryptedValsASCII[j];
+						}
 					}
 				}
+				//*/
 
-				if(sessionToken == (string)info.Request.Data) {
+				if(sessionTokenFromDB == (string)info.Request.Data) {
 					acctData.username = user.Username;
 					acctData.email = user.Email;
+
+					//* Gen session token (includes encryption)
+					int sessionTokenLen = 40;
+					string sessionToken = string.Empty;
+
+					for(int j = 0; j < sessionTokenLen; ++j) {
+						sessionToken += (char)PseudorandRange(33.0f, 127.0f, (uint)(user.ID ^ j ^ 2645));
+					}
+
+					acctData.sessionToken = sessionToken;
+
+					int[] valsASCII = new int[(sessionTokenLen & 1) == 1 ? sessionTokenLen + 1 : sessionTokenLen];
+					int valsASCIILen = valsASCII.Length;
+
+					for(int j = 0; j < sessionTokenLen; ++j) {
+						valsASCII[j] = sessionToken[j];
+					}
+					if((sessionTokenLen & 1) == 1) {
+						valsASCII[valsASCIILen - 1] = -1; //Invalid val
+					}
+
+					int[] key = new int[4]{
+						2,
+						3,
+						3,
+						5
+					};
+
+					int[] encryptedValsASCII = new int[valsASCIILen];
+					int limit = valsASCIILen / 2;
+					int index0;
+					int index1;
+
+					for(int j = 0; j < limit; ++j) {
+						index0 = 2 * j;
+						index1 = index0 + 1;
+
+						encryptedValsASCII[index0] = key[0] * valsASCII[index0] + key[2] * valsASCII[index1];
+						encryptedValsASCII[index1] = key[1] * valsASCII[index0] + key[3] * valsASCII[index1];
+					}
+
+					UpdateUserByID("sessionToken", JsonConvert.SerializeObject(encryptedValsASCII), user.ID);
+					//*/
 
 					break;
 				}
