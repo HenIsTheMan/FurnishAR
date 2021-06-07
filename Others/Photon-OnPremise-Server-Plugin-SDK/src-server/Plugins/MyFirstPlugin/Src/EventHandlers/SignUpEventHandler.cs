@@ -243,6 +243,8 @@ namespace MyFirstPlugin {
 				sessionToken += (char)PseudorandRange(33.0f, 127.0f, (uint)(myUserID ^ j ^ DateTime.Now.Millisecond));
 			}
 
+			signUpData.sessionToken = sessionToken;
+
 			valsASCII = new int[(sessionTokenLen & 1) == 1 ? sessionTokenLen + 1 : sessionTokenLen];
 			valsASCIILen = valsASCII.Length;
 
@@ -270,8 +272,6 @@ namespace MyFirstPlugin {
 			}
 			//*/
 
-			UpdateUserByID("sessionToken", JsonConvert.SerializeObject(encryptedValsASCII), myUserID);
-
 			user = new User {
 				ID = myUserID,
 				FirstName = firstName,
@@ -280,7 +280,7 @@ namespace MyFirstPlugin {
 				Username = username,
 				Email = email,
 				Password = newPassword,
-				SessionToken = sessionToken
+				SessionToken = JsonConvert.SerializeObject(encryptedValsASCII)
 			};
 			AddUser(ref user);
 

@@ -202,6 +202,8 @@ namespace FurnishAR.Photon {
             acctManager.acctCanvasGrp.alpha = 1.0f;
             acctManager.acctCanvasGrp.blocksRaycasts = true;
 
+            PlayerPrefs.SetString("sessionToken", signUpData["sessionToken"].Value); //Save session token
+
             signUp.ClearSignUp();
         }
     }

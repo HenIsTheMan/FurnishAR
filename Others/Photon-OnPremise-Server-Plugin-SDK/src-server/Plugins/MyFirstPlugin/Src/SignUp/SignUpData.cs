@@ -7,5 +7,6 @@ namespace MyFirstPlugin {
 		internal SignUpStatus status = SignUpStatus.None;
 		internal string username = string.Empty;
 		internal string email = string.Empty;
+		internal string sessionToken = string.Empty;
 	}
 }
