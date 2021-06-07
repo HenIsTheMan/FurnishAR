@@ -29,7 +29,11 @@ namespace MyFirstPlugin {
 				{
 					int[] encryptedValsASCII = JsonConvert.DeserializeObject<int[]>(user.SessionToken);
 					if(encryptedValsASCII == null) {
-						goto BroadcastEvent;
+						if(i == usersLen - 1) {
+							goto BroadcastEvent;
+						}
+
+						continue;
 					}
 					int encryptedValsASCIILen = encryptedValsASCII.Length;
 
