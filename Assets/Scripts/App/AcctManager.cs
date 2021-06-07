@@ -53,6 +53,14 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
+            _ = StartCoroutine(nameof(CheckForAcct));
+        }
+
+        private System.Collections.IEnumerator CheckForAcct() {
+            while(!PhotonNetwork.InRoom) {
+                yield return null;
+            }
+
             _ = PhotonNetwork.RaiseEvent(
                 (byte)EventCodes.EventCode.AcctCheck,
                 PlayerPrefs.GetString("sessionToken", string.Empty),
