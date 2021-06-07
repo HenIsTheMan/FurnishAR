@@ -1478,6 +1478,7 @@ Transform:
   - {fileID: 794792906}
   - {fileID: 1498006910}
   - {fileID: 1888142101}
+  - {fileID: 769655630}
   m_Father: {fileID: 1268776987}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3624,6 +3625,51 @@ MonoBehaviour:
   maxPlayersPerRoom: 4
   gameVer: 4.0
   localPlayerNickname: HenIsTheMan
+--- !u!1 &769655629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 769655630}
+  - component: {fileID: 769655631}
+  m_Layer: 0
+  m_Name: DeleteAcctEventHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &769655630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769655629}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 461972758}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &769655631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769655629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240133cf7e06cfd4183a9bae31d785f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acctManager: {fileID: 2071816959}
+  logInSignUpGrpCanvasGrp: {fileID: 1670462011}
 --- !u!1 &780816571
 GameObject:
   m_ObjectHideFlags: 0
@@ -9664,6 +9710,7 @@ GameObject:
   - component: {fileID: 2112731043}
   - component: {fileID: 2112731042}
   - component: {fileID: 2112731041}
+  - component: {fileID: 2112731044}
   m_Layer: 5
   m_Name: DeleteAcctButton
   m_TagString: Untagged
@@ -9734,7 +9781,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2112731042}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2112731044}
+        m_TargetAssemblyTypeName: FurnishAR.App.DeleteAcctButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2112731042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9773,3 +9832,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112731039}
   m_CullTransparentMesh: 1
+--- !u!114 &2112731044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112731039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5acc94e6d59e1d439bbbf194a944d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

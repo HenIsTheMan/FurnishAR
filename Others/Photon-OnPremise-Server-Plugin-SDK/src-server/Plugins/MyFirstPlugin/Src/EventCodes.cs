@@ -6,6 +6,7 @@
 			SignUp,
 			AcctCheck,
 			LogOut,
+			DeleteAcct,
 			Amt
 		}
 	}

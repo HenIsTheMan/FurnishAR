@@ -25,6 +25,7 @@ namespace MyFirstPlugin {
 			myOnRaiseEventDelegate += SignUpEventHandler;
 			myOnRaiseEventDelegate += AcctCheckEventHandler;
 			myOnRaiseEventDelegate += LogOutEventHandler;
+			myOnRaiseEventDelegate += DeleteAcctEventHandler;
 		}
 
 		~MyFirstPlugin() {
@@ -65,6 +66,19 @@ namespace MyFirstPlugin {
 				);
 			} catch(System.Exception) {
 			}
+		}
+
+		private void RemoveUserByID(int ID) {
+			if(database.Connection.State == System.Data.ConnectionState.Open) {
+				database.Connection.Close();
+			}
+
+			//try {
+				_ = database.ExecuteQuery<User>(
+					$"DELETE FROM furnishar_db.user_table WHERE id = {ID};"
+				);
+			//} catch(System.Exception) {
+			//}
 		}
 
 		private User[] RetrieveUsers() {
