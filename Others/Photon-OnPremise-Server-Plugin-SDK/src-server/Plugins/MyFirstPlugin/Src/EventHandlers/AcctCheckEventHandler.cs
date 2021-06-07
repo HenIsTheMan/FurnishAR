@@ -11,6 +11,11 @@ namespace MyFirstPlugin {
 			}
 
 			AcctData acctData = new AcctData();
+			
+			string sessionTokenFromClient = (string)info.Request.Data;
+			if(string.IsNullOrEmpty(sessionTokenFromClient)) {
+				goto BroadcastEvent;
+			}
 
 			User user;
 			User[] users = RetrieveUsers();
@@ -53,7 +58,7 @@ namespace MyFirstPlugin {
 				}
 				//*/
 
-				if(sessionTokenFromDB == (string)info.Request.Data) {
+				if(sessionTokenFromDB == sessionTokenFromClient) {
 					acctData.username = user.Username;
 					acctData.email = user.Email;
 
@@ -104,16 +109,18 @@ namespace MyFirstPlugin {
 				}
 			}
 
-			PluginHost.BroadcastEvent(
-				target: ReciverGroup.All,
-				senderActor: 0,
-				targetGroup: 0,
-				data: new Dictionary<byte, object>() {
-					{245, JsonConvert.SerializeObject(acctData)}
-				},
-				evCode: info.Request.EvCode,
-				cacheOp: CacheOperations.DoNotCache
-			);
+			BroadcastEvent: {
+				PluginHost.BroadcastEvent(
+					target: ReciverGroup.All,
+					senderActor: 0,
+					targetGroup: 0,
+					data: new Dictionary<byte, object>() {
+						{245, JsonConvert.SerializeObject(acctData)}
+					},
+					evCode: info.Request.EvCode,
+					cacheOp: CacheOperations.DoNotCache
+				);
+			}
 		}
 	}
 }
