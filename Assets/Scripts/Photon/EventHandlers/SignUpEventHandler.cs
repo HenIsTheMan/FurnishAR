@@ -198,7 +198,7 @@ namespace FurnishAR.Photon {
             myCanvasGrp.alpha = 0.0f;
             myCanvasGrp.blocksRaycasts = false;
 
-            acctManager.bigInfoLabel.text = $"{signUpData["username"].Value}\n{signUpData["email"].Value}";
+            acctManager.bigAcctInfoLabel.text = $"{signUpData["username"].Value}\n{signUpData["email"].Value}";
             acctManager.acctCanvasGrp.alpha = 1.0f;
             acctManager.acctCanvasGrp.blocksRaycasts = true;
         }

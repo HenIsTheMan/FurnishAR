@@ -18,7 +18,7 @@ namespace FurnishAR.App {
         internal CanvasGroup acctCanvasGrp;
 
         [SerializeField]
-        internal TMP_Text bigInfoLabel;
+        internal TMP_Text bigAcctInfoLabel;
 
         #endregion
 
@@ -32,7 +32,7 @@ namespace FurnishAR.App {
 
             acctCanvasGrp = null;
 
-            bigInfoLabel = null;
+            bigAcctInfoLabel = null;
         }
 
         static AcctManager() {

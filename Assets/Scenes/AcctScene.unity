@@ -9357,7 +9357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initControl: {fileID: 1305904697}
   acctCanvasGrp: {fileID: 61893204}
-  bigInfoLabel: {fileID: 233160769}
+  bigAcctInfoLabel: {fileID: 233160769}
 --- !u!1 &2098590848
 GameObject:
   m_ObjectHideFlags: 0
