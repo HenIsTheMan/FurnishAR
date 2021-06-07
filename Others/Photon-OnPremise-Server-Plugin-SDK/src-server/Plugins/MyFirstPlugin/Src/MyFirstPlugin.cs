@@ -55,11 +55,14 @@ namespace MyFirstPlugin {
 				database.Connection.Close();
 			}
 
-			_ = database.ExecuteQuery<User>(
-				"UPDATE furnishar_db.user_table SET "
-				+ $"{colName} = '{val}'"
-				+ $" WHERE id = {ID};"
-			);
+			try {
+				_ = database.ExecuteQuery<User>(
+					"UPDATE furnishar_db.user_table SET "
+					+ $"{colName} = '{val}'"
+					+ $" WHERE id = {ID};"
+				);
+			} catch(System.Exception) {
+			}
 		}
 
 		private User[] RetrieveUsers() {

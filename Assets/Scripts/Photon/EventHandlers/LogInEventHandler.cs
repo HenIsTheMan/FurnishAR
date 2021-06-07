@@ -98,6 +98,10 @@ namespace FurnishAR.Photon {
 
                     break;
             }
+
+            Generic.Console.Log(logInDataJSON["sessionToken"].Value);
+
+            PlayerPrefs.SetString("sessionToken", logInDataJSON["sessionToken"].Value); //Save session token
         }
 
         private System.Collections.IEnumerator LogInSuccess() {
