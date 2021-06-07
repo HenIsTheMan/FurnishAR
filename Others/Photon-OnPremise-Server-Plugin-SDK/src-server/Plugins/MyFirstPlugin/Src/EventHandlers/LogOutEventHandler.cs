@@ -31,6 +31,7 @@ namespace MyFirstPlugin {
 					int[] encryptedValsASCII = JsonConvert.DeserializeObject<int[]>(user.SessionToken);
 					if(encryptedValsASCII == null) {
 						if(i == usersLen - 1) {
+							isSuccessful = false;
 							goto BroadcastEvent;
 						}
 

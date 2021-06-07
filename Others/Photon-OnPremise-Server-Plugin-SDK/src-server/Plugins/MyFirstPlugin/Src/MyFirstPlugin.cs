@@ -24,6 +24,7 @@ namespace MyFirstPlugin {
 			myOnRaiseEventDelegate += LogInEventHandler;
 			myOnRaiseEventDelegate += SignUpEventHandler;
 			myOnRaiseEventDelegate += AcctCheckEventHandler;
+			myOnRaiseEventDelegate += LogOutEventHandler;
 		}
 
 		~MyFirstPlugin() {
