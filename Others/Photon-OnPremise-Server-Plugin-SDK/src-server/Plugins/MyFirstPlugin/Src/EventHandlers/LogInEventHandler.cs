@@ -150,7 +150,7 @@ namespace MyFirstPlugin {
 							int index1;
 
 							for(int j = 0; j < limit; ++j) {
-								index0 = 2 * i;
+								index0 = 2 * j;
 								index1 = index0 + 1;
 
 								encryptedValsASCII[index0] = key[0] * valsASCII[index0] + key[2] * valsASCII[index1];
