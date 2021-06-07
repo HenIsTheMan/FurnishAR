@@ -239,7 +239,8 @@ namespace MyFirstPlugin {
 				LastName = lastName,
 				Username = username,
 				Email = email,
-				Password = newPassword
+				Password = newPassword,
+				SessionToken = string.Empty
 			};
 			AddUser(ref user);
 

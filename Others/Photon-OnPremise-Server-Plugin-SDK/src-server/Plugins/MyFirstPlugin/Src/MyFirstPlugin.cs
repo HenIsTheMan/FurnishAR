@@ -41,9 +41,10 @@ namespace MyFirstPlugin {
 			try {
 				_ = database.ExecuteQuery<User>(
 					"INSERT INTO furnishar_db.user_table "
-					+ "(id, firstName, middleName, lastName, username, email, password)"
+					+ "(id, firstName, middleName, lastName, username, email, password, sessionToken)"
 					+ " VALUES "
-					+ $"({user.ID}, \"{user.FirstName}\", \"{user.MiddleName}\", \"{user.LastName}\", \"{user.Username}\", \"{user.Email}\", \"{user.Password}\");"
+					+ $"({user.ID}, \"{user.FirstName}\", \"{user.MiddleName}\", \"{user.LastName}\","
+					+ $"\"{user.Username}\", \"{user.Email}\", \"{user.Password}\", \"{user.SessionToken}\");"
 				);
 			} catch(System.Exception) {
 			}

@@ -45,5 +45,11 @@ namespace MyFirstPlugin {
 			get;
 			set;
 		}
+
+		[Column(CanBeNull = false), JsonProperty]
+		internal string SessionToken {
+			get;
+			set;
+		}
 	}
 }
