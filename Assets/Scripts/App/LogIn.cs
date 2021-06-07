@@ -5,6 +5,7 @@ using Photon.Realtime;
 using SimpleJSON;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FurnishAR.App {
     internal sealed class LogIn: MonoBehaviour {
@@ -15,6 +16,9 @@ namespace FurnishAR.App {
 
         [SerializeField]
         private TMP_InputField passwordInputField;
+
+        [SerializeField]
+        private Toggle rememberMeToggle;
 
         [SerializeField]
         internal TMP_Text logInInfoLabel;
@@ -29,6 +33,8 @@ namespace FurnishAR.App {
         internal LogIn(): base() {
             userInputField = null;
             passwordInputField = null;
+
+            rememberMeToggle = null;
 
             logInInfoLabel = null;
         }
@@ -46,6 +52,7 @@ namespace FurnishAR.App {
 
             node.Add(userInputField.text);
             node.Add(passwordInputField.text);
+            node.Add(rememberMeToggle.isOn);
 
             _ = PhotonNetwork.RaiseEvent((byte)EventCodes.EventCode.LogIn, node.ToString(), RaiseEventOptions.Default, SendOptions.SendReliable);
         }

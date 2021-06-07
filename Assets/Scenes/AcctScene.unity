@@ -6469,6 +6469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userInputField: {fileID: 1523551633}
   passwordInputField: {fileID: 1919426776}
+  rememberMeToggle: {fileID: 1240708006}
   logInInfoLabel: {fileID: 1638111169}
 --- !u!1 &1449506040
 GameObject:

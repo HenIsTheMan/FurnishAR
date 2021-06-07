@@ -14,15 +14,15 @@ namespace MyFirstPlugin {
 
 			LogInData logInData = new LogInData();
 
-			string[] logInInfo = JsonConvert.DeserializeObject<string[]>((string)info.Request.Data);
+			object[] logInInfo = JsonConvert.DeserializeObject<object[]>((string)info.Request.Data);
 
-			string usernameOrEmail = logInInfo[0];
+			string usernameOrEmail = (string)logInInfo[0];
 			if(string.IsNullOrEmpty(usernameOrEmail)) {
 				logInData.status = LogInStatus.NoUsernameOrEmail;
 				goto BroadcastEvent;
 			}
 
-			string password = logInInfo[1];
+			string password = (string)logInInfo[1];
 			if(string.IsNullOrEmpty(password)) {
 				logInData.status = LogInStatus.NoPassword;
 				goto BroadcastEvent;
