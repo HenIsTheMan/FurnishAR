@@ -5,6 +5,7 @@ namespace FurnishAR.Photon {
 			LogIn,
 			SignUp,
 			AcctCheck,
+			LogOut,
 			Amt
 		}
 	}

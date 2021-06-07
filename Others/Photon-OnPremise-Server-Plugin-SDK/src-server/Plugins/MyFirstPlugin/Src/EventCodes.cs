@@ -5,6 +5,7 @@
 			LogIn,
 			SignUp,
 			AcctCheck,
+			LogOut,
 			Amt
 		}
 	}
