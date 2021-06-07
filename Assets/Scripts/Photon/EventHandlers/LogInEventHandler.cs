@@ -79,10 +79,10 @@ namespace FurnishAR.Photon {
 
                     break;
                 case LogInStatus.Success:
-                    logIn.logInInfoLabel.text = "Log In Success!";
+                    logIn.logInInfoLabel.text = "Log In Successful!";
                     logIn.logInInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
 
-                    _ = StartCoroutine(nameof(LogInSuccess));
+                    _ = StartCoroutine(nameof(LogInSuccessful));
 
                     break;
                 case LogInStatus.WrongUsername:
@@ -105,7 +105,7 @@ namespace FurnishAR.Photon {
             }
         }
 
-        private System.Collections.IEnumerator LogInSuccess() {
+        private System.Collections.IEnumerator LogInSuccessful() {
             yield return new WaitForSeconds(2.0f);
 
             logInSignUpGrpCanvasGrp.alpha = 0.0f;
@@ -120,6 +120,8 @@ namespace FurnishAR.Photon {
             acctManager.acctCanvasGrp.blocksRaycasts = true;
 
             PlayerPrefs.SetString("sessionToken", logInData["sessionToken"].Value); //Save session token
+
+            logIn.ClearLogIn();
         }
     }
 }

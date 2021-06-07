@@ -50,16 +50,27 @@ namespace FurnishAR.Photon {
             }
 
             if((bool)photonEvent.CustomData) {
-                acctManager.acctCanvasGrp.alpha = 0.0f;
-                acctManager.acctCanvasGrp.blocksRaycasts = false;
+                acctManager.smallAcctInfoLabel.text = "Log Out Successful!";
+                acctManager.smallAcctInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
 
-                logInSignUpGrpCanvasGrp.alpha = 1.0f;
-                logInSignUpGrpCanvasGrp.blocksRaycasts = true;
-                logInSignUpGrpCanvasGrp.GetComponentInChildren<LogInSignUp>().InitMe();
+                _ = StartCoroutine(nameof(LogOutSuccessful));
             } else {
                 acctManager.smallAcctInfoLabel.text = "Log Out Failed! Please try again.";
                 acctManager.smallAcctInfoLabel.color = Color.red;
             }
+        }
+
+        private System.Collections.IEnumerator LogOutSuccessful() {
+            yield return new WaitForSeconds(2.0f);
+
+            acctManager.acctCanvasGrp.alpha = 0.0f;
+            acctManager.acctCanvasGrp.blocksRaycasts = false;
+
+            logInSignUpGrpCanvasGrp.alpha = 1.0f;
+            logInSignUpGrpCanvasGrp.blocksRaycasts = true;
+            logInSignUpGrpCanvasGrp.GetComponentInChildren<LogInSignUp>().InitMe();
+
+            acctManager.smallAcctInfoLabel.text = string.Empty;
         }
     }
 }

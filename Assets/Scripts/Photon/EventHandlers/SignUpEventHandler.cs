@@ -179,16 +179,16 @@ namespace FurnishAR.Photon {
 
                     break;
                 case SignUpStatus.Success:
-                    signUp.signUpInfoLabel.text = "Sign Up Success!";
+                    signUp.signUpInfoLabel.text = "Sign Up Successful!";
                     signUp.signUpInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
 
-                    _ = StartCoroutine(nameof(SignUpSuccess));
+                    _ = StartCoroutine(nameof(SignUpSuccessful));
 
                     break;
             }
         }
 
-        private System.Collections.IEnumerator SignUpSuccess() {
+        private System.Collections.IEnumerator SignUpSuccessful() {
             yield return new WaitForSeconds(2.0f);
 
             logInSignUpGrpCanvasGrp.alpha = 0.0f;
@@ -201,6 +201,8 @@ namespace FurnishAR.Photon {
             acctManager.bigAcctInfoLabel.text = $"{signUpData["username"].Value}\n{signUpData["email"].Value}";
             acctManager.acctCanvasGrp.alpha = 1.0f;
             acctManager.acctCanvasGrp.blocksRaycasts = true;
+
+            signUp.ClearSignUp();
         }
     }
 }
