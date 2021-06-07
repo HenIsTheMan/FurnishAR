@@ -20,7 +20,6 @@ namespace FurnishAR.Generic {
 			CamFlipButton,
 			FurnitureManager,
 			ListDotControl,
-			LogInSignUp,
 			PlacementMarkerControl,
 			AcctManager,
 			Amt

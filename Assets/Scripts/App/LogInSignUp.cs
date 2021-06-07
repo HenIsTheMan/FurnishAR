@@ -1,7 +1,5 @@
 using FurnishAR.Anim;
-using FurnishAR.Generic;
 using UnityEngine;
-using static FurnishAR.Generic.InitIDs;
 
 namespace FurnishAR.App {
     internal sealed class LogInSignUp: MonoBehaviour {
@@ -12,9 +10,6 @@ namespace FurnishAR.App {
         }
 
         #region Fields
-
-        [SerializeField]
-        private InitControl initControl;
 
         [SerializeField]
         private RectTransform myRectTransform;
@@ -53,8 +48,6 @@ namespace FurnishAR.App {
         #region Ctors and Dtor
 
         internal LogInSignUp(): base() {
-            initControl = null;
-
             myRectTransform = null;
 
             state = LogInSignUpState.Amt;
@@ -78,18 +71,9 @@ namespace FurnishAR.App {
         #endregion
 
         #region Unity User Callback Event Funcs
-
-        private void OnEnable() {
-            initControl.AddMethod((uint)InitID.LogInSignUp, Init);
-        }
-
-        private void OnDisable() {
-            initControl.RemoveMethod((uint)InitID.LogInSignUp, Init);
-        }
-
         #endregion
 
-        private void Init() {
+        internal void InitMe() {
             myRectTransform.localPosition = new Vector3(-370.0f, 1370.0f, 0.0f);
             myRectTransform.localScale = new Vector3(6.3f, 0.2f, 1.0f);
 
