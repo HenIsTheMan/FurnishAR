@@ -23,6 +23,7 @@ namespace MyFirstPlugin {
 			myOnRaiseEventDelegate = null;
 			myOnRaiseEventDelegate += LogInEventHandler;
 			myOnRaiseEventDelegate += SignUpEventHandler;
+			myOnRaiseEventDelegate += AcctCheckEventHandler;
 		}
 
 		~MyFirstPlugin() {
