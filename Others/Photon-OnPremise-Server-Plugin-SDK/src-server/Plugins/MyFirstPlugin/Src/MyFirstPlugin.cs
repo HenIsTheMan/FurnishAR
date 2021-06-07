@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Photon.Hive.Plugin;
+using System.Data.Linq;
 using System.Linq;
 
 namespace MyFirstPlugin {
@@ -65,6 +66,9 @@ namespace MyFirstPlugin {
 					+ $" WHERE id = {ID};"
 				);
 			} catch(System.Exception) {
+			} finally {
+				database.Refresh(RefreshMode.OverwriteCurrentValues);
+				database.SubmitChanges();
 			}
 		}
 
@@ -82,11 +86,7 @@ namespace MyFirstPlugin {
 		}
 
 		private User[] RetrieveUsers() {
-			if(database.Connection.State == System.Data.ConnectionState.Open) {
-				database.Connection.Close();
-			}
-
-			return database.ExecuteQuery<User>("SELECT * FROM furnishar_db.user_table").ToArray();
+			return new Database(connection).ExecuteQuery<User>("SELECT * FROM furnishar_db.user_table").ToArray();
 		}
 
 		private int RetrieveHighestIDOfUser(int minExclusive = 0) {
