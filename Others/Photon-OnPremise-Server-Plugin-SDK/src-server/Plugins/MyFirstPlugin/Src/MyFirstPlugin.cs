@@ -93,5 +93,19 @@ namespace MyFirstPlugin {
 
 			myOnRaiseEventDelegate?.Invoke(info);
 		}
+
+		private static uint Hash(uint seed) {
+			seed ^= 2747636419u;
+			seed *= 2654435769u;
+			seed ^= seed >> 16;
+			seed *= 2654435769u;
+			seed ^= seed >> 16;
+			seed *= 2654435769u;
+			return seed;
+		}
+
+		private static float PseudorandRange(float min, float max, uint seed) {
+			return min + (Hash(seed) / 4294967295.0f) * (max - min);
+		}
 	}
 }
