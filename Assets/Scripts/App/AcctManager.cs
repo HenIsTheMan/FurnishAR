@@ -6,6 +6,9 @@ namespace FurnishAR.App {
         #region Fields
 
         [SerializeField]
+        internal GameObject acctGO;
+
+        [SerializeField]
         internal TMP_Text bigInfoLabel;
 
         #endregion
@@ -16,6 +19,8 @@ namespace FurnishAR.App {
         #region Ctors and Dtor
 
         internal AcctManager(): base() {
+            acctGO = null;
+
             bigInfoLabel = null;
         }
 

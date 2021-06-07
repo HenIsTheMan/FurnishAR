@@ -10,6 +10,11 @@ namespace FurnishAR.Photon {
     internal sealed class SignUpEventHandler: MonoBehaviour, IOnEventCallback {
         #region Fields
 
+        private JSONNode signUpDataJSON;
+
+        [SerializeField]
+        private AcctManager acctManager;
+
         [SerializeField]
         private SignUp signUp;
 
@@ -21,6 +26,10 @@ namespace FurnishAR.Photon {
         #region Ctors and Dtor
 
         internal SignUpEventHandler(): base() {
+            signUpDataJSON = null;
+
+            acctManager = null;
+
             signUp = null;
         }
 
@@ -46,7 +55,7 @@ namespace FurnishAR.Photon {
                 return;
             }
 
-            JSONNode signUpDataJSON = JSON.Parse((string)photonEvent.CustomData);
+            signUpDataJSON = JSON.Parse((string)photonEvent.CustomData);
 
             switch((SignUpStatus)signUpDataJSON["status"].AsInt) {
                 case SignUpStatus.NoFirstName:
@@ -168,8 +177,20 @@ namespace FurnishAR.Photon {
                     signUp.signUpInfoLabel.text = "Sign Up Success!";
                     signUp.signUpInfoLabel.color = new Color(0.0f, 0.7f, 0.0f);
 
+                    _ = StartCoroutine(nameof(SignUpSuccess));
+
                     break;
             }
+        }
+
+        private System.Collections.IEnumerator SignUpSuccess() {
+            yield return new WaitForSeconds(2.0f);
+
+            GameObject.Find("LogInSignUpGrp").SetActive(false);
+            signUp.gameObject.SetActive(false);
+
+            acctManager.bigInfoLabel.text = $"{signUpDataJSON["username"].Value}\n{signUpDataJSON["email"].Value}";
+            acctManager.acctGO.SetActive(true);
         }
     }
 }

@@ -111,7 +111,7 @@ namespace FurnishAR.Photon {
             logIn.gameObject.SetActive(false);
 
             acctManager.bigInfoLabel.text = $"{logInDataJSON["username"].Value}\n{logInDataJSON["email"].Value}";
-            acctManager.gameObject.SetActive(true);
+            acctManager.acctGO.SetActive(true);
         }
     }
 }
