@@ -30,6 +30,7 @@ namespace MyFirstPlugin {
 			myOnRaiseEventDelegate += GetFurnitureInBrowseEventHandler;
 			myOnRaiseEventDelegate += AddFurnitureToSavedEventHandler;
 			myOnRaiseEventDelegate += RemoveFurnitureFromSavedEventHandler;
+			myOnRaiseEventDelegate += GetFurnitureInSavedEventHandler;
 		}
 
 		~MyFirstPlugin() {
@@ -138,23 +139,19 @@ namespace MyFirstPlugin {
 			return database.ExecuteQuery<InvRow>("SELECT * FROM furnishar_db.inv_table").ToArray();
 		}
 
-		private FurnitureSaved[] Test() {
-			return database.ExecuteQuery<FurnitureSaved>("SELECT furnishar_db.furniture_table.name, furnishar_db.furniture_table.price FROM furnishar_db.furniture_table").ToArray();
-		}
-
-		private FurnitureSaved[] RetrieveFurnitureInBrowse(int userID) {
-			return database.ExecuteQuery<FurnitureSaved>(
+		private FurnitureSuccinct[] RetrieveFurnitureInBrowse(int userID) {
+			return database.ExecuteQuery<FurnitureSuccinct>(
 				"SELECT furnishar_db.furniture_table.name, furnishar_db.furniture_table.price "
 				+ $"FROM (SELECT * FROM furnishar_db.inv_table WHERE user_id = {userID}) AS A "
 				+ "RIGHT JOIN furnishar_db.furniture_table ON A.user_id = furnishar_db.furniture_table.id WHERE user_id IS NULL;"
 			).ToArray();
 		}
 
-		private FurnitureSaved[] RetrieveFurnitureInSaved(int userID) {
-			return database.ExecuteQuery<FurnitureSaved>(
+		private FurnitureSuccinct[] RetrieveFurnitureInSaved(int userID) {
+			return database.ExecuteQuery<FurnitureSuccinct>(
 				"SELECT furnishar_db.furniture_table.name, furnishar_db.furniture_table.price "
 				+ $"FROM (SELECT * FROM furnishar_db.inv_table WHERE user_id = {userID}) AS A "
-				+ "INNER JOIN furnishar_db.furniture_table ON A.user_id = furnishar_db.furniture_table.id;"
+				+ "RIGHT JOIN furnishar_db.furniture_table ON A.user_id = furnishar_db.furniture_table.id WHERE user_id IS NOT NULL;"
 			).ToArray();
 		}
 
