@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Photon.Hive.Plugin;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MyFirstPlugin {
@@ -26,6 +27,7 @@ namespace MyFirstPlugin {
 			myOnRaiseEventDelegate += AcctCheckEventHandler;
 			myOnRaiseEventDelegate += LogOutEventHandler;
 			myOnRaiseEventDelegate += DeleteAcctEventHandler;
+			myOnRaiseEventDelegate += GetFurnitureInBrowseEventHandler;
 		}
 
 		~MyFirstPlugin() {
@@ -96,8 +98,8 @@ namespace MyFirstPlugin {
 			return users.Length == 0 ? minExclusive : users[0].ID;
 		}
 
-		private User[] RetrieveFurniture() {
-			return database.ExecuteQuery<User>("SELECT * FROM furnishar_db.furniture_table").ToArray();
+		private List<Furniture> RetrieveFurniture() {
+			return database.ExecuteQuery<Furniture>("SELECT * FROM furnishar_db.furniture_table").ToList();
 		}
 
 		public override void OnCreateGame(ICreateGameCallInfo info) {

@@ -1,4 +1,8 @@
+using ExitGames.Client.Photon;
 using FurnishAR.Generic;
+using FurnishAR.Photon;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using static FurnishAR.Generic.InitIDs;
 
@@ -54,6 +58,13 @@ namespace FurnishAR.App {
             rotate = Quaternion.Euler(0.0f, 180.0f, 0.0f);
 
             placementMarkerControlScript.ConfigPlacementMarkerGO(GameObject.Find("BlackDragon"), ref translate, ref rotate, ref scale);
+
+            _ = PhotonNetwork.RaiseEvent(
+                (byte)EventCodes.EventCode.GetFurnitureInBrowse,
+                null,
+                RaiseEventOptions.Default,
+                SendOptions.SendReliable
+            );
         }
     }
 }
