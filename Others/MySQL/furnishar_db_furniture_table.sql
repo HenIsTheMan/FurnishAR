@@ -30,7 +30,7 @@ CREATE TABLE `furniture_table` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `furniture_table` (
 
 LOCK TABLES `furniture_table` WRITE;
 /*!40000 ALTER TABLE `furniture_table` DISABLE KEYS */;
+INSERT INTO `furniture_table` VALUES (1,'Wooden Chair',10,0),(2,'Wooden Table',40,0),(3,'Gaming Chair',399,0),(4,'Ceiling Fan',99,0);
 /*!40000 ALTER TABLE `furniture_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-08  9:21:45
+-- Dump completed on 2021-06-08 11:01:51
