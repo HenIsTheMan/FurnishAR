@@ -65,6 +65,13 @@ namespace FurnishAR.App {
                 RaiseEventOptions.Default,
                 SendOptions.SendReliable
             );
+
+            _ = PhotonNetwork.RaiseEvent(
+                (byte)EventCodes.EventCode.GetFurnitureInSaved,
+                null,
+                RaiseEventOptions.Default,
+                SendOptions.SendReliable
+            );
         }
     }
 }

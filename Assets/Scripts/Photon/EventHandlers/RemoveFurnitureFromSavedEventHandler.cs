@@ -1,6 +1,8 @@
 using ExitGames.Client.Photon;
+using FurnishAR.App;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 using UnityEngine;
 
 namespace FurnishAR.Photon {
@@ -51,6 +53,18 @@ namespace FurnishAR.Photon {
             if(photonEvent.Code != (byte)EventCodes.EventCode.RemoveFurnitureFromSaved) {
                 return;
             }
+
+            object[] customData = (object[])photonEvent.CustomData;
+            string name = (string)customData[0];
+
+            Destroy(savedParentTransform.Find(name).gameObject);
+
+            Transform selectionTransform = Instantiate(selectionPrefab, browseParentTransform).transform;
+            selectionTransform.name = name;
+
+            selectionTransform.Find("Name").GetComponent<TMP_Text>().text = name;
+            selectionTransform.Find("Price").GetComponent<TMP_Text>().text = $"${(float)customData[1]}";
+            selectionTransform.Find("SaveButton").GetComponent<SaveButton>().isSaved = true;
         }
     }
 }

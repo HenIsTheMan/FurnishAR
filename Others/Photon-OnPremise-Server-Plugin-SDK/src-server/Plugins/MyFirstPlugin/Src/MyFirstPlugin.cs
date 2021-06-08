@@ -120,6 +120,20 @@ namespace MyFirstPlugin {
 			}
 		}
 
+		private void RemoveFromInv(ref User user, ref Furniture furniture) {
+			if(database.Connection.State == System.Data.ConnectionState.Open) {
+				database.Connection.Close();
+			}
+
+			try {
+				_ = database.ExecuteQuery<User>(
+					"DELETE FROM furnishar_db.inv_table WHERE "
+					+ $"user_id = {user.ID} AND furniture_id = {furniture.ID};"
+				);
+			} catch(System.Exception) {
+			}
+		}
+
 		public override void OnCreateGame(ICreateGameCallInfo info) {
             //PluginHost.LogInfo(string.Format("OnCreateGame {0} by user {1}", info.Request.GameId, info.UserId));
 
