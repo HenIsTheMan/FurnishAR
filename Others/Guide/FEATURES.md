@@ -1,19 +1,3 @@
-## Doing
-
-User Account Management:
-- Edit Account
-- Delete/Deactivate Account
-- Reset Password
-
-Inventory or Skill Tree Systems:
-- Add
-- Remove
-- Upgrade or level up
-- Categorisation
-
-Others:
-profile pic, remember me
-
 ## Done
 
 User Account Management:
@@ -22,11 +6,23 @@ User Account Management:
 - Password Encryption (done with Hill cipher [utilises matrices for encryption and decryption])
 - Password Validation (Confirm Password)
 - Unique Username
+- Delete acct
 - Others
 	- Unique Email
 	- Show/Hide Password
 	- Figured out how to connect from mobile (had to change 127.0.0.1 to IPV4 Address of PC in multiple places)
 	- Figured out how to connect using TCP (had to change port number)
+	- Session token (string in client [uses player prefs to save], JSON representing arr of ints in DB)
+	- Remember Me
+	- Log Out
+
+Inventory or Skill Tree Systems:
+- Add
+- Remove
+X Categorisation (Could not finish in time)
+- Others
+	- Browse
+	- Saved
 
 User Interface:
 - Feedback
@@ -65,3 +61,15 @@ Others:
 - Password strength
 - Password cannot be username
 - User Prefs (audio, ...)
+- Display and change pos of words in full name
+- Make border(s) of input field red when...
+- Password verification for edit acct
+- Deactivate Account
+- Edit Account
+- Reset Password
+- Delete acct confirmation (easy)
+- 2 d.p. for price
+- Profile pic
+- Upgrade or level up
+- Multiple presses on button (easy)
+- Remove from inv_table when delete acct (high priority)
