@@ -143,7 +143,7 @@ namespace MyFirstPlugin {
 			return database.ExecuteQuery<FurnitureSuccinct>(
 				"SELECT furnishar_db.furniture_table.name, furnishar_db.furniture_table.price "
 				+ $"FROM (SELECT * FROM furnishar_db.inv_table WHERE user_id = {userID}) AS A "
-				+ "RIGHT JOIN furnishar_db.furniture_table ON A.user_id = furnishar_db.furniture_table.id WHERE user_id IS NULL;"
+				+ "RIGHT JOIN furnishar_db.furniture_table ON A.furniture_id = furnishar_db.furniture_table.id WHERE user_id IS NULL;"
 			).ToArray();
 		}
 
@@ -151,7 +151,7 @@ namespace MyFirstPlugin {
 			return database.ExecuteQuery<FurnitureSuccinct>(
 				"SELECT furnishar_db.furniture_table.name, furnishar_db.furniture_table.price "
 				+ $"FROM (SELECT * FROM furnishar_db.inv_table WHERE user_id = {userID}) AS A "
-				+ "RIGHT JOIN furnishar_db.furniture_table ON A.user_id = furnishar_db.furniture_table.id WHERE user_id IS NOT NULL;"
+				+ "RIGHT JOIN furnishar_db.furniture_table ON A.furniture_id = furnishar_db.furniture_table.id WHERE user_id IS NOT NULL;"
 			).ToArray();
 		}
 
