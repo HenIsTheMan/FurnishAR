@@ -3,11 +3,19 @@ using FurnishAR.App;
 using Photon.Pun;
 using Photon.Realtime;
 using SimpleJSON;
+using TMPro;
 using UnityEngine;
 
 namespace FurnishAR.Photon {
     internal sealed class GetFurnitureInBrowseEventHandler: MonoBehaviour, IOnEventCallback {
         #region Fields
+
+        [SerializeField]
+        private GameObject selectionPrefab;
+
+        [SerializeField]
+        private Transform parentTransform;
+
         #endregion
 
         #region Properties
@@ -16,6 +24,9 @@ namespace FurnishAR.Photon {
         #region Ctors and Dtor
 
         internal GetFurnitureInBrowseEventHandler(): base() {
+            selectionPrefab = null;
+
+            parentTransform = null;
         }
 
         static GetFurnitureInBrowseEventHandler() {
@@ -40,10 +51,18 @@ namespace FurnishAR.Photon {
                 return;
             }
 
-            //JSONNode GetFurnitureInBrowseData = JSON.Parse((string)photonEvent.CustomData);
-            //string sessionToken = GetFurnitureInBrowseData["sessionToken"].Value;
+            JSONNode data = JSON.Parse((string)photonEvent.CustomData);
+            int arrLen = data.Count;
+            Transform selectionTransform;
 
-            Generic.Console.Log((string)photonEvent.CustomData);
+            Generic.Console.Log(arrLen); //??
+
+            for(int i = 0; i < arrLen; ++i) {
+                selectionTransform = Instantiate(selectionPrefab, parentTransform).transform;
+                selectionTransform.Find("Name").GetComponent<TMP_Text>().text = data[i]["Name"].Value;
+                selectionTransform.Find("Price").GetComponent<TMP_Text>().text = data[i]["Price"].Value; //2d.p.??
+                selectionTransform.Find("SaveButton").GetComponent<SaveButton>().IsSaved = false;
+            }
         }
     }
 }
