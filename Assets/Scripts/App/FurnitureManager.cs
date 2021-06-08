@@ -61,14 +61,14 @@ namespace FurnishAR.App {
 
             _ = PhotonNetwork.RaiseEvent(
                 (byte)EventCodes.EventCode.GetFurnitureInBrowse,
-                null,
+                PlayerPrefs.GetString("sessionToken", string.Empty),
                 RaiseEventOptions.Default,
                 SendOptions.SendReliable
             );
 
             _ = PhotonNetwork.RaiseEvent(
                 (byte)EventCodes.EventCode.GetFurnitureInSaved,
-                null,
+                PlayerPrefs.GetString("sessionToken", string.Empty),
                 RaiseEventOptions.Default,
                 SendOptions.SendReliable
             );

@@ -134,6 +134,10 @@ namespace MyFirstPlugin {
 			}
 		}
 
+		private InvRow[] RetrieveInvRow() {
+			return database.ExecuteQuery<InvRow>("SELECT * FROM furnishar_db.inv_table").ToArray();
+		}
+
 		public override void OnCreateGame(ICreateGameCallInfo info) {
             //PluginHost.LogInfo(string.Format("OnCreateGame {0} by user {1}", info.Request.GameId, info.UserId));
 
