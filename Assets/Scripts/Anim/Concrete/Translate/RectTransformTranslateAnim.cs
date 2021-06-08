@@ -28,8 +28,6 @@ namespace FurnishAR.Anim {
 		#endregion
 
 		protected override void SubInitStuff() {
-			Generic.Console.Log("here0");
-
 			myRectTransform.localPosition = startPos;
 		}
 

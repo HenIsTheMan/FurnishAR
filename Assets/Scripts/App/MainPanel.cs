@@ -27,7 +27,6 @@ namespace FurnishAR.App {
 
         #region Unity User Callback Event Funcs
 
-
         private void OnEnable() {
             initControl.AddMethod((uint)InitID.MainPanel, Init);
         }
@@ -39,8 +38,6 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
-            Generic.Console.Log("here1");
-
             ((RectTransform)transform).localPosition = new Vector3(0.0f, -4000.0f, 0.0f); //Workaround
         }
     }
