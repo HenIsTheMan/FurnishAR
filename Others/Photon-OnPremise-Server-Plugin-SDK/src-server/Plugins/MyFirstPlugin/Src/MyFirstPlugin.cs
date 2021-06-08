@@ -104,6 +104,22 @@ namespace MyFirstPlugin {
 			return database.ExecuteQuery<Furniture>("SELECT * FROM furnishar_db.furniture_table").ToList();
 		}
 
+		private void AddToInv(ref User user, ref Furniture furniture) {
+			if(database.Connection.State == System.Data.ConnectionState.Open) {
+				database.Connection.Close();
+			}
+
+			try {
+				_ = database.ExecuteQuery<User>(
+					"INSERT INTO furnishar_db.inv_table "
+					+ "(user_id, furniture_id)"
+					+ " VALUES "
+					+ $"({user.ID}, {furniture.ID});"
+				);
+			} catch(System.Exception) {
+			}
+		}
+
 		public override void OnCreateGame(ICreateGameCallInfo info) {
             //PluginHost.LogInfo(string.Format("OnCreateGame {0} by user {1}", info.Request.GameId, info.UserId));
 

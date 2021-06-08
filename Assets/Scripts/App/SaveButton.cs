@@ -2,6 +2,7 @@ using ExitGames.Client.Photon;
 using FurnishAR.Photon;
 using Photon.Pun;
 using Photon.Realtime;
+using SimpleJSON;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,7 +38,17 @@ namespace FurnishAR.App {
                     imgComponent.sprite = notSavedSprite;
                 }
 
-                _ = StartCoroutine(MyFunc());
+                JSONNode node = new JSONArray();
+
+                node.Add(PlayerPrefs.GetString("sessionToken", string.Empty));
+                node.Add(transform.parent.name);
+
+                _ = PhotonNetwork.RaiseEvent(
+                    isSaved ? (byte)EventCodes.EventCode.AddFurnitureToSaved : (byte)EventCodes.EventCode.RemoveFurnitureFromSaved,
+                    node.ToString(),
+                    RaiseEventOptions.Default,
+                    SendOptions.SendReliable
+                );
             }
         }
 
@@ -64,17 +75,6 @@ namespace FurnishAR.App {
 
         public void OnClick() {
             isSaved = !isSaved;
-        }
-
-        private System.Collections.IEnumerator MyFunc() {
-            yield return new WaitForSeconds(0.04f);
-
-            _ = PhotonNetwork.RaiseEvent(
-                isSaved ? (byte)EventCodes.EventCode.AddFurnitureToSaved : (byte)EventCodes.EventCode.RemoveFurnitureFromSaved,
-                transform.parent.name,
-                RaiseEventOptions.Default,
-                SendOptions.SendReliable
-            );
         }
     }
 }

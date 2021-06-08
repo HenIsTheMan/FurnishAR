@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3105264870742478993}
   m_Layer: 5
-  m_Name: Browse
+  m_Name: Section
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,8 +194,8 @@ RectTransform:
   m_Father: {fileID: 3105264871690492530}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.33554828}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -357,8 +357,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3105264871797249622}
   m_HandleRect: {fileID: 3105264871797249617}
   m_Direction: 2
-  m_Value: 1.0000004
-  m_Size: 0.6644517
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -398,7 +398,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000011444092, y: -0.000061035156}
-  m_SizeDelta: {x: -11.999989, y: 602}
+  m_SizeDelta: {x: -11.999989, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3105264872136572214
 MonoBehaviour:
@@ -542,7 +542,7 @@ MonoBehaviour:
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 3105264871810595801}
   m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 2
+  m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: -3
   m_VerticalScrollbarSpacing: -12
   m_OnValueChanged:
