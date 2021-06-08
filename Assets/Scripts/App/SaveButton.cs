@@ -5,6 +5,8 @@ namespace FurnishAR.App {
     internal sealed class SaveButton: MonoBehaviour {
         #region Fields
 
+        private bool isSaved;
+
         [SerializeField]
         private Image imgComponent;
 
@@ -19,8 +21,18 @@ namespace FurnishAR.App {
         #region Properties
         
         internal bool IsSaved {
-            get;
-            set;
+            get {
+                return isSaved;
+            }
+            set {
+                isSaved = value;
+
+                if(isSaved) {
+                    imgComponent.sprite = savedSprite;
+                } else {
+                    imgComponent.sprite = notSavedSprite;
+                }
+            }
         }
 
         #endregion
@@ -28,12 +40,12 @@ namespace FurnishAR.App {
         #region Ctors and Dtor
 
         internal SaveButton(): base() {
+            isSaved = false;
+
             imgComponent = null;
 
             savedSprite = null;
             notSavedSprite = null;
-
-            IsSaved = false;
         }
 
         static SaveButton() {
@@ -45,13 +57,7 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            IsSaved = !IsSaved;
-
-            if(IsSaved) {
-                imgComponent.sprite = savedSprite;
-            } else {
-                imgComponent.sprite = notSavedSprite;
-            }
+            isSaved = !isSaved;
         }
     }
 }

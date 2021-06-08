@@ -7,6 +7,10 @@ namespace FurnishAR.Photon {
 			AcctCheck,
 			LogOut,
 			DeleteAcct,
+			GetFurnitureInBrowse,
+			GetFurnitureInSaved,
+			AddFurnitureToSaved,
+			RemoveFurnitureFromSaved,
 			Amt
 		}
 	}

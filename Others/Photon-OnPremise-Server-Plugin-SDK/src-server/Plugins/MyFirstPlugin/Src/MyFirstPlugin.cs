@@ -96,6 +96,10 @@ namespace MyFirstPlugin {
 			return users.Length == 0 ? minExclusive : users[0].ID;
 		}
 
+		private User[] RetrieveFurniture() {
+			return database.ExecuteQuery<User>("SELECT * FROM furnishar_db.furniture_table").ToArray();
+		}
+
 		public override void OnCreateGame(ICreateGameCallInfo info) {
             //PluginHost.LogInfo(string.Format("OnCreateGame {0} by user {1}", info.Request.GameId, info.UserId));
 
