@@ -24,11 +24,12 @@ DROP TABLE IF EXISTS `furniture_table`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `furniture_table` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `placementType` tinyint NOT NULL,
+  `name` varchar(255) NOT NULL,
   `price` float NOT NULL,
   `tags` int NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-07 14:31:00
+-- Dump completed on 2021-06-08  9:21:45
