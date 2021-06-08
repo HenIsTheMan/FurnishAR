@@ -10,7 +10,7 @@ namespace MyFirstPlugin {
 				return;
 			}
 
-			List<Furniture> furniture = RetrieveFurniture();
+			FurnitureSaved[] furnitureSaved = null;
 
 			string sessionTokenFromClient = (string)info.Request.Data;
 			if(string.IsNullOrEmpty(sessionTokenFromClient)) {
@@ -66,11 +66,14 @@ namespace MyFirstPlugin {
 				//*/
 
 				if(sessionTokenFromDB == sessionTokenFromClient) {
-					InvRow[] invRows = RetrieveInvRow();
-					int invRowsLen
+					furnitureSaved = RetrieveFurnitureInBrowse(user.ID);
+					PluginHost.LogInfo(furnitureSaved.Length + "YASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+
 					break;
 				}
 			}
+
+			PluginHost.LogInfo(furnitureSaved.Length + "HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
 
 			BroadcastEvent: {
 				PluginHost.BroadcastEvent(
@@ -78,7 +81,7 @@ namespace MyFirstPlugin {
 					senderActor: 0,
 					targetGroup: 0,
 					data: new Dictionary<byte, object>() {
-						{245, JsonConvert.SerializeObject(furniture)}
+						{245, JsonConvert.SerializeObject(furnitureSaved)}
 					},
 					evCode: info.Request.EvCode,
 					cacheOp: CacheOperations.DoNotCache
