@@ -64,7 +64,7 @@ namespace FurnishAR.Photon {
 
             selectionTransform.Find("Name").GetComponent<TMP_Text>().text = name;
             selectionTransform.Find("Price").GetComponent<TMP_Text>().text = $"${(float)customData[1]}";
-            selectionTransform.Find("SaveButton").GetComponent<SaveButton>().isSaved = true;
+            selectionTransform.Find("SaveButton").GetComponent<SaveButton>().ConfigIsSaved(true);
         }
     }
 }

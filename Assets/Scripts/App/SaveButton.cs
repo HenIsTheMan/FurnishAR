@@ -10,7 +10,7 @@ namespace FurnishAR.App {
     internal sealed class SaveButton: MonoBehaviour {
         #region Fields
 
-        internal bool isSaved;
+        private bool isSaved;
 
         [SerializeField]
         private Image imgComponent;
@@ -46,10 +46,10 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            ConfigIsSaved(!isSaved);
+            ConfigIsSaved(!isSaved, true);
         }
 
-        internal void ConfigIsSaved(bool flag) {
+        internal void ConfigIsSaved(bool flag, bool shldRaiseEvent = false) {
             isSaved = flag;
 
             if(isSaved) {
@@ -58,17 +58,19 @@ namespace FurnishAR.App {
                 imgComponent.sprite = notSavedSprite;
             }
 
-            JSONNode node = new JSONArray();
+            if(shldRaiseEvent) {
+                JSONNode node = new JSONArray();
 
-            node.Add(transform.parent.name);
-            node.Add(PlayerPrefs.GetString("sessionToken", string.Empty));
+                node.Add(transform.parent.name);
+                node.Add(PlayerPrefs.GetString("sessionToken", string.Empty));
 
-            _ = PhotonNetwork.RaiseEvent(
-                isSaved ? (byte)EventCodes.EventCode.AddFurnitureToSaved : (byte)EventCodes.EventCode.RemoveFurnitureFromSaved,
-                node.ToString(),
-                RaiseEventOptions.Default,
-                SendOptions.SendReliable
-            );
+                _ = PhotonNetwork.RaiseEvent(
+                    isSaved ? (byte)EventCodes.EventCode.AddFurnitureToSaved : (byte)EventCodes.EventCode.RemoveFurnitureFromSaved,
+                    node.ToString(),
+                    RaiseEventOptions.Default,
+                    SendOptions.SendReliable
+                );
+            }
         }
     }
 }
