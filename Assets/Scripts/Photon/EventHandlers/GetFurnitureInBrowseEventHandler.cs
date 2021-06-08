@@ -54,13 +54,15 @@ namespace FurnishAR.Photon {
             JSONNode data = JSON.Parse((string)photonEvent.CustomData);
             int arrLen = data.Count;
             Transform selectionTransform;
-
-            Generic.Console.Log(arrLen); //??
+            string name;
 
             for(int i = 0; i < arrLen; ++i) {
                 selectionTransform = Instantiate(selectionPrefab, parentTransform).transform;
-                selectionTransform.Find("Name").GetComponent<TMP_Text>().text = data[i]["Name"].Value;
-                selectionTransform.Find("Price").GetComponent<TMP_Text>().text = data[i]["Price"].Value; //2d.p.??
+                name = data[i]["Name"].Value;
+                selectionTransform.name = name;
+
+                selectionTransform.Find("Name").GetComponent<TMP_Text>().text = name;
+                selectionTransform.Find("Price").GetComponent<TMP_Text>().text = '$' + data[i]["Price"].Value;
                 selectionTransform.Find("SaveButton").GetComponent<SaveButton>().IsSaved = false;
             }
         }

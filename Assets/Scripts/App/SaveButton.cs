@@ -1,3 +1,7 @@
+using ExitGames.Client.Photon;
+using FurnishAR.Photon;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,6 +36,8 @@ namespace FurnishAR.App {
                 } else {
                     imgComponent.sprite = notSavedSprite;
                 }
+
+                _ = StartCoroutine(MyFunc());
             }
         }
 
@@ -58,6 +64,17 @@ namespace FurnishAR.App {
 
         public void OnClick() {
             isSaved = !isSaved;
+        }
+
+        private System.Collections.IEnumerator MyFunc() {
+            yield return new WaitForSeconds(0.04f);
+
+            _ = PhotonNetwork.RaiseEvent(
+                isSaved ? (byte)EventCodes.EventCode.AddFurnitureToSaved : (byte)EventCodes.EventCode.RemoveFurnitureFromSaved,
+                transform.parent.name,
+                RaiseEventOptions.Default,
+                SendOptions.SendReliable
+            );
         }
     }
 }

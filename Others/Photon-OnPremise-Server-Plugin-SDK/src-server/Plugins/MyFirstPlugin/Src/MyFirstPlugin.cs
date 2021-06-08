@@ -28,6 +28,8 @@ namespace MyFirstPlugin {
 			myOnRaiseEventDelegate += LogOutEventHandler;
 			myOnRaiseEventDelegate += DeleteAcctEventHandler;
 			myOnRaiseEventDelegate += GetFurnitureInBrowseEventHandler;
+			myOnRaiseEventDelegate += AddFurnitureToSavedEventHandler;
+			myOnRaiseEventDelegate += RemoveFurnitureFromSavedEventHandler;
 		}
 
 		~MyFirstPlugin() {
