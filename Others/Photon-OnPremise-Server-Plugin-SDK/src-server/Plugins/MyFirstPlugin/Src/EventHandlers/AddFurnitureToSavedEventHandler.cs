@@ -90,7 +90,7 @@ namespace MyFirstPlugin {
 					senderActor: 0,
 					targetGroup: 0,
 					data: new Dictionary<byte, object>() {
-						{245, myFurniture.Name}
+						{245, new object[]{myFurniture.Name, myFurniture.Price}}
 					},
 					evCode: info.Request.EvCode,
 					cacheOp: CacheOperations.DoNotCache

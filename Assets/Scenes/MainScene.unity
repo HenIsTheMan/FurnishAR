@@ -970,7 +970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   browseButtonImg: {fileID: 1698528180}
-  savedButtonImg: {fileID: 1698528180}
+  savedButtonImg: {fileID: 588120014}
   browseGO: {fileID: 1762762426}
   savedGO: {fileID: 2137311022}
 --- !u!224 &507097883 stripped
@@ -4398,6 +4398,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3105264871797249617, guid: 5a57a3c4722107e46b4c843b15ef05e9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105264871797249617, guid: 5a57a3c4722107e46b4c843b15ef05e9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105264872136572209, guid: 5a57a3c4722107e46b4c843b15ef05e9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a57a3c4722107e46b4c843b15ef05e9, type: 3}
 --- !u!224 &2137311021 stripped
@@ -4534,6 +4549,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105264871797249617, guid: 5a57a3c4722107e46b4c843b15ef05e9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105264871797249617, guid: 5a57a3c4722107e46b4c843b15ef05e9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105264872136572209, guid: 5a57a3c4722107e46b4c843b15ef05e9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a57a3c4722107e46b4c843b15ef05e9, type: 3}

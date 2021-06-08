@@ -10,7 +10,7 @@ namespace FurnishAR.App {
     internal sealed class SaveButton: MonoBehaviour {
         #region Fields
 
-        private bool isSaved;
+        internal bool isSaved;
 
         [SerializeField]
         private Image imgComponent;
@@ -24,34 +24,6 @@ namespace FurnishAR.App {
         #endregion
 
         #region Properties
-        
-        internal bool IsSaved {
-            get {
-                return isSaved;
-            }
-            set {
-                isSaved = value;
-
-                if(isSaved) {
-                    imgComponent.sprite = savedSprite;
-                } else {
-                    imgComponent.sprite = notSavedSprite;
-                }
-
-                JSONNode node = new JSONArray();
-
-                node.Add(PlayerPrefs.GetString("sessionToken", string.Empty));
-                node.Add(transform.parent.name);
-
-                _ = PhotonNetwork.RaiseEvent(
-                    isSaved ? (byte)EventCodes.EventCode.AddFurnitureToSaved : (byte)EventCodes.EventCode.RemoveFurnitureFromSaved,
-                    node.ToString(),
-                    RaiseEventOptions.Default,
-                    SendOptions.SendReliable
-                );
-            }
-        }
-
         #endregion
 
         #region Ctors and Dtor
@@ -74,7 +46,29 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            isSaved = !isSaved;
+            ConfigIsSaved(!isSaved);
+        }
+
+        internal void ConfigIsSaved(bool flag) {
+            isSaved = flag;
+
+            if(isSaved) {
+                imgComponent.sprite = savedSprite;
+            } else {
+                imgComponent.sprite = notSavedSprite;
+            }
+
+            JSONNode node = new JSONArray();
+
+            node.Add(transform.parent.name);
+            node.Add(PlayerPrefs.GetString("sessionToken", string.Empty));
+
+            _ = PhotonNetwork.RaiseEvent(
+                isSaved ? (byte)EventCodes.EventCode.AddFurnitureToSaved : (byte)EventCodes.EventCode.RemoveFurnitureFromSaved,
+                node.ToString(),
+                RaiseEventOptions.Default,
+                SendOptions.SendReliable
+            );
         }
     }
 }
