@@ -12,6 +12,7 @@ namespace FurnishAR.Generic {
 			TextPtrOverLineOfWords,
 			CamOrbital,
 			EnableCamDelayed,
+			MainPanel,
 			LoadSceneImmediate,
 			OutlineSilhouette,
 			Listicle2D,
