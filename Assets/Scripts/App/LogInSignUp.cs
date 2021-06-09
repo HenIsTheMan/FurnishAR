@@ -86,6 +86,14 @@ namespace FurnishAR.App {
             state = LogInSignUpState.LogIn;
         }
 
+        internal void HideMe() {
+            logInCanvasGrp.alpha = 0.0f;
+            logInCanvasGrp.blocksRaycasts = false;
+
+            signUpCanvasGrp.alpha = 0.0f;
+            signUpCanvasGrp.blocksRaycasts = false;
+        }
+
         public void OnLogInTabClicked() {
             if(state == LogInSignUpState.SignUp) {
                 logInToSignUpTranslateAnim.IsUpdating = false;

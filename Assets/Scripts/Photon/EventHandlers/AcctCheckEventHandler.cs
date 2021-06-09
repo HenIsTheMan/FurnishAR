@@ -56,6 +56,7 @@ namespace FurnishAR.Photon {
             if(sessionToken != string.Empty) {
                 logInSignUpGrpCanvasGrp.alpha = 0.0f;
                 logInSignUpGrpCanvasGrp.blocksRaycasts = false;
+                logInSignUpGrpCanvasGrp.GetComponent<LogInSignUp>().HideMe();
 
                 acctManager.bigAcctInfoLabel.text = $"{acctCheckData["username"].Value}\n{acctCheckData["email"].Value}";
                 acctManager.acctCanvasGrp.alpha = 1.0f;
