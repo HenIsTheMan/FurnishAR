@@ -26,10 +26,14 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            if(!PhotonNetwork.InRoom) {
-                return;
+            if(PhotonNetwork.InRoom) {
+                SendLogOutEvent();
+            } else {
+                GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += SendLogOutEvent;
             }
+        }
 
+        private void SendLogOutEvent() {
             _ = PhotonNetwork.RaiseEvent(
                 (byte)EventCodes.EventCode.LogOut,
                 PlayerPrefs.GetString("sessionToken", string.Empty),

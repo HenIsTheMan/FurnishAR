@@ -62,15 +62,16 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
+            logInSignUpGrpCanvasGrp.GetComponentInChildren<LogInSignUp>().InitMe();
+
             if(PhotonNetwork.InRoom) {
-                CheckForAcct();
+                SendAcctCheckEvent();
             } else {
-                logInSignUpGrpCanvasGrp.GetComponentInChildren<LogInSignUp>().InitMe();
-                GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += CheckForAcct;
+                GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += SendAcctCheckEvent;
             }
         }
 
-        private void CheckForAcct() {
+        private void SendAcctCheckEvent() {
             _ = PhotonNetwork.RaiseEvent(
                 (byte)EventCodes.EventCode.AcctCheck,
                 PlayerPrefs.GetString("sessionToken", string.Empty),

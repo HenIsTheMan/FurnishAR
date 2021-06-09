@@ -59,10 +59,14 @@ namespace FurnishAR.App {
 
             placementMarkerControlScript.ConfigPlacementMarkerGO(GameObject.Find("BlackDragon"), ref translate, ref rotate, ref scale);
 
-            if(!PhotonNetwork.InRoom) {
-                return;
+            if(PhotonNetwork.InRoom) {
+                SendGetFurnitureEvents();
+            } else {
+                GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += SendGetFurnitureEvents;
             }
+        }
 
+        private void SendGetFurnitureEvents() {
             _ = PhotonNetwork.RaiseEvent(
                 (byte)EventCodes.EventCode.GetFurnitureInBrowse,
                 PlayerPrefs.GetString("sessionToken", string.Empty),

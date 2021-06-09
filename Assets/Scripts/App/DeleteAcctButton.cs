@@ -26,10 +26,14 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            if(!PhotonNetwork.InRoom) {
-                return;
+            if(PhotonNetwork.InRoom) {
+                SendDeleteAcctEvent();
+            } else {
+                GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += SendDeleteAcctEvent;
             }
+        }
 
+        private void SendDeleteAcctEvent() {
             _ = PhotonNetwork.RaiseEvent(
                 (byte)EventCodes.EventCode.DeleteAcct,
                 PlayerPrefs.GetString("sessionToken", string.Empty),

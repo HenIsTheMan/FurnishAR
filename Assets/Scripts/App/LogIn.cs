@@ -48,10 +48,14 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnLogInButtonClicked() { //Shld not have "LogIn" actually
-            if(!PhotonNetwork.InRoom) {
-                return;
+            if(PhotonNetwork.InRoom) {
+                SendLogInEvent();
+            } else {
+                GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += SendLogInEvent;
             }
+        }
 
+        private void SendLogInEvent() {
             JSONNode node = new JSONArray();
 
             node.Add(userInputField.text);

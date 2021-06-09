@@ -59,22 +59,26 @@ namespace FurnishAR.App {
             }
 
             if(shldRaiseEvent) {
-                if(!PhotonNetwork.InRoom) {
-                    return;
+                if(PhotonNetwork.InRoom) {
+                    SendSavedEvent();
+                } else {
+                    GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += SendSavedEvent;
                 }
-
-                JSONNode node = new JSONArray();
-
-                node.Add(transform.parent.name);
-                node.Add(PlayerPrefs.GetString("sessionToken", string.Empty));
-
-                _ = PhotonNetwork.RaiseEvent(
-                    isSaved ? (byte)EventCodes.EventCode.AddFurnitureToSaved : (byte)EventCodes.EventCode.RemoveFurnitureFromSaved,
-                    node.ToString(),
-                    RaiseEventOptions.Default,
-                    SendOptions.SendReliable
-                );
             }
+        }
+
+        private void SendSavedEvent() {
+            JSONNode node = new JSONArray();
+
+            node.Add(transform.parent.name);
+            node.Add(PlayerPrefs.GetString("sessionToken", string.Empty));
+
+            _ = PhotonNetwork.RaiseEvent(
+                isSaved ? (byte)EventCodes.EventCode.AddFurnitureToSaved : (byte)EventCodes.EventCode.RemoveFurnitureFromSaved,
+                node.ToString(),
+                RaiseEventOptions.Default,
+                SendOptions.SendReliable
+            );
         }
     }
 }
