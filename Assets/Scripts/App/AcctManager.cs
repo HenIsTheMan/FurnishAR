@@ -23,6 +23,9 @@ namespace FurnishAR.App {
         [SerializeField]
         internal TMP_Text smallAcctInfoLabel;
 
+        [SerializeField]
+        private CanvasGroup logInSignUpGrpCanvasGrp;
+
         #endregion
 
         #region Properties
@@ -37,6 +40,8 @@ namespace FurnishAR.App {
 
             bigAcctInfoLabel = null;
             smallAcctInfoLabel = null;
+
+            logInSignUpGrpCanvasGrp = null;
         }
 
         static AcctManager() {
@@ -60,6 +65,7 @@ namespace FurnishAR.App {
             if(PhotonNetwork.InRoom) {
                 CheckForAcct();
             } else {
+                logInSignUpGrpCanvasGrp.GetComponentInChildren<LogInSignUp>().InitMe();
                 GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += CheckForAcct;
             }
         }

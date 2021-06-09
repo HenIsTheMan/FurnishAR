@@ -1,4 +1,3 @@
-- Menu probs
 - Not logged in but can save furniture
 - Scroll list bottom
 - ScrollView is wonky

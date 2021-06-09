@@ -53,11 +53,10 @@ namespace FurnishAR.Photon {
             JSONNode acctCheckData = JSON.Parse((string)photonEvent.CustomData);
             string sessionToken = acctCheckData["sessionToken"].Value;
 
-            if(sessionToken == string.Empty) {
-                logInSignUpGrpCanvasGrp.alpha = 1.0f;
-                logInSignUpGrpCanvasGrp.blocksRaycasts = true;
-                logInSignUpGrpCanvasGrp.GetComponentInChildren<LogInSignUp>().InitMe();
-            } else {
+            if(sessionToken != string.Empty) {
+                logInSignUpGrpCanvasGrp.alpha = 0.0f;
+                logInSignUpGrpCanvasGrp.blocksRaycasts = false;
+
                 acctManager.bigAcctInfoLabel.text = $"{acctCheckData["username"].Value}\n{acctCheckData["email"].Value}";
                 acctManager.acctCanvasGrp.alpha = 1.0f;
                 acctManager.acctCanvasGrp.blocksRaycasts = true;
