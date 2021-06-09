@@ -6,7 +6,6 @@ namespace FurnishAR.Generic {
 		internal static void OnSplashClick() {
 			if(globalObj.canClickOnSplash
 				&& UnityEngine.SceneManagement.SceneManager.GetSceneByName("IntroScene").isLoaded
-				&& PhotonNetwork.InRoom
 			) {
 				GameObject.Find("ProxyCam").SetActive(false);
 

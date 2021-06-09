@@ -11,6 +11,9 @@ namespace FurnishAR.Photon {
         [SerializeField]
         private InitControl initControl;
 
+        internal delegate void OnJoinedRoomDelegate();
+        internal OnJoinedRoomDelegate onJoinedRoomDelegate;
+
         [SerializeField]
         private byte maxPlayersPerRoom;
 
@@ -29,6 +32,8 @@ namespace FurnishAR.Photon {
 
         internal PhotonMaster(): base() {
             initControl = null;
+
+            onJoinedRoomDelegate = null;
 
             maxPlayersPerRoom = 0;
 
@@ -71,7 +76,14 @@ namespace FurnishAR.Photon {
             if(PhotonNetwork.IsConnected) {
                 _ = PhotonNetwork.JoinRandomRoom();
             } else {
+                _ = StartCoroutine(nameof(TryToConnect));
+            }
+        }
+
+        private System.Collections.IEnumerator TryToConnect() {
+            while(!PhotonNetwork.IsConnected) {
                 _ = PhotonNetwork.ConnectUsingSettings();
+                yield return new WaitForSeconds(7.0f);
             }
         }
 
@@ -82,6 +94,7 @@ namespace FurnishAR.Photon {
 
         public override void OnJoinedRoom() {
             Console.Log("Room joined!");
+            onJoinedRoomDelegate?.Invoke();
         }
 
         public override void OnJoinRandomFailed(short returnCode, string message) {

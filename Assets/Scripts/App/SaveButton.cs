@@ -59,6 +59,10 @@ namespace FurnishAR.App {
             }
 
             if(shldRaiseEvent) {
+                if(!PhotonNetwork.InRoom) {
+                    return;
+                }
+
                 JSONNode node = new JSONArray();
 
                 node.Add(transform.parent.name);

@@ -25,9 +25,7 @@ namespace FurnishAR.Generic {
 		}
 
 		private IEnumerator MyFunc(GameObject proxyCamGO, RectTransformRotateAnim rectTransformRotateAnim) {
-			while(!PhotonNetwork.InRoom) {
-				yield return null;
-			}
+			yield return new WaitForSeconds(4.0f);
 
 			rectTransformRotateAnim.IsUpdating = true;
 			proxyCamGO.GetComponents<RectTransformScaleAnim>()[1].IsUpdating = true;

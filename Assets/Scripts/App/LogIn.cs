@@ -48,6 +48,10 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnLogInButtonClicked() { //Shld not have "LogIn" actually
+            if(!PhotonNetwork.InRoom) {
+                return;
+            }
+
             JSONNode node = new JSONArray();
 
             node.Add(userInputField.text);

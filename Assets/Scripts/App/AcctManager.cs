@@ -57,14 +57,14 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
-            _ = StartCoroutine(nameof(CheckForAcct));
+            if(PhotonNetwork.InRoom) {
+                CheckForAcct();
+            } else {
+                GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += CheckForAcct;
+            }
         }
 
-        private System.Collections.IEnumerator CheckForAcct() {
-            while(!PhotonNetwork.InRoom) {
-                yield return null;
-            }
-
+        private void CheckForAcct() {
             _ = PhotonNetwork.RaiseEvent(
                 (byte)EventCodes.EventCode.AcctCheck,
                 PlayerPrefs.GetString("sessionToken", string.Empty),

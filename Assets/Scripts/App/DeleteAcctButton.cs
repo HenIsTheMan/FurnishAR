@@ -26,6 +26,10 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
+            if(!PhotonNetwork.InRoom) {
+                return;
+            }
+
             _ = PhotonNetwork.RaiseEvent(
                 (byte)EventCodes.EventCode.DeleteAcct,
                 PlayerPrefs.GetString("sessionToken", string.Empty),
