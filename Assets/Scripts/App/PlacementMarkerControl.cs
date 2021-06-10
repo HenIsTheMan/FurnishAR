@@ -12,6 +12,8 @@ namespace FurnishAR.App {
         [SerializeField]
         private InitControl initControl;
 
+        private Vector2 screenPt;
+
         private List<ARRaycastHit> hits;
 
         [SerializeField]
@@ -38,6 +40,8 @@ namespace FurnishAR.App {
         internal PlacementMarkerControl(): base() {
             initControl = null;
 
+            screenPt = Vector2.zero;
+
             hits = null;
 
             raycastManager = null;
@@ -59,7 +63,7 @@ namespace FurnishAR.App {
         }
 
         private void Update() {
-            raycastManager.Raycast(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f), hits, TrackableType.Planes);
+            raycastManager.Raycast(screenPt, hits, TrackableType.All);
 
             if(hits.Count > 0) {
                 placementMarkerParentTransform.localPosition = hits[0].pose.position;
@@ -77,6 +81,8 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
+            screenPt = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+
             hits = new List<ARRaycastHit>();
         }
     }
