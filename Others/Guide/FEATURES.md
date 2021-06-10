@@ -71,5 +71,6 @@ Others:
 - 2 d.p. for price
 - Profile pic
 - Upgrade or level up
-- Multiple presses on button (easy)
 - Remove from inv_table when delete acct (high priority)
+- No Connection pop-up
+- Cannot Save Furniture If Not Logged In pop-up

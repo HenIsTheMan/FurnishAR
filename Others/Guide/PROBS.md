@@ -1,2 +1,4 @@
 - Not logged in but can save furniture
 - Scroll list bottom
+- Multiple presses on button (easy)
+- Furniture does not load up
