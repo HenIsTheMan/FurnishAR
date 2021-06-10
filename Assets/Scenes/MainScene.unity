@@ -2168,6 +2168,7 @@ MonoBehaviour:
   selectionPrefab: {fileID: 8790084017850512483, guid: f9f20735b3cd297479c97926b71667af,
     type: 3}
   parentTransform: {fileID: 2137311023}
+  furnitureManager: {fileID: 2115402700}
 --- !u!1 &1482887973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,6 +2318,7 @@ MonoBehaviour:
   selectionPrefab: {fileID: 8790084017850512483, guid: f9f20735b3cd297479c97926b71667af,
     type: 3}
   parentTransform: {fileID: 507097883}
+  furnitureManager: {fileID: 2115402700}
 --- !u!1 &1554582780
 GameObject:
   m_ObjectHideFlags: 0

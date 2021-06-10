@@ -5,6 +5,7 @@ using Photon.Realtime;
 using SimpleJSON;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FurnishAR.Photon {
     internal sealed class GetFurnitureInBrowseEventHandler: MonoBehaviour, IOnEventCallback {
@@ -15,6 +16,12 @@ namespace FurnishAR.Photon {
 
         [SerializeField]
         private Transform parentTransform;
+
+        [SerializeField]
+        private FurnitureManager furnitureManager;
+
+        [SerializeField]
+        private ThinArrowButton thinDownArrowButton;
 
         #endregion
 
@@ -27,6 +34,10 @@ namespace FurnishAR.Photon {
             selectionPrefab = null;
 
             parentTransform = null;
+
+            furnitureManager = null;
+
+            thinDownArrowButton = null;
         }
 
         static GetFurnitureInBrowseEventHandler() {
@@ -58,6 +69,18 @@ namespace FurnishAR.Photon {
 
             for(int i = 0; i < arrLen; ++i) {
                 selectionTransform = Instantiate(selectionPrefab, parentTransform).transform;
+
+                Selection selectionComponent = selectionTransform.GetComponent<Selection>();
+                selectionComponent.storedIndex = furnitureManager.currIndex++;
+
+                int storedIndexCopy = selectionComponent.storedIndex;
+                selectionTransform.GetComponent<Button>().onClick.AddListener(() => {
+
+                    thinDownArrowButton.OnClick();
+
+                    furnitureManager.selectedIndex = storedIndexCopy;
+                });
+
                 name = data[i]["Name"].Value;
                 selectionTransform.name = name;
 
