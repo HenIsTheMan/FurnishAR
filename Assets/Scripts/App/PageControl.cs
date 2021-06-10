@@ -46,8 +46,7 @@ namespace FurnishAR.App {
 
         #endregion
 
-        private void Init() {
-            ProgressAfter();
+        private void Init() { //Oops
         }
 
         public void ProgressBackward() {
