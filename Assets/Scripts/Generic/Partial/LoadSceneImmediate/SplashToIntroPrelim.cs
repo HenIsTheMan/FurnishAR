@@ -27,8 +27,12 @@ namespace FurnishAR.Generic {
 		private IEnumerator MyFunc(GameObject proxyCamGO, RectTransformRotateAnim rectTransformRotateAnim) {
 			yield return new WaitForSeconds(4.0f);
 
-			rectTransformRotateAnim.IsUpdating = true;
-			proxyCamGO.GetComponents<RectTransformScaleAnim>()[1].IsUpdating = true;
+			if(rectTransformRotateAnim != null) {
+				rectTransformRotateAnim.IsUpdating = true;
+			}
+			if(proxyCamGO != null) {
+				proxyCamGO.GetComponents<RectTransformScaleAnim>()[1].IsUpdating = true;
+			}
 		}
 
 		private static void SubSplashToIntroFadeTransitionPrelim() {
