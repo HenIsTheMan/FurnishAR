@@ -59,7 +59,7 @@ namespace FurnishAR.App {
         }
 
         private void Update() {
-            raycastManager.Raycast(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f), hits, TrackableType.Planes); //??
+            raycastManager.Raycast(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f), hits, TrackableType.Planes);
 
             if(hits.Count > 0) {
                 placementMarkerParentTransform.localPosition = hits[0].pose.position;
