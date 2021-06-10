@@ -24,6 +24,7 @@ namespace FurnishAR.Generic {
 			ListDotControl,
 			PlacementMarkerControl,
 			AcctManager,
+			HandyHand,
 			Amt
 		}
     }
