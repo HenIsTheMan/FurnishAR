@@ -7,8 +7,6 @@ namespace FurnishAR.App {
         [SerializeField]
         private PlacementMarkerControl placementMarkerControl;
 
-        public GameObject furniture;
-
         #endregion
 
         #region Properties
@@ -29,15 +27,12 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            Generic.Console.Log("here");
-
-
-            Transform furnitureTransform = furniture.transform;
+            Transform furnitureTransform = GameObject.Find("BlackLeatherChair").transform;
             furnitureTransform.gameObject.SetActive(true);
 
-            Vector3 pos = placementMarkerControl.PlacementMarkerParentTransform.position;
-            //pos.y += 4.0f;
-            furnitureTransform.position = pos;
+            Vector3 pos = placementMarkerControl.PlacementMarkerParentTransform.localPosition;
+            pos.y += 4.0f;
+            furnitureTransform.localPosition = pos;
 
             placementMarkerControl.PlacementMarkerParentTransform.gameObject.SetActive(false);
         }
