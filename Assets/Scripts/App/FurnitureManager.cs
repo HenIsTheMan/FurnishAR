@@ -13,15 +13,28 @@ namespace FurnishAR.App {
         [SerializeField]
         private InitControl initControl;
 
+        internal int selectedIndex;
+
+        private GameObject[] furnitureGOs;
+
         #endregion
 
         #region Properties
+
+        internal GameObject SelectedFurnitureGO {
+            get => furnitureGOs[selectedIndex];
+        }
+
         #endregion
 
         #region Ctors and Dtor
 
         internal FurnitureManager(): base() {
             initControl = null;
+
+            selectedIndex = 0;
+
+            furnitureGOs = System.Array.Empty<GameObject>();
         }
 
         static FurnitureManager() {
@@ -42,6 +55,13 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
+            furnitureGOs = new GameObject[transform.childCount];
+
+            int index = 0;
+            foreach(Transform child in transform) {
+                furnitureGOs[index++] = child.gameObject;
+            }
+
             if(PhotonNetwork.InRoom) {
                 SendGetFurnitureEvents();
             } else {
