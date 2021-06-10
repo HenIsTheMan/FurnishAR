@@ -16,9 +16,6 @@ namespace FurnishAR.Photon {
         [SerializeField]
         private Transform parentTransform;
 
-        [SerializeField]
-        private FurnitureManager furnitureManager;
-
         #endregion
 
         #region Properties
@@ -30,8 +27,6 @@ namespace FurnishAR.Photon {
             selectionPrefab = null;
 
             parentTransform = null;
-
-            furnitureManager = null;
         }
 
         static GetFurnitureInSavedEventHandler() {
@@ -63,9 +58,6 @@ namespace FurnishAR.Photon {
 
             for(int i = 0; i < arrLen; ++i) {
                 selectionTransform = Instantiate(selectionPrefab, parentTransform).transform;
-
-                selectionTransform.GetComponent<Selection>().storedIndex = furnitureManager.currIndex++;
-
                 name = data[i]["Name"].Value;
                 selectionTransform.name = name;
 

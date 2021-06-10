@@ -13,7 +13,6 @@ namespace FurnishAR.App {
         [SerializeField]
         private InitControl initControl;
 
-        internal int currIndex;
         internal int selectedIndex;
 
         private GameObject[] furnitureGOs;
@@ -33,8 +32,7 @@ namespace FurnishAR.App {
         internal FurnitureManager(): base() {
             initControl = null;
 
-            currIndex = -1;
-            selectedIndex = -1;
+            selectedIndex = 0;
 
             furnitureGOs = System.Array.Empty<GameObject>();
         }
