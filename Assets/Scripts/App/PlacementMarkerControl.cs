@@ -29,8 +29,8 @@ namespace FurnishAR.App {
 
         #region Properties
 
-        internal GameObject PlacementMarkerGO {
-            get => placementMarkerGO;
+        internal Transform PlacementMarkerParentTransform {
+            get => placementMarkerParentTransform;
         }
 
         #endregion
@@ -63,7 +63,7 @@ namespace FurnishAR.App {
         }
 
         private void Update() {
-            raycastManager.Raycast(screenPt, hits, TrackableType.All);
+            raycastManager.Raycast(screenPt, hits, TrackableType.Planes);
 
             if(hits.Count > 0) {
                 placementMarkerParentTransform.localPosition = hits[0].pose.position;
