@@ -1909,6 +1909,7 @@ MonoBehaviour:
   scanningText: {fileID: 130363623}
   backButtonGO: {fileID: 1085291818}
   shareButtonGO: {fileID: 1448732123}
+  translateRotateImgGO: {fileID: 970694943}
 --- !u!1 &726033072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,7 +2370,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1085291821}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1085291823}
+        m_TargetAssemblyTypeName: FurnishAR.App.BackButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1085291821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2425,6 +2438,7 @@ MonoBehaviour:
   acctButtonGO: {fileID: 8170370556049484163}
   thinUpArrowGO: {fileID: 1801228003}
   shareButtonGO: {fileID: 1448732123}
+  translateRotateImgGO: {fileID: 970694943}
 --- !u!1001 &1163477743
 PrefabInstance:
   m_ObjectHideFlags: 0
