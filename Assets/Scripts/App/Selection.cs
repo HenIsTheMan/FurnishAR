@@ -2,11 +2,11 @@ using FurnishAR.Anim;
 using UnityEngine;
 
 namespace FurnishAR.App {
-    internal sealed class SpawnButton: MonoBehaviour {
+    internal sealed class Selection: MonoBehaviour {
         #region Fields
 
         [SerializeField]
-        private PlacementMarkerControl placementMarkerControl;
+        private int storedIndex;
 
         [SerializeField]
         private FurnitureManager furnitureManager;
@@ -21,15 +21,15 @@ namespace FurnishAR.App {
 
         #region Ctors and Dtor
 
-        internal SpawnButton(): base() {
-            placementMarkerControl = null;
+        internal Selection(): base() {
+            storedIndex = -1;
 
             furnitureManager = null;
 
             translateAnim = null;
         }
 
-        static SpawnButton() {
+        static Selection() {
         }
 
         #endregion
@@ -38,14 +38,7 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            Transform furnitureTransform = furnitureManager.SelectedFurnitureGO.transform;
-            furnitureTransform.gameObject.SetActive(true);
-
-            Vector3 pos = placementMarkerControl.PlacementMarkerParentTransform.position;
-            //pos.y += 4.0f;
-            furnitureTransform.position = pos;
-
-            placementMarkerControl.PlacementMarkerParentTransform.gameObject.SetActive(false);
+            furnitureManager.selectedIndex = storedIndex;
 
             translateAnim.IsUpdating = true;
         }

@@ -32,7 +32,7 @@ namespace FurnishAR.App {
         internal FurnitureManager(): base() {
             initControl = null;
 
-            selectedIndex = 0;
+            selectedIndex = -1;
 
             furnitureGOs = System.Array.Empty<GameObject>();
         }
