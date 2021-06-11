@@ -73,6 +73,7 @@ namespace FurnishAR.App {
 
         private void Update() {
             if(!shldRaycast) {
+                scanningTextGO.SetActive(false); //Lol I guess
                 return;
             }
 

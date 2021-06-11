@@ -70,7 +70,7 @@ namespace FurnishAR.App {
 
             currTime -= Time.deltaTime;
 
-            if(currTime <= flashTime) {
+            if(currTime > 0.0f) {
                 lerpFactor = Mathf.Sin(currTime * 4.0f * (flashTime - currTime)) * 0.5f + 0.5f;
 
                 myColor.r = Val.Lerp(startColor.x, endColor.x, lerpFactor);
