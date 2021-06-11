@@ -77,7 +77,10 @@ namespace FurnishAR.App {
                 myColor.g = Val.Lerp(startColor.y, endColor.y, lerpFactor);
                 myColor.b = Val.Lerp(startColor.z, endColor.z, lerpFactor);
                 myColor.a = Val.Lerp(startAlpha, endAlpha, lerpFactor);
+
+                text.color = myColor;
             } else {
+                text.color = new Color(startColor.x, startColor.y, startColor.z, startAlpha);
                 isFlashing = false;
             }
         }

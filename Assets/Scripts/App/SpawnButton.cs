@@ -26,6 +26,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject swipeDetectorGO;
 
+        [SerializeField]
+        private ScanningText scanningText;
+
         #endregion
 
         #region Properties
@@ -45,6 +48,8 @@ namespace FurnishAR.App {
             thinUpArrowGO = null;
 
             swipeDetectorGO = null;
+
+            scanningText = null;
         }
 
         static SpawnButton() {
@@ -57,6 +62,7 @@ namespace FurnishAR.App {
 
         public void OnClick() {
             if(scanningTextGO.activeSelf) {
+                scanningText.StartFlashing(1.7f);
                 return;
             }
 
