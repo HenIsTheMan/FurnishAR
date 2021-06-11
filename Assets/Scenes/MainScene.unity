@@ -1892,6 +1892,7 @@ MonoBehaviour:
   acctButtonGO: {fileID: 8170370556049484163}
   scanningTextGO: {fileID: 130363618}
   thinUpArrowGO: {fileID: 1801228003}
+  swipeDetectorGO: {fileID: 1867110061}
 --- !u!1 &780067959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,6 +2557,7 @@ MonoBehaviour:
   acctButtonGO: {fileID: 8170370556049484163}
   thinUpArrowGO: {fileID: 1801228003}
   placementMarkerControl: {fileID: 494131772}
+  swipeDetectorGO: {fileID: 1867110061}
 --- !u!114 &1201052155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6063,6 +6065,7 @@ MonoBehaviour:
   acctButtonGO: {fileID: 8170370556049484163}
   thinUpArrowGO: {fileID: 1801228003}
   placementMarkerControl: {fileID: 494131772}
+  swipeDetectorGO: {fileID: 1867110061}
 --- !u!222 &8583224826605250812
 CanvasRenderer:
   m_ObjectHideFlags: 0

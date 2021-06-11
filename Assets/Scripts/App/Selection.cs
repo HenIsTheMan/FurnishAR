@@ -24,10 +24,7 @@ namespace FurnishAR.App {
         private PlacementMarkerControl placementMarkerControl;
 
         [SerializeField]
-        private GameObject swipeUpDetectorGO;
-
-        [SerializeField]
-        private GameObject swipeDownDetectorGO;
+        private GameObject swipeDetectorGO;
 
         #endregion
 
@@ -48,8 +45,7 @@ namespace FurnishAR.App {
 
             placementMarkerControl = null;
 
-            swipeUpDetectorGO = null;
-            swipeDownDetectorGO = null;
+            swipeDetectorGO = null;
         }
 
         static Selection() {
@@ -70,8 +66,7 @@ namespace FurnishAR.App {
 
             placementMarkerControl.shldRaycast = true;
 
-            swipeUpDetectorGO.SetActive(false);
-            swipeDownDetectorGO.SetActive(false);
+            swipeDetectorGO.SetActive(false);
         }
     }
 }
