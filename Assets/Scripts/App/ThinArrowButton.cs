@@ -9,10 +9,10 @@ namespace FurnishAR.App {
         private GameObject GOToActivate;
 
         [SerializeField]
-        private RectTransformTranslateAnim translateAnim;
+        private RectTransformAnchoredTranslateAnim translateAnim;
 
         [SerializeField]
-        private RectTransformTranslateAnim otherTranslateAnim;
+        private RectTransformAnchoredTranslateAnim otherTranslateAnim;
 
         #endregion
 

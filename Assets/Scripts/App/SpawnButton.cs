@@ -12,7 +12,7 @@ namespace FurnishAR.App {
         private FurnitureManager furnitureManager;
 
         [SerializeField]
-        private RectTransformTranslateAnim translateAnim;
+        private RectTransformAnchoredTranslateAnim translateAnim;
 
         [SerializeField]
         private GameObject acctButtonGO;

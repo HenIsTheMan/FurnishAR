@@ -9,7 +9,7 @@ namespace FurnishAR.App {
         private PlacementMarkerControl placementMarkerControl;
 
         [SerializeField]
-        private RectTransformTranslateAnim translateAnim;
+        private RectTransformAnchoredTranslateAnim translateAnim;
 
         [SerializeField]
         private GameObject acctButtonGO;
