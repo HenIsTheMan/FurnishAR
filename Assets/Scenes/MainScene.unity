@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 130363621}
   - component: {fileID: 130363620}
   - component: {fileID: 130363622}
+  - component: {fileID: 130363623}
   m_Layer: 5
   m_Name: ScanningText
   m_TagString: Untagged
@@ -384,6 +385,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0.4
   tmpComponent: {fileID: 130363620}
+--- !u!114 &130363623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130363618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6ced89247deb14ea3c99bd03ec4b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {x: 1, y: 1, z: 1}
+  endColor: {x: 1, y: 0.345, z: 0.345}
+  startAlpha: 1
+  endAlpha: 0.4
+  text: {fileID: 130363620}
 --- !u!1 &143199493
 GameObject:
   m_ObjectHideFlags: 0
