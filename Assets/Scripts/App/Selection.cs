@@ -14,6 +14,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private RectTransformTranslateAnim translateAnim;
 
+        [SerializeField]
+        private GameObject thinUpArrowGO;
+
         #endregion
 
         #region Properties
@@ -27,6 +30,8 @@ namespace FurnishAR.App {
             furnitureManager = null;
 
             translateAnim = null;
+
+            thinUpArrowGO = null;
         }
 
         static Selection() {
@@ -41,6 +46,8 @@ namespace FurnishAR.App {
             furnitureManager.selectedIndex = storedIndex;
 
             translateAnim.IsUpdating = true;
+
+            thinUpArrowGO.SetActive(false);
         }
     }
 }

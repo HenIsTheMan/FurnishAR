@@ -14,6 +14,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private RectTransformTranslateAnim translateAnim;
 
+        [SerializeField]
+        private GameObject thinUpArrowGO;
+
         #endregion
 
         #region Properties
@@ -27,6 +30,8 @@ namespace FurnishAR.App {
             furnitureManager = null;
 
             translateAnim = null;
+
+            thinUpArrowGO = null;
         }
 
         static SpawnButton() {
@@ -42,12 +47,13 @@ namespace FurnishAR.App {
             furnitureTransform.gameObject.SetActive(true);
 
             Vector3 pos = placementMarkerControl.PlacementMarkerParentTransform.position;
-            //pos.y += 4.0f;
             furnitureTransform.position = pos;
 
             placementMarkerControl.PlacementMarkerParentTransform.gameObject.SetActive(false);
 
             translateAnim.IsUpdating = true;
+
+            thinUpArrowGO.SetActive(true);
         }
     }
 }

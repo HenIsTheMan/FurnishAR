@@ -91,9 +91,11 @@ namespace FurnishAR.App {
         }
 
         private System.Collections.IEnumerator OfflineOnClick() {
-            yield return new WaitForSeconds(1.4f);
+            yield return new WaitForSeconds(0.7f);
 
+            Transform prevParentTransform = transform.parent.parent;
             transform.parent.parent = otherParentTransform;
+            otherParentTransform = prevParentTransform;
         }
     }
 }
