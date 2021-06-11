@@ -325,7 +325,7 @@ MonoBehaviour:
   startColor: {x: 1, y: 1, z: 1}
   endColor: {x: 1, y: 0.345, z: 0.345}
   startAlpha: 1
-  endAlpha: 0.4
+  endAlpha: 1
   text: {fileID: 130363620}
 --- !u!1 &143199493
 GameObject:
