@@ -2723,6 +2723,7 @@ GameObject:
   - component: {fileID: 1296503164}
   - component: {fileID: 1296503163}
   - component: {fileID: 1296503162}
+  - component: {fileID: 1296503165}
   m_Layer: 5
   m_Name: CrossButton
   m_TagString: Untagged
@@ -2793,7 +2794,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1296503163}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1296503165}
+        m_TargetAssemblyTypeName: FurnishAR.App.CancelButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1296503163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2832,6 +2845,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296503160}
   m_CullTransparentMesh: 1
+--- !u!114 &1296503165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296503160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadd46b56cf52174fbfcc121e484c0ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placementMarkerControl: {fileID: 494131772}
+  translateAnim: {fileID: 780067962}
+  acctButtonGO: {fileID: 8170370556049484163}
+  thinUpArrowGO: {fileID: 1801228003}
+  swipeDetectorGO: {fileID: 1867110061}
 --- !u!1 &1317419111
 GameObject:
   m_ObjectHideFlags: 0
@@ -4646,7 +4676,7 @@ GameObject:
   - component: {fileID: 1867110065}
   - component: {fileID: 1867110066}
   m_Layer: 5
-  m_Name: EventDetectorImg
+  m_Name: SwipeDetectorImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
