@@ -17,13 +17,13 @@ namespace FurnishAR.App {
         private LogInSignUpState state;
 
         [SerializeField]
-        private RectTransformAnchoredTranslateAnim logInToSignUpTranslateAnim;
+        private RectTransformTranslateAnim logInToSignUpTranslateAnim;
 
         [SerializeField]
         private RectTransformScaleAnim logInToSignUpScaleAnim;
 
         [SerializeField]
-        private RectTransformAnchoredTranslateAnim signUpToLogInTranslateAnim;
+        private RectTransformTranslateAnim signUpToLogInTranslateAnim;
 
         [SerializeField]
         private RectTransformScaleAnim signUpToLogInScaleAnim;

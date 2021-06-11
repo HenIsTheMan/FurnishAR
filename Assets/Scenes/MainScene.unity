@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &113554337
 Transform:
   m_ObjectHideFlags: 0
@@ -2379,7 +2379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placementMarkerControl: {fileID: 494131772}
   furnitureManager: {fileID: 2115402700}
-  translateAnim: {fileID: 0}
+  translateAnim: {fileID: 780067961}
   acctButtonGO: {fileID: 8170370556049484163}
   scanningTextGO: {fileID: 130363618}
   thinUpArrowGO: {fileID: 1801228003}
@@ -2771,7 +2771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedIndex: 0
   furnitureManager: {fileID: 2115402700}
-  translateAnim: {fileID: 0}
+  translateAnim: {fileID: 1696773615}
   acctButtonGO: {fileID: 8170370556049484163}
   thinUpArrowGO: {fileID: 1801228003}
   placementMarkerControl: {fileID: 494131772}
@@ -3332,7 +3332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementMarkerControl: {fileID: 494131772}
-  translateAnim: {fileID: 0}
+  translateAnim: {fileID: 780067961}
   acctButtonGO: {fileID: 8170370556049484163}
   thinUpArrowGO: {fileID: 1801228003}
   swipeDetectorGO: {fileID: 1867110061}
@@ -4732,8 +4732,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GOToActivate: {fileID: 1801228003}
-  translateAnim: {fileID: 0}
-  otherTranslateAnim: {fileID: 0}
+  translateAnim: {fileID: 1696773615}
+  otherTranslateAnim: {fileID: 1696773619}
 --- !u!114 &1720243114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5061,8 +5061,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GOToActivate: {fileID: 1720243111}
-  translateAnim: {fileID: 0}
-  otherTranslateAnim: {fileID: 0}
+  translateAnim: {fileID: 1696773619}
+  otherTranslateAnim: {fileID: 1696773615}
 --- !u!1 &1807710607
 GameObject:
   m_ObjectHideFlags: 0
@@ -6123,17 +6123,17 @@ PrefabInstance:
     - target: {fileID: 3105264871797249617, guid: 5a57a3c4722107e46b4c843b15ef05e9,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3105264871797249617, guid: 5a57a3c4722107e46b4c843b15ef05e9,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3105264871797249617, guid: 5a57a3c4722107e46b4c843b15ef05e9,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.2509365
       objectReference: {fileID: 0}
     - target: {fileID: 3105264872136572209, guid: 5a57a3c4722107e46b4c843b15ef05e9,
         type: 3}
@@ -6446,7 +6446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedIndex: 0
   furnitureManager: {fileID: 2115402700}
-  translateAnim: {fileID: 0}
+  translateAnim: {fileID: 1696773615}
   acctButtonGO: {fileID: 8170370556049484163}
   thinUpArrowGO: {fileID: 1801228003}
   placementMarkerControl: {fileID: 494131772}
