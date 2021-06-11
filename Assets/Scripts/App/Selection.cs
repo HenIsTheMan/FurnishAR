@@ -73,11 +73,12 @@ namespace FurnishAR.App {
 
             swipeDetectorGO.SetActive(false);
 
-            borderGO.SetActive(true);
             Selection[] selections = FindObjectsOfType<Selection>();
             foreach(Selection selection in selections) {
                 selection.DeactivateBorderGO();
             }
+
+            borderGO.SetActive(true);
         }
 
         internal void DeactivateBorderGO() {
