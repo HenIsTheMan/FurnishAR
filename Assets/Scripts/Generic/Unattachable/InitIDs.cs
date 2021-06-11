@@ -28,6 +28,7 @@ namespace FurnishAR.Generic {
 			HandyHand,
 			SwipeUpDetector,
 			SwipeDownDetector,
+			TranslateRotateImg,
 			Amt
 		}
     }

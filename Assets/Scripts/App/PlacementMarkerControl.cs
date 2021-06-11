@@ -28,6 +28,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject scanningTextGO;
 
+        [SerializeField]
+        private GameObject translateRotateImgGO;
+
         internal bool shldRaycast;
 
         #endregion
@@ -57,6 +60,8 @@ namespace FurnishAR.App {
 
             scanningTextGO = null;
 
+            translateRotateImgGO = null;
+
             shldRaycast = false;
         }
 
@@ -73,6 +78,7 @@ namespace FurnishAR.App {
 
         private void Update() {
             if(!shldRaycast) {
+                translateRotateImgGO.SetActive(false); //Lol I guess
                 scanningTextGO.SetActive(false); //Lol I guess
                 return;
             }
@@ -90,6 +96,8 @@ namespace FurnishAR.App {
 
                 scanningTextGO.SetActive(true);
             }
+
+            translateRotateImgGO.SetActive(true);
         }
 
         private void OnDisable() {
