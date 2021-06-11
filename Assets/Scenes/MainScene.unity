@@ -2771,7 +2771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedIndex: 0
   furnitureManager: {fileID: 2115402700}
-  translateAnim: {fileID: 1696773615}
+  translateAnim: {fileID: 780067964}
   acctButtonGO: {fileID: 8170370556049484163}
   thinUpArrowGO: {fileID: 1801228003}
   placementMarkerControl: {fileID: 494131772}
@@ -6446,7 +6446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedIndex: 0
   furnitureManager: {fileID: 2115402700}
-  translateAnim: {fileID: 1696773615}
+  translateAnim: {fileID: 780067964}
   acctButtonGO: {fileID: 8170370556049484163}
   thinUpArrowGO: {fileID: 1801228003}
   placementMarkerControl: {fileID: 494131772}
