@@ -8,6 +8,7 @@ namespace FurnishAR.Generic {
 
 			Instancer,
 			AbstractAnim,
+			BottomRowButtons,
 			TextCurve,
 			TextPtrOverLineOfWords,
 			CamOrbital,
