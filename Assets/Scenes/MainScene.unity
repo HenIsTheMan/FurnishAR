@@ -858,6 +858,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
@@ -1902,6 +1917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db33ddbd83e09d429418b4d06e0eb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swipeDetectorGO: {fileID: 1867110061}
   placementMarkerControl: {fileID: 494131772}
   furnitureManager: {fileID: 2115402700}
   translateAnim: {fileID: 780067961}
@@ -2435,6 +2451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeDetectorGO: {fileID: 1867110061}
   furnitureManager: {fileID: 2115402700}
+  placementMarkerControl: {fileID: 494131772}
   acctButtonGO: {fileID: 8170370556049484163}
   thinUpArrowGO: {fileID: 1801228003}
   shareButtonGO: {fileID: 1448732123}
@@ -2450,6 +2467,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
         type: 3}
@@ -2810,6 +2842,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
         type: 3}
@@ -5239,6 +5286,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a75d2738794caee4fbb275089dd7254c,
         type: 3}

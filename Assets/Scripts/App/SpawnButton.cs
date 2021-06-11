@@ -6,6 +6,9 @@ namespace FurnishAR.App {
         #region Fields
 
         [SerializeField]
+        private GameObject swipeDetectorGO;
+
+        [SerializeField]
         private PlacementMarkerControl placementMarkerControl;
 
         [SerializeField]
@@ -37,6 +40,8 @@ namespace FurnishAR.App {
         #region Ctors and Dtor
 
         internal SpawnButton(): base() {
+            swipeDetectorGO = null;
+
             placementMarkerControl = null;
 
             furnitureManager = null;
@@ -82,6 +87,7 @@ namespace FurnishAR.App {
             backButtonGO.SetActive(true);
             shareButtonGO.SetActive(true);
 
+            swipeDetectorGO.SetActive(false);
             translateRotateImgGO.SetActive(true);
         }
     }

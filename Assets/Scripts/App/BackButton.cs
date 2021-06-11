@@ -11,6 +11,9 @@ namespace FurnishAR.App {
         private FurnitureManager furnitureManager;
 
         [SerializeField]
+        private PlacementMarkerControl placementMarkerControl;
+
+        [SerializeField]
         private GameObject acctButtonGO;
 
         [SerializeField]
@@ -34,6 +37,8 @@ namespace FurnishAR.App {
 
             furnitureManager = null;
 
+            placementMarkerControl = null;
+
             acctButtonGO = null;
             thinUpArrowGO = null;
 
@@ -51,9 +56,9 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            swipeDetectorGO.SetActive(true);
-
             furnitureManager.SelectedFurnitureGO.SetActive(false);
+
+            placementMarkerControl.shldRaycast = true;
 
             acctButtonGO.SetActive(true);
             thinUpArrowGO.SetActive(true);
@@ -62,6 +67,7 @@ namespace FurnishAR.App {
             gameObject.SetActive(false);
 
             translateRotateImgGO.SetActive(false);
+            swipeDetectorGO.SetActive(true);
         }
     }
 }
