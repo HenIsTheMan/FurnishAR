@@ -21,6 +21,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private Sprite notSavedSprite;
 
+        [SerializeField]
+        private Transform otherParentTransform;
+
         #endregion
 
         #region Properties
@@ -35,6 +38,8 @@ namespace FurnishAR.App {
 
             savedSprite = null;
             notSavedSprite = null;
+
+            otherParentTransform = null;
         }
 
         static SaveButton() {
@@ -59,10 +64,14 @@ namespace FurnishAR.App {
             }
 
             if(shldRaiseEvent) {
-                if(PhotonNetwork.InRoom) {
-                    SendSavedEvent();
+                if(PhotonNetwork.IsConnected) {
+                    if(PhotonNetwork.InRoom) {
+                        SendSavedEvent();
+                    } else {
+                        GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += SendSavedEvent;
+                    }
                 } else {
-                    GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += SendSavedEvent;
+                    _ = StartCoroutine(OfflineOnClick());
                 }
             }
         }
@@ -79,6 +88,12 @@ namespace FurnishAR.App {
                 RaiseEventOptions.Default,
                 SendOptions.SendReliable
             );
+        }
+
+        private System.Collections.IEnumerator OfflineOnClick() {
+            yield return new WaitForSeconds(1.4f);
+
+            transform.parent = otherParentTransform;
         }
     }
 }
