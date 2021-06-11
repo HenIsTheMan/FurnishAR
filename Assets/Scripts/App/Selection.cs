@@ -26,6 +26,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject swipeDetectorGO;
 
+        [SerializeField]
+        private GameObject borderGO;
+
         #endregion
 
         #region Properties
@@ -46,6 +49,8 @@ namespace FurnishAR.App {
             placementMarkerControl = null;
 
             swipeDetectorGO = null;
+
+            borderGO = null;
         }
 
         static Selection() {
@@ -67,6 +72,16 @@ namespace FurnishAR.App {
             placementMarkerControl.shldRaycast = true;
 
             swipeDetectorGO.SetActive(false);
+
+            borderGO.SetActive(true);
+            Selection[] selections = FindObjectsOfType<Selection>();
+            foreach(Selection selection in selections) {
+                selection.DeactivateBorderGO();
+            }
+        }
+
+        internal void DeactivateBorderGO() {
+            borderGO.SetActive(false);
         }
     }
 }
