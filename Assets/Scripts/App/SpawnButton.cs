@@ -15,6 +15,9 @@ namespace FurnishAR.App {
         private RectTransformTranslateAnim translateAnim;
 
         [SerializeField]
+        private GameObject acctButtonGO;
+
+        [SerializeField]
         private GameObject thinUpArrowGO;
 
         #endregion
@@ -31,6 +34,7 @@ namespace FurnishAR.App {
 
             translateAnim = null;
 
+            acctButtonGO = null;
             thinUpArrowGO = null;
         }
 
@@ -53,6 +57,7 @@ namespace FurnishAR.App {
 
             translateAnim.IsUpdating = true;
 
+            acctButtonGO.SetActive(true);
             thinUpArrowGO.SetActive(true);
         }
     }
