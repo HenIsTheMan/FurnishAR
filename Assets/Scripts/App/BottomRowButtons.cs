@@ -38,7 +38,7 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
-            ((RectTransform)transform).localPosition = new Vector3(0.0f, -1907.0f, 0.0f); //Workaround
+            ((RectTransform)transform).anchoredPosition = new Vector3(0.0f, -1907.0f, 0.0f); //Workaround
         }
     }
 }
