@@ -66,8 +66,8 @@ namespace FurnishAR.App {
 
         private void Init() {
             alpha = 100.0f / 255.0f;
-            selectedColorFactor = 20.0f / 255.0f;
-            notSelectedColorFactor = 67.0f / 255.0f;
+            selectedColorFactor = 0.0f;
+            notSelectedColorFactor = 33.0f / 255.0f;
             selectedScaleFactor = 1.2f;
             notSelectedScaleFactor = 1.0f;
 

@@ -62,7 +62,7 @@ namespace FurnishAR.App {
 
         public void OnClick() {
             if(scanningTextGO.activeSelf) {
-                scanningText.StartFlashing(1.3f);
+                scanningText.StartFlashing(0.7f);
                 return;
             }
 
