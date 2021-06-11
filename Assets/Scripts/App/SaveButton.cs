@@ -93,7 +93,7 @@ namespace FurnishAR.App {
         private System.Collections.IEnumerator OfflineOnClick() {
             yield return new WaitForSeconds(1.4f);
 
-            transform.parent = otherParentTransform;
+            transform.parent.parent = otherParentTransform;
         }
     }
 }
