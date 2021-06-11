@@ -25,6 +25,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject placementMarkerGO;
 
+        [SerializeField]
+        private GameObject scanningTextGO;
+
         #endregion
 
         #region Properties
@@ -49,6 +52,8 @@ namespace FurnishAR.App {
             placementMarkerParentTransform = null;
 
             placementMarkerGO = null;
+
+            scanningTextGO = null;
         }
 
         static PlacementMarkerControl() {
@@ -69,8 +74,12 @@ namespace FurnishAR.App {
                 placementMarkerParentTransform.localPosition = hits[0].pose.position;
                 placementMarkerParentTransform.localRotation = hits[0].pose.rotation;
                 placementMarkerGO.SetActive(true);
+
+                scanningTextGO.SetActive(false);
             } else {
                 placementMarkerGO.SetActive(false);
+
+                scanningTextGO.SetActive(true);
             }
         }
 

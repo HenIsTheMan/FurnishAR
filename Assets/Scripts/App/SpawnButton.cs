@@ -18,6 +18,9 @@ namespace FurnishAR.App {
         private GameObject acctButtonGO;
 
         [SerializeField]
+        private GameObject scanningTextGO;
+
+        [SerializeField]
         private GameObject thinUpArrowGO;
 
         #endregion
@@ -35,6 +38,7 @@ namespace FurnishAR.App {
             translateAnim = null;
 
             acctButtonGO = null;
+            scanningTextGO = null;
             thinUpArrowGO = null;
         }
 
@@ -47,6 +51,10 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
+            if(scanningTextGO.activeSelf) {
+                return;
+            }
+
             Transform furnitureTransform = furnitureManager.SelectedFurnitureGO.transform;
             furnitureTransform.gameObject.SetActive(true);
 
@@ -58,6 +66,7 @@ namespace FurnishAR.App {
             translateAnim.IsUpdating = true;
 
             acctButtonGO.SetActive(true);
+            scanningTextGO.SetActive(true);
             thinUpArrowGO.SetActive(true);
         }
     }

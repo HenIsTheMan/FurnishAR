@@ -38,8 +38,6 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
-            Generic.Console.Log("here");
-
             ((RectTransform)transform).localPosition = new Vector3(0.0f, -1907.0f, 0.0f); //Workaround
         }
     }
