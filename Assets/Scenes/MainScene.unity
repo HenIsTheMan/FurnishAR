@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &113554337
 Transform:
   m_ObjectHideFlags: 0
@@ -1905,11 +1905,10 @@ MonoBehaviour:
   placementMarkerControl: {fileID: 494131772}
   furnitureManager: {fileID: 2115402700}
   translateAnim: {fileID: 780067961}
-  acctButtonGO: {fileID: 8170370556049484163}
   scanningTextGO: {fileID: 130363618}
-  thinUpArrowGO: {fileID: 1801228003}
-  swipeDetectorGO: {fileID: 1867110061}
   scanningText: {fileID: 130363623}
+  backButtonGO: {fileID: 1085291818}
+  shareButtonGO: {fileID: 1448732123}
 --- !u!1 &726033072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,13 +2298,14 @@ GameObject:
   - component: {fileID: 1085291822}
   - component: {fileID: 1085291821}
   - component: {fileID: 1085291820}
+  - component: {fileID: 1085291823}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1085291819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2321,9 +2321,9 @@ RectTransform:
   m_Father: {fileID: 1482887977}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -700, y: -1480}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 260, y: 227}
   m_SizeDelta: {x: 340, y: 340}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1085291820
@@ -2408,6 +2408,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085291818}
   m_CullTransparentMesh: 1
+--- !u!114 &1085291823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085291818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23754c69c9d8824387a42685a056146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeDetectorGO: {fileID: 1867110061}
+  furnitureManager: {fileID: 2115402700}
+  acctButtonGO: {fileID: 8170370556049484163}
+  thinUpArrowGO: {fileID: 1801228003}
+  shareButtonGO: {fileID: 1448732123}
 --- !u!1001 &1163477743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2946,7 +2963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1448732124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2962,9 +2979,9 @@ RectTransform:
   m_Father: {fileID: 1482887977}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 700, y: -1480}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -260, y: 227}
   m_SizeDelta: {x: 340, y: 340}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448732125
@@ -6053,22 +6070,22 @@ PrefabInstance:
     - target: {fileID: 3105264871797249617, guid: 5a57a3c4722107e46b4c843b15ef05e9,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3105264871797249617, guid: 5a57a3c4722107e46b4c843b15ef05e9,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3105264871797249617, guid: 5a57a3c4722107e46b4c843b15ef05e9,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.6247656
       objectReference: {fileID: 0}
     - target: {fileID: 3105264872136572209, guid: 5a57a3c4722107e46b4c843b15ef05e9,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1066
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a57a3c4722107e46b4c843b15ef05e9, type: 3}
