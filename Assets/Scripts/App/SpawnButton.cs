@@ -23,6 +23,12 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject thinUpArrowGO;
 
+        [SerializeField]
+        private GameObject swipeUpDetectorGO;
+
+        [SerializeField]
+        private GameObject swipeDownDetectorGO;
+
         #endregion
 
         #region Properties
@@ -40,6 +46,9 @@ namespace FurnishAR.App {
             acctButtonGO = null;
             scanningTextGO = null;
             thinUpArrowGO = null;
+
+            swipeUpDetectorGO = null;
+            swipeDownDetectorGO = null;
         }
 
         static SpawnButton() {
@@ -66,8 +75,12 @@ namespace FurnishAR.App {
             translateAnim.IsUpdating = true;
 
             acctButtonGO.SetActive(true);
-            scanningTextGO.SetActive(true);
             thinUpArrowGO.SetActive(true);
+
+            placementMarkerControl.shldRaycast = false;
+
+            swipeUpDetectorGO.SetActive(true);
+            swipeDownDetectorGO.SetActive(true);
         }
     }
 }

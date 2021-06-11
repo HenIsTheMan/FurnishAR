@@ -2554,8 +2554,8 @@ MonoBehaviour:
   furnitureManager: {fileID: 2115402700}
   translateAnim: {fileID: 780067961}
   acctButtonGO: {fileID: 8170370556049484163}
-  scanningTextGO: {fileID: 130363618}
   thinUpArrowGO: {fileID: 1801228003}
+  placementMarkerControl: {fileID: 494131772}
 --- !u!114 &1201052155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3649,6 +3649,7 @@ GameObject:
   - component: {fileID: 1696773615}
   - component: {fileID: 1696773616}
   - component: {fileID: 1696773617}
+  - component: {fileID: 1696773618}
   m_Layer: 5
   m_Name: MainPanel
   m_TagString: Untagged
@@ -3779,6 +3780,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initControl: {fileID: 558809763}
+--- !u!114 &1696773618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696773611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad119fc928f841e4a966bc5a4694774c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initControl: {fileID: 558809763}
+  thinDownArrowButton: {fileID: 1720243113}
 --- !u!1 &1698528177
 GameObject:
   m_ObjectHideFlags: 0
@@ -4627,6 +4642,7 @@ GameObject:
   - component: {fileID: 1867110064}
   - component: {fileID: 1867110063}
   - component: {fileID: 1867110065}
+  - component: {fileID: 1867110066}
   m_Layer: 5
   m_Name: EventDetectorImg
   m_TagString: Untagged
@@ -4705,6 +4721,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initControl: {fileID: 558809763}
   thinUpArrowButton: {fileID: 1801228008}
+--- !u!114 &1867110066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867110061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad119fc928f841e4a966bc5a4694774c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initControl: {fileID: 558809763}
+  thinDownArrowButton: {fileID: 1720243113}
 --- !u!1 &1934514741
 GameObject:
   m_ObjectHideFlags: 0
@@ -6031,8 +6061,8 @@ MonoBehaviour:
   furnitureManager: {fileID: 2115402700}
   translateAnim: {fileID: 780067961}
   acctButtonGO: {fileID: 8170370556049484163}
-  scanningTextGO: {fileID: 130363618}
   thinUpArrowGO: {fileID: 1801228003}
+  placementMarkerControl: {fileID: 494131772}
 --- !u!222 &8583224826605250812
 CanvasRenderer:
   m_ObjectHideFlags: 0

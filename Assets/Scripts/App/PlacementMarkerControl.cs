@@ -28,6 +28,8 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject scanningTextGO;
 
+        internal bool shldRaycast;
+
         #endregion
 
         #region Properties
@@ -54,6 +56,8 @@ namespace FurnishAR.App {
             placementMarkerGO = null;
 
             scanningTextGO = null;
+
+            shldRaycast = false;
         }
 
         static PlacementMarkerControl() {
@@ -68,6 +72,10 @@ namespace FurnishAR.App {
         }
 
         private void Update() {
+            if(!shldRaycast) {
+                return;
+            }
+
             raycastManager.Raycast(screenPt, hits, TrackableType.Planes);
 
             if(hits.Count > 0) {

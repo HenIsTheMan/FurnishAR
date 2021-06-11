@@ -27,6 +27,7 @@ namespace FurnishAR.Generic {
 			AcctManager,
 			HandyHand,
 			SwipeUpDetector,
+			SwipeDownDetector,
 			Amt
 		}
     }
