@@ -74,11 +74,7 @@ namespace FurnishAR.App {
 
             Transform furnitureTransform = furnitureManager.SelectedFurnitureGO.transform;
             furnitureTransform.gameObject.SetActive(true);
-
-            Vector3 pos = placementMarkerControl.PlacementMarkerParentTransform.position;
-            furnitureTransform.position = pos;
-
-            placementMarkerControl.PlacementMarkerParentTransform.gameObject.SetActive(false);
+            furnitureTransform.position = placementMarkerControl.PlacementMarkerParentTransform.position;
 
             translateAnim.IsUpdating = true;
 

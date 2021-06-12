@@ -47,14 +47,12 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            placementMarkerControl.PlacementMarkerParentTransform.gameObject.SetActive(false);
-
             translateAnim.IsUpdating = true;
+
+            placementMarkerControl.shldRaycast = false;
 
             acctButtonGO.SetActive(true);
             thinUpArrowGO.SetActive(true);
-
-            placementMarkerControl.shldRaycast = false;
 
             swipeDetectorGO.SetActive(true);
         }
