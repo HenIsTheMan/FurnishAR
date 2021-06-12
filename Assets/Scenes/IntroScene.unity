@@ -171,7 +171,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &31001086
 GameObject:
@@ -2610,6 +2610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1032167677}
   - component: {fileID: 1032167680}
+  - component: {fileID: 1032167683}
   - component: {fileID: 1032167679}
   - component: {fileID: 1032167678}
   - component: {fileID: 1032167681}
@@ -2769,6 +2770,18 @@ MonoBehaviour:
   startScale: {x: 4.4, y: 4.4, z: 1}
   endScale: {x: 4, y: 4, z: 1}
   myRectTransform: {fileID: 1032167677}
+--- !u!225 &1032167683
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032167676}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 1
 --- !u!1 &1042220110
 GameObject:
   m_ObjectHideFlags: 0
