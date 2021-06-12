@@ -70,11 +70,15 @@ namespace FurnishAR.App {
         }
 
         private void ProgressBefore() {
-            pageGOs[index].GetComponent<CanvasGroup>().alpha = 0.0f;
+            CanvasGroup canvasGrp = pageGOs[index].GetComponent<CanvasGroup>();
+            canvasGrp.alpha = 0.0f;
+            canvasGrp.blocksRaycasts = false;
         }
 
         private void ProgressAfter() {
-            pageGOs[index].GetComponent<CanvasGroup>().alpha = 1.0f;
+            CanvasGroup canvasGrp = pageGOs[index].GetComponent<CanvasGroup>();
+            canvasGrp.alpha = 1.0f;
+            canvasGrp.blocksRaycasts = true;
         }
     }
 }
