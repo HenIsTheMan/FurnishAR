@@ -58,7 +58,7 @@ namespace FurnishAR.App {
         public void OnClick() {
             furnitureManager.SelectedFurnitureGO.SetActive(false);
 
-            placementMarkerControl.shldRaycast = true;
+            placementMarkerControl.shldRaycast = false;
 
             acctButtonGO.SetActive(true);
             thinUpArrowGO.SetActive(true);

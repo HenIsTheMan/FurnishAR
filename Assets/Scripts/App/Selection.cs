@@ -66,10 +66,10 @@ namespace FurnishAR.App {
 
             translateAnim.IsUpdating = true;
 
+            placementMarkerControl.shldRaycast = true;
+
             acctButtonGO.SetActive(false);
             thinUpArrowGO.SetActive(false);
-
-            placementMarkerControl.shldRaycast = true;
 
             swipeDetectorGO.SetActive(false);
 
