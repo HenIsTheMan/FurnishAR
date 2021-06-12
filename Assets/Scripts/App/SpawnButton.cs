@@ -27,6 +27,15 @@ namespace FurnishAR.App {
         private GameObject backButtonGO;
 
         [SerializeField]
+        private GameObject undoButtonGO;
+
+        [SerializeField]
+        private GameObject resetButtonGO;
+
+        [SerializeField]
+        private GameObject redoButtonGO;
+
+        [SerializeField]
         private GameObject shareButtonGO;
 
         [SerializeField]
@@ -53,6 +62,9 @@ namespace FurnishAR.App {
             scanningText = null;
 
             backButtonGO = null;
+            undoButtonGO = null;
+            resetButtonGO = null;
+            redoButtonGO = null;
             shareButtonGO = null;
 
             translateRotateImgGO = null;
@@ -81,6 +93,9 @@ namespace FurnishAR.App {
             placementMarkerControl.shldRaycast = false;
 
             backButtonGO.SetActive(true);
+            undoButtonGO.SetActive(true);
+            resetButtonGO.SetActive(true);
+            redoButtonGO.SetActive(true);
             shareButtonGO.SetActive(true);
 
             swipeDetectorGO.SetActive(false);

@@ -20,6 +20,15 @@ namespace FurnishAR.App {
         private GameObject thinUpArrowGO;
 
         [SerializeField]
+        private GameObject undoButtonGO;
+
+        [SerializeField]
+        private GameObject resetButtonGO;
+
+        [SerializeField]
+        private GameObject redoButtonGO;
+
+        [SerializeField]
         private GameObject shareButtonGO;
 
         [SerializeField]
@@ -42,6 +51,9 @@ namespace FurnishAR.App {
             acctButtonGO = null;
             thinUpArrowGO = null;
 
+            undoButtonGO = null;
+            resetButtonGO = null;
+            redoButtonGO = null;
             shareButtonGO = null;
 
             translateRotateImgGO = null;
@@ -63,8 +75,11 @@ namespace FurnishAR.App {
             acctButtonGO.SetActive(true);
             thinUpArrowGO.SetActive(true);
 
-            shareButtonGO.SetActive(false);
             gameObject.SetActive(false);
+            undoButtonGO.SetActive(false);
+            resetButtonGO.SetActive(false);
+            redoButtonGO.SetActive(false);
+            shareButtonGO.SetActive(false);
 
             translateRotateImgGO.SetActive(false);
             swipeDetectorGO.SetActive(true);
