@@ -17,6 +17,12 @@ namespace FurnishAR.App {
 
         private GameObject[] furnitureGOs;
 
+        private Vector3[] OGTranslations;
+
+        private Quaternion[] OGRotations;
+
+        private Vector3[] OGScales;
+
         #endregion
 
         #region Properties
@@ -35,6 +41,10 @@ namespace FurnishAR.App {
             selectedIndex = -1;
 
             furnitureGOs = System.Array.Empty<GameObject>();
+
+            OGTranslations = System.Array.Empty<Vector3>();
+            OGRotations = System.Array.Empty<Quaternion>();
+            OGScales = System.Array.Empty<Vector3>();
         }
 
         static FurnitureManager() {
@@ -55,11 +65,21 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
-            furnitureGOs = new GameObject[transform.childCount];
+            int arrLen = transform.childCount;
+
+            furnitureGOs = new GameObject[arrLen];
+
+            OGTranslations = new Vector3[arrLen];
+            OGRotations = new Quaternion[arrLen];
+            OGScales = new Vector3[arrLen];
 
             int index = 0;
-            foreach(Transform child in transform) {
-                furnitureGOs[index++] = child.gameObject;
+            foreach(Transform childTransform in transform) {
+                furnitureGOs[index++] = childTransform.gameObject;
+
+                OGTranslations[index] = childTransform.localPosition;
+                OGRotations[index] = childTransform.localRotation;
+                OGScales[index] = childTransform.localScale;
             }
 
             if(PhotonNetwork.InRoom) {
@@ -83,6 +103,14 @@ namespace FurnishAR.App {
                 RaiseEventOptions.Default,
                 SendOptions.SendReliable
             );
+        }
+
+        internal void ResetSelectedFurnitureTransform() {
+            Transform myTransform = SelectedFurnitureGO.transform;
+
+            myTransform.localPosition = OGTranslations[selectedIndex];
+            myTransform.localRotation = OGRotations[selectedIndex];
+            myTransform.localScale = OGScales[selectedIndex];
         }
     }
 }
