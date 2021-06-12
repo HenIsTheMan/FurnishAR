@@ -76,11 +76,9 @@ namespace FurnishAR.App {
                     = Quaternion.AngleAxis(-ptrEventData.delta.x * rotationSens, Vector3.up)
                     * furnitureManager.SelectedFurnitureGO.transform.localRotation;
             } else if(Input.touchCount == 1) {
-                furnitureManager.SelectedFurnitureGO.transform.localPosition += new Vector3(
-                    ptrEventData.delta.x * translationSensX,
-                    0.0f,
-                    ptrEventData.delta.y * translationSensZ
-                );
+                furnitureManager.SelectedFurnitureGO.transform.localPosition
+                    += ptrEventData.delta.x * translationSensX * Vector3.right
+                    + ptrEventData.delta.y * translationSensZ * Vector3.forward;
             }
         }
     }
