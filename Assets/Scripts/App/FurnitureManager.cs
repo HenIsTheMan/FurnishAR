@@ -75,11 +75,13 @@ namespace FurnishAR.App {
 
             int index = 0;
             foreach(Transform childTransform in transform) {
-                furnitureGOs[index++] = childTransform.gameObject;
+                furnitureGOs[index] = childTransform.gameObject;
 
                 OGTranslations[index] = childTransform.localPosition;
                 OGRotations[index] = childTransform.localRotation;
                 OGScales[index] = childTransform.localScale;
+
+                _ = ++index;
             }
 
             if(PhotonNetwork.InRoom) {
