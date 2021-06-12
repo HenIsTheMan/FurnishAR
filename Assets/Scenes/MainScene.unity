@@ -1096,7 +1096,6 @@ MonoBehaviour:
   placementMarkerParentTransform: {fileID: 1469377912}
   placementMarkerGO: {fileID: 1700650211}
   scanningTextGO: {fileID: 130363618}
-  translateRotateImgGO: {fileID: 970694943}
 --- !u!224 &507097883 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3105264872136572209, guid: 5a57a3c4722107e46b4c843b15ef05e9,
@@ -2214,8 +2213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initControl: {fileID: 558809763}
   furnitureManager: {fileID: 2115402700}
-  translationSensX: 1
-  translationSensZ: 1
+  translationSensX: 0.01
+  translationSensZ: 0.01
   rotationSens: 1
 --- !u!114 &970694947
 MonoBehaviour:
@@ -2965,7 +2964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.5, y: 0}
+  m_AnchoredPosition: {x: -4, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420762301
@@ -4598,7 +4597,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.5, y: 0}
+  m_AnchoredPosition: {x: 4, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1720954861

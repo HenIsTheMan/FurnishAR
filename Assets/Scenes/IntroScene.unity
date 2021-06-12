@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8037108}
   - component: {fileID: 8037109}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Page0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 31001087}
   - component: {fileID: 31001089}
   - component: {fileID: 31001088}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: RotateIntroText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -458,7 +458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 98207655}
   - component: {fileID: 98207656}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Page6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 153891724}
   - component: {fileID: 153891723}
   - component: {fileID: 153891722}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: RotateHandyHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 236273761}
   - component: {fileID: 236273763}
   - component: {fileID: 236273762}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: IntroText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 241025298}
   - component: {fileID: 241025300}
   - component: {fileID: 241025299}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: FurnitureIntroText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -992,7 +992,7 @@ GameObject:
   - component: {fileID: 270544016}
   - component: {fileID: 270544018}
   - component: {fileID: 270544017}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: IntroText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1346,7 +1346,7 @@ GameObject:
   - component: {fileID: 442733410}
   - component: {fileID: 442733412}
   - component: {fileID: 442733411}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: AppLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1421,7 +1421,7 @@ GameObject:
   - component: {fileID: 508080551}
   - component: {fileID: 508080553}
   - component: {fileID: 508080552}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: IntroText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1554,7 +1554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 512073432}
   - component: {fileID: 512073433}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Page4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1606,7 +1606,7 @@ GameObject:
   - component: {fileID: 543060606}
   - component: {fileID: 543060605}
   - component: {fileID: 543060604}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ClickHand0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1707,7 +1707,7 @@ GameObject:
   - component: {fileID: 569036043}
   - component: {fileID: 569036045}
   - component: {fileID: 569036046}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: PointingHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1828,7 +1828,7 @@ GameObject:
   - component: {fileID: 592748326}
   - component: {fileID: 592748328}
   - component: {fileID: 592748327}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: StartText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1962,7 +1962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 657196037}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Pages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1988,7 +1988,7 @@ RectTransform:
   - {fileID: 1983819366}
   - {fileID: 98207655}
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2290,7 +2290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 788417902}
   - component: {fileID: 788417903}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Page2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2342,7 +2342,7 @@ GameObject:
   - component: {fileID: 788668867}
   - component: {fileID: 788668869}
   - component: {fileID: 788668868}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: IntroText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2476,7 +2476,7 @@ GameObject:
   - component: {fileID: 892339277}
   - component: {fileID: 892339279}
   - component: {fileID: 892339278}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2614,7 +2614,7 @@ GameObject:
   - component: {fileID: 1032167678}
   - component: {fileID: 1032167681}
   - component: {fileID: 1032167682}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2978,7 +2978,7 @@ GameObject:
   - component: {fileID: 1176988419}
   - component: {fileID: 1176988421}
   - component: {fileID: 1176988420}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: AppLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3223,7 +3223,7 @@ GameObject:
   - component: {fileID: 1228877811}
   - component: {fileID: 1228877810}
   - component: {fileID: 1228877809}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ClickHand2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3323,7 +3323,7 @@ GameObject:
   - component: {fileID: 1293626254}
   - component: {fileID: 1293626253}
   - component: {fileID: 1293626252}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: SwipeUpHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3420,7 +3420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1337361974}
   - component: {fileID: 1337361975}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Page3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3472,7 +3472,7 @@ GameObject:
   - component: {fileID: 1362819559}
   - component: {fileID: 1362819558}
   - component: {fileID: 1362819557}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ClickHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3571,7 +3571,7 @@ GameObject:
   - component: {fileID: 1397712598}
   - component: {fileID: 1397712597}
   - component: {fileID: 1397712596}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ClickHand1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3670,7 +3670,7 @@ GameObject:
   - component: {fileID: 1402359772}
   - component: {fileID: 1402359774}
   - component: {fileID: 1402359773}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: TranslateIntroText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3808,7 +3808,7 @@ GameObject:
   - component: {fileID: 1430810798}
   - component: {fileID: 1430810797}
   - component: {fileID: 1430810801}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: MoveHandyHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3942,7 +3942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1436595817}
   - component: {fileID: 1436595818}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Page1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4017,7 +4017,7 @@ RectTransform:
   - {fileID: 267590506}
   - {fileID: 1551206351}
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -4036,7 +4036,7 @@ GameObject:
   - component: {fileID: 1494313436}
   - component: {fileID: 1494313435}
   - component: {fileID: 1494313434}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ClickHand3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4211,7 +4211,7 @@ GameObject:
   - component: {fileID: 1559196449}
   - component: {fileID: 1559196448}
   - component: {fileID: 1559196447}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ClickHand4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4310,7 +4310,7 @@ GameObject:
   - component: {fileID: 1654200812}
   - component: {fileID: 1654200814}
   - component: {fileID: 1654200813}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: AcctIntroText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4739,7 +4739,7 @@ GameObject:
   - component: {fileID: 1704238610}
   - component: {fileID: 1704238612}
   - component: {fileID: 1704238611}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: EndText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5027,7 +5027,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5066,7 +5066,7 @@ GameObject:
   - component: {fileID: 1767682854}
   - component: {fileID: 1767682856}
   - component: {fileID: 1767682855}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: IntroText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5301,7 +5301,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2066500103}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5371,7 +5371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1983819366}
   - component: {fileID: 1983819367}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Page5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5448,11 +5448,11 @@ RectTransform:
   m_Children:
   - {fileID: 1699891042}
   - {fileID: 1042220111}
+  - {fileID: 1971058921}
   - {fileID: 1734386425}
   - {fileID: 657196037}
   - {fileID: 80798399}
   - {fileID: 1485108839}
-  - {fileID: 1971058921}
   - {fileID: 1696333407}
   - {fileID: 285501405}
   - {fileID: 2074783031}
