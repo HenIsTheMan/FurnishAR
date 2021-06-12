@@ -77,7 +77,7 @@ namespace FurnishAR.App {
             foreach(Transform childTransform in transform) {
                 furnitureGOs[index] = childTransform.gameObject;
 
-                OGTranslations[index] = childTransform.localPosition;
+                OGTranslations[index] = childTransform.position;
                 OGRotations[index] = childTransform.localRotation;
                 OGScales[index] = childTransform.localScale;
 
@@ -107,10 +107,14 @@ namespace FurnishAR.App {
             );
         }
 
+        internal void SetOGTranslationOfSelectedFurnitureGO(Vector3 pos) {
+            OGTranslations[selectedIndex] = pos;
+        }
+
         internal void ResetSelectedFurnitureTransform() {
             Transform myTransform = SelectedFurnitureGO.transform;
 
-            myTransform.localPosition = OGTranslations[selectedIndex];
+            myTransform.position = OGTranslations[selectedIndex];
             myTransform.localRotation = OGRotations[selectedIndex];
             myTransform.localScale = OGScales[selectedIndex];
         }
