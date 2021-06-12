@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.XR.ARFoundation;
 
 namespace FurnishAR.App {
@@ -18,6 +19,42 @@ namespace FurnishAR.App {
         #endregion
 
         #region Properties
+
+        public float? brightness {
+            get;
+            private set;
+        }
+
+        public float? colorTemperature {
+            get;
+            private set;
+        }
+
+        public Color? colorCorrection {
+            get;
+            private set;
+        }
+
+        public Vector3? mainLightDirection {
+            get;
+            private set;
+        }
+
+        public Color? mainLightColor {
+            get;
+            private set;
+        }
+
+        public float? mainLightIntensityLumens {
+            get;
+            private set;
+        }
+
+        public SphericalHarmonicsL2? sphericalHarmonics {
+            get;
+            private set;
+        }
+
         #endregion
 
         #region Ctors and Dtor
@@ -57,14 +94,14 @@ namespace FurnishAR.App {
 
         #endregion
 
-        void OnBeforeRender() {
+        private void OnBeforeRender() {
             if(arrowTransform && camManager) {
                 var cameraTransform = camManager.GetComponent<Camera>().transform;
                 arrowTransform.position = cameraTransform.position + cameraTransform.forward * .25f;
             }
         }
 
-        void FrameChanged(ARCameraFrameEventArgs args) {
+        private void FrameChanged(ARCameraFrameEventArgs args) {
             if(args.lightEstimation.averageBrightness.HasValue) {
                 brightness = args.lightEstimation.averageBrightness.Value;
                 myLight.intensity = brightness.Value;
