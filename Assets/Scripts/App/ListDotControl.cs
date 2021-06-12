@@ -1,6 +1,5 @@
 using FurnishAR.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static FurnishAR.Generic.InitIDs;
 
@@ -16,8 +15,6 @@ namespace FurnishAR.App {
         private float notSelectedColorFactor;
         private float selectedScaleFactor;
         private float notSelectedScaleFactor;
-
-        private float prevDragX;
 
         private int index;
 
@@ -39,8 +36,6 @@ namespace FurnishAR.App {
             notSelectedColorFactor = 0.0f;
             selectedScaleFactor = 1.0f;
             notSelectedScaleFactor = 1.0f;
-
-            prevDragX = 0.0f;
 
             index = 0;
 
@@ -72,37 +67,6 @@ namespace FurnishAR.App {
             notSelectedScaleFactor = 1.0f;
 
             ProgressAfter();
-
-            EventTrigger eventTrigger = gameObject.AddComponent<EventTrigger>();
-
-            EventTrigger.Entry dragEntry = new EventTrigger.Entry {
-                eventID = EventTriggerType.Drag
-            };
-            dragEntry.callback.AddListener((eventData) => {
-                OnDragHandler((PointerEventData)eventData);
-            });
-
-            EventTrigger.Entry endDragEntry = new EventTrigger.Entry {
-                eventID = EventTriggerType.EndDrag
-            };
-            endDragEntry.callback.AddListener((eventData) => {
-                OnEndDragHandler((PointerEventData)eventData);
-            });
-
-            eventTrigger.triggers.Add(dragEntry);
-            eventTrigger.triggers.Add(endDragEntry);
-        }
-
-        private void OnDragHandler(PointerEventData ptrEventData) {
-            prevDragX = ptrEventData.delta.x;
-        }
-
-        private void OnEndDragHandler(PointerEventData _) {
-            if(prevDragX < 0.0f) {
-                ProgressForward();
-            } else {
-                ProgressBackward();
-            }
         }
 
         public void ProgressBackward() {

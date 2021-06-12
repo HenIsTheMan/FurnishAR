@@ -26,6 +26,7 @@ namespace FurnishAR.Generic {
 			PlacementMarkerControl,
 			AcctManager,
 			HandyHand,
+			IntroSwipeImg,
 			SwipeUpDetector,
 			SwipeDownDetector,
 			TranslateRotateImg,
