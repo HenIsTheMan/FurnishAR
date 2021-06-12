@@ -2213,8 +2213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initControl: {fileID: 558809763}
   furnitureManager: {fileID: 2115402700}
-  translationSensX: 0.01
-  translationSensZ: 0.01
+  translationSensX: 0.004
+  translationSensZ: 0.004
   rotationSens: 1
 --- !u!114 &970694947
 MonoBehaviour:
