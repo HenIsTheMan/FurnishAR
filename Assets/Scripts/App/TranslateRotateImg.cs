@@ -72,6 +72,13 @@ namespace FurnishAR.App {
         private void Init() {
             EventTrigger eventTrigger = gameObject.AddComponent<EventTrigger>();
 
+            EventTrigger.Entry beginDragEntry = new EventTrigger.Entry {
+                eventID = EventTriggerType.BeginDrag
+            };
+            beginDragEntry.callback.AddListener((eventData) => {
+                OnBeginDragHandler((PointerEventData)eventData);
+            });
+
             EventTrigger.Entry dragEntry = new EventTrigger.Entry {
                 eventID = EventTriggerType.Drag
             };
@@ -86,11 +93,15 @@ namespace FurnishAR.App {
                 OnEndDragHandler((PointerEventData)eventData);
             });
 
+            eventTrigger.triggers.Add(beginDragEntry);
             eventTrigger.triggers.Add(dragEntry);
             eventTrigger.triggers.Add(endDragEntry);
 
             dataForUndo = new Stack<KeyValuePair<bool, object>>();
             dataForRedo = new Stack<KeyValuePair<bool, object>>();
+        }
+
+        private void OnBeginDragHandler(PointerEventData ptrEventData) {
         }
 
         private void OnDragHandler(PointerEventData ptrEventData) {
