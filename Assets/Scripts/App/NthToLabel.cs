@@ -3,7 +3,7 @@ using UnityEngine;
 using static FurnishAR.Generic.InitIDs;
 
 namespace FurnishAR.App {
-    internal sealed class NthToResetLabel: MonoBehaviour {
+    internal sealed class NthToLabel: MonoBehaviour {
         #region Fields
 
         [SerializeField]
@@ -19,13 +19,13 @@ namespace FurnishAR.App {
 
         #region Ctors and Dtor
 
-        internal NthToResetLabel(): base() {
+        internal NthToLabel(): base() {
             initControl = null;
 
             canvasGrp = null;
         }
 
-        static NthToResetLabel() {
+        static NthToLabel() {
         }
 
         #endregion
@@ -33,11 +33,11 @@ namespace FurnishAR.App {
         #region Unity User Callback Event Funcs
 
         private void OnEnable() {
-            initControl.AddMethod((uint)InitID.NthToResetLabel, Init);
+            initControl.AddMethod((uint)InitID.NthToLabel, Init);
         }
 
         private void OnDisable() {
-            initControl.RemoveMethod((uint)InitID.NthToResetLabel, Init);
+            initControl.RemoveMethod((uint)InitID.NthToLabel, Init);
         }
 
         #endregion

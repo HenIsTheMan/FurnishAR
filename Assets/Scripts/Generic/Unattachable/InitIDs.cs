@@ -27,7 +27,7 @@ namespace FurnishAR.Generic {
 			AcctManager,
 			HandyHand,
 			IntroSwipeImg,
-			NthToResetLabel,
+			NthToLabel,
 			SwipeUpDetector,
 			SwipeDownDetector,
 			TranslateRotateImg,
