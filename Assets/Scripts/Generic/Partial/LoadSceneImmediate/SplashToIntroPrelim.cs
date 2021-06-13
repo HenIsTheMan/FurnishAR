@@ -6,7 +6,9 @@ using UnityEngine.Rendering.Universal;
 namespace FurnishAR.Generic {
 	internal sealed partial class LoadSceneImmediate: MonoBehaviour {
 		public static void SplashToIntroPrelim() {
-			GameObject.Find("FiguratiText").GetComponent<TextFadeAnim>().animEndDelegate += SubSplashToIntroPrelim;
+			TextFadeAnim textFadeAnim = GameObject.Find("FiguratiText").GetComponent<TextFadeAnim>();
+			textFadeAnim.animPreStartDelegate += GameObject.Find("SplashHumIn").GetComponent<AudioSource>().Play;
+			textFadeAnim.animEndDelegate += SubSplashToIntroPrelim;
 		}
 
 		private static void SubSplashToIntroPrelim() {
@@ -18,6 +20,8 @@ namespace FurnishAR.Generic {
 
 			RectTransformRotateAnim rectTransformRotateAnim = proxyCamGO.GetComponent<RectTransformRotateAnim>();
 
+			rectTransformRotateAnim.animPreStartDelegate += GameObject.Find("SplashWhooshOut").GetComponent<AudioSource>().Play;
+
 			rectTransformRotateAnim.animEndDelegate += SubSplashToIntroFadeTransitionPrelim;
 
 			_ = globalObj.StartCoroutine(globalObj.MyFunc(proxyCamGO, rectTransformRotateAnim));
@@ -28,7 +32,6 @@ namespace FurnishAR.Generic {
 
 			if(rectTransformRotateAnim != null) {
 				rectTransformRotateAnim.IsUpdating = true;
-				GameObject.Find("SplashWhooshOut").GetComponent<AudioSource>().Play();
 			}
 			if(proxyCamGO != null) {
 				proxyCamGO.GetComponents<RectTransformScaleAnim>()[1].IsUpdating = true;
