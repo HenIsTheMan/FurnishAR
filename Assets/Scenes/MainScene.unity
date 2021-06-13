@@ -2562,6 +2562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initControl: {fileID: 558809763}
+  camTransform: {fileID: 213063850}
   furnitureManager: {fileID: 2115402700}
   translationSensX: 0.004
   translationSensZ: 0.004

@@ -11,6 +11,9 @@ namespace FurnishAR.App {
         private InitControl initControl;
 
         [SerializeField]
+        private Transform camTransform;
+
+        [SerializeField]
         private FurnitureManager furnitureManager;
 
         [SerializeField]
@@ -31,6 +34,8 @@ namespace FurnishAR.App {
 
         internal TranslateRotateImg(): base() {
             initControl = null;
+
+            camTransform = null;
 
             furnitureManager = null;
 
@@ -76,9 +81,12 @@ namespace FurnishAR.App {
                     = Quaternion.AngleAxis(-ptrEventData.delta.x * rotationSens, Vector3.up)
                     * furnitureManager.SelectedFurnitureGO.transform.localRotation;
             } else if(Input.touchCount == 1) {
+                Vector3 front = furnitureManager.SelectedFurnitureGO.transform.localPosition - camTransform.localPosition;
+                front.y = 0.0f;
+
                 furnitureManager.SelectedFurnitureGO.transform.localPosition
-                    += ptrEventData.delta.x * translationSensX * Vector3.right
-                    + ptrEventData.delta.y * translationSensZ * Vector3.forward;
+                    += ptrEventData.delta.x * translationSensX * Vector3.Cross(Vector3.up, front)
+                    + ptrEventData.delta.y * translationSensZ * front;
             }
         }
     }
