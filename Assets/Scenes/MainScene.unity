@@ -2047,6 +2047,7 @@ GameObject:
   - component: {fileID: 680562038}
   - component: {fileID: 680562037}
   - component: {fileID: 680562036}
+  - component: {fileID: 680562039}
   m_Layer: 5
   m_Name: RedoButton
   m_TagString: Untagged
@@ -2117,7 +2118,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 680562037}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 680562039}
+        m_TargetAssemblyTypeName: FurnishAR.App.RedoButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &680562037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2156,6 +2169,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680562034}
   m_CullTransparentMesh: 1
+--- !u!114 &680562039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680562034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f04d019a049b7459038cb9e5ec8648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translateRotateImg: {fileID: 970694945}
 --- !u!1 &699554452
 GameObject:
   m_ObjectHideFlags: 0
@@ -6696,6 +6722,7 @@ GameObject:
   - component: {fileID: 2066593191}
   - component: {fileID: 2066593190}
   - component: {fileID: 2066593189}
+  - component: {fileID: 2066593192}
   m_Layer: 5
   m_Name: UndoButton
   m_TagString: Untagged
@@ -6766,7 +6793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2066593190}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2066593192}
+        m_TargetAssemblyTypeName: FurnishAR.App.UndoButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2066593190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6805,6 +6844,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066593187}
   m_CullTransparentMesh: 1
+--- !u!114 &2066593192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066593187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a005482a344cc4eaae35d56fe1ac49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translateRotateImg: {fileID: 970694945}
 --- !u!1 &2109058174
 GameObject:
   m_ObjectHideFlags: 0

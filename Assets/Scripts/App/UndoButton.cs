@@ -3,6 +3,10 @@ using UnityEngine;
 namespace FurnishAR.App {
     internal sealed class UndoButton: MonoBehaviour {
         #region Fields
+
+        [SerializeField]
+        private TranslateRotateImg translateRotateImg;
+
         #endregion
 
         #region Properties
@@ -11,6 +15,7 @@ namespace FurnishAR.App {
         #region Ctors and Dtor
 
         internal UndoButton(): base() {
+            translateRotateImg = null;
         }
 
         static UndoButton() {
@@ -22,6 +27,7 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
+            translateRotateImg.Undo();
         }
     }
 }

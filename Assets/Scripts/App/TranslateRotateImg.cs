@@ -26,7 +26,8 @@ namespace FurnishAR.App {
         [SerializeField]
         private float rotationSens;
 
-        private Stack<KeyValuePair<bool, object>> transformations;
+        private Stack<KeyValuePair<bool, object>> dataForUndo;
+        private Stack<KeyValuePair<bool, object>> dataForRedo;
 
         #endregion
 
@@ -47,7 +48,8 @@ namespace FurnishAR.App {
 
             rotationSens = 1.0f;
 
-            transformations = null;
+            dataForUndo = null;
+            dataForRedo = null;
         }
 
         static TranslateRotateImg() {
@@ -86,6 +88,9 @@ namespace FurnishAR.App {
 
             eventTrigger.triggers.Add(dragEntry);
             eventTrigger.triggers.Add(endDragEntry);
+
+            dataForUndo = new Stack<KeyValuePair<bool, object>>();
+            dataForRedo = new Stack<KeyValuePair<bool, object>>();
         }
 
         private void OnDragHandler(PointerEventData ptrEventData) {
@@ -105,13 +110,51 @@ namespace FurnishAR.App {
 
         private void OnEndDragHandler(PointerEventData ptrEventData) {
             if(Input.touchCount == 2) {
-                transformations.Push(new KeyValuePair<bool, object>(true, -ptrEventData.delta.x * rotationSens));
+                dataForUndo.Push(new KeyValuePair<bool, object>(true, -ptrEventData.delta.x * rotationSens));
             } else if(Input.touchCount == 1) {
                 Vector3 front = furnitureManager.SelectedFurnitureGO.transform.localPosition - camTransform.localPosition;
                 front.y = 0.0f;
 
-                transformations.Push(new KeyValuePair<bool, object>(false, ptrEventData.delta.x * translationSensX * Vector3.Cross(Vector3.up, front)
+                dataForUndo.Push(new KeyValuePair<bool, object>(false, ptrEventData.delta.x * translationSensX * Vector3.Cross(Vector3.up, front)
                     + ptrEventData.delta.y * translationSensZ * front));
+            }
+
+            dataForRedo.Clear();
+        }
+
+        internal void Undo() {
+            if(dataForUndo.Count == 0) {
+                return;
+            }
+
+            KeyValuePair<bool, object> myData = dataForUndo.Pop();
+            dataForRedo.Push(myData);
+
+            Do(ref myData);
+        }
+
+        internal void Redo() {
+            if(dataForRedo.Count == 0) {
+                return;
+            }
+
+            KeyValuePair<bool, object> myData = dataForRedo.Pop();
+            dataForUndo.Push(myData);
+
+            Do(ref myData);
+        }
+
+        private void Do(ref KeyValuePair<bool, object> myData) {
+            if(myData.Key) {
+                furnitureManager.SelectedFurnitureGO.transform.localRotation
+                    = Quaternion.AngleAxis((float)myData.Value, Vector3.up)
+                    * furnitureManager.SelectedFurnitureGO.transform.localRotation;
+            } else {
+                Vector3 front = furnitureManager.SelectedFurnitureGO.transform.localPosition - camTransform.localPosition;
+                front.y = 0.0f;
+
+                furnitureManager.SelectedFurnitureGO.transform.localPosition
+                    += (Vector3)myData.Value;
             }
         }
     }
