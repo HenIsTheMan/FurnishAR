@@ -1,3 +1,4 @@
+using FurnishAR.App;
 using UnityEngine;
 
 namespace FurnishAR.Generic {
@@ -7,7 +8,7 @@ namespace FurnishAR.Generic {
 			ptrManager.displacementFromCam = 5.0f;
 			ptrManager.camComponent = FindObjectOfType<Camera>();
 
-			GameObject.Find("SplashWhooshIn").GetComponent<AudioSource>().Play();
+			FindObjectOfType<AudioCentralControl>().PlayAudio("SplashWhooshIn");
 		}
 	}
 }

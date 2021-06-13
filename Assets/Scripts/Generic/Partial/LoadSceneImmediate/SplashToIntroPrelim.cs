@@ -1,4 +1,5 @@
 using FurnishAR.Anim;
+using FurnishAR.App;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -7,7 +8,9 @@ namespace FurnishAR.Generic {
 	internal sealed partial class LoadSceneImmediate: MonoBehaviour {
 		public static void SplashToIntroPrelim() {
 			TextFadeAnim textFadeAnim = GameObject.Find("FiguratiText").GetComponent<TextFadeAnim>();
-			textFadeAnim.animPreStartDelegate += GameObject.Find("SplashHumIn").GetComponent<AudioSource>().Play;
+			textFadeAnim.animPreStartDelegate += () => {
+				FindObjectOfType<AudioCentralControl>().PlayAudio("SplashHumIn");
+			};
 			textFadeAnim.animEndDelegate += SubSplashToIntroPrelim;
 		}
 
@@ -20,7 +23,9 @@ namespace FurnishAR.Generic {
 
 			RectTransformRotateAnim rectTransformRotateAnim = proxyCamGO.GetComponent<RectTransformRotateAnim>();
 
-			rectTransformRotateAnim.animPreStartDelegate += GameObject.Find("SplashWhooshOut").GetComponent<AudioSource>().Play;
+			rectTransformRotateAnim.animPreStartDelegate += () => {
+				FindObjectOfType<AudioCentralControl>().PlayAudio("SplashWhooshOut");
+			};
 
 			rectTransformRotateAnim.animEndDelegate += SubSplashToIntroFadeTransitionPrelim;
 

@@ -10,8 +10,6 @@ namespace FurnishAR.Generic {
 					return;
 				}
 
-				FindObjectOfType<MainPanel>().Reset();
-
 				UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()[0].SetActive(false);
 
 				UnityEngine.SceneManagement.SceneManager.SetActiveScene(

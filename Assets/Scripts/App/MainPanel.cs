@@ -40,9 +40,5 @@ namespace FurnishAR.App {
         private void Init() {
             ((RectTransform)transform).anchoredPosition = new Vector3(0.0f, -2000.0f, 0.0f); //Workaround
         }
-
-        public void Reset() { //I guess
-            Init();
-        }
     }
 }
