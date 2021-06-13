@@ -1,5 +1,4 @@
 using FurnishAR.Anim;
-using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -29,6 +28,7 @@ namespace FurnishAR.Generic {
 
 			if(rectTransformRotateAnim != null) {
 				rectTransformRotateAnim.IsUpdating = true;
+				GameObject.Find("SplashWhooshOut").GetComponent<AudioSource>().Play();
 			}
 			if(proxyCamGO != null) {
 				proxyCamGO.GetComponents<RectTransformScaleAnim>()[1].IsUpdating = true;
