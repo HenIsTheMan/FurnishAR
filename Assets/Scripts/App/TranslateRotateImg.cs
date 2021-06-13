@@ -26,8 +26,7 @@ namespace FurnishAR.App {
         [SerializeField]
         private float rotationSens;
 
-        private Stack<Vector3> translations;
-        private Stack<float> angles;
+        private Stack<KeyValuePair<bool, object>> transformations;
 
         #endregion
 
@@ -48,8 +47,7 @@ namespace FurnishAR.App {
 
             rotationSens = 1.0f;
 
-            translations = null;
-            angles = null;
+            transformations = null;
         }
 
         static TranslateRotateImg() {
@@ -107,13 +105,13 @@ namespace FurnishAR.App {
 
         private void OnEndDragHandler(PointerEventData ptrEventData) {
             if(Input.touchCount == 2) {
-                angles.Push(-ptrEventData.delta.x * rotationSens);
+                transformations.Push(new KeyValuePair<bool, object>(true, -ptrEventData.delta.x * rotationSens));
             } else if(Input.touchCount == 1) {
                 Vector3 front = furnitureManager.SelectedFurnitureGO.transform.localPosition - camTransform.localPosition;
                 front.y = 0.0f;
 
-                translations.Push(ptrEventData.delta.x * translationSensX * Vector3.Cross(Vector3.up, front)
-                    + ptrEventData.delta.y * translationSensZ * front);
+                transformations.Push(new KeyValuePair<bool, object>(false, ptrEventData.delta.x * translationSensX * Vector3.Cross(Vector3.up, front)
+                    + ptrEventData.delta.y * translationSensZ * front));
             }
         }
     }
