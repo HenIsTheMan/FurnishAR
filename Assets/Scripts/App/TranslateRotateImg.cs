@@ -1,3 +1,4 @@
+using FurnishAR.Anim;
 using FurnishAR.Generic;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,12 @@ namespace FurnishAR.App {
         private Stack<KeyValuePair<bool, object>> dataForUndo;
         private Stack<KeyValuePair<bool, object>> dataForRedo;
 
+        [SerializeField]
+        private GameObject nthToUndoTextGO;
+
+        [SerializeField]
+        private GameObject nthToRedoTextGO;
+
         #endregion
 
         #region Properties
@@ -50,6 +57,9 @@ namespace FurnishAR.App {
 
             dataForUndo = null;
             dataForRedo = null;
+
+            nthToUndoTextGO = null;
+            nthToRedoTextGO = null;
         }
 
         static TranslateRotateImg() {
@@ -124,6 +134,10 @@ namespace FurnishAR.App {
 
         internal void Undo() {
             if(dataForUndo.Count == 0) {
+                nthToUndoTextGO.GetComponent<CanvasGrpFadeAnim>().IsUpdating = true;
+                nthToUndoTextGO.GetComponent<RectTransformScaleAnim>().IsUpdating = true;
+                nthToUndoTextGO.GetComponent<RectTransformTranslateAnim>().IsUpdating = true;
+
                 return;
             }
 
@@ -135,6 +149,10 @@ namespace FurnishAR.App {
 
         internal void Redo() {
             if(dataForRedo.Count == 0) {
+                nthToRedoTextGO.GetComponent<CanvasGrpFadeAnim>().IsUpdating = true;
+                nthToRedoTextGO.GetComponent<RectTransformScaleAnim>().IsUpdating = true;
+                nthToRedoTextGO.GetComponent<RectTransformTranslateAnim>().IsUpdating = true;
+
                 return;
             }
 
