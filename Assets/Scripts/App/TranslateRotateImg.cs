@@ -1,4 +1,5 @@
 using FurnishAR.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static FurnishAR.Generic.InitIDs;
@@ -25,6 +26,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private float rotationSens;
 
+        private Stack<Vector3> translations;
+        private Stack<float> angles;
+
         #endregion
 
         #region Properties
@@ -32,7 +36,7 @@ namespace FurnishAR.App {
 
         #region Ctors and Dtor
 
-        internal TranslateRotateImg(): base() {
+        internal TranslateRotateImg() : base() {
             initControl = null;
 
             camTransform = null;
@@ -43,22 +47,25 @@ namespace FurnishAR.App {
             translationSensZ = 1.0f;
 
             rotationSens = 1.0f;
+
+            translations = null;
+            angles = null;
         }
 
         static TranslateRotateImg() {
         }
 
-		#endregion
+        #endregion
 
-		#region Unity User Callback Event Funcs
+        #region Unity User Callback Event Funcs
 
-		private void OnEnable() {
-			initControl.AddMethod((uint)InitID.TranslateRotateImg, Init);
-		}
+        private void OnEnable() {
+            initControl.AddMethod((uint)InitID.TranslateRotateImg, Init);
+        }
 
-		private void OnDisable() {
-			initControl.RemoveMethod((uint)InitID.TranslateRotateImg, Init);
-		}
+        private void OnDisable() {
+            initControl.RemoveMethod((uint)InitID.TranslateRotateImg, Init);
+        }
 
         #endregion
 
@@ -72,7 +79,15 @@ namespace FurnishAR.App {
                 OnDragHandler((PointerEventData)eventData);
             });
 
+            EventTrigger.Entry endDragEntry = new EventTrigger.Entry {
+                eventID = EventTriggerType.EndDrag
+            };
+            endDragEntry.callback.AddListener((eventData) => {
+                OnEndDragHandler((PointerEventData)eventData);
+            });
+
             eventTrigger.triggers.Add(dragEntry);
+            eventTrigger.triggers.Add(endDragEntry);
         }
 
         private void OnDragHandler(PointerEventData ptrEventData) {
@@ -87,6 +102,18 @@ namespace FurnishAR.App {
                 furnitureManager.SelectedFurnitureGO.transform.localPosition
                     += ptrEventData.delta.x * translationSensX * Vector3.Cross(Vector3.up, front)
                     + ptrEventData.delta.y * translationSensZ * front;
+            }
+        }
+
+        private void OnEndDragHandler(PointerEventData ptrEventData) {
+            if(Input.touchCount == 2) {
+                angles.Push(-ptrEventData.delta.x * rotationSens);
+            } else if(Input.touchCount == 1) {
+                Vector3 front = furnitureManager.SelectedFurnitureGO.transform.localPosition - camTransform.localPosition;
+                front.y = 0.0f;
+
+                translations.Push(ptrEventData.delta.x * translationSensX * Vector3.Cross(Vector3.up, front)
+                    + ptrEventData.delta.y * translationSensZ * front);
             }
         }
     }
