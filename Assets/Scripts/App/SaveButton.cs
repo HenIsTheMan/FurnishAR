@@ -51,6 +51,8 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
+            Generic.Console.Log("here");
+
             ConfigIsSaved(!isSaved, true);
         }
 
@@ -66,11 +68,15 @@ namespace FurnishAR.App {
             if(shldRaiseEvent) {
                 if(PhotonNetwork.IsConnected) {
                     if(PhotonNetwork.InRoom) {
+                        Generic.Console.Log("here0");
                         SendSavedEvent();
                     } else {
+                        Generic.Console.Log("here1");
                         GameObject.Find("PhotonMaster").GetComponent<PhotonMaster>().onJoinedRoomDelegate += SendSavedEvent;
                     }
                 } else {
+                    Generic.Console.Log("here2");
+
                     _ = StartCoroutine(OfflineOnClick());
                 }
             }
@@ -91,6 +97,10 @@ namespace FurnishAR.App {
         }
 
         private System.Collections.IEnumerator OfflineOnClick() {
+            Generic.Console.Clear();
+            Generic.Console.Log("here_gd");
+            
+
             yield return new WaitForSeconds(0.7f);
 
             Transform prevParentTransform = transform.parent.parent;

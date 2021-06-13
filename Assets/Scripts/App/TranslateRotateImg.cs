@@ -76,9 +76,11 @@ namespace FurnishAR.App {
                     = Quaternion.AngleAxis(-ptrEventData.delta.x * rotationSens, Vector3.up)
                     * furnitureManager.SelectedFurnitureGO.transform.localRotation;
             } else if(Input.touchCount == 1) {
+                Vector3 front = furnitureManager.SelectedFurnitureGO.transform.localPosition - GameObject.Find("AR Camera").transform.localPosition;
+                
                 furnitureManager.SelectedFurnitureGO.transform.localPosition
-                    += ptrEventData.delta.x * translationSensX * Vector3.right
-                    + ptrEventData.delta.y * translationSensZ * Vector3.forward;
+                    += ptrEventData.delta.x * translationSensX * Vector3.Cross(front, Vector3.up)
+                    + ptrEventData.delta.y * translationSensZ * front;
             }
         }
     }
