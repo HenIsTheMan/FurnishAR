@@ -1,4 +1,4 @@
-using Photon.Pun;
+using FurnishAR.App;
 using UnityEngine;
 
 namespace FurnishAR.Generic {
@@ -7,6 +7,8 @@ namespace FurnishAR.Generic {
 			if(globalObj.canClickOnSplash
 				&& UnityEngine.SceneManagement.SceneManager.GetSceneByName("IntroScene").isLoaded
 			) {
+				FindObjectOfType<AudioCentralControl>().StopAllAudio();
+
 				GameObject.Find("ProxyCam").SetActive(false);
 
 				SubSplashToIntroFadeTransitionPrelim();
