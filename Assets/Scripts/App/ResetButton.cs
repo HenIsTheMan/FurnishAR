@@ -11,6 +11,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject nthToResetTextGO;
 
+        [SerializeField]
+        private TranslateRotateImg translateRotateImg;
+
         #endregion
 
         #region Properties
@@ -22,6 +25,8 @@ namespace FurnishAR.App {
             furnitureManager = null;
 
             nthToResetTextGO = null;
+
+            translateRotateImg = null;
         }
 
         static ResetButton() {
@@ -34,6 +39,8 @@ namespace FurnishAR.App {
 
         public void OnClick() {
             if(!furnitureManager.ResetSelectedFurnitureTransform()) {
+                translateRotateImg.ClearData();
+
                 nthToResetTextGO.GetComponent<CanvasGrpFadeAnim>().IsUpdating = true;
                 nthToResetTextGO.GetComponent<RectTransformScaleAnim>().IsUpdating = true;
                 nthToResetTextGO.GetComponent<RectTransformTranslateAnim>().IsUpdating = true;

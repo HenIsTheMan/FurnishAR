@@ -132,6 +132,11 @@ namespace FurnishAR.App {
             dataForRedo.Clear();
         }
 
+        internal void ClearData() {
+            dataForUndo.Clear();
+            dataForRedo.Clear();
+        }
+
         internal void Undo() {
             if(dataForUndo.Count == 0) {
                 nthToUndoTextGO.GetComponent<CanvasGrpFadeAnim>().IsUpdating = true;
