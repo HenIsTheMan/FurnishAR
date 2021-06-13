@@ -18,7 +18,6 @@ namespace FurnishAR.Generic {
 			OutlineSilhouette,
 			Listicle2D,
 
-			AudioCentralControl,
 			PhotonMaster,
 			CamFlipButton,
 			FurnitureManager,

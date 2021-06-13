@@ -1,13 +1,8 @@
-using FurnishAR.Generic;
 using UnityEngine;
-using static FurnishAR.Generic.InitIDs;
 
 namespace FurnishAR.App {
     internal sealed class AudioCentralControl: MonoBehaviour {
         #region Fields
-
-        [SerializeField]
-        private InitControl initControl;
 
         private AudioSource[] audioSrcs;
 
@@ -19,8 +14,6 @@ namespace FurnishAR.App {
         #region Ctors and Dtor
 
         internal AudioCentralControl(): base() {
-            initControl = null;
-
             audioSrcs = System.Array.Empty<AudioSource>();
         }
 
@@ -30,18 +23,9 @@ namespace FurnishAR.App {
         #endregion
 
         #region Unity User Callback Event Funcs
-
-        private void OnEnable() {
-            initControl.AddMethod((uint)InitID.AudioCentralControl, Init);
-        }
-
-        private void OnDisable() {
-            initControl.RemoveMethod((uint)InitID.AudioCentralControl, Init);
-        }
-
         #endregion
 
-        private void Init() {
+        internal void InitMe() {
             audioSrcs = FindObjectsOfType<AudioSource>();
         }
 
