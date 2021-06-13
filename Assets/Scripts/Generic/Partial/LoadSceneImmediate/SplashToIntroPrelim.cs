@@ -8,10 +8,10 @@ namespace FurnishAR.Generic {
 	internal sealed partial class LoadSceneImmediate: MonoBehaviour {
 		public static void SplashToIntroPrelim() {
 			TextFadeAnim textFadeAnim = GameObject.Find("FiguratiText").GetComponent<TextFadeAnim>();
-			textFadeAnim.animPreStartDelegate += () => {
+			textFadeAnim.animEndDelegate += () => {
 				FindObjectOfType<AudioCentralControl>().PlayAudio("SplashHumIn");
+				SubSplashToIntroPrelim();
 			};
-			textFadeAnim.animEndDelegate += SubSplashToIntroPrelim;
 		}
 
 		private static void SubSplashToIntroPrelim() {
