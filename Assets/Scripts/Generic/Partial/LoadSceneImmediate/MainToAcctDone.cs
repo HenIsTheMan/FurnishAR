@@ -1,3 +1,4 @@
+using FurnishAR.App;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,8 @@ namespace FurnishAR.Generic {
 	internal sealed partial class LoadSceneImmediate: MonoBehaviour {
 		public static void MainToAcctDone() {
 			GameObject.Find("AcctButton").GetComponent<Button>().onClick.AddListener(() => {
+				FindObjectOfType<MainPanel>().Reset();
+
 				UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()[0].SetActive(false);
 
 				UnityEngine.SceneManagement.SceneManager.SetActiveScene(
