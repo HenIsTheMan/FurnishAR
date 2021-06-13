@@ -43,7 +43,7 @@ namespace FurnishAR.App {
 
         #region Ctors and Dtor
 
-        internal TranslateRotateImg() : base() {
+        internal TranslateRotateImg(): base() {
             initControl = null;
 
             camTransform = null;
@@ -109,12 +109,12 @@ namespace FurnishAR.App {
                     = Quaternion.AngleAxis(-ptrEventData.delta.x * rotationSens, Vector3.up)
                     * furnitureManager.SelectedFurnitureGO.transform.localRotation;
             } else if(Input.touchCount == 1) {
-                Vector3 front = furnitureManager.SelectedFurnitureGO.transform.localPosition - camTransform.localPosition;
+                Vector3 front = furnitureManager.SelectedFurnitureGO.transform.position - camTransform.position;
                 front.y = 0.0f;
 
-                furnitureManager.SelectedFurnitureGO.transform.localPosition
-                    += ptrEventData.delta.x * translationSensX * Vector3.Cross(Vector3.up, front)
-                    + ptrEventData.delta.y * translationSensZ * front;
+                furnitureManager.SelectedFurnitureGO.transform.position
+                    += ptrEventData.delta.x * translationSensX * Vector3.Normalize(Vector3.Cross(Vector3.up, front))
+                    + ptrEventData.delta.y * translationSensZ * Vector3.Normalize(front);
             }
         }
 
@@ -122,11 +122,11 @@ namespace FurnishAR.App {
             if(Input.touchCount == 2) {
                 dataForUndo.Push(new KeyValuePair<bool, object>(true, -ptrEventData.delta.x * rotationSens));
             } else if(Input.touchCount == 1) {
-                Vector3 front = furnitureManager.SelectedFurnitureGO.transform.localPosition - camTransform.localPosition;
+                Vector3 front = furnitureManager.SelectedFurnitureGO.transform.position - camTransform.position;
                 front.y = 0.0f;
 
-                dataForUndo.Push(new KeyValuePair<bool, object>(false, ptrEventData.delta.x * translationSensX * Vector3.Cross(Vector3.up, front)
-                    + ptrEventData.delta.y * translationSensZ * front));
+                dataForUndo.Push(new KeyValuePair<bool, object>(false, ptrEventData.delta.x * translationSensX * Vector3.Normalize(Vector3.Cross(Vector3.up, front))
+                    + ptrEventData.delta.y * translationSensZ * Vector3.Normalize(front)));
             }
 
             dataForRedo.Clear();
@@ -173,10 +173,7 @@ namespace FurnishAR.App {
                     = Quaternion.AngleAxis((float)myData.Value, Vector3.up)
                     * furnitureManager.SelectedFurnitureGO.transform.localRotation;
             } else {
-                Vector3 front = furnitureManager.SelectedFurnitureGO.transform.localPosition - camTransform.localPosition;
-                front.y = 0.0f;
-
-                furnitureManager.SelectedFurnitureGO.transform.localPosition
+                furnitureManager.SelectedFurnitureGO.transform.position
                     += (Vector3)myData.Value;
             }
         }

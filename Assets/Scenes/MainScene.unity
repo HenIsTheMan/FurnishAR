@@ -1834,6 +1834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   furnitureManager: {fileID: 2115402700}
   nthToResetTextGO: {fileID: 1849003044}
+  translateRotateImg: {fileID: 970694945}
 --- !u!1001 &618565796
 PrefabInstance:
   m_ObjectHideFlags: 0
