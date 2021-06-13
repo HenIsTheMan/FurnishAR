@@ -27,7 +27,8 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            furnitureManager.ResetSelectedFurnitureTransform();
+            if(!furnitureManager.ResetSelectedFurnitureTransform()) {
+            }
         }
     }
 }

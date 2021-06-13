@@ -111,12 +111,21 @@ namespace FurnishAR.App {
             OGTranslations[selectedIndex] = pos;
         }
 
-        internal void ResetSelectedFurnitureTransform() {
+        internal bool ResetSelectedFurnitureTransform() {
             Transform myTransform = SelectedFurnitureGO.transform;
+
+            if(myTransform.position == OGTranslations[selectedIndex]
+                || myTransform.localRotation == OGRotations[selectedIndex]
+                || myTransform.localScale == OGScales[selectedIndex]
+            ) {
+                return false;
+            }
 
             myTransform.position = OGTranslations[selectedIndex];
             myTransform.localRotation = OGRotations[selectedIndex];
             myTransform.localScale = OGScales[selectedIndex];
+
+            return true;
         }
     }
 }
