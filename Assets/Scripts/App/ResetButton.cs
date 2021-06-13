@@ -34,7 +34,7 @@ namespace FurnishAR.App {
 
         public void OnClick() {
             if(!furnitureManager.ResetSelectedFurnitureTransform()) {
-                nthToResetTextGO.GetComponent<TextFadeAnim>().IsUpdating = true;
+                nthToResetTextGO.GetComponent<CanvasGrpFadeAnim>().IsUpdating = true;
                 nthToResetTextGO.GetComponent<RectTransformScaleAnim>().IsUpdating = true;
                 nthToResetTextGO.GetComponent<RectTransformTranslateAnim>().IsUpdating = true;
             }

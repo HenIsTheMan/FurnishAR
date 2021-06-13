@@ -115,8 +115,8 @@ namespace FurnishAR.App {
             Transform myTransform = SelectedFurnitureGO.transform;
 
             if(myTransform.position == OGTranslations[selectedIndex]
-                || myTransform.localRotation == OGRotations[selectedIndex]
-                || myTransform.localScale == OGScales[selectedIndex]
+                && myTransform.localRotation == OGRotations[selectedIndex]
+                && myTransform.localScale == OGScales[selectedIndex]
             ) {
                 return false;
             }
