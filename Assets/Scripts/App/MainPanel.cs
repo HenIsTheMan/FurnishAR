@@ -39,6 +39,8 @@ namespace FurnishAR.App {
 
         private void Init() {
             ((RectTransform)transform).anchoredPosition = new Vector3(0.0f, -2000.0f, 0.0f); //Workaround
+
+            ((RectTransform)transform).sizeDelta = new Vector2(((RectTransform)transform).sizeDelta.x, 4000.0f / 1920.0f * Screen.width);
         }
     }
 }

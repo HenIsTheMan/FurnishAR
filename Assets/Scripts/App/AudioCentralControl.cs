@@ -69,6 +69,7 @@ namespace FurnishAR.App {
             foreach(AudioSource audioSrc in audioSrcs) {
                 if(audioSrc.gameObject.name == name) {
                     audioSrc.Play();
+                    break;
                 }
             }
         }

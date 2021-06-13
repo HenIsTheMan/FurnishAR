@@ -1,4 +1,4 @@
-using FurnishAR.App;
+using FurnishAR.Anim;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +6,17 @@ namespace FurnishAR.Generic {
 	internal sealed partial class LoadSceneImmediate: MonoBehaviour {
 		public static void MainToAcctDone() {
 			GameObject.Find("AcctButton").GetComponent<Button>().onClick.AddListener(() => {
-				if(GameObject.Find("ThinUpArrowButton") != null) { //If ThinUpArrowButton is inactive and hence cannot be found...
+				bool shldReturn = false;
+
+				RectTransformAnchoredTranslateAnim[] anims = GameObject.Find("MainPanel").GetComponents<RectTransformAnchoredTranslateAnim>();
+				foreach(var anim in anims) {
+					if(anim.IsUpdating) {
+						shldReturn = true;
+						break;
+					}
+				}
+
+				if(shldReturn) {
 					return;
 				}
 
