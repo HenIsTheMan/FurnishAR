@@ -64,7 +64,7 @@ namespace FurnishAR.App {
             }
 
             if(shldRaiseEvent) {
-                if(PhotonNetwork.IsConnected) {
+                if(PhotonNetwork.IsConnectedAndReady) {
                     if(PhotonNetwork.InRoom) {
                         SendSavedEvent();
                     } else {

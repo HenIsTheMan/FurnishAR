@@ -73,7 +73,7 @@ namespace FurnishAR.Photon {
             PhotonNetwork.NetworkingClient.LoadBalancingPeer.SerializationProtocolType
                 = ExitGames.Client.Photon.SerializationProtocol.GpBinaryV16;
 
-            if(PhotonNetwork.IsConnected) {
+            if(PhotonNetwork.IsConnectedAndReady) {
                 _ = PhotonNetwork.JoinRandomRoom();
             } else {
                 _ = StartCoroutine(nameof(TryToConnect));
@@ -81,7 +81,7 @@ namespace FurnishAR.Photon {
         }
 
         private System.Collections.IEnumerator TryToConnect() {
-            while(!PhotonNetwork.IsConnected) {
+            while(!PhotonNetwork.IsConnectedAndReady) {
                 _ = PhotonNetwork.ConnectUsingSettings();
                 yield return new WaitForSeconds(7.0f);
             }
