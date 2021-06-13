@@ -1,3 +1,4 @@
+using FurnishAR.Anim;
 using UnityEngine;
 
 namespace FurnishAR.App {
@@ -6,6 +7,9 @@ namespace FurnishAR.App {
 
         [SerializeField]
         private FurnitureManager furnitureManager;
+
+        [SerializeField]
+        private GameObject nthToResetTextGO;
 
         #endregion
 
@@ -16,6 +20,8 @@ namespace FurnishAR.App {
 
         internal ResetButton(): base() {
             furnitureManager = null;
+
+            nthToResetTextGO = null;
         }
 
         static ResetButton() {
@@ -28,6 +34,9 @@ namespace FurnishAR.App {
 
         public void OnClick() {
             if(!furnitureManager.ResetSelectedFurnitureTransform()) {
+                nthToResetTextGO.GetComponent<TextFadeAnim>().IsUpdating = true;
+                nthToResetTextGO.GetComponent<RectTransformScaleAnim>().IsUpdating = true;
+                nthToResetTextGO.GetComponent<RectTransformTranslateAnim>().IsUpdating = true;
             }
         }
     }
