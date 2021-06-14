@@ -1,3 +1,4 @@
+using FurnishAR.App;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ namespace FurnishAR.Generic {
 		}
 
 		private static void OnStartOrSkipClick() {
+			AudioCentralControl.globalObj.PlayAudio("ButtonPress");
+
 			globalObj.sceneManager.UnloadScene(
 				UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
 				UnloadSceneTypes.UnloadSceneType.UnloadAllEmbeddedSceneObjs,
