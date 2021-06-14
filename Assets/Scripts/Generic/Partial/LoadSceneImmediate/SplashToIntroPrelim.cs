@@ -57,6 +57,10 @@ namespace FurnishAR.Generic {
 			GameObject.Find("SplashCanvas").GetComponent<CanvasGrpFadeAnim>().IsUpdating = true;
 			canvasGrpFadeAnim.IsUpdating = true;
 
+			canvasGrpFadeAnim.animPreStartDelegate += () => {
+				FindObjectOfType<AudioCentralControl>().PlayAudio("BGM");
+			};
+
 			canvasGrpFadeAnim.animEndDelegate += () => {
 				camComponent.clearFlags = CameraClearFlags.SolidColor;
 
