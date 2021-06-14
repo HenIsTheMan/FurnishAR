@@ -44,6 +44,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private Transform camTransform;
 
+        [SerializeField]
+        private GameObject bloomVolGO;
+
         #endregion
 
         #region Properties
@@ -73,6 +76,8 @@ namespace FurnishAR.App {
             translateRotateImgGO = null;
 
             camTransform = null;
+
+            bloomVolGO = null;
         }
 
         static SpawnButton() {
@@ -114,6 +119,8 @@ namespace FurnishAR.App {
 
             swipeDetectorGO.SetActive(false);
             translateRotateImgGO.SetActive(true);
+
+            bloomVolGO.SetActive(false);
         }
     }
 }

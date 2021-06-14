@@ -34,6 +34,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject translateRotateImgGO;
 
+        [SerializeField]
+        private GameObject bloomVolGO;
+
         #endregion
 
         #region Properties
@@ -57,6 +60,8 @@ namespace FurnishAR.App {
             shareButtonGO = null;
 
             translateRotateImgGO = null;
+
+            bloomVolGO = null;
         }
 
         static BackButton() {
@@ -84,6 +89,8 @@ namespace FurnishAR.App {
 
             translateRotateImgGO.SetActive(false);
             swipeDetectorGO.SetActive(true);
+
+            bloomVolGO.SetActive(true);
         }
     }
 }
