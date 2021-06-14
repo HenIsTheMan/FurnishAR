@@ -23,6 +23,8 @@ namespace FurnishAR.App {
 
         private Vector3[] OGScales;
 
+        internal Transform anchorTransform;
+
         #endregion
 
         #region Properties
@@ -45,6 +47,8 @@ namespace FurnishAR.App {
             OGTranslations = System.Array.Empty<Vector3>();
             OGRotations = System.Array.Empty<Quaternion>();
             OGScales = System.Array.Empty<Vector3>();
+
+            anchorTransform = null;
         }
 
         static FurnitureManager() {
@@ -56,6 +60,12 @@ namespace FurnishAR.App {
 
         private void OnEnable() {
             initControl.AddMethod((uint)InitID.FurnitureManager, Init);
+        }
+
+        internal void FixedUpdate() {
+            if(anchorTransform != null) {
+                transform.localPosition = anchorTransform.localPosition;
+            }
         }
 
         private void OnDisable() {

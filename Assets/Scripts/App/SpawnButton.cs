@@ -92,7 +92,8 @@ namespace FurnishAR.App {
             Transform furnitureTransform = furnitureManager.SelectedFurnitureGO.transform;
             furnitureTransform.gameObject.SetActive(true);
 
-            furnitureTransform.position = placementMarkerControl.RetrieveAnchorPos();
+            furnitureManager.anchorTransform = placementMarkerControl.RetrieveAnchorTransform();
+            furnitureManager.FixedUpdate(); //Force FixedUpdate()
             furnitureManager.SetOGTranslationOfSelectedFurnitureGO(furnitureTransform.position);
 
             Vector3 front = furnitureManager.SelectedFurnitureGO.transform.position - camTransform.position;

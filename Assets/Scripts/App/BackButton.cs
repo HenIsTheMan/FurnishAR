@@ -70,6 +70,7 @@ namespace FurnishAR.App {
         public void OnClick() {
             furnitureManager.SelectedFurnitureGO.SetActive(false);
 
+            placementMarkerControl.ClearAllAnchors();
             placementMarkerControl.shldRaycast = false;
 
             acctButtonGO.SetActive(true);

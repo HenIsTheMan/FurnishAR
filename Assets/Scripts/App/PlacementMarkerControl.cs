@@ -103,8 +103,12 @@ namespace FurnishAR.App {
             hits = new List<ARRaycastHit>();
         }
 
-        internal Vector3 RetrieveAnchorPos() {
-            return anchorManager.CreateAnchor(hits[0]).gameObject.transform.position;
+        internal Transform RetrieveAnchorTransform() {
+            return anchorManager.CreateAnchor(hits[0]).transform;
+        }
+
+        internal void ClearAllAnchors() { //I guess
+            anchorManager.ClearAllAnchors();
         }
     }
 }
