@@ -23,6 +23,7 @@ namespace FurnishAR.Generic {
 			AnchorManager,
 			FurnitureManager,
 			PageControl,
+			ShareButton,
 			ListDotControl,
 			PlacementMarkerControl,
 			AcctManager,
