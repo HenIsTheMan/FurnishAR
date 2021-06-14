@@ -8,7 +8,7 @@ namespace FurnishAR.Generic {
 			ptrManager.displacementFromCam = 5.0f;
 			ptrManager.camComponent = FindObjectOfType<Camera>();
 
-			AudioCentralControl audioCentralControl = FindObjectOfType<AudioCentralControl>();
+			AudioCentralControl audioCentralControl = AudioCentralControl.globalObj;
 			audioCentralControl.InitMe();
 			audioCentralControl.PlayAudio("SplashWhooshIn");
 		}

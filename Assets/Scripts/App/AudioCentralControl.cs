@@ -6,6 +6,8 @@ namespace FurnishAR.App {
 
         private AudioSource[] audioSrcs;
 
+        internal static AudioCentralControl globalObj;
+
         #endregion
 
         #region Properties
@@ -18,11 +20,17 @@ namespace FurnishAR.App {
         }
 
         static AudioCentralControl() {
+            globalObj = null;
         }
 
         #endregion
 
         #region Unity User Callback Event Funcs
+
+        private void Awake() { //I guess
+            globalObj = this;
+        }
+
         #endregion
 
         internal void InitMe() {

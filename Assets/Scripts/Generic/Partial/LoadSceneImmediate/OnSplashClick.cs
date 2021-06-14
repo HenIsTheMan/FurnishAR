@@ -7,7 +7,7 @@ namespace FurnishAR.Generic {
 			if(globalObj.canClickOnSplash
 				&& UnityEngine.SceneManagement.SceneManager.GetSceneByName("IntroScene").isLoaded
 			) {
-				FindObjectOfType<AudioCentralControl>().StopAllAudio();
+				AudioCentralControl.globalObj.StopAllAudio();
 
 				GameObject.Find("ProxyCam").SetActive(false);
 

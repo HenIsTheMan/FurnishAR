@@ -70,7 +70,7 @@ namespace FurnishAR.App {
         }
 
         public void ProgressBackward() {
-            FindObjectOfType<AudioCentralControl>().PlayAudio("ButtonPress");
+            AudioCentralControl.globalObj.PlayAudio("ButtonPress");
 
             ProgressBefore();
 
@@ -82,7 +82,7 @@ namespace FurnishAR.App {
         }
 
         public void ProgressForward() {
-            FindObjectOfType<AudioCentralControl>().PlayAudio("ButtonPress");
+            AudioCentralControl.globalObj.PlayAudio("ButtonPress");
 
             ProgressBefore();
 

@@ -89,7 +89,7 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            FindObjectOfType<AudioCentralControl>().PlayAudio("ButtonPress");
+            AudioCentralControl.globalObj.PlayAudio("ButtonPress");
 
             if(scanningTextGO.activeSelf) {
                 scanningText.StartFlashing(0.7f);

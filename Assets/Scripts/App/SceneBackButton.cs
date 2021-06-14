@@ -27,7 +27,7 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
-            FindObjectOfType<AudioCentralControl>().PlayAudio("ButtonPress");
+            AudioCentralControl.globalObj.PlayAudio("ButtonPress");
 
             UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()[0].SetActive(false);
 
