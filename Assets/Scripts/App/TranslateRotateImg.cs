@@ -163,7 +163,12 @@ namespace FurnishAR.App {
             }
 
             KeyValuePair<bool, object> myData = dataForUndo.Pop();
-            dataForRedo.Push(myData);
+
+            if(myData.Key) {
+                dataForRedo.Push(new KeyValuePair<bool, object>(true, furnitureManager.SelectedFurnitureGO.transform.localRotation));
+            } else if(Input.touchCount == 1) {
+                dataForRedo.Push(new KeyValuePair<bool, object>(false, furnitureManager.SelectedFurnitureGO.transform.position));
+            }
 
             Do(ref myData);
         }
@@ -178,7 +183,12 @@ namespace FurnishAR.App {
             }
 
             KeyValuePair<bool, object> myData = dataForRedo.Pop();
-            dataForUndo.Push(myData);
+
+            if(myData.Key) {
+                dataForUndo.Push(new KeyValuePair<bool, object>(true, furnitureManager.SelectedFurnitureGO.transform.localRotation));
+            } else if(Input.touchCount == 1) {
+                dataForUndo.Push(new KeyValuePair<bool, object>(false, furnitureManager.SelectedFurnitureGO.transform.position));
+            }
 
             Do(ref myData);
         }
