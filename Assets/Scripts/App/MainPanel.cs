@@ -61,6 +61,7 @@ namespace FurnishAR.App {
 
             RectTransform browseScrollViewRectTransform = browseScrollWheelGO.transform as RectTransform;
             RectTransform savedScrollViewRectTransform = savedScrollWheelGO.transform as RectTransform;
+            Vector3 pos;
 
             browseScrollViewRectTransform.sizeDelta = new Vector2(
                 browseScrollViewRectTransform.sizeDelta.x,
@@ -68,11 +69,19 @@ namespace FurnishAR.App {
                 / browseScrollViewRectTransform.localScale.y
             );
 
+            pos = browseScrollViewRectTransform.localPosition;
+            pos.y += offset * 0.5f;
+            browseScrollViewRectTransform.localPosition = pos;
+
             savedScrollViewRectTransform.sizeDelta = new Vector2(
                 savedScrollViewRectTransform.sizeDelta.x,
                 (savedScrollViewRectTransform.sizeDelta.y * savedScrollViewRectTransform.localScale.y - offset)
                 / savedScrollViewRectTransform.localScale.y
             );
+
+            pos = savedScrollViewRectTransform.localPosition;
+            pos.y += offset * 0.5f;
+            savedScrollViewRectTransform.localPosition = pos;
         }
     }
 }
