@@ -41,6 +41,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject translateRotateImgGO;
 
+        [SerializeField]
+        private Transform camTransform;
+
         #endregion
 
         #region Properties
@@ -68,6 +71,8 @@ namespace FurnishAR.App {
             shareButtonGO = null;
 
             translateRotateImgGO = null;
+
+            camTransform = null;
         }
 
         static SpawnButton() {
@@ -86,8 +91,15 @@ namespace FurnishAR.App {
 
             Transform furnitureTransform = furnitureManager.SelectedFurnitureGO.transform;
             furnitureTransform.gameObject.SetActive(true);
+
             furnitureTransform.position = placementMarkerControl.PlacementMarkerParentTransform.position;
             furnitureManager.SetOGTranslationOfSelectedFurnitureGO(furnitureTransform.position);
+
+            Vector3 front = furnitureManager.SelectedFurnitureGO.transform.position - camTransform.position;
+            front.y = 0.0f;
+
+            furnitureTransform.localRotation = Quaternion.FromToRotation(Vector3.forward, front) * furnitureTransform.localRotation;
+            furnitureManager.SetOGRotationOfSelectedFurnitureGO(furnitureTransform.localRotation);
 
             translateAnim.IsUpdating = true;
 

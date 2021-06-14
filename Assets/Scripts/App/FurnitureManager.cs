@@ -111,6 +111,10 @@ namespace FurnishAR.App {
             OGTranslations[selectedIndex] = pos;
         }
 
+        internal void SetOGRotationOfSelectedFurnitureGO(Quaternion rotation) {
+            OGRotations[selectedIndex] = rotation;
+        }
+
         internal bool ResetSelectedFurnitureTransform() {
             Transform myTransform = SelectedFurnitureGO.transform;
 

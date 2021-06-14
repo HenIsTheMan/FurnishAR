@@ -2517,6 +2517,7 @@ MonoBehaviour:
   redoButtonGO: {fileID: 680562034}
   shareButtonGO: {fileID: 1448732123}
   translateRotateImgGO: {fileID: 970694943}
+  camTransform: {fileID: 213063850}
 --- !u!1 &726033072
 GameObject:
   m_ObjectHideFlags: 0
