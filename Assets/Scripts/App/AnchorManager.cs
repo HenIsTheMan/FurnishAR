@@ -86,7 +86,7 @@ namespace FurnishAR.App {
 
         internal void ClearAllAnchors() {
             foreach(ARAnchor anchor in anchors) {
-                Destroy(anchor);
+                Destroy(anchor.gameObject);
             }
 
             anchors.Clear();
