@@ -67,15 +67,15 @@ namespace FurnishAR.App {
 
             RenderTexture.active = currRenderTex;
 
-            string path = Path.Combine(Application.temporaryCachePath, "screenshotForShare.png");
+            string path = Path.Combine(Application.temporaryCachePath, "ScreenshotForSharing.png");
             File.WriteAllBytes(path, tex2D.EncodeToPNG());
 
             Destroy(tex2D);
 
             new NativeShare()
                 .AddFile(path)
-                .SetSubject("Screenshot")
-                .SetText("Share this screenshot with others!")
+                .SetSubject("ScreenshotForSharing")
+                .SetText("wow, look at that furniture!")
                 .Share();
         }
     }
