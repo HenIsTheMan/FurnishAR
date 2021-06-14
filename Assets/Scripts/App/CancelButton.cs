@@ -47,6 +47,8 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
+            FindObjectOfType<AudioCentralControl>().PlayAudio("ButtonPress");
+
             translateAnim.IsUpdating = true;
 
             placementMarkerControl.shldRaycast = false;

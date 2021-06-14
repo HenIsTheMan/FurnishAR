@@ -73,6 +73,8 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
+            FindObjectOfType<AudioCentralControl>().PlayAudio("ButtonPress");
+
             furnitureManager.SelectedFurnitureGO.SetActive(false);
 
             placementMarkerControl.ClearAllAnchors();

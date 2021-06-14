@@ -38,6 +38,8 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
+            FindObjectOfType<AudioCentralControl>().PlayAudio("ButtonPress");
+
             isPasswordHidden = !isPasswordHidden;
 
             if(isPasswordHidden) {

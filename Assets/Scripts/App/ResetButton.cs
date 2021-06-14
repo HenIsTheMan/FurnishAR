@@ -38,6 +38,8 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
+            FindObjectOfType<AudioCentralControl>().PlayAudio("ButtonPress");
+
             if(!furnitureManager.ResetSelectedFurnitureTransform()) {
                 nthToResetTextGO.GetComponent<CanvasGrpFadeAnim>().IsUpdating = true;
                 nthToResetTextGO.GetComponent<RectTransformScaleAnim>().IsUpdating = true;

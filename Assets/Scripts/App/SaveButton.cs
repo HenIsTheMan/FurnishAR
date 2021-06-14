@@ -51,6 +51,8 @@ namespace FurnishAR.App {
         #endregion
 
         public void OnClick() {
+            FindObjectOfType<AudioCentralControl>().PlayAudio("ButtonPress");
+
             ConfigIsSaved(!isSaved, true);
         }
 
