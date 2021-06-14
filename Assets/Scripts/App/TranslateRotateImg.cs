@@ -86,11 +86,11 @@ namespace FurnishAR.App {
         private void Init() {
             EventTrigger eventTrigger = gameObject.AddComponent<EventTrigger>();
 
-            EventTrigger.Entry beginDragEntry = new EventTrigger.Entry {
-                eventID = EventTriggerType.BeginDrag
+            EventTrigger.Entry initializePotentialDragEntry = new EventTrigger.Entry {
+                eventID = EventTriggerType.InitializePotentialDrag
             };
-            beginDragEntry.callback.AddListener((eventData) => {
-                OnBeginDragHandler((PointerEventData)eventData);
+            initializePotentialDragEntry.callback.AddListener((eventData) => {
+                OnInitializePotentialDragHandler((PointerEventData)eventData);
             });
 
             EventTrigger.Entry dragEntry = new EventTrigger.Entry {
@@ -107,7 +107,7 @@ namespace FurnishAR.App {
                 OnEndDragHandler((PointerEventData)eventData);
             });
 
-            eventTrigger.triggers.Add(beginDragEntry);
+            eventTrigger.triggers.Add(initializePotentialDragEntry);
             eventTrigger.triggers.Add(dragEntry);
             eventTrigger.triggers.Add(endDragEntry);
 
@@ -115,7 +115,7 @@ namespace FurnishAR.App {
             dataForRedo = new Stack<KeyValuePair<bool, object>>();
         }
 
-        private void OnBeginDragHandler(PointerEventData _) {
+        private void OnInitializePotentialDragHandler(PointerEventData _) {
             if(Input.touchCount == 2) {
                 savedTransformation = furnitureManager.SelectedFurnitureGO.transform.localRotation;
             } else if(Input.touchCount == 1) {
