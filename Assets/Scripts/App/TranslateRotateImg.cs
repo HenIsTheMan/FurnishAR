@@ -30,6 +30,8 @@ namespace FurnishAR.App {
         private Stack<KeyValuePair<bool, object>> dataForUndo;
         private Stack<KeyValuePair<bool, object>> dataForRedo;
 
+        private object savedTransformation;
+
         [SerializeField]
         private GameObject nthToUndoTextGO;
 
@@ -60,6 +62,8 @@ namespace FurnishAR.App {
 
             nthToUndoTextGO = null;
             nthToRedoTextGO = null;
+
+            savedTransformation = null;
         }
 
         static TranslateRotateImg() {
@@ -82,6 +86,13 @@ namespace FurnishAR.App {
         private void Init() {
             EventTrigger eventTrigger = gameObject.AddComponent<EventTrigger>();
 
+            EventTrigger.Entry beginDragEntry = new EventTrigger.Entry {
+                eventID = EventTriggerType.BeginDrag
+            };
+            beginDragEntry.callback.AddListener((eventData) => {
+                OnBeginDragHandler((PointerEventData)eventData);
+            });
+
             EventTrigger.Entry dragEntry = new EventTrigger.Entry {
                 eventID = EventTriggerType.Drag
             };
@@ -96,11 +107,20 @@ namespace FurnishAR.App {
                 OnEndDragHandler((PointerEventData)eventData);
             });
 
+            eventTrigger.triggers.Add(beginDragEntry);
             eventTrigger.triggers.Add(dragEntry);
             eventTrigger.triggers.Add(endDragEntry);
 
             dataForUndo = new Stack<KeyValuePair<bool, object>>();
             dataForRedo = new Stack<KeyValuePair<bool, object>>();
+        }
+
+        private void OnBeginDragHandler(PointerEventData _) {
+            if(Input.touchCount == 2) {
+                savedTransformation = furnitureManager.SelectedFurnitureGO.transform.localRotation;
+            } else if(Input.touchCount == 1) {
+                savedTransformation = furnitureManager.SelectedFurnitureGO.transform.position;
+            }
         }
 
         private void OnDragHandler(PointerEventData ptrEventData) {
@@ -118,15 +138,11 @@ namespace FurnishAR.App {
             }
         }
 
-        private void OnEndDragHandler(PointerEventData ptrEventData) {
+        private void OnEndDragHandler(PointerEventData _) {
             if(Input.touchCount == 2) {
-                dataForUndo.Push(new KeyValuePair<bool, object>(true, -ptrEventData.delta.x * rotationSens));
+                dataForUndo.Push(new KeyValuePair<bool, object>(true, savedTransformation));
             } else if(Input.touchCount == 1) {
-                Vector3 front = furnitureManager.SelectedFurnitureGO.transform.position - camTransform.position;
-                front.y = 0.0f;
-
-                dataForUndo.Push(new KeyValuePair<bool, object>(false, ptrEventData.delta.x * translationSensX * Vector3.Normalize(Vector3.Cross(Vector3.up, front))
-                    + ptrEventData.delta.y * translationSensZ * Vector3.Normalize(front)));
+                dataForUndo.Push(new KeyValuePair<bool, object>(false, savedTransformation));
             }
 
             dataForRedo.Clear();
@@ -169,12 +185,9 @@ namespace FurnishAR.App {
 
         private void Do(ref KeyValuePair<bool, object> myData) {
             if(myData.Key) {
-                furnitureManager.SelectedFurnitureGO.transform.localRotation
-                    = Quaternion.AngleAxis((float)myData.Value, Vector3.up)
-                    * furnitureManager.SelectedFurnitureGO.transform.localRotation;
+                furnitureManager.SelectedFurnitureGO.transform.localRotation = (Quaternion)myData.Value;
             } else {
-                furnitureManager.SelectedFurnitureGO.transform.position
-                    += (Vector3)myData.Value;
+                furnitureManager.SelectedFurnitureGO.transform.position = (Vector3)myData.Value;
             }
         }
     }
