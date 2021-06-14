@@ -10,6 +10,12 @@ namespace FurnishAR.App {
         [SerializeField]
         private InitControl initControl;
 
+        [SerializeField]
+        private GameObject browseScrollWheelGO;
+
+        [SerializeField]
+        private GameObject savedScrollWheelGO;
+
         #endregion
 
         #region Properties
@@ -19,6 +25,9 @@ namespace FurnishAR.App {
 
         internal MainPanel(): base() {
             initControl = null;
+
+            browseScrollWheelGO = null;
+            savedScrollWheelGO = null;
         }
 
         static MainPanel() {
@@ -49,6 +58,21 @@ namespace FurnishAR.App {
 
             anims[1].startPos.y -= offset;
             anims[1].endPos.y -= offset;
+
+            RectTransform browseScrollViewRectTransform = browseScrollWheelGO.transform as RectTransform;
+            RectTransform savedScrollViewRectTransform = savedScrollWheelGO.transform as RectTransform;
+
+            browseScrollViewRectTransform.sizeDelta = new Vector2(
+                browseScrollViewRectTransform.sizeDelta.x,
+                (browseScrollViewRectTransform.sizeDelta.y * browseScrollViewRectTransform.localScale.y - offset)
+                / browseScrollViewRectTransform.localScale.y
+            );
+
+            savedScrollViewRectTransform.sizeDelta = new Vector2(
+                savedScrollViewRectTransform.sizeDelta.x,
+                (savedScrollViewRectTransform.sizeDelta.y * savedScrollViewRectTransform.localScale.y - offset)
+                / savedScrollViewRectTransform.localScale.y
+            );
         }
     }
 }

@@ -5622,6 +5622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initControl: {fileID: 558809763}
+  browseScrollWheelGO: {fileID: 3105264872503070251}
+  savedScrollWheelGO: {fileID: 2137311024}
 --- !u!114 &1696773618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7937,6 +7939,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2137311020}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2137311024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3105264872150116809, guid: 5a57a3c4722107e46b4c843b15ef05e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2137311020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1542103537470147245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8240,6 +8248,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a57a3c4722107e46b4c843b15ef05e9, type: 3}
+--- !u!1 &3105264872503070251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3105264872150116809, guid: 5a57a3c4722107e46b4c843b15ef05e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3105264872503070250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8170370554717027144
 RectTransform:
   m_ObjectHideFlags: 0
