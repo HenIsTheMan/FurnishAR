@@ -1,7 +1,3 @@
 - click at a pt to raycast
-- shadows
-- reflections
-- screenshot
 - record
 - button anims
-- scene transition anims
