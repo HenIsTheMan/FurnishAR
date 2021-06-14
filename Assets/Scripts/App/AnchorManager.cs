@@ -60,22 +60,21 @@ namespace FurnishAR.App {
         internal ARAnchor CreateAnchor(in ARRaycastHit hit) {
             ARAnchor anchor;
 
-            // If we hit a plane, try to "attach" the anchor to the plane
             if(hit.trackable is ARPlane plane) {
                 var planeManager = GetComponent<ARPlaneManager>();
-                if(planeManager) {
+                if(planeManager != null) {
                     var oldPrefab = ARAnchorManager.anchorPrefab;
+
                     ARAnchorManager.anchorPrefab = prefab;
                     anchor = ARAnchorManager.AttachAnchor(plane, hit.pose);
                     ARAnchorManager.anchorPrefab = oldPrefab;
+
                     return anchor;
                 }
             }
 
-            // Note: the anchor can be anywhere in the scene hierarchy
-            var gameObject = Instantiate(prefab, hit.pose.position, hit.pose.rotation);
+            var gameObject = Instantiate(prefab, hit.pose.position, hit.pose.rotation); //Anchor can be anywhere in scene hierarchy
 
-            // Make sure the new GameObject has an ARAnchor component
             anchor = gameObject.GetComponent<ARAnchor>();
             if(anchor == null) {
                 anchor = gameObject.AddComponent<ARAnchor>();
