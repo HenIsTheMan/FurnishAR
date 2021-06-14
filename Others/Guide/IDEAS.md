@@ -1,4 +1,3 @@
-- delay before spin
 - click at a pt to raycast
 - shadows
 - reflections
