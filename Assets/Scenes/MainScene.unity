@@ -1248,7 +1248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initControl: {fileID: 558809763}
   ARAnchorManager: {fileID: 1807710612}
-  prefab: {fileID: 0}
+  prefab: {fileID: 1355186385222946153, guid: 7459abf0d068fc24e8dbdfebb318d89a, type: 3}
 --- !u!1 &328462277
 GameObject:
   m_ObjectHideFlags: 0
