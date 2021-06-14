@@ -15,8 +15,7 @@ namespace FurnishAR.App {
 
         internal int selectedIndex;
 
-        [SerializeField]
-        private GameObject[] furniturePrefabs;
+        private GameObject[] furnitureGOs;
 
         private Vector3[] OGTranslations;
 
@@ -29,7 +28,7 @@ namespace FurnishAR.App {
         #region Properties
 
         internal GameObject SelectedFurnitureGO {
-            get => furniturePrefabs[selectedIndex];
+            get => furnitureGOs[selectedIndex];
         }
 
         #endregion
@@ -41,7 +40,7 @@ namespace FurnishAR.App {
 
             selectedIndex = -1;
 
-            furniturePrefabs = System.Array.Empty<GameObject>();
+            furnitureGOs = System.Array.Empty<GameObject>();
 
             OGTranslations = System.Array.Empty<Vector3>();
             OGRotations = System.Array.Empty<Quaternion>();
@@ -66,16 +65,23 @@ namespace FurnishAR.App {
         #endregion
 
         private void Init() {
-            int arrLen = furniturePrefabs.Length;
+            int arrLen = transform.childCount;
+
+            furnitureGOs = new GameObject[arrLen];
 
             OGTranslations = new Vector3[arrLen];
             OGRotations = new Quaternion[arrLen];
             OGScales = new Vector3[arrLen];
 
-            for(int i = 0; i < arrLen; ++i) {
-                OGTranslations[i] = furniturePrefabs[i].transform.position;
-                OGRotations[i] = furniturePrefabs[i].transform.localRotation;
-                OGScales[i] = furniturePrefabs[i].transform.localScale;
+            int index = 0;
+            foreach(Transform childTransform in transform) {
+                furnitureGOs[index] = childTransform.gameObject;
+
+                OGTranslations[index] = childTransform.position;
+                OGRotations[index] = childTransform.localRotation;
+                OGScales[index] = childTransform.localScale;
+
+                _ = ++index;
             }
 
             if(PhotonNetwork.InRoom) {
