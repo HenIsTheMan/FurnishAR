@@ -30,8 +30,6 @@ namespace FurnishAR.App {
 
         internal bool shldRaycast;
 
-        private List<ARAnchor> anchors;
-
         #endregion
 
         #region Properties
@@ -60,8 +58,6 @@ namespace FurnishAR.App {
             scanningTextGO = null;
 
             shldRaycast = false;
-
-            anchors = null;
         }
 
         static PlacementMarkerControl() {
@@ -82,15 +78,9 @@ namespace FurnishAR.App {
                 return;
             }
 
-            if(raycastManager.Raycast(screenPt, hits, TrackableType.PlaneWithinPolygon)){
+            if(raycastManager.Raycast(screenPt, hits, TrackableType.PlaneWithinPolygon | TrackableType.FeaturePoint)){
                 placementMarkerParentTransform.localPosition = hits[0].pose.position;
                 placementMarkerParentTransform.localRotation = hits[0].pose.rotation;
-
-                ARAnchor anchor = CreateAnchor(hits[0]);
-                if(anchor != null) {
-                    anchors.Add(anchor);
-                }
-
                 placementMarkerGO.SetActive(true);
 
                 scanningTextGO.SetActive(false);
@@ -111,19 +101,6 @@ namespace FurnishAR.App {
             screenPt = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
 
             hits = new List<ARRaycastHit>();
-
-            anchors = new List<ARAnchor>();
-        }
-
-        private ARAnchor CreateAnchor(in ARRaycastHit hit) {
-        }
-
-        internal void ClearAllAnchors() {
-            foreach(ARAnchor anchor in anchors) {
-                Destroy(anchor);
-            }
-
-            anchors.Clear();
         }
     }
 }
