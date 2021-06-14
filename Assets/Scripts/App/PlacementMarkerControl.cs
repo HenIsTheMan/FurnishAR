@@ -36,11 +36,6 @@ namespace FurnishAR.App {
         #endregion
 
         #region Properties
-
-        internal Transform PlacementMarkerParentTransform {
-            get => placementMarkerParentTransform;
-        }
-
         #endregion
 
         #region Ctors and Dtor

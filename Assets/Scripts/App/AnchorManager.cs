@@ -53,28 +53,21 @@ namespace FurnishAR.App {
         }
 
         internal ARAnchor CreateAnchor(in ARRaycastHit hit) {
+            if(!(hit.trackable is ARPlane)) {
+                return null;
+            }
+
             ARAnchor anchor;
 
-            //if(hit.trackable is ARPlane plane) {
-                var planeManager = GetComponent<ARPlaneManager>(); //??
+            //var planeManager = GetComponent<ARPlaneManager>(); //??
 
-                GameObject oldAnchorPrefab = ARAnchorManager.anchorPrefab;
+            GameObject oldAnchorPrefab = ARAnchorManager.anchorPrefab;
 
-                ARAnchorManager.anchorPrefab = null; //??
-                anchor = ARAnchorManager.AttachAnchor((ARPlane)hit.trackable, hit.pose); //??
-                ARAnchorManager.anchorPrefab = oldAnchorPrefab;
+            ARAnchorManager.anchorPrefab = null; //??
+            anchor = ARAnchorManager.AttachAnchor((ARPlane)hit.trackable, hit.pose); //??
+            ARAnchorManager.anchorPrefab = oldAnchorPrefab;
 
-                return anchor;
-            //}
-
-            //var gameObject = Instantiate(prefab, hit.pose.position, hit.pose.rotation); //Anchor can be anywhere in the scene hierarchy
-
-            //anchor = gameObject.GetComponent<ARAnchor>();
-            //if(anchor == null) {
-            //    anchor = gameObject.AddComponent<ARAnchor>();
-            //}
-
-            //return anchor;
+            return anchor;
         }
 
         internal void ClearAllAnchors() {
