@@ -78,9 +78,7 @@ namespace FurnishAR.App {
                 return;
             }
 
-            raycastManager.Raycast(screenPt, hits, TrackableType.Planes);
-
-            if(hits.Count > 0) {
+            if(raycastManager.Raycast(screenPt, hits, TrackableType.Planes | TrackableType.FeaturePoint)){
                 placementMarkerParentTransform.localPosition = hits[0].pose.position;
                 placementMarkerParentTransform.localRotation = hits[0].pose.rotation;
                 placementMarkerGO.SetActive(true);
