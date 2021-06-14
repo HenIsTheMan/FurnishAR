@@ -28,6 +28,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private GameObject scanningTextGO;
 
+        [SerializeField]
+        private AnchorManager anchorManager;
+
         internal bool shldRaycast;
 
         #endregion
@@ -57,6 +60,8 @@ namespace FurnishAR.App {
 
             scanningTextGO = null;
 
+            anchorManager = null;
+
             shldRaycast = false;
         }
 
@@ -78,7 +83,7 @@ namespace FurnishAR.App {
                 return;
             }
 
-            if(raycastManager.Raycast(screenPt, hits, TrackableType.PlaneWithinPolygon | TrackableType.FeaturePoint)){
+            if(raycastManager.Raycast(screenPt, hits, TrackableType.PlaneWithinPolygon)){
                 placementMarkerParentTransform.localPosition = hits[0].pose.position;
                 placementMarkerParentTransform.localRotation = hits[0].pose.rotation;
                 placementMarkerGO.SetActive(true);
@@ -101,6 +106,10 @@ namespace FurnishAR.App {
             screenPt = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
 
             hits = new List<ARRaycastHit>();
+        }
+
+        internal Vector3 RetrieveAnchorPos() {
+            return anchorManager.CreateAnchor(hits[0]).gameObject.transform.position;
         }
     }
 }

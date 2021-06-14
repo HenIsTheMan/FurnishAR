@@ -20,6 +20,7 @@ namespace FurnishAR.Generic {
 
 			PhotonMaster,
 			CamFlipButton,
+			AnchorManager,
 			FurnitureManager,
 			PageControl,
 			ListDotControl,
