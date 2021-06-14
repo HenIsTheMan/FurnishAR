@@ -43,7 +43,7 @@ namespace FurnishAR.App {
             new NativeShare()
                 .AddFile(path)
                 .SetSubject("Screenshot")
-                .SetText("Share this screenshot others!")
+                .SetText("Share this screenshot with others!")
                 .Share();
         }
     }
