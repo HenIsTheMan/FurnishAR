@@ -16,6 +16,9 @@ namespace FurnishAR.App {
         [SerializeField]
         private ARAnchorManager ARAnchorManager;
 
+        [SerializeField]
+        private GameObject prefab;
+
         #endregion
 
         #region Properties
@@ -29,6 +32,8 @@ namespace FurnishAR.App {
             anchors = null;
 
             ARAnchorManager = null;
+
+            prefab = null;
         }
 
         static AnchorManager() {
@@ -53,20 +58,30 @@ namespace FurnishAR.App {
         }
 
         internal ARAnchor CreateAnchor(in ARRaycastHit hit) {
-            if(!(hit.trackable is ARPlane)) {
-                return null;
-            }
-
             ARAnchor anchor;
 
-            //var planeManager = GetComponent<ARPlaneManager>(); //??
+            // If we hit a plane, try to "attach" the anchor to the plane
+            if(hit.trackable is ARPlane plane) {
+                var planeManager = GetComponent<ARPlaneManager>();
+                if(planeManager) {
+                    var oldPrefab = ARAnchorManager.anchorPrefab;
+                    ARAnchorManager.anchorPrefab = prefab;
+                    anchor = ARAnchorManager.AttachAnchor(plane, hit.pose);
+                    ARAnchorManager.anchorPrefab = oldPrefab;
+                    return anchor;
+                }
+            }
 
-            GameObject oldAnchorPrefab = ARAnchorManager.anchorPrefab;
+            // Note: the anchor can be anywhere in the scene hierarchy
+            var gameObject = Instantiate(prefab, hit.pose.position, hit.pose.rotation);
 
-            ARAnchorManager.anchorPrefab = null; //??
-            anchor = ARAnchorManager.AttachAnchor((ARPlane)hit.trackable, hit.pose); //??
-            ARAnchorManager.anchorPrefab = oldAnchorPrefab;
+            // Make sure the new GameObject has an ARAnchor component
+            anchor = gameObject.GetComponent<ARAnchor>();
+            if(anchor == null) {
+                anchor = gameObject.AddComponent<ARAnchor>();
+            }
 
+            anchors.Add(anchor);
             return anchor;
         }
 
