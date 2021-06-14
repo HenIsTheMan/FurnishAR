@@ -39,11 +39,11 @@ namespace FurnishAR.App {
 
         public void OnClick() {
             if(!furnitureManager.ResetSelectedFurnitureTransform()) {
-                translateRotateImg.ClearData();
-
                 nthToResetTextGO.GetComponent<CanvasGrpFadeAnim>().IsUpdating = true;
                 nthToResetTextGO.GetComponent<RectTransformScaleAnim>().IsUpdating = true;
                 nthToResetTextGO.GetComponent<RectTransformTranslateAnim>().IsUpdating = true;
+            } else {
+                translateRotateImg.ClearData();
             }
         }
     }
