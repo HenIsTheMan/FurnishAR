@@ -50,6 +50,8 @@ namespace FurnishAR.App {
         }
 
         public void ProgressBackward() {
+            FindObjectOfType<AudioCentralControl>().PlayAudio("ButtonPress");
+
             ProgressBefore();
 
             if(index > 0) {
@@ -60,6 +62,8 @@ namespace FurnishAR.App {
         }
 
         public void ProgressForward() {
+            FindObjectOfType<AudioCentralControl>().PlayAudio("ButtonPress");
+
             ProgressBefore();
 
             if(index < pageGOs.Length - 1) {

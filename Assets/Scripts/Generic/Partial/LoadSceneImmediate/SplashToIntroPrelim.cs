@@ -23,7 +23,7 @@ namespace FurnishAR.Generic {
 
 			RectTransformRotateAnim rectTransformRotateAnim = proxyCamGO.GetComponent<RectTransformRotateAnim>();
 
-			rectTransformRotateAnim.animPreStartDelegate += () => {
+			rectTransformRotateAnim.animPostStartDelegate += () => {
 				FindObjectOfType<AudioCentralControl>().PlayAudio("SplashWhooshOut");
 			};
 
@@ -46,6 +46,8 @@ namespace FurnishAR.Generic {
 		private static void SubSplashToIntroFadeTransitionPrelim() {
 			globalObj.canClickOnSplash = false;
 
+			FindObjectOfType<AudioCentralControl>().PlayAudio("BGM");
+
 			PtrManager ptrManager = FindObjectOfType<PtrManager>();
 			ptrManager.DeactivateAllPtrTrails();
 
@@ -56,10 +58,6 @@ namespace FurnishAR.Generic {
 			CanvasGrpFadeAnim canvasGrpFadeAnim = GameObject.Find("IntroCanvas").GetComponent<CanvasGrpFadeAnim>();
 			GameObject.Find("SplashCanvas").GetComponent<CanvasGrpFadeAnim>().IsUpdating = true;
 			canvasGrpFadeAnim.IsUpdating = true;
-
-			canvasGrpFadeAnim.animPreStartDelegate += () => {
-				FindObjectOfType<AudioCentralControl>().PlayAudio("BGM");
-			};
 
 			canvasGrpFadeAnim.animEndDelegate += () => {
 				camComponent.clearFlags = CameraClearFlags.SolidColor;

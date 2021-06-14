@@ -48,8 +48,6 @@ namespace FurnishAR.App {
         }
 
         internal void PlayAudio(string name) {
-            StopAllAudio();
-
             foreach(AudioSource audioSrc in audioSrcs) {
                 if(audioSrc.gameObject.name == name) {
                     audioSrc.Play();
